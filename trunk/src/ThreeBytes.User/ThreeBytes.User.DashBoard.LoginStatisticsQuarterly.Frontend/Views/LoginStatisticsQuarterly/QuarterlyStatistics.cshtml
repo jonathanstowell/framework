@@ -1,0 +1,28 @@
+@model LoginStatisticsViewModel
+
+<div id="quarterly-login-statistics-container">
+    <div><span class="inline-sparkline"></span><span>@Model.CurrentStatistic Unique <span data-bind="text: plural"></span> This Quarter</span></div>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var quarterly_login_statistics  = {};
+    
+        (function (index) {
+        
+            quarterly_login_statistics = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model)) + @");
+
+            index.plural = ko.dependentObservable(function () {
+                return index.CurrentStatistic() == 1 ? 'Login' : 'Logins';
+            }, index);
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#quarterly-login-statistics-container')[0]);
+                jQuery('#quarterly-login-statistics-container .inline-sparkline').sparkline(index.HistoricStatistics(), {type:'line', lineColor:'blue', height:'30px', width:'80px'});
+            });     
+
+        } (quarterly_login_statistics));");
+  }
+}

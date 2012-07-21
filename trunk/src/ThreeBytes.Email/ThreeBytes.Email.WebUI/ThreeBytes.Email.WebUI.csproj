@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BFA49DF8-A06D-4A24-B938-4B4220B853F7}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.Email.WebUI</RootNamespace>
+    <AssemblyName>ThreeBytes.Email.WebUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxMin, Version=4.11.4023.27184, Culture=neutral, PublicKeyToken=24297a69a7eae424, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="Bootstrapper">
+      <HintPath>..\..\..\lib\external\Bootstrapper.2.0.1.1\lib\Bootstrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.Core, Version=1.1.0.2, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\dotless.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EcmaScript.NET.modified, Version=0.1.1.0, Culture=neutral, PublicKeyToken=7d53ba4f537753a5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\EcmaScript.NET.modified.dll</HintPath>
+    </Reference>
+    <Reference Include="Enyim.Caching, Version=2.11.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\external\Enyim.Memcached.2.9\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\..\lib\external\FluentNHibernate.1.2.0.712\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc">
+      <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\lib\external\Iesi.Collections.3.1.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Jurassic">
+      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\Jurassic.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\lib\external\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcMiniProfiler">
+      <HintPath>..\..\..\lib\external\MiniProfiler.1.9\lib\net40\MvcMiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\..\lib\external\NHibernate.Castle.3.1.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SignalR">
+      <HintPath>..\..\..\lib\external\SignalR\SignalR.Server.0.4.0.0\lib\net40\SignalR.dll</HintPath>
+    </Reference>
+    <Reference Include="SignalR.Hosting.AspNet">
+      <HintPath>..\..\..\lib\external\SignalR\SignalR.Hosting.AspNet.0.4.0.0\lib\net40\SignalR.Hosting.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SquishIt.Framework, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\SquishIt.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SquishIt.Mvc, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\SquishIt.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages" />
+    <Reference Include="System.Web.Helpers" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="ThreeBytes.Core.Bootstrapper.Extensions">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Bootstrapper.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Castle.Windsor.SubResolvers">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Castle.Windsor.SubResolvers.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Commands.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Commands.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Configuration.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Configuration.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Configuration.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Configuration.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.Entities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.Entities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Entities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.nHibernate.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.nHibernate.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.nHibernate.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.nHibernate.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.ResultSets.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.ResultSets.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.ResultSets.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.ResultSets.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.DataStructures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.DataStructures.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.Mvc">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.NServiceBus">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.String">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.String.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.Validations">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.Validations.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.Windsor">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.FluentValidation">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.IoC.Windsor">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.IoC.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.NServiceBus.ObjectBuilder.CastleWindsor">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.NServiceBus.ObjectBuilder.CastleWindsor.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Plugin.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Plugin.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Plugin.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Plugin.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Plugin.Navigation.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Plugin.Navigation.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Plugin.Navigation.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Plugin.Navigation.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Security.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Security.Utilities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Utilities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.SignalR.Infrastructure">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.SignalR.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.SignalR.Windsor">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.SignalR.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Utilities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Utilities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Utilities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Utilities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Validations.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Validations.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Validations.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Validations.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Validations.Exceptions">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Validations.Exceptions.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Web.Mvc">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Web.Mvc.PrecompiledViewEngine">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Web.Mvc.PrecompiledViewEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Web.Utilities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Web.Utilities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Web.Utilities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Web.Utilities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="Yahoo.Yui.Compressor">
+      <HintPath>..\..\..\lib\external\Yahoo Yui Compressor\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Installers\AppDomainAssemblyResolverStartupTask.cs" />
+    <Compile Include="Installers\FluentValidationStartupTask.cs" />
+    <Compile Include="Installers\InitialiseLoggingStartupTask.cs" />
+    <Compile Include="Installers\NServiceBusStartupTask.cs" />
+    <Compile Include="Installers\PrecompiledViewEngineStartupTask.cs" />
+    <Compile Include="Installers\RegisterRoutesStartupTask.cs" />
+    <Compile Include="Installers\SetupNavigationStartupTask.cs" />
+    <Compile Include="Installers\SignalRStartupTask.cs" />
+    <Compile Include="Installers\WindsorControllerFactoryStartupTask.cs" />
+    <Compile Include="Installers\WebWindsorInstaller.cs" />
+    <Compile Include="Installers\WindsorSetupStartupTask.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="apple-touch-icon-114x114-precomposed.png" />
+    <Content Include="apple-touch-icon-57x57-precomposed.png" />
+    <Content Include="apple-touch-icon-72x72-precomposed.png" />
+    <Content Include="apple-touch-icon-precomposed.png" />
+    <Content Include="css\bootstrap-2.02.css" />
+    <Content Include="css\bootstrap-2.02.min.css" />
+    <Content Include="css\bootstrap-responsive-2.02.css" />
+    <Content Include="css\bootstrap-responsive-2.02.min.css" />
+    <Content Include="css\docs.css" />
+    <Content Include="css\media.css" />
+    <Content Include="css\report.css" />
+    <Content Include="css\site.css" />
+    <Content Include="demo\hack.css" />
+    <Content Include="demo\hack2.css" />
+    <Content Include="demo\internet_explorer.png" />
+    <Content Include="demo\tests.html" />
+    <Content Include="demo\test_tubes.png" />
+    <Content Include="GenericErrorPage.html" />
+    <Content Include="humans.txt" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="js\libs\additional-methods.js" />
+    <Content Include="js\libs\additional-methods.min.js" />
+    <Content Include="js\libs\bootstrap-2.02.js" />
+    <Content Include="js\libs\bootstrap-2.02.min.js" />
+    <Content Include="js\libs\bootstrap-alerts.js" />
+    <Content Include="js\libs\bootstrap-buttons.js" />
+    <Content Include="js\libs\bootstrap-dropdown.js" />
+    <Content Include="js\libs\bootstrap-modal.js" />
+    <Content Include="js\libs\bootstrap-popover.js" />
+    <Content Include="js\libs\bootstrap-scrollspy.js" />
+    <Content Include="js\libs\bootstrap-tabs.js" />
+    <Content Include="js\libs\bootstrap-twipsy.js" />
+    <Content Include="js\libs\bootstrap.js" />
+    <Content Include="js\libs\bootstrap.min.js" />
+    <Content Include="js\libs\diff_match_patch.js" />
+    <Content Include="js\libs\javascript.util.dateformat.js" />
+    <Content Include="js\libs\jquery-1.6.2.min.js" />
+    <Content Include="js\libs\jquery-1.6.4.min.js" />
+    <Content Include="js\libs\jquery-1.7.1.js" />
+    <Content Include="js\libs\jquery-1.7.1.min.js" />
+    <Content Include="js\libs\jquery.signalR.js" />
+    <Content Include="js\libs\jquery.signalR.min.js" />
+    <Content Include="js\libs\jquery.sparkline.js" />
+    <Content Include="js\libs\jquery.timeago.js" />
+    <Content Include="js\libs\jquery.tmpl.js" />
+    <Content Include="js\libs\jquery.unobtrusive-ajax.js" />
+    <Content Include="js\libs\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="js\libs\jquery.validate-vsdoc.js" />
+    <Content Include="js\libs\jquery.validate.js" />
+    <Content Include="js\libs\jquery.validate.min.js" />
+    <Content Include="js\libs\jquery.validate.unobtrusive.js" />
+    <Content Include="js\libs\jquery.validate.unobtrusive.min.js" />
+    <Content Include="js\libs\knockout-1.3.0beta.js" />
+    <Content Include="js\libs\knockout-2.0.0.debug.js" />
+    <Content Include="js\libs\knockout-2.0.0.js" />
+    <Content Include="js\libs\knockout.mapping.js" />
+    <Content Include="js\libs\respond.min.js" />
+    <Content Include="js\libs\modernizr-2.0.min.js" />
+    <Content Include="js\mylibs\ThreeBytes.Bootstrap.js" />
+    <Content Include="js\mylibs\ThreeBytes.Core.Knockout.DateTime.js" />
+    <Content Include="js\mylibs\ThreeBytes.Core.Knockout.Paging.js" />
+    <Content Include="js\mylibs\ThreeBytes.Core.Knockout.Validation.js" />
+    <Content Include="js\mylibs\ThreeBytes.Core.Util.JqueryTmplHelpers.js" />
+    <Content Include="js\mylibs\ThreeBytes.Core.Util.Validation.js" />
+    <Content Include="js\mylibs\ThreeBytes.SignalR.Knockout.CurrentlyViewing.js" />
+    <Content Include="js\script.js" />
+    <None Include="test\index.html" />
+    <None Include="test\qunit\qunit.css" />
+    <None Include="test\qunit\qunit.js" />
+    <None Include="test\tests.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_MobileLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="404.html" />
+    <Content Include="apple-touch-icon.png" />
+    <Content Include="crossdomain.xml" />
+    <Content Include="css\normalize.css" />
+    <Content Include="demo\elements.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="js\libs\dd_belatedpng.js" />
+    <Content Include="js\plugins.js" />
+    <Content Include="robots.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Target Name="AfterBuild">
+  </Target>
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54047</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Content Include="welcome.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.Email.WebUI.Resources\ThreeBytes.Email.WebUI.Resources.csproj">
+      <Project>{C1820F38-63A6-4C11-A83E-9AA02D861F03}</Project>
+      <Name>ThreeBytes.Email.WebUI.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

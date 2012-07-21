@@ -1,0 +1,12 @@
+﻿@{
+    Page.Title = Resources.BrowserTitle;
+}
+
+<section id="home">
+    <div class="page-header"> 
+        <h1>@Resources.ThreeBytesLogging</h1> 
+    </div>
+    <div class="row"> 
+        <div class="span8 columns">@{ Html.RenderAction("MostRecent", "ExceptionWidget"); }</div>
+    </div>
+</section>

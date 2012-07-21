@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{028B4502-DF6F-422E-B61D-A454421E374E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.ProjectHollywood.Messages</RootNamespace>
+    <AssemblyName>ThreeBytes.ProjectHollywood.Messages</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExternalEvents\ICreatedNewsArticleExternalEventMessage.cs" />
+    <Compile Include="ExternalEvents\ICreatedTeamEmployeeExternalEventMessage.cs" />
+    <Compile Include="ExternalEvents\ICreatedThespianExternalEventMessage.cs" />
+    <Compile Include="ExternalEvents\IDeletedNewsArticleExternalEventMessage.cs" />
+    <Compile Include="ExternalEvents\IDeletedTeamEmployeeExternalEventMessage.cs" />
+    <Compile Include="ExternalEvents\IDeletedThespianExternalEventMessage.cs" />
+    <Compile Include="ExternalEvents\INewsArticleExternalEventBase.cs" />
+    <Compile Include="ExternalEvents\IRenamedNewsArticleTitleExternalEventMessage.cs" />
+    <Compile Include="ExternalEvents\IRenamedTeamEmployeeExternalEventMessage.cs" />
+    <Compile Include="ExternalEvents\IRenamedTeamEmployeeJobTitleExternalEventMessage.cs" />
+    <Compile Include="ExternalEvents\IRenamedThespianExternalEventMessage.cs" />
+    <Compile Include="ExternalEvents\ITeamEmployeeExternalEventBase.cs" />
+    <Compile Include="ExternalEvents\IThespianExternalEventBase.cs" />
+    <Compile Include="ExternalEvents\IUpdatedNewsArticleContentExternalEventMessage.cs" />
+    <Compile Include="ExternalEvents\IUpdatedTeamEmployeeSummaryExternalEventMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExternalCommands\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C2A66EDB-9919-4D2D-B20D-6708CBC5A2CF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.User.Authentication.Registration.FrontEnd</RootNamespace>
+    <AssemblyName>ThreeBytes.User.Authentication.Registration.FrontEnd</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\lib\external\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThreeBytes.Core.Bootstrapper.Extensions">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Bootstrapper.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Commands.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Commands.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.DataStructures">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.DataStructures.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.Mvc">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.Validations">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.Validations.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Security.Encryption.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Encryption.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Web.Mvc">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Installers\InstallMvcFromPlugin.cs" />
+    <Compile Include="Models\RegisterExistingViewModel.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\VerifyAccountViewModel.cs" />
+    <Compile Include="PreCommands\RegisterExistingUserPreCommand.cs" />
+    <Compile Include="PreCommands\RegisterUserPreCommand.cs" />
+    <Compile Include="PreCommands\VerifyAccountPreCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Registration\PartialRegister.generated.cs">
+      <DependentUpon>PartialRegister.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Registration\RegisterExisting.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegisterExisting.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Registration\VerifyAccount.generated.cs">
+      <DependentUpon>VerifyAccount.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Registration\Register.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Register.cshtml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.Messages\ThreeBytes.User.Authentication.Messages.csproj">
+      <Project>{3740C252-9CEE-49BF-9574-94EAAEDD6AE1}</Project>
+      <Name>ThreeBytes.User.Authentication.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.Registration.Entities\ThreeBytes.User.Authentication.Registration.Entities.csproj">
+      <Project>{4616B45D-F1EB-459E-86AC-EDB4A519A11F}</Project>
+      <Name>ThreeBytes.User.Authentication.Registration.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.Registration.Resources\ThreeBytes.User.Authentication.Registration.Resources.csproj">
+      <Project>{CA1AFC48-F45A-4F60-8085-32CC6E36BC80}</Project>
+      <Name>ThreeBytes.User.Authentication.Registration.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.Registration.Service.Abstract\ThreeBytes.User.Authentication.Registration.Service.Abstract.csproj">
+      <Project>{2989AB35-B03D-4457-A233-50BAEFB7B08C}</Project>
+      <Name>ThreeBytes.User.Authentication.Registration.Service.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.Registration.Validations.Abstract\ThreeBytes.User.Authentication.Registration.Validations.Abstract.csproj">
+      <Project>{820EAB47-A0FB-41B4-8DBD-5EB38660C257}</Project>
+      <Name>ThreeBytes.User.Authentication.Registration.Validations.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Configuration.Abstract\ThreeBytes.User.Configuration.Abstract.csproj">
+      <Project>{B5C05607-70E1-46A7-B9D5-D9B1152D0A2A}</Project>
+      <Name>ThreeBytes.User.Configuration.Abstract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Registration\Register.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Register.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Registration\VerifyAccount.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>VerifyAccount.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Registration\PartialRegister.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>PartialRegister.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Registration\RegisterExisting.cshtml">
+      <LastGenOutput>RegisterExisting.generated.cs</LastGenOutput>
+      <Generator>RazorGenerator</Generator>
+    </Content>
+    <None Include="Views\Web.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

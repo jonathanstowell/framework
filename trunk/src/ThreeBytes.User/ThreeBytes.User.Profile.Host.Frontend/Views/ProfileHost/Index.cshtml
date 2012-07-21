@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "User Profile";
+}
+
+<section id="user-profile-home">
+    <div class="hero-unit"> 
+        <h1>@{ Html.RenderAction("WelcomeUser", "ProfileView"); }</h1> 
+    </div>
+    <div class="row">
+        <div class="span8 columns">
+            @{ Html.RenderAction("CurrentUserDetails", "ProfileView"); }    
+        </div>
+        <div class="span4 columns">
+            @{ Html.RenderAction("Links", "ProfileView"); }  
+        </div>
+    </div>
+
+    @{ Html.RenderAction("Edit", "ProfileManagement"); }
+    @{ Html.RenderAction("Link", "Facebook"); }
+    @{ Html.RenderAction("Link", "Foursquare"); }
+    @{ Html.RenderAction("Link", "Twitter"); }
+</section>

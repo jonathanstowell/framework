@@ -1,0 +1,99 @@
+﻿@model ThreeBytes.ProjectHollywood.Team.Management.Entities.TeamManagementEmployee
+
+@if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
+{
+    <div id="delete-team-employee-container">
+        <div id="delete-team-employee-modal" class="modal hide fade">
+            <div class="modal-header">
+                <a href="#" class="close" data-bind="click: raiseClose">×</a>
+                <h3>@Resources.Delete <span data-bind="fadeInText: FirstName"></span> <span data-bind="fadeInText: LastName"></span> @Resources.Employee</h3>
+            </div>
+            <div class="modal-body">
+                <div data-bind="error: GeneralErrors"></div>
+                <p>Are you sure you wish to delete <span data-bind="fadeInText: FirstName"></span> <span data-bind="fadeInText: LastName"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bind="click: deleteTeamEmployee">@Resources.ConfirmDelete</button>&nbsp;
+                <button type="submit" class="btn btn-danger" data-bind="click: raiseClose">@Resources.Cancel</button>&nbsp;
+            </div>
+        </div>
+    </div>
+
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+        var team_employee_delete = {};
+
+        (function (index) {
+
+            var hub = jQuery.connection.teamManagementDeletionHub;
+
+            team_employee_delete = index;
+
+            var val = ko.setupValidation([], []);
+            val.createErrorCollections({General: 0}, index, 'delete-thespian-form-container');
+
+            index.Id = ko.observable();
+            index.FirstName = ko.observable();
+            index.LastName = ko.observable();
+
+            index.deleteTeamEmployee = function (form) {
+                jQuery.post('" + @Url.Action("Delete", "Team") + @"', { 'id': index.Id() }, function (returnedData) {
+                    if (returnedData.IsValid) {
+                        jQuery(document).trigger('teamEmployeeDeleted', index.Id());
+                        jQuery(document).trigger('publishProcessingNotification', ['Processing employee deletion.', 'We are currently processing your request to delete ' + index.FirstName() + ' ' + index.LastName() + '.']);
+                        index.deleteModal.modal('hide');
+                    }
+                    else {
+                        val.rebindValidations({General: 0}, index, dataReturned.Errors);
+                    }
+                });
+            };
+
+            index.raiseClose = function () {
+                index.deleteModal.modal('hide');
+            };
+
+            hub.handleRenamedTeamEmployeeEventMessage = function(id, newFirstName, newLastName) {
+                if (index.Id() != id)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;    
+                
+                if (index.FirstName() != newFirstName)
+                    index.FirstName(newFirstName);
+
+                if (index.LastName() != newLastName)
+                    index.LastName(newLastName);
+
+                ko.bindingHandlers.fadeInText.highlight = false;    
+            };
+
+            hub.handleDeletedTeamEmployeeEventMessage = function(id) {
+                if (index.Id() != id)
+                    return;
+
+                jQuery(document).trigger('publishNotAllowedNotification', ['Employee No Longer Available.', 'This employee has been removed by another user. The window will automatically close.']);
+                index.deleteModal.modal('hide');
+                index.Id(null);
+            };
+
+            jQuery(document).bind('teamEmployeeDelete', function (event, id) {
+
+                jQuery.getJSON('" + @Url.Action("Get", "TeamManagement") + @"', { id: id }, function (data) {
+
+                    index.Id(data.Employee.Id);
+                    index.FirstName(data.Employee.FirstName);
+                    index.LastName(data.Employee.LastName);
+
+                    index.deleteModal.modal('show');
+                });
+            });
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#delete-team-employee-container')[0]);
+                index.deleteModal = jQuery('#delete-team-employee-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+            });
+        } (team_employee_delete));");
+    }
+}

@@ -1,0 +1,13 @@
+﻿@model ThreeBytes.Email.Navigation.Frontend.Models.NavigationViewModel
+
+@Html.RenderNavigation(Model.Navigation)
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        jQuery(document).ready(function() {
+            $('#topbar').dropdown();
+        });");
+  }
+}

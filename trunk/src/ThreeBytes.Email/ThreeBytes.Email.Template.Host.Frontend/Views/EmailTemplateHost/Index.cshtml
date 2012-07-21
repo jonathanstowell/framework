@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = Resources.BrowserTitle;
+}
+
+<section id="template-home">
+    <div class="hero-unit"> 
+        <h1>@Resources.Templates</h1> 
+    </div>
+    <div class="row">
+        <div class="span12 columns">
+
+            @if (((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "EmailTemplateManager" }))
+            {
+                { Html.RenderAction("Create", "EmailTemplateManagement"); }
+            }
+
+            @{ Html.RenderAction("List", "EmailTemplateList"); }
+       
+        </div>
+
+        @if (((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "EmailTemplateManager" }))
+        {
+            { Html.RenderAction("Edit", "EmailTemplateManagement"); }
+        }
+        
+        @if (((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "EmailTemplateManager" }))
+        { 
+            { Html.RenderAction("Delete", "EmailTemplateManagement"); }
+        }
+
+        @{ Html.RenderAction("Details", "EmailTemplateView");}
+            
+    </div>
+</section>

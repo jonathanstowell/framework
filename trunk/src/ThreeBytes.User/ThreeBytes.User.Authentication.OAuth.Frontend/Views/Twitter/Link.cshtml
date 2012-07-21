@@ -1,0 +1,50 @@
+﻿<div id="link-twitter-container">
+    <div id="link-twitter-modal" class="modal hide fade">
+        <div class="modal-header">
+            <a href="#" class="close" data-bind="click: raiseClose">×</a>
+            <h3>Link Twitter Account</h3>
+        </div>
+        <div class="modal-body">
+            Please click link if you would like to link a twitter account to <span data-bind="text: Username"></span>.
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" data-bind="click: link">Link</button>
+            <button class="btn btn-danger" data-bind="click: raiseClose">Close</button>
+        </div>
+    </div>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var link_twitter_account = {};
+
+        (function (index) {
+
+            link_twitter_account = index;
+
+            index.Username = ko.observable();
+
+            index.link = function () {
+                window.location = '" + @Url.Action("LinkAccount", "Twitter") + @"?redirectUrl=' + window.location;
+            };
+
+            index.raiseClose = function () {
+                index.displayModal.modal('hide');
+            };
+
+            jQuery(document).bind('linkTwitter', function (event, id) {
+                jQuery.getJSON('" + @Url.Action("GetDetails", "Twitter") + @"', { id: id }, function (data) {
+                    index.Username(data.Username);
+                    index.displayModal.modal('show');
+                });
+            });
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#link-twitter-container')[0]);
+                index.displayModal = jQuery('#link-twitter-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+            });
+        } (link_twitter_account));");
+  }
+}

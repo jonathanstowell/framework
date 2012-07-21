@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets = "distribute-logging-messages-libs"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<ProductName>Three Bytes Logging Messages</ProductName>
+		<ProjectType>Shared Libaries</ProjectType>
+		<PublisherName>Three Bytes</PublisherName>
+		<BuildFolder></BuildFolder>
+		<ExportFolder></ExportFolder>
+		<CustomViewsFolder></CustomViewsFolder>
+		<ConfigMergerExePath></ConfigMergerExePath>
+		<Client></Client>
+		<OrganisationName></OrganisationName>
+		<ReleaseType></ReleaseType>
+		<Configuration Condition=" $(Configuration)=='' ">Debug</Configuration>
+		<BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
+		<SharedLibrariesLocation>..\..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.Logging.Messages</SharedLibrariesLocation>
+	</PropertyGroup>
+	<Target Name="clear-shared-libs">
+		<Delete Files="$(SharedLibrariesLocation)\**\" />
+		<Message Text="Cleared Shared Libraries Folder" />
+	</Target>
+	<Target Name="build-threebytes-logging-messages">
+		<MSBuild Projects="..\ThreeBytes.Logging.Messages.sln" Properties="Configuration=$(Configuration)" Targets="Build"/>
+		<Message Text="BUILT THREEBYTES LOGGING MESSAGES"></Message>
+	</Target>
+	<Target Name="distribute-logging-messages-libs" DependsOnTargets="clear-shared-libs;build-threebytes-logging-messages;">
+		<ItemGroup>
+			<CoreLibraries Include="..\ThreeBytes.Logging.Messages\bin\$(Configuration)\ThreeBytes.Logging.Messages.dll"/>
+		</ItemGroup>
+		<MakeDir Directories = "$(SharedLibrariesLocation)" Condition="!Exists('$(SharedLibrariesLocation)')" />
+        <Copy SourceFiles="@(CoreLibraries)" DestinationFolder="$(SharedLibrariesLocation)" />
+		<Message Text="COPIED EMAIL MESSAGES LIBS"></Message>
+	</Target>
+</Project>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{50A20209-316B-460C-9891-B9E0C1288447}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.User.Authentication.OAuth.Service.Concrete</RootNamespace>
+    <AssemblyName>ThreeBytes.User.Authentication.OAuth.Service.Concrete</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThreeBytes.Core.Bootstrapper.Extensions">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Bootstrapper.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Caching.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Caching.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Caching.Configuration.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Caching.Configuration.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Concrete.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Installers\BusWindsorInstaller.cs" />
+    <Compile Include="Installers\WebWindsorInstaller.cs" />
+    <Compile Include="OAuthRoleService.cs" />
+    <Compile Include="OAuthUserService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.OAuth.Data.Abstract\ThreeBytes.User.Authentication.OAuth.Data.Abstract.csproj">
+      <Project>{899D81BF-1B08-4B9C-A837-748BF96FD566}</Project>
+      <Name>ThreeBytes.User.Authentication.OAuth.Data.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.OAuth.Entities\ThreeBytes.User.Authentication.OAuth.Entities.csproj">
+      <Project>{53E85F5D-D756-497D-8475-FDEAAA5C43AB}</Project>
+      <Name>ThreeBytes.User.Authentication.OAuth.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.OAuth.Service.Abstract\ThreeBytes.User.Authentication.OAuth.Service.Abstract.csproj">
+      <Project>{A274FE78-6F69-4316-81F1-44DA486C36D9}</Project>
+      <Name>ThreeBytes.User.Authentication.OAuth.Service.Abstract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

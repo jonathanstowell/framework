@@ -1,0 +1,139 @@
+﻿@using ThreeBytes.ProjectHollywood.Thespian.View.Entities
+@model ThespianViewThespian
+
+<div data-role="page" id="thespian-details-page">
+    <div data-role="header">
+        <h1><span data-bind="fadeInText:FirstName"></span> <span data-bind="fadeInText:LastName"></span> @Resources.Details</h1>
+        <a href="#navigation" data-icon="grid" data-rel="dialog" data-transition="flow" class="ui-btn-right">Menu</a>
+    </div>
+    <div data-role="content">
+        <div class="row">
+            <div class="span12">
+                <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+				    <li class="ui-li ui-li-static ui-body-c ui-corner-top">@Resources.FirstName: <span data-bind="fadeInText:FirstName"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">@Resources.LastName: <span data-bind="fadeInText:LastName"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Date Of Birth: <span data-bind="fadeInText: GetDate(DateOfBirth())"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Gender: <span data-bind="fadeInText:Gender"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Location: <span data-bind="fadeInText:Location"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Height: <span data-bind="fadeInText:Height"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Weight: <span data-bind="fadeInText:Weight"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Playing Age: <span data-bind="fadeInText:PlayingAge"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Eye Colour: <span data-bind="fadeInText:EyeColour"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Hair Length: <span data-bind="fadeInText:HairLength"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Summary: <span data-bind="fadeInText:Summary"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Twitter: <span data-bind="fadeInText:Twitter"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Facebook: <span data-bind="fadeInText:Facebook"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c">Spotlight: <span data-bind="fadeInText:Spotlight"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c ui-corner-bottom">Imdb: <span data-bind="fadeInText:Imdb"></span></li>
+			    </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <a href="#" data-bind="click: takeMeBack" data-role="button" data-theme="b" data-icon="back">
+                    <span class="ui-btn-text">Take me back</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div data-role="footer">
+        <h4>Designed and built by <a href="http://www.threebytes.co.uk" target="_blank">Three Bytes</a>.</h4>
+    </div>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var thespian_details = {};
+
+        (function (index) {
+
+            var hub = jQuery.connection.thespianViewHub;
+
+            thespian_details = index;
+
+            index.Id = ko.observable();
+            index.ItemId = ko.observable();
+            index.FirstName = ko.observable();
+            index.LastName = ko.observable();
+            index.DateOfBirth = ko.observable();
+            index.Gender = ko.observable();
+            index.Location = ko.observable();
+            index.Height = ko.observable();
+            index.Weight = ko.observable();
+            index.PlayingAge = ko.observable();
+            index.EyeColour = ko.observable();
+            index.HairLength = ko.observable();
+            index.Summary = ko.observable();
+            index.Twitter = ko.observable();
+            index.Facebook = ko.observable();
+            index.Spotlight = ko.observable();
+            index.Imdb = ko.observable();
+            index.ThespianType = ko.observable();
+
+            index.History = ko.observableArray();
+
+            index.takeMeBack = function() {
+                jQuery(document).trigger('thespianHost');
+            };
+
+            hub.handleRenamedThespianEventMessage = function(id, newFirstName, newLastName) {
+                if (index.ItemId() != id)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;
+
+                if (index.FirstName() != newFirstName)
+                    index.FirstName(newFirstName);
+
+                if (index.LastName() != newLastName)
+                    index.LastName(newLastName);
+
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            jQuery(document).bind('thespianDetails', function (event, thespian) {
+                jQuery.ajax({
+                    url: '/OurClients/GetDetails/' + thespian.Id(),
+                    type: 'GET',
+                    dataType: 'json',
+                    beforeSend: function () { jQuery.mobile.showPageLoadingMsg(); },
+                    success: function(data) {
+                        index.Id(data.Id);
+                        index.ItemId(data.ItemId);
+                        index.FirstName(data.FirstName);
+                        index.LastName(data.LastName);
+                        index.DateOfBirth(data.DateOfBirth);
+                        index.Gender(data.Gender);
+                        index.Location(data.Location);
+                        index.Height(data.Height);
+                        index.Weight(data.Weight);
+                        index.PlayingAge(data.PlayingAge);
+                        index.EyeColour(data.EyeColour);
+                        index.HairLength(data.HairLength);
+                        index.Summary(data.Summary);
+                        index.Twitter(data.Twitter);
+                        index.Facebook(data.Facebook);
+                        index.Spotlight(data.Spotlight);
+                        index.Imdb(data.Imdb);
+                        index.ThespianType(data.ThespianType);
+
+                        index.History(data.History);
+
+                        jQuery.mobile.changePage('#thespian-details-page', {
+	                        transition: 'flow',
+	                        reverse: false,
+	                        changeHash: false
+                        });
+                    },
+                    complete: function() { jQuery.mobile.hidePageLoadingMsg(); }
+                });
+            });
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#thespian-details-page')[0]);
+            });
+        } (thespian_details));");
+  }
+}

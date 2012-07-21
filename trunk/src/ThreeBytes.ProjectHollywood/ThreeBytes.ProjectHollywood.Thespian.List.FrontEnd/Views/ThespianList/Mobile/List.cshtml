@@ -1,0 +1,143 @@
+﻿<div id="thespian-list-container">
+    <div class="row">
+        <div class="span12">
+            <div id="thespian-options-container" data-role="collapsible" data-theme="a" data-content-theme="a">
+                <h3>Filter</h3>
+                <div data-role="controlgroup">
+                    <a href="#" data-role="button" data-bind="click: function() { setThespianTypeFilter('Artist') }, css: { 'ui-btn-active': ThespianTypeFilter() == 'Artist' }">Artists</a>
+                    <a href="#" data-role="button" data-bind="click: function() { setThespianTypeFilter('Creative') }, css: { 'ui-btn-active': ThespianTypeFilter() == 'Creative' }">Creatives</a>
+                </div>
+                <div data-role="controlgroup">
+                    <a href="#" data-role="button" data-bind="click: function() { setGenderFilter('Male') }, css: { 'ui-btn-active': GenderFilter() == 'Male' }">Male</a>
+                    <a href="#" data-role="button" data-bind="click: function() { setGenderFilter('Female') }, css: { 'ui-btn-active': GenderFilter() == 'Female' }">Female</a>
+                </div>
+                <div data-role="controlgroup">
+                    <a href="#" data-role="button" data-bind="click: setAKFilter, css: { 'ui-btn-active': AToKFilter }">A-K</a>
+                    <a href="#" data-role="button" data-bind="click: setLZFilter, css: { 'ui-btn-active': LToKFilter }">L-Z</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <div id="thespian-filtered-list-container" data-bind="visible: Items().length > 0">
+                <div id="thespian-list" data-bind="foreach: Items">
+                    <a href="#" data-role="button" data-bind="click: $parent.raiseDetails" data-icon="arrow-r" data-iconpos="right"><span data-bind="fadeInText: FirstName"></span>&nbsp;<span data-bind="fadeInText: LastName"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@{ 
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+
+        var thespian_list  = {};
+
+        (function (index) {
+
+            var hub = jQuery.connection.thespianListHub;
+        
+            thespian_list = index;
+
+            index.ThespianTypeFilter = ko.observable('Artist');
+            index.GenderFilter = ko.observable('Male');
+            index.AToKFilter = ko.observable(true);
+            index.LToKFilter = ko.observable(false);
+            index.Items = ko.observableArray();
+            index.GetItems = ko.computed(function() {  
+                jQuery.ajax({
+                    url: '/OurClients/GetArtists',
+                    type: 'GET',
+                    data: { 'type': index.ThespianTypeFilter(), 'gender': index.GenderFilter(), 'aToKFilter': index.AToKFilter(), 'lToKFilter': index.LToKFilter() },
+                    dataType: 'json',
+                    beforeSend: function () { jQuery.mobile.showPageLoadingMsg(); },
+                    success: function(data) {
+                        index.Items.removeAll();
+
+                        jQuery.each(data.Thespians, function() {
+                            index.Items.push(ko.mapping.fromJS(this));
+                        });
+                    },
+                    complete: function() { jQuery.mobile.hidePageLoadingMsg(); }
+                });
+            }, index);
+
+            index.setGenderFilter = function(gender) {
+                index.GenderFilter(gender);
+            };
+
+            index.setThespianTypeFilter = function(type) {
+                index.ThespianTypeFilter(type);
+            };
+
+            index.setAKFilter = function() {
+                index.AToKFilter(true);
+                index.LToKFilter(false);
+            };
+
+            index.setLZFilter = function() {
+                index.AToKFilter(false);
+                index.LToKFilter(true);
+            };
+        
+            index.raiseDetails = function (obj) {
+                jQuery(document).trigger('thespianDetails', [obj]);
+            };
+
+            hub.handleCreatedThespianEventMessage = function(message) {
+                var exists = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == message.Id;
+                });
+
+                if (exists != null)
+                    return;
+
+                jQuery.getJSON('/OurClients/GetArtists', { 'type': index.ThespianTypeFilter(), 'gender': index.GenderFilter(), 'aToKFilter': index.AToKFilter(), 'lToKFilter': index.LToKFilter() }, function(data) {
+                    
+                    index.Items.removeAll();
+
+                    jQuery.each(data.Thespians, function() {
+                        index.Items.push(ko.mapping.fromJS(this));
+                    });
+                });
+            };
+
+            hub.handleRenamedThespianEventMessage = function(id, newFirstName, newLastName) {
+                var update = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == id;
+                });
+
+                if (update == null)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;
+
+                if (update.FirstName() != newFirstName)
+                    update.FirstName(newFirstName);
+
+                if (update.LastName() != newLastName)
+                    update.LastName(newLastName);
+
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            hub.handleDeletedThespianEventMessage = function(id) {
+                var toDelete = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == id;
+                });
+
+                if (toDelete == null)
+                    return;
+
+                index.Items.remove(toDelete);
+            };
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#thespian-list-container')[0]);
+            });
+
+        } (thespian_list));");
+    }
+}

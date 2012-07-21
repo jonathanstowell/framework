@@ -1,0 +1,13 @@
+﻿using ThreeBytes.Core.Data.nHibernate.Concrete;
+using ThreeBytes.ProjectHollywood.News.List.Data.Abstract.Infrastructure;
+
+namespace ThreeBytes.ProjectHollywood.News.List.Data.Concrete.Infrastructure
+{
+    public class NewsListDatabaseFactory : AbstractDatabaseFactoryBase, INewsListDatabaseFactory
+    {
+        public NewsListDatabaseFactory(IProvideNewsListSessionFactoryInitialisation provideSessionFactoryInitialisation)
+            : base(provideSessionFactoryInitialisation)
+        {
+        }
+    }
+}

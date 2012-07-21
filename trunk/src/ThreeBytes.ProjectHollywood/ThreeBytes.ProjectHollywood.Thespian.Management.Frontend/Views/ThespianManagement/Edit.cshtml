@@ -1,0 +1,233 @@
+﻿@model ThreeBytes.ProjectHollywood.Thespian.Management.Entities.ThespianManagementThespian
+
+@if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "ThespianManager" }))
+{
+    <div id="edit-thespian-container">
+        <div id="edit-thespian-modal" class="modal modal-medium-wide hide fade">
+            <div class="modal-header">
+                <a href="#" class="close" data-bind="click: raiseClose">×</a>
+                <h3>@Resources.Edit <span data-bind="fadeInText: FirstName"></span> <span data-bind="fadeInText: LastName"></span></h3>
+            </div>
+            <div class="modal-body modal-body-scrollable">
+                <div data-bind="error: GeneralErrors"></div>
+                <form id="rename-thespian-form">
+                    <fieldset>
+                        <div class="clearfix">
+                            @Html.LabelFor(model => model.FirstName, Resources.FirstName)
+                            <div class="input">
+                                @Html.TextBoxFor(model => model.FirstName, new { @data_val = "true", @data_val_required = "'First Name' should not be empty.", @data_val_length = "'First Name' must be a string with a maximum length of 35.", @data_val_length_max = "35", @data_bind = "value: FirstName" })
+                                <div data-valmsg-for="FirstName" data-valmsg-replace="true" data-bind="error: FirstNameErrors"></div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix">
+                            @Html.LabelFor(model => model.LastName, Resources.LastName)
+                            <div class="input">
+                                @Html.TextBoxFor(model => model.LastName, new { @data_val = "true", @data_val_required = "'Last Name' should not be empty.", @data_val_length = "'Last Name' must be a string with a maximum length of 35.", @data_val_length_max = "35", @data_bind = "value: LastName" })
+                                <button type="submit" class="btn btn-primary" data-bind="click: saveName">@Resources.Rename</button>
+                                <div data-valmsg-for="LastName" data-valmsg-replace="true" data-bind="error: LastNameErrors"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <form id="update-profile-picture-thespian-employee-form">
+                        <div class="row">
+                            <div class="span3 columns">
+                                <div class="clearfix image">
+                                    <label for="thespian-profile-image-update">Profile Image <input type="file" id="thespian-profile-image-update" name="thespian-profile-image-update" /></label>
+                                    <div data-bind="error: ProfileImageLocationErrors"></div>
+                                    <span class="label label-success" data-bind="visible: HasImageBeenUploaded">Upload Success</span>
+
+                                    <div data-valmsg-for="ProfileImageLocation" data-valmsg-replace="true" data-bind="error: ProfileImageLocationErrors"></div>
+                                    <input type="hidden" id="ProfileImageLocation" name="ProfileImageLocation" data-bind = "value: ProfileImageLocation" />
+                                    <input type="hidden" id="ProfileThumbnailImageLocation" name="ProfileThumbnailImageLocation" data-bind = "value: ProfileThumbnailImageLocation" />
+                                </div>
+                            </div>
+                            <div class="span3 columns">
+                                <div id="thespian-profile-image-container">
+                                    <ul class="thumbnails">
+                                        <li class="span3">
+                                            <div class="thumbnail">
+                                                <img data-bind="attr: { src: ProfileImageUrl() }" />
+                                                <div class="caption"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+            <div class="modal-footer">
+                <div data-bind="currentlyViewingComponent: currentViewersViewModel"></div>
+                <button class="btn btn-info" data-bind="click: raiseDetails">Details</button>
+                <button class="btn btn-danger" data-bind="click: raiseDelete">Delete</button>
+                <button class="btn btn-danger" data-bind="click: raiseClose">Close</button>
+            </div>
+        </div>
+    </div>
+
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+        var thespian_edit = {};
+
+        (function (index) {
+
+            thespian_edit = index;
+
+            var hub = jQuery.connection.thespianManagementHub;
+
+            var val = ko.setupValidation([], []);
+            val.createErrorCollections({FirstName: 0, LastName: 0, ProfileImageLocation: 0, General: 0}, index, 'rename-thespian-form');
+
+            index.Id = ko.observable();
+            index.FirstName = ko.observable();
+            index.LastName = ko.observable();
+            index.ProfileImageLocation = ko.observable();
+            index.ProfileThumbnailImageLocation = ko.observable();
+
+            index.HasImageBeenUploaded = ko.observable(false);
+
+            index.ProfileImageUrl = ko.computed(function() {
+                if(index.ProfileThumbnailImageLocation() != '' && index.ProfileThumbnailImageLocation() != null && index.ProfileThumbnailImageLocation() != typeof('undefined'))
+                            return '" + @Url.Action("GetProfileImage", "Team") + @"' + '/' + index.ProfileThumbnailImageLocation();
+
+                return '" + @Url.Content("img/placeholder260x180.gif") + @"';
+            });
+
+            var originalFirstName;
+            var originalLastName;
+            var originalProfileImageLocation;
+            var originalProfileThumbnailImageLocation;
+
+            index.currentViewersViewModel = new ko.currentlyViewingComponent.viewModel({
+                hub: hub,
+                id: index.Id,
+                modalSelector: '#edit-thespian-modal'
+            });
+
+            index.saveName = function (form) {
+                if(!jQuery('#rename-thespian-form').valid())
+                    return;
+
+                jQuery.post('" + @Url.Action("Rename", "OurClients") + @"', {
+                    'id': index.Id(),
+                    'firstName': index.FirstName(),
+                    'lastName': index.LastName()
+                }, function (dataReturned) {
+                    if (dataReturned.IsValid) {
+                        jQuery(document).trigger('thespianUpdated', [dataReturned.Id]);
+                        jQuery(document).trigger('publishProcessingNotification', ['Processing client renaming.', 'We are currently processing your request to rename ' + originalFirstName + ' ' + originalLastName + ' to ' + index.FirstName() + ' ' + index.LastName() + '.']);
+                    }
+                    else {
+                        val.rebindValidations({FirstName: 0, LastName: 0, ProfileImageLocation: 0, General: 0}, index, dataReturned.Errors);
+                    }
+                });
+            };
+
+            index.raiseDelete = function (obj) {
+                index.editModal.modal('hide');
+                jQuery(document).trigger('thespianDelete', [obj.Id()]);
+            };
+
+            index.raiseClose = function () {
+                index.editModal.modal('hide');
+            };
+
+            index.raiseDetails = function () {
+                jQuery(document).trigger('thespianDetails', [index]);
+                index.editModal.modal('hide');
+            };
+
+            hub.handleRenamedThespianEventMessage = function(id, newFirstName, newLastName) {
+                if (index.Id() != id)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;
+
+                if (index.FirstName() != newFirstName)
+                    index.FirstName(newFirstName);
+
+                if (index.LastName() != newLastName)
+                    index.LastName(newLastName);
+
+                ko.bindingHandlers.fadeInText.highlight = false;
+
+                originalFirstName = index.FirstName();
+                originalLastName = index.LastName();
+            };
+
+            hub.handleDeletedThespianEventMessage = function(id) {
+                if (index.Id() != id)
+                    return;
+
+                jQuery(document).trigger('publishNotAllowedNotification', ['Thespian No Longer Available.', 'This thespian has been removed by another user. The window will automatically close.']);
+                index.editModal.modal('hide');
+                index.Id(null);
+            };
+
+            jQuery(document).bind('thespianEdit', function (event, id) {
+
+                jQuery.getJSON('" + @Url.Action("Get", "ThespianManagement") + @"', { id: id }, function (data) {
+
+                    index.Id(data.Thespian.Id);
+                    index.FirstName(data.Thespian.FirstName);
+                    index.LastName(data.Thespian.LastName);
+                    index.ProfileImageLocation(data.Thespian.ProfileImageLocation);
+                    index.ProfileThumbnailImageLocation(data.Thespian.ProfileThumbnailImageLocation);
+                    index.HasImageBeenUploaded(false);
+
+                    originalFirstName = index.FirstName();
+                    originalLastName = index.LastName();
+                    originalProfileImageLocation = index.ProfileImageLocation();
+                    originalProfileThumbnailImageLocation = index.ProfileThumbnailImageLocation();
+
+                    index.currentViewersViewModel.initialiseCurrentViewers(data.CurrentlyViewingUsers);
+
+                    val.clearValidations({FirstName: 0, LastName: 0, ProfileImageLocation: 0, General: 0}, index);
+                    index.editModal.modal('show');
+                });
+            });
+
+            jQuery(function () {
+                jQuery('#thespian-profile-image-update').makeAsyncUploader({
+                    upload_url: '" + @Url.Action("ImageUpload", "Home") + @"',
+                    flash_url: '" + @Url.Content("~/js/libs/swfupload.swf") + @"',
+                    button_image_url: '" + @Url.Content("~/img/blankButton.png") + @"',
+	                file_types : '*.jpg;*.jpeg;*.png;*.bmp;*.gif',
+                    upload_success_handler: function(file, data, response) {
+                        var item = jQuery.parseJSON(data);                        
+
+                        if (item.Result.IsValid) {
+                            index.ProfileImageLocation(item.Filename);
+                            index.ProfileThumbnailImageLocation(item.ThumbnailName);
+                            index.HasImageBeenUploaded(true);
+                            jQuery.post('" + @Url.Action("UpdateProfileImage", "OurClients") + @"', {
+                                'id': index.Id(),
+                                'profileImageLocation': index.ProfileImageLocation() == null ? '' : index.ProfileImageLocation(),  
+                                'profileThumbnailImageLocation': index.ProfileThumbnailImageLocation() == null ? '' : index.ProfileThumbnailImageLocation(),  
+                            }, function (dataReturned) {
+                                if (dataReturned.IsValid) {
+                        
+                                }
+                                else {
+                                    val.rebindValidations({FirstName: 0, LastName: 0, ProfileImageLocation: 0, General: 0}, index, dataReturned.Errors);
+                                }
+                            });
+                        }
+                        else {
+                            val.rebindValidations({
+                                ProfileImageLocation: 0,
+                                General: 0
+                            }, index, item.Result.Errors);
+                        }
+                    }
+                });
+
+                ko.applyBindings(index, jQuery('#edit-thespian-container')[0]);
+                index.editModal = jQuery('#edit-thespian-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+            });
+        } (thespian_edit));");
+    }
+}

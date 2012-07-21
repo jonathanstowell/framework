@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ADDB5C28-EC69-4865-9E3B-1DD370CB4225}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.User.Role.View.Backend</RootNamespace>
+    <AssemblyName>ThreeBytes.User.Role.View.Backend</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThreeBytes.Core.Data.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.Entities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.Entities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Entities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Validations.Exceptions">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Validations.Exceptions.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.User.Messages">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.User.Messages\ThreeBytes.User.Messages.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MessageHandlers\CreatedRoleInternalEventMessageHandler.cs" />
+    <Compile Include="MessageHandlers\RenamedRoleInternalEventMessageHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.User.Configuration.Abstract\ThreeBytes.User.Configuration.Abstract.csproj">
+      <Project>{B5C05607-70E1-46A7-B9D5-D9B1152D0A2A}</Project>
+      <Name>ThreeBytes.User.Configuration.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Role.Messages\ThreeBytes.User.Role.Messages.csproj">
+      <Project>{C3CF5040-FDE1-456C-A1CF-A8E210ACF380}</Project>
+      <Name>ThreeBytes.User.Role.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Role.View.Entities\ThreeBytes.User.Role.View.Entities.csproj">
+      <Project>{FB847E20-0E47-482C-ADF5-226B77CD9C5B}</Project>
+      <Name>ThreeBytes.User.Role.View.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Role.View.Service.Abstract\ThreeBytes.User.Role.View.Service.Abstract.csproj">
+      <Project>{FB2C5675-FBE1-48C2-A34C-D595BED8082E}</Project>
+      <Name>ThreeBytes.User.Role.View.Service.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Role.View.Validations.Abstract\ThreeBytes.User.Role.View.Validations.Abstract.csproj">
+      <Project>{5F610A6B-FC33-4EAE-8BBD-F1A6CCB28118}</Project>
+      <Name>ThreeBytes.User.Role.View.Validations.Abstract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

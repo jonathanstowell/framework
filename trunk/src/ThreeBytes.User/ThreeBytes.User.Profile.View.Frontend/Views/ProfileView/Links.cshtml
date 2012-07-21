@@ -1,0 +1,91 @@
+﻿@using System.Web.Script.Serialization
+@model ThreeBytes.User.Profile.View.Entities.UserProfileViewProfile
+
+<div id="user-profile-links-container">
+    <h2>Links</h2>
+    <span data-bind="visible: hasFacebook() == false"><img class="link" src="@Url.Content("~/img/facebook-nonactive-48x48.png")" data-bind="click: raiseLinkFacebook" /></span>
+    <span data-bind="visible: hasFacebook"><a data-bind="attr: { href: facebookUrl }" target="_blank"><img src="@Url.Content("~/img/facebook-48x48.png")"/></a></span>
+    <span data-bind="visible: hasFoursquare() == false"><img class="link" src="@Url.Content("~/img/foursquare-nonactive-48x48.png")" data-bind="click: raiseLinkFoursquare" /></span>
+    <span data-bind="visible: hasFoursquare"><a data-bind="attr: { href: foursquareUrl }" target="_blank"><img src="@Url.Content("~/img/foursquare-48x48.png")"/></a></span>
+    <span data-bind="visible: hasTwitter() == false"><img class="link" src="@Url.Content("~/img/twitter-nonactive-48x48.png")" data-bind="click: raiseLinkTwitter" /></span>
+    <span data-bind="visible: hasTwitter"><a data-bind="attr: { href: twitterUrl }" target="_blank"><img src="@Url.Content("~/img/twitter-48x48.png")"/></a></span>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"    
+        var user_profile_links  = {};
+
+        (function (index) {
+        
+            user_profile_links = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model)) + @");
+
+            index.getProvider = function(search) {
+                return ko.utils.arrayFirst(index.ExternalAuthentications(), function(item) {
+                   return item.ExternalAuthenticationType() == search;
+                });
+            };
+
+            index.hasProvider = function(search) {
+                return index.getProvider(search) != null;
+            };
+
+            index.hasFacebook = ko.computed(function() {
+                return index.hasProvider(0);   
+            });
+
+            index.hasFoursquare = ko.computed(function() {
+                return index.hasProvider(1);
+            });
+
+            index.hasTwitter = ko.computed(function() {
+                return index.hasProvider(2);
+            });
+
+            index.facebookUrl = ko.computed(function() {
+                var provider = index.getProvider(0);
+
+                if (provider == null)
+                    return '';
+
+                return 'http://www.facebook.com/profile.php?id=' + provider.ExternalIdentifier();
+            });
+
+            index.foursquareUrl = ko.computed(function() {
+                var provider = index.getProvider(1);
+
+                if (provider == null)
+                    return '';
+
+                return 'http://foursquare.com/user/' + provider.ExternalIdentifier();
+            });
+
+            index.twitterUrl = ko.computed(function() {
+                var provider = index.getProvider(2);
+
+                if (provider == null)
+                    return '';
+
+                return 'https://twitter.com/account/redirect_by_id?id=' + provider.ExternalIdentifier();
+            });
+
+            index.raiseLinkFacebook = function() {
+                jQuery(document).trigger('linkFacebook', index.ItemId());   
+            };
+
+            index.raiseLinkFoursquare = function() {
+                jQuery(document).trigger('linkFoursquare', index.ItemId());
+            };
+
+            index.raiseLinkTwitter = function() {
+                jQuery(document).trigger('linkTwitter', index.ItemId());
+            };
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#user-profile-links-container')[0]);
+            });
+
+        } (user_profile_links));");
+  }
+}

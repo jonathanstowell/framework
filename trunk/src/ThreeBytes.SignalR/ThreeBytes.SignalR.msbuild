@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets = "all-signalr-system"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\ThreeBytes.Build\msbuild\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+	<UsingTask AssemblyFile="ThreeBytes.SignalR.Infrastructure.ServiceBuildConvention\bin\Debug\ThreeBytes.SignalR.Infrastructure.ServiceBuildConvention.dll" TaskName="CopyService"/>
+	<PropertyGroup>
+		<ProductName>Three Bytes SignalR</ProductName>
+		<ProjectType>Three Bytes SignalR</ProjectType>
+		<PublisherName>Three Bytes</PublisherName>
+		<BuildFolder></BuildFolder>
+		<ExportFolder></ExportFolder>
+		<CustomViewsFolder></CustomViewsFolder>
+		<ConfigMergerExePath></ConfigMergerExePath>
+		<Client></Client>
+		<OrganisationName></OrganisationName>
+		<ReleaseType></ReleaseType>
+		<Configuration Condition=" $(Configuration)=='' ">Debug</Configuration>
+		<BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
+		<AllTemplatesLocation></AllTemplatesLocation>
+		<SharedLibrariesLocation>..\..\lib\internal\ThreeBytes.SignalR</SharedLibrariesLocation>
+		<UserWebPluginLocation>..\ThreeBytes.User\ThreeBytes.User.WebUI\Plugins\ThreeBytes.SignalR</UserWebPluginLocation>
+		<ProjectHollywoodWebPluginLocation>..\ThreeBytes.ProjectHollywood\ThreeBytes.ProjectHollywood.WebUI\Plugins\ThreeBytes.SignalR</ProjectHollywoodWebPluginLocation>
+		<EmailWebPluginLocation>..\ThreeBytes.Email\ThreeBytes.Email.WebUI\Plugins\ThreeBytes.SignalR</EmailWebPluginLocation>
+	</PropertyGroup>
+	
+	<Target Name="clear-shared-libs">
+		<Delete Files="$(SharedLibrariesLocation)\*" />
+		<Message Text="Cleared Shared Libraries Folder" />
+	</Target>
+	
+	<Target Name="build-threebytes-signalr">
+		<MSBuild Projects="ThreeBytes.SignalR.sln" Properties="Configuration=$(Configuration)" Targets="Build"/>
+		<Message Text="BUILT THREEBYTES SIGNALR"></Message>
+	</Target>
+	
+	<Target Name="distribute-signalr-libs" DependsOnTargets="clear-shared-libs;build-threebytes-signalr;">
+		<ItemGroup>
+			<SignalRLibraries Include=".\ThreeBytes.SignalR.*\bin\$(Configuration)\ThreeBytes.SignalR.*.*" />
+		</ItemGroup>
+		<MakeDir Directories = "$(SharedLibrariesLocation)" Condition="!Exists('$(SharedLibrariesLocation)')" />
+		<Copy SourceFiles="@(SignalRLibraries)" DestinationFolder="$(SharedLibrariesLocation)" />
+		<Message Text="COPIED SHARED SIGNAL R LIBS"></Message>
+	</Target>
+  
+   <Target Name="currently-viewing">
+		<ItemGroup>
+			<Host Include="CurrentlyViewing" />
+		</ItemGroup>
+		<CopyService Prefix="ThreeBytes.SignalR" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(UserWebPluginLocation)\CurrentlyViewing" BackendFolder="$(UserBusPluginLocation)\CurrentlyViewing" />
+		<CopyService Prefix="ThreeBytes.SignalR" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(ProjectHollywoodWebPluginLocation)\CurrentlyViewing" />
+		<CopyService Prefix="ThreeBytes.SignalR" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\CurrentlyViewing" />
+	</Target>
+  
+  <Target Name="all-signalr-system" DependsOnTargets="build-threebytes-signalr;distribute-signalr-libs;copy-plugins;" />
+  <Target Name="copy-plugins" DependsOnTargets="currently-viewing;" />
+  
+</Project>

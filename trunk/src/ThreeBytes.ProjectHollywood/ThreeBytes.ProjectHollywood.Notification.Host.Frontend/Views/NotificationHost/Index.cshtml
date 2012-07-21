@@ -1,0 +1,76 @@
+﻿@using ThreeBytes.Core.Security.Concrete
+
+@using (Html.BeginScriptContext())
+{
+    Html.AddScriptBlock(@"
+
+    var notification_host = {};
+
+    (function (index) {
+
+        notification_host = index;
+
+        index.Notifications = ko.observableArray();
+
+        index.AlreadyDisplayedNotification = function(id) {
+            var item = ko.utils.arrayFirst(index.Notifications(), function(note) {
+                return note == id;
+            });
+
+            return item != null;
+        };
+
+        jQuery(document).bind('publishProcessingNotification', function (event, title, message) {
+            jQuery.gritter.add({
+				title: title,
+				text: message,
+				sticky: false,
+                image: '" + @Url.Content("~/img/ajax-loader-notification.gif") + @"',
+				time: ''
+			});
+        });
+
+        jQuery(document).bind('publishNotAllowedNotification', function (event, title, message) {
+            jQuery.gritter.add({
+				title: title,
+				text: message,
+				sticky: false,
+                image: '" + @Url.Content("~/img/failure-large.png") + @"',
+				time: ''
+			}); 
+        });
+
+        jQuery(document).bind('publishNotification', function (event, id, title, message) {
+            
+            if (index.AlreadyDisplayedNotification(id)) {
+                return;
+            }
+
+            index.Notifications.push(id);
+
+            jQuery.gritter.add({
+				title: title,
+				text: message,
+				sticky: false,
+                image: '" + @Url.Content("~/img/success-large.png") + @"',
+				time: ''
+			}); 
+        });
+
+    }(notification_host));");
+}
+
+@if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "NewsManager" }))
+{
+    Html.RenderAction("Index", "NotificationNews");
+}
+
+@if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
+{
+    Html.RenderAction("Index", "NotificationTeam");
+}
+
+@if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "ThespianManager" }))
+{
+    Html.RenderAction("Index", "NotificationThespian");
+}

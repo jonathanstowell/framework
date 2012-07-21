@@ -1,0 +1,37 @@
+﻿@using System.Web.Script.Serialization
+@model ThreeBytes.User.Profile.View.Entities.UserProfileViewProfile
+
+<span id="welcome-user-container"><span data-bind="text: DisplayName"></span></span>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"    
+        var welcome_user_model  = {};
+
+        (function (index) {
+        
+            welcome_user_model = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model)) + @");
+
+            index.DisplayName = ko.computed(function(){
+                if (isNullOrEmpty(index.Forename())) {
+                    return index.Username();
+                }
+
+                return index.Forename() + ' ' + index.Surname();
+            });
+
+            jQuery(document).bind('userProfileUpdated', function (event, item) {
+                index.Username(item.Username());
+                index.Forename(item.Forename());
+                index.Surname(item.Surname());
+                index.Email(item.Email());
+            });
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#welcome-user-container')[0]);
+            });
+
+        } (welcome_user_model));");
+  }
+}

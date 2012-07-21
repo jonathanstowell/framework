@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets = "upload"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\ThreeBytes.Build\msbuild\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+  <PropertyGroup>
+    <ProductName>Three Bytes ProjectHollywood Release</ProductName>
+    <ProjectType>Project Hollywood Release</ProjectType>
+    <PublisherName>Three Bytes</PublisherName>
+    <BuildFolder></BuildFolder>
+    <ExportFolder></ExportFolder>
+    <CustomViewsFolder></CustomViewsFolder>
+    <ConfigMergerExePath></ConfigMergerExePath>
+    <Client></Client>
+    <OrganisationName></OrganisationName>
+    <ReleaseType></ReleaseType>
+    <Configuration Condition=" $(Configuration)=='' ">Release</Configuration>
+    <BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
+    <AllTemplatesLocation></AllTemplatesLocation>
+    <ProjectHollywoodWeb>..\ThreeBytes.ProjectHollywood\ThreeBytes.ProjectHollywood.WebUI</ProjectHollywoodWeb>
+    <ProjectHollywoodBus>..\ThreeBytes.ProjectHollywood\ThreeBytes.ProjectHollywood.ServiceHost\bin\Release</ProjectHollywoodBus>
+    <UserBus>..\ThreeBytes.User\ThreeBytes.User.ServiceHost\bin\Release</UserBus>
+    <EmailBus>..\ThreeBytes.Email\ThreeBytes.Email.ServiceHost\bin\Release</EmailBus>
+    <LoggingBus>..\ThreeBytes.Logging\ThreeBytes.Logging.ServiceHost\bin\Release</LoggingBus>
+	<ProjectHollywoodJob>..\ThreeBytes.ProjectHollywood\ThreeBytes.ProjectHollywood.JobHost\bin\Release</ProjectHollywoodJob>
+    <UserJob>..\ThreeBytes.User\ThreeBytes.User.JobHost\bin\Release</UserJob>
+    <EmailJob>..\ThreeBytes.Email\ThreeBytes.Email.JobHost\bin\Release</EmailJob>
+    <LoggingJob>..\ThreeBytes.Logging\ThreeBytes.Logging.JobHost\bin\Release</LoggingJob>
+    <FtpHost Condition=" $(FtpHost)=='' "></FtpHost>
+    <FtpUser Condition=" $(FtpUser)=='' "></FtpUser>
+    <FtpPass Condition=" $(FtpPass)=='' "></FtpPass>
+  </PropertyGroup>
+
+  <Target Name="build-time">
+    <Time Format="yyyy-MM-dd">
+      <Output TaskParameter="FormattedTime" PropertyName="buildDate" />
+    </Time>
+  </Target>
+
+  <Target Name="build-release-projecthollywood-web-package" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <ProjectHollywoodWebZipFiles Include="$(ProjectHollywoodWeb)\**\*.*" Exclude="$(ProjectHollywoodWeb)\**\*.zip;$(ProjectHollywoodWeb)\**\*.pdb;$(ProjectHollywoodWeb)\**\*.csproj;$(ProjectHollywoodWeb)\**\*.csproj.user;$(ProjectHollywoodWeb)\obj\**\*.*;$(ProjectHollywoodWeb)\Properties\*.*;$(ProjectHollywoodWeb)\Web.Debug.config;$(ProjectHollywoodWeb)\Web.Release.config;$(ProjectHollywoodWeb)\App_Data\*.*" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)" Condition="!Exists('.\bin\$(buildDate)')" />
+    <Zip Files="@(ProjectHollywoodWebZipFiles)"
+		   WorkingDirectory="$(ProjectHollywoodWeb)\"
+		   ZipFileName=".\bin\$(buildDate)\ProjectHollywood-Web-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-projecthollywood-web-package-all" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <ProjectHollywoodWebZipFiles Include="$(ProjectHollywoodWeb)\**\*.*" Exclude="$(ProjectHollywoodWeb)\**\*.zip;$(ProjectHollywoodWeb)\**\*.pdb;$(ProjectHollywoodWeb)\**\*.csproj;$(ProjectHollywoodWeb)\**\*.csproj.user;$(ProjectHollywoodWeb)\obj\**\*.*;$(ProjectHollywoodWeb)\Properties\*.*;$(ProjectHollywoodWeb)\Web.Debug.config;$(ProjectHollywoodWeb)\Web.Release.config;$(ProjectHollywoodWeb)\App_Data\*.*" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)\temp\packages" Condition="!Exists('.\bin\$(buildDate)\temp\packages')" />
+    <Zip Files="@(ProjectHollywoodWebZipFiles)"
+		   WorkingDirectory="$(ProjectHollywoodWeb)\"
+		   ZipFileName=".\bin\$(buildDate)\temp\packages\ProjectHollywood-Web-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-projecthollywood-bus-package" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <ProjectHollywoodBusZipFiles Include="$(ProjectHollywoodBus)\**\*.*" Exclude="$(ProjectHollywoodBus)\**\*.zip;$(ProjectHollywoodBus)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)" Condition="!Exists('.\bin\$(buildDate)')" />
+    <Zip Files="@(ProjectHollywoodBusZipFiles)"
+		   WorkingDirectory="$(ProjectHollywoodBus)\"
+		   ZipFileName=".\bin\$(buildDate)\ProjectHollywood-Bus-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-projecthollywood-bus-package-all" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <ProjectHollywoodBusZipFiles Include="$(ProjectHollywoodBus)\**\*.*" Exclude="$(ProjectHollywoodBus)\**\*.zip;$(ProjectHollywoodBus)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)\temp\packages" Condition="!Exists('.\bin\$(buildDate)\temp\packages')" />
+    <Zip Files="@(ProjectHollywoodBusZipFiles)"
+		   WorkingDirectory="$(ProjectHollywoodBus)\"
+		   ZipFileName=".\bin\$(buildDate)\temp\packages\ProjectHollywood-Bus-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+  
+  <Target Name="build-release-projecthollywood-job-package" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <ProjectHollywoodJobZipFiles Include="$(ProjectHollywoodJob)\**\*.*" Exclude="$(ProjectHollywoodJob)\**\*.zip;$(ProjectHollywoodJob)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)" Condition="!Exists('.\bin\$(buildDate)')" />
+    <Zip Files="@(ProjectHollywoodJobZipFiles)"
+		   WorkingDirectory="$(ProjectHollywoodJob)\"
+		   ZipFileName=".\bin\$(buildDate)\ProjectHollywood-Job-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-projecthollywood-job-package-all" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <ProjectHollywoodJobZipFiles Include="$(ProjectHollywoodJob)\**\*.*" Exclude="$(ProjectHollywoodJob)\**\*.zip;$(ProjectHollywoodJob)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)\temp\packages" Condition="!Exists('.\bin\$(buildDate)\temp\packages')" />
+    <Zip Files="@(ProjectHollywoodJobZipFiles)"
+		   WorkingDirectory="$(ProjectHollywoodJob)\"
+		   ZipFileName=".\bin\$(buildDate)\temp\packages\ProjectHollywood-Job-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-user-bus-package" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <UserBusZipFiles Include="$(UserBus)\**\*.*" Exclude="$(UserBus)\**\*.zip;$(UserBus)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)" Condition="!Exists('.\bin\$(buildDate)')" />
+    <Zip Files="@(UserBusZipFiles)"
+		   WorkingDirectory="$(UserBus)\"
+		   ZipFileName=".\bin\$(buildDate)\User-Bus-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-user-bus-package-all" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <UserBusZipFiles Include="$(UserBus)\**\*.*" Exclude="$(UserBus)\**\*.zip;$(UserBus)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)\temp\packages" Condition="!Exists('.\bin\$(buildDate)\temp\packages')" />
+    <Zip Files="@(UserBusZipFiles)"
+		   WorkingDirectory="$(UserBus)\"
+		   ZipFileName=".\bin\$(buildDate)\temp\packages\User-Bus-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+  
+  <Target Name="build-release-user-job-package" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <UserJobZipFiles Include="$(UserJob)\**\*.*" Exclude="$(UserJob)\**\*.zip;$(UserJob)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)" Condition="!Exists('.\bin\$(buildDate)')" />
+    <Zip Files="@(UserJobZipFiles)"
+		   WorkingDirectory="$(UserJob)\"
+		   ZipFileName=".\bin\$(buildDate)\User-Job-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-user-job-package-all" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <UserJobZipFiles Include="$(UserJob)\**\*.*" Exclude="$(UserJob)\**\*.zip;$(UserJob)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)\temp\packages" Condition="!Exists('.\bin\$(buildDate)\temp\packages')" />
+    <Zip Files="@(UserJobZipFiles)"
+		   WorkingDirectory="$(UserJob)\"
+		   ZipFileName=".\bin\$(buildDate)\temp\packages\User-Job-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-email-bus-package" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <EmailBusZipFiles Include="$(EmailBus)\**\*.*" Exclude="$(EmailBus)\**\*.zip;$(EmailBus)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)" Condition="!Exists('.\bin\$(buildDate)')" />
+    <Zip Files="@(EmailBusZipFiles)"
+		   WorkingDirectory="$(EmailBus)\"
+		   ZipFileName=".\bin\$(buildDate)\Email-Bus-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-email-bus-package-all" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <EmailBusZipFiles Include="$(EmailBus)\**\*.*" Exclude="$(EmailBus)\**\*.zip;$(EmailBus)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)\temp\packages" Condition="!Exists('.\bin\$(buildDate)\temp\packages')" />
+    <Zip Files="@(EmailBusZipFiles)"
+		   WorkingDirectory="$(EmailBus)\"
+		   ZipFileName=".\bin\$(buildDate)\temp\packages\Email-Bus-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+  
+  <Target Name="build-release-email-job-package" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <EmailJobZipFiles Include="$(EmailJob)\**\*.*" Exclude="$(EmailJob)\**\*.zip;$(EmailJob)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)" Condition="!Exists('.\bin\$(buildDate)')" />
+    <Zip Files="@(EmailJobZipFiles)"
+		   WorkingDirectory="$(EmailJob)\"
+		   ZipFileName=".\bin\$(buildDate)\Email-Job-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-email-job-package-all" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <EmailJobZipFiles Include="$(EmailJob)\**\*.*" Exclude="$(EmailJob)\**\*.zip;$(EmailBus)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)\temp\packages" Condition="!Exists('.\bin\$(buildDate)\temp\packages')" />
+    <Zip Files="@(EmailJobZipFiles)"
+		   WorkingDirectory="$(EmailJob)\"
+		   ZipFileName=".\bin\$(buildDate)\temp\packages\Email-Job-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-logging-bus-package" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <LoggingBusZipFiles Include="$(LoggingBus)\**\*.*" Exclude="$(LoggingBus)\**\*.zip;$(LoggingBus)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)" Condition="!Exists('.\bin\$(buildDate)')" />
+    <Zip Files="@(LoggingBusZipFiles)"
+		   WorkingDirectory="$(LoggingBus)\"
+		   ZipFileName=".\bin\$(buildDate)\Logging-Bus-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-logging-bus-package-all" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <LoggingBusZipFiles Include="$(LoggingBus)\**\*.*" Exclude="$(LoggingBus)\**\*.zip;$(LoggingBus)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)\temp\packages" Condition="!Exists('.\bin\$(buildDate)\temp\packages')" />
+    <Zip Files="@(LoggingBusZipFiles)"
+		   WorkingDirectory="$(LoggingBus)\"
+		   ZipFileName=".\bin\$(buildDate)\temp\packages\Logging-Bus-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+  
+  <Target Name="build-release-logging-job-package" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <LoggingJobZipFiles Include="$(LoggingBus)\**\*.*" Exclude="$(LoggingJob)\**\*.zip;$(LoggingJob)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)" Condition="!Exists('.\bin\$(buildDate)')" />
+    <Zip Files="@(LoggingJobZipFiles)"
+		   WorkingDirectory="$(LoggingJob)\"
+		   ZipFileName=".\bin\$(buildDate)\Logging-Job-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-logging-job-package-all" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <LoggingJobZipFiles Include="$(LoggingJob)\**\*.*" Exclude="$(LoggingJob)\**\*.zip;$(LoggingJob)\**\*.pdb" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)\temp\packages" Condition="!Exists('.\bin\$(buildDate)\temp\packages')" />
+    <Zip Files="@(LoggingJobZipFiles)"
+		   WorkingDirectory="$(LoggingJob)\"
+		   ZipFileName=".\bin\$(buildDate)\temp\packages\Logging-Job-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-configurations-package" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <ConfigurationZipFiles Include=".\ThreeBytes.Release.Configurations\**\*.*" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)" Condition="!Exists('.\bin\$(buildDate)')" />
+    <Zip Files="@(ConfigurationZipFiles)"
+		   WorkingDirectory=".\ThreeBytes.Release.Configurations\"
+		   ZipFileName=".\bin\$(buildDate)\Configurations-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="build-release-configurations-package-all" DependsOnTargets="build-time;">
+    <ItemGroup>
+      <ConfigurationZipFiles Include=".\ThreeBytes.Release.Configurations\**\*.*" />
+    </ItemGroup>
+    <MakeDir Directories=".\bin\$(buildDate)\temp\packages" Condition="!Exists('.\bin\$(buildDate)\temp\packages')" />
+    <Zip Files="@(ConfigurationZipFiles)"
+		   WorkingDirectory=".\ThreeBytes.Release.Configurations\"
+		   ZipFileName=".\bin\$(buildDate)\temp\packages\Configurations-Release.zip"
+		   ZipLevel="9" />
+  </Target>
+
+  <Target Name="copy-deploy-tasks">
+    <ItemGroup>
+      <TaskFiles Include=".\ThreeBytes.Release.DeployTasks\**\*.*" Exclude=".\ThreeBytes.Release.DeployTasks\**\*.bat" />
+      <TaskExecutionFiles Include=".\ThreeBytes.Release.DeployTasks\**\*.bat" />
+    </ItemGroup>
+    <Copy SourceFiles="@(TaskFiles)" DestinationFolder=".\bin\$(buildDate)\temp\packages\%(RecursiveDir)"></Copy>
+    <Copy SourceFiles="@(TaskExecutionFiles)" DestinationFolder=".\bin\$(buildDate)\temp\%(RecursiveDir)"></Copy>
+  </Target>
+
+  <Target Name="package-all" DependsOnTargets="build-time;build-release-projecthollywood-web-package-all;build-release-projecthollywood-bus-package-all;build-release-projecthollywood-job-package-all;build-release-user-bus-package-all;build-release-user-job-package-all;build-release-email-bus-package-all;build-release-email-job-package-all;build-release-logging-bus-package-all;build-release-configurations-package-all;copy-deploy-tasks;">
+    <ItemGroup>
+      <AllZipFiles Include=".\bin\$(buildDate)\temp\**\*.*" />
+    </ItemGroup>
+    <Zip Files="@(AllZipFiles)"
+		   WorkingDirectory=".\bin\$(buildDate)\temp"
+		   ZipFileName=".\bin\$(buildDate)\ThreeBytes-Full-Release-$(buildDate).zip"
+		   ZipLevel="9" />
+    <RemoveDir Directories=".\bin\$(buildDate)\temp" />
+  </Target>
+
+  <Target Name="upload" DependsOnTargets="package-all">
+    <Message Text="Uploading to server..."/>
+    <FtpUploadDirectoryContent
+      ServerHost="$(FtpHost)"
+      Port="21"
+      Username="$(FtpUser)"
+      Password="$(FtpPass)"
+      LocalDirectory=".\bin\$(buildDate)\"
+      RemoteDirectory=""
+      Recursive="true"
+     />
+    <Message Text="Upload Complete!"/>
+  </Target>
+</Project>

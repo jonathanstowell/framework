@@ -1,0 +1,8 @@
+﻿@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Log Off", "LogOff", "Login", null, new { @class = "btn danger pull-right" })
+}
+else
+{
+    { Html.RenderAction("LoginPartial", "Login"); }
+}

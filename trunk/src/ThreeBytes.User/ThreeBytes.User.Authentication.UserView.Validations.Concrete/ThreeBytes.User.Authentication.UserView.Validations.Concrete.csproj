@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{08E3A13E-162B-4FB9-A421-23B3773E5836}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.User.Authentication.UserView.Validations.Concrete</RootNamespace>
+    <AssemblyName>ThreeBytes.User.Authentication.UserView.Validations.Concrete</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThreeBytes.Core.Bootstrapper.Extensions">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Bootstrapper.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Concrete.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Installers\BusWindsorInstaller.cs" />
+    <Compile Include="Installers\WebWindsorInstaller.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resolvers\AuthenticationUserViewRoleValidatorResolver.cs" />
+    <Compile Include="Resolvers\AuthenticationUserViewUserValidatorResolver.cs" />
+    <Compile Include="Validators\CreateAuthenticationUserViewRoleValidator.cs" />
+    <Compile Include="Validators\CreateAuthenticationUserViewUserValidator.cs" />
+    <Compile Include="Validators\LockAuthenticationUserViewUserOutValidator.cs" />
+    <Compile Include="Validators\UnlockAuthenticationUserViewUserValidator.cs" />
+    <Compile Include="Validators\UpdateAuthenticationUserViewUserEmailValidator.cs" />
+    <Compile Include="Validators\UpdateRolesAuthenticationUserViewUserValidator.cs" />
+    <Compile Include="Validators\VerifyAuthenticationUserViewUserValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.UserView.Entities\ThreeBytes.User.Authentication.UserView.Entities.csproj">
+      <Project>{C6E01BFC-1AE0-47B8-9C49-955A70FE7774}</Project>
+      <Name>ThreeBytes.User.Authentication.UserView.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.UserView.Resources\ThreeBytes.User.Authentication.UserView.Resources.csproj">
+      <Project>{4DDCEC8B-007D-4988-95CD-2D400F0790D4}</Project>
+      <Name>ThreeBytes.User.Authentication.UserView.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.UserView.Service.Abstract\ThreeBytes.User.Authentication.UserView.Service.Abstract.csproj">
+      <Project>{B9078E53-F0FC-4445-9025-445D121BDE00}</Project>
+      <Name>ThreeBytes.User.Authentication.UserView.Service.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.User.Authentication.UserView.Validations.Abstract\ThreeBytes.User.Authentication.UserView.Validations.Abstract.csproj">
+      <Project>{C297DF01-5D7D-4882-8303-D30D77845839}</Project>
+      <Name>ThreeBytes.User.Authentication.UserView.Validations.Abstract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

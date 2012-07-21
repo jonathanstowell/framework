@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1571F5F8-025C-4C80-A21B-434E59D5B09F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.ProjectHollywood.Thespian.Management.Frontend</RootNamespace>
+    <AssemblyName>ThreeBytes.ProjectHollywood.Thespian.Management.Frontend</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bootstrapper">
+      <HintPath>..\..\..\lib\external\Bootstrapper.2.0.1.1\lib\Bootstrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\lib\external\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib">
+      <HintPath>..\..\..\lib\external\MVCContrib 3.0.51.0\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus, Version=2.6.0.1504, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SignalR">
+      <HintPath>..\..\..\lib\external\SignalR\SignalR.Server.0.4.0.0\lib\net40\SignalR.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThreeBytes.Core.Bootstrapper.Extensions">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Bootstrapper.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Commands.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Commands.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.DataStructures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.DataStructures.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.Image">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.Image.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.Mvc">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.Validations">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.Validations.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.Web">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Image.Service.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Image.Service.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Security.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Security.Utilities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Utilities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Upload.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Upload.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Upload.Configuration.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Upload.Configuration.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Web.Mvc">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.ProjectHollywood.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.ProjectHollywood.Messages\ThreeBytes.ProjectHollywood.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.SignalR.CurrentlyViewing.Entities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.SignalR\ThreeBytes.SignalR.CurrentlyViewing.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.SignalR.CurrentlyViewing.Service.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.SignalR\ThreeBytes.SignalR.CurrentlyViewing.Service.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.SignalR.Hubs">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.SignalR\ThreeBytes.SignalR.Hubs.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command\PersistImageCommand.cs" />
+    <Compile Include="Controllers\ThespianManagementController.cs" />
+    <Compile Include="Hubs\ThespianManagementDeletionHub.cs" />
+    <Compile Include="Hubs\ThespianManagementHub.cs" />
+    <Compile Include="Installers\InstallMvcFromPlugin.cs" />
+    <Compile Include="Installers\RegisterRoutes.cs" />
+    <Compile Include="MessageHandlers\ThespianCreatedEventMessageHandler.cs" />
+    <Compile Include="MessageHandlers\ThespianDeletedEventMessageHandler.cs" />
+    <Compile Include="MessageHandlers\ThespianRenamedInternalEventMessageHandler.cs" />
+    <Compile Include="Models\CreateThespianViewModel.cs" />
+    <Compile Include="PreCommands\CreateThespianPreCommand.cs" />
+    <Compile Include="PreCommands\DeleteThespianPreCommand.cs" />
+    <Compile Include="PreCommands\RenameThespianPreCommand.cs" />
+    <Compile Include="PreCommands\UpdateThespianProfileImagePreCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ThespianManagement\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThespianManagement\Delete.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Delete.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThespianManagement\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.ProjectHollywood.Thespian.Management.Entities\ThreeBytes.ProjectHollywood.Thespian.Management.Entities.csproj">
+      <Project>{E7293A0E-1FAC-40F0-AFCF-5143A0567D38}</Project>
+      <Name>ThreeBytes.ProjectHollywood.Thespian.Management.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.ProjectHollywood.Thespian.Management.Resources\ThreeBytes.ProjectHollywood.Thespian.Management.Resources.csproj">
+      <Project>{3DC4A97D-1890-4DC4-A1CB-ADD3E7665A6B}</Project>
+      <Name>ThreeBytes.ProjectHollywood.Thespian.Management.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.ProjectHollywood.Thespian.Management.Service.Abstract\ThreeBytes.ProjectHollywood.Thespian.Management.Service.Abstract.csproj">
+      <Project>{C8B77BB1-5AB1-474C-ACD8-AC6C768374FD}</Project>
+      <Name>ThreeBytes.ProjectHollywood.Thespian.Management.Service.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.ProjectHollywood.Thespian.Management.Validations.Abstract\ThreeBytes.ProjectHollywood.Thespian.Management.Validations.Abstract.csproj">
+      <Project>{C74428B1-8006-4F8A-969B-71D18FED10D7}</Project>
+      <Name>ThreeBytes.ProjectHollywood.Thespian.Management.Validations.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.ProjectHollywood.Thespian.Messages\ThreeBytes.ProjectHollywood.Thespian.Messages.csproj">
+      <Project>{64BFFD07-7210-4CD2-8F4C-C56E3A59375D}</Project>
+      <Name>ThreeBytes.ProjectHollywood.Thespian.Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThespianManagement\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThespianManagement\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThespianManagement\Delete.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Delete.generated.cs</LastGenOutput>
+    </Content>
+    <None Include="Views\Web.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

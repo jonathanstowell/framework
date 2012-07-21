@@ -1,0 +1,125 @@
+﻿@model ThreeBytes.ProjectHollywood.Team.View.Entities.TeamViewEmployee
+
+<div id="team-employee-details-page" data-role="page">
+    <div data-role="header">
+        <h1><span data-bind="fadeInText:FirstName"></span> <span data-bind="fadeInText: LastName"></span></h1>
+        <a href="#navigation" data-icon="grid" data-rel="dialog" data-transition="flow" class="ui-btn-right">Menu</a>
+    </div>
+
+    <div data-role="content">
+        <div class="row">
+            <div class="span12">
+                <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+				    <li class="ui-li ui-li-static ui-body-c ui-corner-top">@Resources.JobTitle: <span data-bind="fadeInText:JobTitle"></span></li>
+				    <li class="ui-li ui-li-static ui-body-c ui-corner-bottom">@Resources.Summary: <span data-bind="fadeInText:Summary"></span></li>
+			    </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <a href="#" data-bind="click: takeMeBack" data-role="button" data-theme="b" data-icon="back">
+                    <span class="ui-btn-text">Take me back</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div data-role="footer">
+        <h4>Designed and built by <a href="http://www.threebytes.co.uk" target="_blank">Three Bytes</a>.</h4>
+    </div>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var team_employee_details = {};
+
+        (function (index) {
+
+            var hub = jQuery.connection.teamViewHub;
+
+            team_employee_details = index;
+
+            index.Id = ko.observable();
+            index.ItemId = ko.observable();
+            index.FirstName = ko.observable();
+            index.LastName = ko.observable();
+            index.JobTitle = ko.observable();
+            index.Summary = ko.observable();
+            index.History = ko.observableArray();
+
+            index.takeMeBack = function() {
+                jQuery(document).trigger('teamHost');
+            };
+
+            hub.handleRenamedTeamEmployeeEventMessage = function(id, newFirstName, newLastName) {
+                if (index.ItemId() != id)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;
+
+                if (index.FirstName() != newFirstName)
+                    index.FirstName(newFirstName);
+
+                if (index.LastName() != newLastName)
+                    index.LastName(newLastName);
+
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            hub.handleRenamedTeamEmployeeJobTitleEventMessage = function(id, newJobTitle) {
+                if (index.ItemId() != id)
+                    return;
+
+                if (index.JobTitle() == newJobTitle)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;
+                index.JobTitle(newJobTitle);
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            hub.handleUpdatedTeamEmployeeSummaryEventMessage = function(id, newSummary) {
+                if (index.ItemId() != id)
+                    return;
+
+                if (index.Summary() == newSummary)
+                    return;
+                    
+                ko.bindingHandlers.fadeInText.highlight = true;
+                index.Summary(newSummary);
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            jQuery(document).bind('teamEmployeeDetails', function (event, employee) {
+                jQuery.ajax({
+                    url: '/Team/GetDetails/' + employee.Id(),
+                    type: 'GET',
+                    dataType: 'json',
+                    beforeSend: function () { jQuery.mobile.showPageLoadingMsg(); },
+                    success: function(data) {
+                        index.Id(data.Id);
+                        index.ItemId(data.ItemId);
+                        index.FirstName(data.FirstName);
+                        index.LastName(data.LastName);
+                        index.JobTitle(data.JobTitle);
+                        index.Summary(data.Summary);
+                        index.History(data.History);
+
+                        jQuery.mobile.hidePageLoadingMsg();
+                        jQuery.mobile.changePage('#team-employee-details-page', {
+	                        transition: 'flow',
+	                        reverse: false,
+	                        changeHash: false
+                        });
+                    },
+                    complete: function() { jQuery.mobile.hidePageLoadingMsg(); }
+                });
+            });
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#team-employee-details-page')[0]);
+            });
+        } (team_employee_details));");
+  }
+}

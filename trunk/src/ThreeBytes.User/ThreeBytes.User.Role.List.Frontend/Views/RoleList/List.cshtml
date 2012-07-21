@@ -1,0 +1,168 @@
+﻿@model PagedRoleListRoleViewModel
+@{
+    ViewBag.Title = Resources.Index;
+}
+<div id="latest-user-roles-container">
+    <div data-bind="latestItems: latestViewModel"></div>
+</div>
+<div id="paged-user-roles-container">
+    <div data-bind="pagedGrid: pagedViewModel, pagedGridTemplate: 'paged-user-roles-table-tmpl'"></div>
+</div>
+
+<script type="text/x-jquery-tmpl" id="paged-user-roles-table-tmpl">
+    <div class="overall-table-count">
+        <em>@Resources.There&nbsp;<span data-bind="text:is_are"></span>&nbsp;<span data-bind="text:totalItemCount"></span>&nbsp;<span data-bind="text:plural"></span></em>
+    </div>
+
+    <table id="paged-user-roles-table"  class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th class="header yellow" data-bind="click: setOrderBy.bind($data, 'Name'), css: { headerSortDown: orderBy() == 'Name' && isAsc(), headerSortUp: orderBy() == 'Name' && !isAsc() }">
+                    @Resources.RoleName
+                </th>
+                <th class="header green" data-bind="click: setOrderBy.bind($data, 'CreationDateTime'), css: { headerSortDown: orderBy() == 'CreationDateTime' && isAsc(), headerSortUp: orderBy() == 'CreationDateTime' && !isAsc() }">
+                    @Resources.Creation
+                </th>
+                <th class="header red" data-bind="click: setOrderBy.bind($data, 'LastModifiedDateTime'), css: { headerSortDown: orderBy() == 'LastModifiedDateTime' && isAsc(), headerSortUp: orderBy() == 'LastModifiedDateTime' && !isAsc() }">
+                    @Resources.LastModified
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="paged-user-roles-tbody" data-bind="foreach: items">
+            <tr>        
+                <td data-bind="text: Name"></td>
+                <td data-bind="text: CreationDateTime"></td>
+                <td data-bind="text: LastModifiedDateTime"></td>
+                <td>
+                    <div class="btn-group open">
+                      <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Select <span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#" data-bind="click: function(event) { $parent.additionalFunctions.raiseEdit($data); }">@Resources.Edit</a></li>
+                        <li><a href="#" data-bind="click: function(event) { $parent.additionalFunctions.raiseDetails($data); }">@Resources.Details</a></li>
+                      </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+
+@{ 
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+        var user_role_latest_list  = {};
+    
+        (function (index) {
+
+            var itemMapping = {
+			    'CreationDateTime': ko.utils.getDateFromJson('dd/MMM HH:mm'),
+                'LastModifiedDateTime': ko.utils.getDateFromJson('dd/MMM HH:mm')
+		    };
+
+            var itemViewModel = function(data) {
+			    ko.mapping.fromJS(data, itemMapping, this);
+		    };
+
+            var mapping = {	
+			    'Items': {
+				    create: function(options) {
+					    return new itemViewModel(options.data);
+				    }
+			    }
+		    };
+        
+            user_role_latest_list = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model.MostRecentResult)) + @", mapping);
+
+            index.latestViewModel = new ko.latestItems.viewModel({
+                controller: 'Roles/List',
+                action: 'GetNewerThan',
+                data: index,
+                singular: 'Role',
+                plural: 'Roles',
+                loadPageCallback: function(data) {
+                    ko.mapping.fromJS(data, index);
+                },
+                divIdentifier: 'latest-user-roles-container',
+                pagingComponentIdentifier: 'paged-user-roles',
+                columns: [
+                    { headerText: 'Name', rowText: 'Name' },
+                    { headerText: 'Creation', rowText: 'CreationDateTime' },
+                    { headerText: 'Last Modified', rowText: 'LastModifiedDateTime' }
+                ]
+            });
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#latest-user-roles-container')[0]);
+            });     
+
+        } (user_role_latest_list));
+
+
+        var user_roles_paged_list  = {};
+
+        (function (index) {
+
+            var itemMapping = {
+			    'CreationDateTime': ko.utils.getDateFromJson('dd/MMM HH:mm'),
+                'LastModifiedDateTime': ko.utils.getDateFromJson('dd/MMM HH:mm')
+		    };
+
+            var itemViewModel = function(data) {
+			    ko.mapping.fromJS(data, itemMapping, this);
+		    };
+
+            var mapping = {	
+			    'Items': {
+				    create: function(options) {
+					    return new itemViewModel(options.data);
+				    }
+			    }
+		    };
+
+            index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model.PagedResult)) + @", mapping);
+
+            jQuery(document).bind('userRoleUpdated', function (event, item) {
+                var update = ko.utils.arrayFirst(index.Items(), function(obj) {
+                    return obj.Id() === item.Id();
+                });
+
+                update.Name(item.Name());
+                update.LastModifiedDateTime(ko.utils.getFormatedDateTimeNow());
+            });
+
+            index.pagedViewModel = new ko.pagedGrid.viewModel({
+                controller: 'Roles',
+                action: 'GetPage',
+                data: index,
+                singular: 'Role',
+                plural: 'Roles',
+                pagingComponentIdentifier: 'paged-user-roles',
+                loadPageCallback: function(data) {
+                    ko.mapping.fromJS(data, index);
+                },
+                columns: [
+                    { headerText: 'Name', rowText: 'Name' },
+                    { headerText: 'Application Name', rowText: 'ApplicationName' },
+                    { headerText: 'Creation Date Time', rowText: 'CreationDateTime' },
+                    { headerText: 'Last Modified Date Time', rowText: 'LastModifiedDateTime' }
+                ],
+                additionalFunctions: {
+                    raiseEdit: function (obj) {
+                        jQuery(document).trigger('userRoleEdit', [obj.Id()]);
+                    },
+                    raiseDetails: function (obj) {
+                        jQuery(document).trigger('userRoleDetails', [obj]);
+                    }
+                }
+            });
+        
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#paged-user-roles-container')[0]);
+            });
+
+        } (user_roles_paged_list));");
+    }
+}

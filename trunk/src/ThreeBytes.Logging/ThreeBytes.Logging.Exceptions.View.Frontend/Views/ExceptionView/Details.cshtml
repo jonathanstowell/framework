@@ -1,0 +1,75 @@
+﻿@model ExceptionView
+
+@{
+    ViewBag.Title = Resources.BrowserTitle;
+}
+
+<div id="exception-details-container">
+    <div id="exception-details-modal" class="modal hide fade">
+        <div class="modal-header">
+            <a href="#" class="close" data-bind="click: raiseClose">×</a>
+            <h3><span data-bind="text:Message"></span> @Resources.Details</h3>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="span16 columns">
+                    <fieldset>
+                        <div class="display-label">@Resources.Message</div>
+                        <div class="display-field"><span data-bind="text:Message"></span></div>
+
+                        <div class="display-label">@Resources.Source</div>
+                        <div class="display-field"><span data-bind="text:Source"></span></div>
+
+                        <div class="display-label">@Resources.StackTrace</div>
+                        <div class="display-field"><span data-bind="text:StackTrace"></span></div>
+
+                        <div class="display-label">@Resources.InnerException</div>
+                        <div class="display-field"><span data-bind="text:InnerException"></span></div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var exception_details = {};
+
+        (function (index) {
+
+            exception_details = index;
+
+            index.Id = ko.observable();
+            index.Message = ko.observable();
+            index.Source = ko.observable();
+            index.StackTrace = ko.observable();
+            index.InnerException = ko.observable();
+
+            index.raiseClose = function () {
+                index.detailModal.modal('hide');
+            };
+
+            jQuery(document).bind('exceptionDetails', function (event, template) {
+
+                jQuery.getJSON('/Exception/Details/' + template.Id(), function (data) {
+
+                    index.Id(data.Id);
+                    index.Message(data.Message);
+                    index.Source(data.Source);
+                    index.StackTrace(data.StackTrace);
+                    index.InnerException(data.InnerException);
+
+                    index.detailModal.modal('show');
+                });
+            });
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#exception-details-container')[0]);
+                index.detailModal = jQuery('#exception-details-modal').modal({ backdrop: true, closeOnEscape: true, modal: true });
+            });
+        } (exception_details));");
+  }
+}

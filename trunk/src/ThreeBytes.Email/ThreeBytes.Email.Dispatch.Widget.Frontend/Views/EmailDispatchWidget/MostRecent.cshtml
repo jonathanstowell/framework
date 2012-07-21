@@ -1,0 +1,56 @@
+﻿@model IList<ThreeBytes.Email.Dispatch.Widget.Entities.EmailDispatchWidgetEmailMessage>
+
+@{
+    ViewBag.Title = Resources.BrowserTitle;
+}
+    
+<div id="most-recent-dispatched-emails-container">
+    <h3>@Resources.MostRecentlyDispatchedEmails</h3>
+    <p data-bind="visible: Items().length == 0">No emails to display</p>
+    <table id="most-recent-dispatched-emails-table" class="table table-striped table-bordered table-condensed" data-bind="visible: Items().length > 0">
+        <thead>
+            <tr>
+                <th>
+                    @Resources.To
+                </th>
+                <th>
+                    @Resources.Subject
+                </th>
+            </tr>
+        </thead>
+        <tbody id="most-recent-dispatched-emails-tbody" data-bind="foreach: Items">
+            <tr data-bind="click: function(event) { $parent.raiseDetails($data); }" class="selectable">        
+                <td data-bind="text: To"></td>
+                <td data-bind="text: Subject"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var most_recent_dispatched_emails_latest_list = {};
+
+        (function(index) {
+
+            dispatched_emails_latest_list = index = ko.mapping.fromJS(" + @Html.Raw(string.Format("{{\"Items\" : {0}}}", new JavaScriptSerializer().Serialize(Model))) + @");
+            
+            index.raiseDetails = function(obj) {
+                jQuery(document).trigger('dispatchedEmailDetails', [obj]);
+            };
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#most-recent-dispatched-emails-container')[0]);
+            });
+        
+            setInterval(function() {
+                jQuery.getJSON('" + @Url.Action("MostRecent", "EmailDispatchWidget") + @"', function (data) {
+                    ko.mapping.fromJS(data, index);          
+                });
+            }, 5000);
+         
+        } (most_recent_dispatched_emails_latest_list));");
+  }
+}

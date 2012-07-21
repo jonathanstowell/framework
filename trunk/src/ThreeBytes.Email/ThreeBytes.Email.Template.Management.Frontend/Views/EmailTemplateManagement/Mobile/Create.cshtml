@@ -1,0 +1,92 @@
+﻿@model ThreeBytes.Email.Template.Management.Entities.EmailTemplateManagementTemplate
+<div id="create" data-role="page">
+    <div data-role="header">
+        <h1>Create</h1>
+    </div>
+    <div data-role="content">
+        <div id="create-template-container">
+            <div data-role="fieldcontain">
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name, new { @data_bind = "value: Name" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div data-role="fieldcontain">
+                @Html.LabelFor(model => model.ApplicationName)
+                @Html.TextBoxFor(model => model.ApplicationName, new { @data_bind = "value: ApplicationName" })
+                @Html.ValidationMessageFor(model => model.ApplicationName)
+            </div>
+            <div data-role="fieldcontain">
+                @Html.LabelFor(model => model.From)
+                @Html.TextBoxFor(model => model.From, new { @data_bind = "value: From" })
+                @Html.ValidationMessageFor(model => model.From)
+            </div>
+            <div data-role="fieldcontain">
+                @Html.LabelFor(model => model.Subject)
+                @Html.TextBoxFor(model => model.Subject, new { @data_bind = "value: Subject" })
+                @Html.ValidationMessageFor(model => model.Subject)
+            </div>
+            <div data-role="fieldcontain">
+                @Html.LabelFor(model => model.Body)
+                @Html.TextAreaFor(model => model.Body, new { @data_bind = "value: Body" })
+                @Html.ValidationMessageFor(model => model.Body)
+            </div>
+            <div data-role="fieldcontain">
+                @Html.LabelFor(model => model.IsHtml)
+                @Html.CheckBoxFor(model => model.IsHtml, new { @data_bind = "value: IsHtml" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div data-role="fieldcontain">
+                @Html.LabelFor(model => model.Encoding)
+                @Html.EnumDropDownListFor(model => model.Encoding)
+                @Html.ValidationMessageFor(model => model.Encoding)
+            </div>
+            <a href="#" data-bind="click: function() { email_template_create.save() }" data-role="button" data-icon="check" data-theme="b">Submit</a>
+            <a href="#" data-bind="click: function() { email_template_create.raiseBack() }" data-role="button" data-icon="arrow-l" data-theme="a">Back</a>
+        </div>
+    </div>
+    <div data-role="footer">
+        <h4>Designed and built by <a href="http://www.threebytes.co.uk" target="_blank">Three Bytes</a>.</h4>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var email_template_create = {};
+
+    (function (index) {
+
+        email_template_create = index;
+
+        index.Id = ko.observable();
+        index.Name = ko.observable();
+        index.ApplicationName = ko.observable();
+        index.From = ko.observable();
+        index.Subject = ko.observable();
+        index.Body = ko.observable();
+        index.IsHtml = ko.observable();
+        index.Encoding = ko.observable();
+
+        index.raiseBack = function () {
+            jQuery(document).trigger('emailTemplateHost');
+        };
+
+        index.save = function (form) {
+            var data = jQuery(form).serialize();
+
+            jQuery.post("Template/Create", data, function (dataReturned) {
+                if (dataReturned.IsValid) {
+                    jQuery(document).trigger('emailTemplateCreated');
+                }
+            });
+        };
+
+        jQuery(document).bind('emailTemplateCreate', function () {
+            jQuery.mobile.changePage("#create", "flip", true, false);
+        });
+
+        jQuery(function () {
+            ko.applyBindings(index, jQuery('#create-template-container')[0]);
+        });
+
+    } (email_template_create));
+</script>

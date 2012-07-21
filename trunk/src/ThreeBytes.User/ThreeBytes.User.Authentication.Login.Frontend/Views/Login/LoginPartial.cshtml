@@ -1,0 +1,48 @@
+﻿@model ThreeBytes.User.Authentication.Login.Frontend.Models.LoginViewModel
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "partial-login-form" }))
+{
+    <fieldset>
+        @Html.LabelFor(model => model.Username, "Username or Email")
+        @Html.TextBoxFor(model => model.Username)
+
+        @Html.LabelFor(model => model.Username, Resources.Password)
+        @Html.PasswordFor(model => model.Password)
+
+        <label class="checkbox">
+            @Html.CheckBoxFor(model => model.RememberMe) Remember me
+            <button type="submit" class="btn btn-primary pull-right" data-bind="click: login">@Resources.Login</button>
+        </label>
+    </fieldset>
+}
+
+ @{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var partial_login = {};
+
+        (function (index) {
+
+            partial_login = index;
+
+            index.login = function () {
+                jQuery('#partial-login-form').submit();
+            };
+
+            index.raiseLogin = function () {
+                index.loginModal.modal('show');
+            };
+
+            index.raiseClose = function () {
+                index.loginModal.modal('hide');
+            };
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#partial-login-container')[0]);
+                index.loginModal = jQuery('#partial-login-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+            });
+
+        } (partial_login));");
+  }
+}

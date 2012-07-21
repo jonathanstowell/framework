@@ -1,0 +1,150 @@
+﻿@model ThreeBytes.User.Authentication.Registration.FrontEnd.Models.RegisterExistingViewModel
+
+@{
+    ViewBag.Title = Resources.BrowserTitleRegister;
+}
+
+<section id="link-registation">
+    <div id="link-registation-container">
+        <div class="hero-unit"> 
+            <h1>@Resources.Register</h1> 
+        </div>
+        <div class="row">
+            <div class="span6">&nbsp;</div>
+            <div class="span5 well"> 
+                @if (Model.Success)
+                {
+                    <h2>@Resources.RegistrationSuccess</h2>
+                    <p>@string.Format(Resources.WeAreProcessingYourRequest, Model.Email) @Html.ActionLink(Resources.UnlockAccountPage, "VerifyAccount", new { userIdentifier = Model.UserName }).</p>
+                }
+                else
+                {
+                    <p>
+                        We already have a user for the email address you have provided who registered using either Facebook or Foursquare.
+                        Please continue if you wish create an account and link it to the existing user.
+                    </p>
+                    
+                    <table id="paged-users-table" class="table table-striped table-bordered table-condensed">
+                        <thead>
+                            <tr>
+                                <th class="header yellow">
+                                    Username
+                                </th>
+                                <th class="header green">
+                                    Email
+                                </th>
+                                <th class="header red">
+                                    Provider
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="paged-users-tbody">
+                            @foreach (var externalAuthentication in Model.ExternalUser.ExternalAuthentications)
+                            {
+                                <tr>        
+                                    <td>@externalAuthentication.Username</td>
+                                    <td>@externalAuthentication.Email</td>
+                                    <td>@externalAuthentication.ExternalAuthenticationType</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    using (Html.BeginForm("RegisterExisting", "Registration", FormMethod.Post, new { id = "link-registration-form" }))
+                    {
+                         <fieldset>
+
+                             <div class="clearfix">
+                                 @Html.LabelFor(model => model.UserName, Resources.UserName)
+                                 <div class="input">
+                                     @Html.EditorFor(model => model.UserName)
+                                     @if (!ViewData.ModelState.IsValidField("UserName"))
+                                     {
+                                         <div class="alert alert-error">
+                                             <a class="close" data-dismiss="alert">×</a>
+                                             @Html.ValidationMessageFor(model => model.UserName)
+                                         </div>
+                                     }
+                                 </div>
+                                 
+                             </div>
+
+                             <div class="clearfix">
+                                 @Html.LabelFor(model => model.Email, Resources.Email)
+                                 <div class="input">
+                                     @Html.EditorFor(model => model.Email)
+                                     @if (!ViewData.ModelState.IsValidField("Email"))
+                                     {
+                                         <div class="alert alert-error">
+                                             <a class="close" data-dismiss="alert">×</a>
+                                             @Html.ValidationMessageFor(model => model.Email)
+                                         </div>
+                                     }
+                                 </div>
+                             </div>
+
+                             <div class="clearfix">
+                                 @Html.LabelFor(model => model.Password, Resources.Password)
+                                 <div class="input">
+                                     @Html.PasswordFor(model => model.Password)
+                                     @if (!ViewData.ModelState.IsValidField("Password"))
+                                     {
+                                         <div class="alert alert-error">
+                                             <a class="close" data-dismiss="alert">×</a>
+                                             @Html.ValidationMessageFor(model => model.Password)
+                                         </div>
+                                     }
+                                 </div>
+                             </div>
+
+                             <div class="clearfix">
+                                 @Html.LabelFor(model => model.ConfirmPassword, Resources.ConfirmPassword)
+                                 <div class="input">
+                                     @Html.PasswordFor(model => model.ConfirmPassword)
+                                     @if (!ViewData.ModelState.IsValidField("ConfirmPassword"))
+                                     {
+                                         <div class="alert alert-error">
+                                             <a class="close" data-dismiss="alert">×</a>
+                                             @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                                         </div>
+                                     }
+                                 </div>
+                             </div>
+
+                             <div>
+                                <button class="btn btn-primary pull-right" data-bind="click: register">@Resources.Register</button>
+                             </div>
+                         </fieldset>
+                    }
+                }
+            </div>
+        </div>
+        <div class="page-footer">
+        </div>
+    </div>
+</section>
+
+@{ 
+    if (!Model.Success)
+    {
+        using (Html.BeginScriptContext())
+        {
+            Html.AddScriptBlock(@"
+        var registration = {};
+
+        (function (index) {
+
+            registration = index;
+
+            index.register = function () {
+                jQuery('#link-registration-form').submit();
+            };
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#link-registation-container')[0]);
+            });
+
+        } (registration));");
+        }
+    }
+}

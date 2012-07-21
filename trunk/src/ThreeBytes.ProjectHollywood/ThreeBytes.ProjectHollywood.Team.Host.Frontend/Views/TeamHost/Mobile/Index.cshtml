@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Id = "team-page";
+}
+
+@section Header
+{
+    <h1>Team</h1>
+}
+
+@{ Html.RenderAction("List", "TeamList"); }
+
+@section OtherPages
+{
+    @{ Html.RenderAction("Details", "TeamView");}
+}
+
+@{ 
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+
+        var team_host  = {};
+
+        (function (index) {
+
+            team_host = index;
+
+            jQuery(document).bind('teamHost', function (event) {
+                jQuery.mobile.changePage('#team-page', {
+	                transition: 'flow',
+	                reverse: false,
+	                changeHash: false
+                });
+            });
+
+        } (team_host));");
+    }
+}

@@ -1,0 +1,30 @@
+﻿@using ThreeBytes.Core.Security.Concrete
+@{
+	Page.Title = Resources.IndexBrowserTitle;
+}
+
+<section id="home">
+    <div class="hero-unit"> 
+        <h1>@Resources.ThreeBytesEmail</h1> 
+    </div>
+    <div class="row"> 
+        <div class="span6 columns">&nbsp;</div>
+        <div class="span6 columns">
+            @{ Html.RenderAction("MostRecent", "EmailDispatchWidget"); }
+            @{ Html.RenderAction("MostRecent", "EmailTemplateWidget"); }
+        </div>   
+    </div>
+
+    @{ Html.RenderAction("Details", "EmailDispatchView");}
+    @{ Html.RenderAction("Details", "EmailTemplateView");}
+
+    @if (((ThreeBytesPrincipal) Context.User).IsInAnyRoles(new[] { "Admin", "EmailTemplateManager" }))
+    {
+        { Html.RenderAction("Edit", "EmailTemplateManagement"); }
+    }
+        
+    @if (((ThreeBytesPrincipal) Context.User).IsInAnyRoles(new[] { "Admin", "EmailTemplateManager" }))
+    { 
+        { Html.RenderAction("Delete", "EmailTemplateManagement"); }
+    }
+</section>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets = "distribute-email-messages-libs"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<ProductName>Three Bytes Email Messages</ProductName>
+		<ProjectType>Shared Libaries</ProjectType>
+		<PublisherName>Three Bytes</PublisherName>
+		<BuildFolder></BuildFolder>
+		<ExportFolder></ExportFolder>
+		<CustomViewsFolder></CustomViewsFolder>
+		<ConfigMergerExePath></ConfigMergerExePath>
+		<Client></Client>
+		<OrganisationName></OrganisationName>
+		<ReleaseType></ReleaseType>
+		<Configuration Condition=" $(Configuration)=='' ">Debug</Configuration>
+		<BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
+		<SharedLibrariesLocation>..\..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.Email.Messages</SharedLibrariesLocation>
+	</PropertyGroup>
+	<Target Name="clear-shared-libs">
+		<Delete Files="$(SharedLibrariesLocation)\**\" />
+		<Message Text="Cleared Shared Libraries Folder" />
+	</Target>
+	<Target Name="build-threebytes-email-messages">
+		<MSBuild Projects="..\ThreeBytes.Email.Messages.sln" Properties="Configuration=$(Configuration)" Targets="Build"/>
+		<Message Text="BUILT THREEBYTES EMAIL MESSAGES"></Message>
+	</Target>
+	<Target Name="distribute-email-messages-libs" DependsOnTargets="clear-shared-libs;build-threebytes-email-messages;">
+		<ItemGroup>
+			<CoreLibraries Include="..\ThreeBytes.Email.Messages\bin\$(Configuration)\ThreeBytes.Email.Messages.dll"/>
+		</ItemGroup>
+		<MakeDir Directories = "$(SharedLibrariesLocation)" Condition="!Exists('$(SharedLibrariesLocation)')" />
+        <Copy SourceFiles="@(CoreLibraries)" DestinationFolder="$(SharedLibrariesLocation)" />
+		<Message Text="COPIED EMAIL MESSAGES LIBS"></Message>
+	</Target>
+</Project>

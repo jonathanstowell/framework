@@ -1,0 +1,37 @@
+﻿<div id="home" data-role="page">
+    <div data-role="header">
+        <h1>Three Bytes Email</h1> 
+    </div>
+    <div data-role="content">
+        <div class="span8 columns">
+            @{ Html.RenderAction("MostRecent", "EmailDispatchWidget"); }
+            @{ Html.RenderAction("MostRecent", "EmailTemplateWidget"); }
+        </div>   
+
+	    <a href="Template" rel="external" data-role="button" data-icon="grid" data-theme="a">Templates</a>
+		<a href="Dispatch" rel="external" data-role="button" data-icon="grid" data-theme="a">Dispatched</a>
+        <a href="Home/About" rel="external" data-role="button" data-icon="info" data-theme="a">About</a>
+    </div>
+    <div data-role="footer">
+        <h4>Designed and built by <a href="http://www.threebytes.co.uk" target="_blank">Three Bytes</a>.</h4>
+    </div>
+</div>
+
+@{ Html.RenderAction("Details", "EmailDispatchView"); }
+@{ Html.RenderAction("Details", "EmailTemplateView"); }
+@{ Html.RenderAction("Edit", "EmailTemplateManagement");}
+@{ Html.RenderAction("Delete", "EmailTemplateManagement");}
+
+<script type="text/javascript">
+
+    var home = {};
+
+    (function (index) {
+
+        home = index;
+
+        jQuery(document).bind('home', function () {
+            jQuery.mobile.changePage("#home", "flip", true, false);
+        });
+    } (home));
+</script>

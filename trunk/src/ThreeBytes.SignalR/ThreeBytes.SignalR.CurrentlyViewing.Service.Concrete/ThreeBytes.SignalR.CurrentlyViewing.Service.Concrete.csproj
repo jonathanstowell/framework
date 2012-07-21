@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2FD0CBCB-F062-4F15-A3B2-F0C053FCB0DB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.SignalR.CurrentlyViewing.Service.Concrete</RootNamespace>
+    <AssemblyName>ThreeBytes.SignalR.CurrentlyViewing.Service.Concrete</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThreeBytes.Core.Bootstrapper.Extensions">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Bootstrapper.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Caching.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Caching.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.ResultSets.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.ResultSets.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Abstract.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CurrentlyViewingUserService.cs" />
+    <Compile Include="Installers\BusWindsorInstaller.cs" />
+    <Compile Include="Installers\WebWindsorInstaller.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.SignalR.CurrentlyViewing.Configuration.Abstract\ThreeBytes.SignalR.CurrentlyViewing.Configuration.Abstract.csproj">
+      <Project>{EF36E636-AA4B-4BE1-8B64-586465DAA97E}</Project>
+      <Name>ThreeBytes.SignalR.CurrentlyViewing.Configuration.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.SignalR.CurrentlyViewing.Entities.Abstract\ThreeBytes.SignalR.CurrentlyViewing.Entities.Abstract.csproj">
+      <Project>{A4B27E42-60E0-42EF-832D-FE900AAD8ED0}</Project>
+      <Name>ThreeBytes.SignalR.CurrentlyViewing.Entities.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.SignalR.CurrentlyViewing.Entities.Concrete\ThreeBytes.SignalR.CurrentlyViewing.Entities.Concrete.csproj">
+      <Project>{E1535021-5CBE-42AF-A1A7-145181F049BE}</Project>
+      <Name>ThreeBytes.SignalR.CurrentlyViewing.Entities.Concrete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.SignalR.CurrentlyViewing.Service.Abstract\ThreeBytes.SignalR.CurrentlyViewing.Service.Abstract.csproj">
+      <Project>{6583EE53-76F2-4E91-8A86-8CD60DEBE5BE}</Project>
+      <Name>ThreeBytes.SignalR.CurrentlyViewing.Service.Abstract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

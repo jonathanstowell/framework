@@ -1,0 +1,51 @@
+﻿@model IList<ExceptionWidget>
+
+@{
+    ViewBag.Title = Resources.BrowserTitle;
+}
+    
+<div id="most-recent-logged-exceptions-container">
+    <h3>@Resources.MostRecentlyLoggedExceptions</h3>
+    <table id="most-recent-logged-exceptions-table" class="zebra-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Resources.Message
+                </th>
+                <th>
+                    @Resources.Source
+                </th>
+            </tr>
+        </thead>
+        <tbody id="most-recent-logged-exceptions-tbody" data-bind="foreach: Items">
+            <tr>        
+                <td data-bind="text: Message"></td>
+                <td data-bind="text: Source"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var most_recent_logged_exceptions_latest_list = {};
+
+        (function(index) {
+
+            most_recent_logged_exceptions_latest_list = index = ko.mapping.fromJS(" + @Html.Raw(string.Format("{{\"Items\" : {0}}}", new JavaScriptSerializer().Serialize(Model))) + @");
+        
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#most-recent-logged-exceptions-container')[0]);
+            });
+        
+            setInterval(function() {
+                jQuery.getJSON('/ExceptionWidget/MostRecent', function (data) {
+                    ko.mapping.fromJS(data, index);          
+                });
+            }, 1000);
+         
+        } (most_recent_logged_exceptions_latest_list));");
+  }
+}

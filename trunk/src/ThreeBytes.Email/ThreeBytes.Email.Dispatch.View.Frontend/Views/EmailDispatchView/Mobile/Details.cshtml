@@ -1,0 +1,102 @@
+﻿<div id="details" data-role="page">
+    <div id="dispatched-email-details-container">
+        <div data-role="header">
+            <h1><span data-bind="text:Subject"></span> Details</h1>
+        </div>
+        <div data-role="content">
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">From</div>
+                <div class="ui-block-b"><span data-bind="text:From"></span></div>
+            </fieldset>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">To</div>
+                <div class="ui-block-b"><span data-bind="text:To"></span></div>
+            </fieldset>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">CC</div>
+                <div class="ui-block-b"><span data-bind="text:CC"></span></div>
+            </fieldset>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">BCC</div>
+                <div class="ui-block-b"><span data-bind="text:BCC"></span></div>
+            </fieldset>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">Subject</div>
+                <div class="ui-block-b"><span data-bind="text:Subject"></span></div>
+            </fieldset>
+            <div data-role="collapsible" data-theme="b">
+                <h3>Body</h3>
+                <p><span data-bind="text:Body"></span></p>
+            </div>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">IsHtml</div>
+                <div class="ui-block-b"><span data-bind="text:IsHtml"></span></div>
+            </fieldset>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">Encoding</div>
+                <div class="ui-block-b"><span data-bind="text:Encoding"></span></div>
+            </fieldset>
+            <a href="#back" data-bind="click: function() { dispatched_emails_details.raiseBack() }" data-role="button" data-theme="a" data-icon="arrow-l">Back</a>
+        </div>
+        <div data-role="footer">
+            <h4>Designed and built by <a href="http://www.threebytes.co.uk" target="_blank">Three Bytes</a>.</h4>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var dispatched_emails_details = {};
+
+    (function (index) {
+
+        dispatched_emails_details = index;
+
+        index.Id = ko.observable();
+        index.From = ko.observable();
+        index.To = ko.observable();
+        index.CC = ko.observable();
+        index.BCC = ko.observable();
+        index.Subject = ko.observable();
+        index.Body = ko.observable();
+        index.IsHtml = ko.observable();
+        index.Encoding = ko.observable();
+
+        index.Back = ko.observable();
+
+        index.raiseBack = function () {
+
+            if (index.Back() == 'list') {
+                jQuery(document).trigger('dispatchedEmailsHost');
+            }
+            
+            if (index.Back() == 'home') {
+                jQuery(document).trigger('home');
+            }
+        };
+
+        jQuery(document).bind('dispatchedEmailDetails', function (event, email, back) {
+
+            index.Back(back);
+
+            jQuery.getJSON("Dispatch/Details/" + email.Id(), function (data) {
+
+                index.Id(data.Id);
+                index.From(data.From);
+                index.To(data.To);
+                index.CC(data.CC);
+                index.BCC(data.BCC);
+                index.Subject(data.Subject);
+                index.Body(data.Body);
+                index.IsHtml(data.IsHtml);
+                index.Encoding(data.Encoding);
+
+                jQuery.mobile.changePage("#details", "flip", true, false);
+            });
+        });
+
+        jQuery(function () {
+            ko.applyBindings(index, jQuery('#dispatched-email-details-container')[0]);
+        });
+    } (dispatched_emails_details));
+</script>

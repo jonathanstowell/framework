@@ -1,0 +1,193 @@
+﻿@model ThreeBytes.Email.Template.Management.Entities.EmailTemplateManagementTemplate
+@{
+    ViewBag.Title = Resources.BrowserTitleEdit;
+}
+
+<div id="edit-template-container">
+    <div id="email-template-edit-modal" class="modal modal-medium-wide hide fade">
+        <div class="modal-header">
+            <a href="#" class="close" data-bind="click: raiseClose">×</a>
+            <h3>@Resources.EditTemplate</h3>
+        </div>
+        <div id="email-template-edit-forms-container" class="modal-body modal-body-scrollable">
+            <div data-bind="error: GeneralErrors"></div>
+            <form id="rename-email-template-form">
+                <fieldset>
+                    <div class="clearfix">
+                        @Html.LabelFor(model => model.Name, Resources.Name)
+                        <div class="input input-small-margin">
+                            @Html.TextBoxFor(model => model.Name, new { @data_val = "true", @data_val_required = "'Name' should not be empty.", @data_val_length = "'Name' must be a string with a maximum length of 64.", @data_val_length_max = "64", @data_bind = "value: Name" })
+                            <button type="submit" class="btn btn-primary" data-bind="click: saveName">@Resources.Rename</button>
+                            <div data-valmsg-for="Name" data-valmsg-replace="true" data-bind="error: NameErrors"></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <form id="update-from-address-email-template-form">
+                <fieldset>
+                    <div class="clearfix">
+                        @Html.LabelFor(model => model.From, Resources.From)
+                        <div class="input input-small-margin">
+                            @Html.TextBoxFor(model => model.From, new { @data_val = "true", @data_val_required = "'From' should not be empty.", @data_val_email = "'From' is not a valid email address.", @data_val_length = "'From' must be a string with a maximum length of 128.", @data_val_length_max = "128", @data_bind = "value: From" })
+                            <button type="submit" class="btn btn-primary" data-bind="click: saveFromAddress">@Resources.Rename</button>
+                            <div data-valmsg-for="From" data-valmsg-replace="true" data-bind="error: FromErrors"></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <form id="update-email-content-email-template-form">
+                <fieldset>
+                    <div class="clearfix">
+                        @Html.LabelFor(model => model.Subject, Resources.Subject)
+                        <div class="input input-small-margin">
+                            @Html.TextBoxFor(model => model.Subject, new { @data_val = "true", @data_val_required = "'Subject' should not be empty.", @data_val_length = "'Subject' must be a string with a maximum length of 255.", @data_val_length_max = "255", @data_bind = "value: Subject" })
+                            <div data-valmsg-for="Subject" data-valmsg-replace="true" data-bind="error: SubjectErrors"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        @Html.LabelFor(model => model.Body, Resources.Body)
+                        <div class="input input-small-margin">
+                            @Html.TextAreaFor(model => model.Body, new { @data_val = "true", @data_val_required = "'Body' should not be empty.", @data_bind = "value: Body" })
+                            <div data-valmsg-for="Body" data-valmsg-replace="true" data-bind="error: BodyErrors"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        @Html.LabelFor(model => model.IsHtml, Resources.Html)
+                        <div class="input input-small-margin">
+                            @Html.CheckBoxFor(model => model.IsHtml, new { @data_bind = "value: IsHtml" })
+                            <div data-valmsg-for="IsHtml" data-valmsg-replace="true" data-bind="error: IsHtmlErrors"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        @Html.LabelFor(model => model.Encoding, Resources.Encoding)
+                        <div class="input input-small-margin">
+                            @Html.EnumDropDownListFor(model => model.Encoding)
+                            <button type="submit" class="btn btn-primary" data-bind="click: saveTemplateContent">@Resources.Update</button>
+                            <div data-valmsg-for="Encoding" data-valmsg-replace="true" data-bind="error: EncodingErrors"></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-info" data-bind="click: raiseDetails">Details</button>&nbsp;
+            <button type="submit" class="btn btn-danger" data-bind="click: raiseDelete">@Resources.Delete</button>&nbsp;
+            <button type="submit" class="btn btn-danger" data-bind="click: raiseClose">@Resources.Cancel</button>&nbsp;
+        </div>
+    </div>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var email_template_edit = {};
+
+        (function (index) {
+
+            email_template_edit = index;
+
+            var val = ko.setupValidation([], []);
+            val.createErrorCollections({Name: 0, From: 0, Subject: 0, Body: 0, IsHtml: 0, Encoding: 0, General: 0}, index, 'email-template-edit-forms-container');
+
+            index.Id = ko.observable();
+            index.Name = ko.observable();
+            index.ApplicationName = ko.observable();
+            index.From = ko.observable();
+            index.Subject = ko.observable();
+            index.Body = ko.observable();
+            index.IsHtml = ko.observable();
+            index.Encoding = ko.observable();
+
+            index.saveName = function (form) {
+                if(!jQuery('#rename-email-template-form').valid())
+                    return;
+
+                jQuery.post('" + @Url.Action("Rename", "Template") + @"', {
+                    'id': index.Id(),
+                    'name': index.Name()
+                }, function (dataReturned) {
+                    if (dataReturned.IsValid) {
+                        jQuery(document).trigger('emailTemplateUpdated', [dataReturned.Id]);
+                    }
+                    else {
+                        val.rebindValidations({Name: 0, From: 0, Subject: 0, Body: 0, IsHtml: 0, Encoding: 0, General: 0}, index, dataReturned.Errors);
+                    }
+                });
+            };
+
+            index.saveFromAddress = function (form) {
+                if(!jQuery('#update-from-address-email-template-form').valid())
+                    return;
+
+                jQuery.post('" + @Url.Action("RenameFromAddress", "Template") + @"', {
+                    'id': index.Id(),
+                    'from': index.From()
+                }, function (dataReturned) {
+                    if (dataReturned.IsValid) {
+                        jQuery(document).trigger('emailTemplateUpdated', [dataReturned.Id]);
+                    }
+                    else {
+                        val.rebindValidations({Name: 0, From: 0, Subject: 0, Body: 0, IsHtml: 0, Encoding: 0, General: 0}, index, dataReturned.Errors);
+                    }
+                });
+            };
+
+            index.saveTemplateContent = function (form) {
+                if(!jQuery('#update-email-content-email-template-form').valid())
+                    return;
+
+                jQuery.post('" + @Url.Action("Update", "Template") + @"', {
+                    'id': index.Id(),
+                    'subject': index.Subject(),
+                    'body': index.Body(),
+                    'isHtml': index.IsHtml(),
+                    'encoding': 'ASCII'
+                }, function (dataReturned) {
+                    if (dataReturned.IsValid) {
+                        jQuery(document).trigger('emailTemplateUpdated', [dataReturned.Id]);
+                    }
+                    else {
+                        val.rebindValidations({Name: 0, From: 0, Subject: 0, Body: 0, IsHtml: 0, Encoding: 0, General: 0}, index, dataReturned.Errors);
+                    }
+                });
+            };
+
+            index.raiseDetails = function () {
+                index.editModal.modal('hide');
+                jQuery(document).trigger('emailTemplateDetails', [index]);
+            };
+
+            index.raiseDelete = function () {
+                index.editModal.modal('hide');
+                jQuery(document).trigger('emailTemplateDelete', [index.Id()]);
+            };
+
+            index.raiseClose = function () {
+                index.editModal.modal('hide');
+            };
+
+            jQuery(document).bind('emailTemplateEdit', function (event, id) {
+
+                jQuery.getJSON('" + @Url.Action("Get", "TemplateManagement") + @"', { id: id }, function (data) {
+
+                    index.Id(data.Id);
+                    index.Name(data.Name);
+                    index.ApplicationName(data.ApplicationName);
+                    index.From(data.From);
+                    index.Subject(data.Subject);
+                    index.Body(data.Body);
+                    index.IsHtml(data.IsHtml);
+                    index.Encoding(data.Encoding);
+
+                    index.editModal.modal('show');
+                });
+            });
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#edit-template-container')[0]);
+                index.editModal = jQuery('#email-template-edit-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+            });
+        } (email_template_edit));");
+  }
+}

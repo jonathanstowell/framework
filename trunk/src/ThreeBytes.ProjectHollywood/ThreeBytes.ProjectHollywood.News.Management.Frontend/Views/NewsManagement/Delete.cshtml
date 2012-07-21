@@ -1,0 +1,95 @@
+﻿@model ThreeBytes.ProjectHollywood.News.Management.Entities.NewsManagementNewsArticle
+           
+@if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "NewsManager" }))
+{
+    <div id="delete-news-article-container">
+        <div id="delete-news-article-modal" class="modal hide fade">
+            <div class="modal-header">
+                <a href="#" class="close" data-bind="click: raiseClose">×</a>
+                <h3>@Resources.Delete <span data-bind="fadeInText: Title"></span> @Resources.NewsArticle</h3>
+            </div>
+            <div id="delete-news-article-form-container" class="modal-body">
+                <div data-bind="error: GeneralErrors"></div>
+                <p>Are you sure you wish to delete the <span data-bind="fadeInText: Title"></span> news article?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bind="click: deleteNewsArticle">@Resources.ConfirmDelete</button>&nbsp;
+                <button type="submit" class="btn btn-danger" data-bind="click: raiseClose">@Resources.Cancel</button>&nbsp;
+            </div>
+        </div>
+    </div>
+
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+        var news_article_delete = {};
+
+        (function (index) {
+
+            news_article_delete = index;
+
+            var hub = jQuery.connection.newsManagementDeletionHub;
+
+            var val = ko.setupValidation([], []);
+            val.createErrorCollections({General: 0}, index, 'delete-news-article-form-container');
+
+            index.Id = ko.observable();
+            index.Title = ko.observable();
+
+            index.deleteNewsArticle = function (form) {
+                jQuery.post('" + @Url.Action("Delete", "News") + @"', { 'id': index.Id() }, function (returnedData) {
+                    if (returnedData.IsValid) {
+                        jQuery(document).trigger('newsArticleDeleted', index.Id());
+                        jQuery(document).trigger('publishProcessingNotification', ['Processing news article deletion.', 'We are currently processing your request to delete the news article ' + index.Title() + '.']);
+                        index.deleteModal.modal('hide');
+                    }
+                    else {
+                        val.rebindValidations({General: 0}, index, dataReturned.Errors);
+                    }
+                });
+            };
+
+            index.raiseClose = function () {
+                index.deleteModal.modal('hide');
+            };
+
+            hub.handleRenamedNewsArticleTitleEventMessage = function(id, newTitle) {
+                if (index.Id() != id)
+                    return;
+
+                if (index.Title() == newTitle)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;
+                index.Title(newTitle);
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            hub.handleDeletedNewsArticleEventMessage = function(id) {
+                if (index.Id() != id)
+                    return;
+
+                jQuery(document).trigger('publishNotAllowedNotification', ['News Article No Longer Available.', 'This news article has been removed by another user. The window will automatically close.']);
+                index.deleteModal.modal('hide');
+                index.Id(null);
+            };
+
+            jQuery(document).bind('newsArticleDelete', function (event, id) {
+
+                jQuery.getJSON('" + @Url.Action("Get", "NewsManagement") + @"', { id: id }, function (data) {
+
+                    index.Id(data.NewsArticle.Id);
+                    index.Title(data.NewsArticle.Title);
+
+                    index.deleteModal.modal('show');
+                });
+            });
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#delete-news-article-container')[0]);
+                index.deleteModal = jQuery('#delete-news-article-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+            });
+
+        } (news_article_delete));");
+    }
+}

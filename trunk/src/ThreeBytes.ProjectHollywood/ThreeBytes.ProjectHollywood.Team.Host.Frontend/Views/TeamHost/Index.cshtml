@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "News";
+}
+
+<section id="team-home">
+    <div class="hero-unit"> 
+        <h1>Team</h1> 
+    </div>
+    <div class="row">
+        <div class="span12 columns">
+            
+            @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
+            {
+                Html.RenderAction("Create", "TeamManagement");
+            }
+
+            @{ Html.RenderAction("List", "TeamList"); }
+       
+        </div>
+
+        @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
+        {
+            Html.RenderAction("Edit", "TeamManagement");
+            Html.RenderAction("Delete", "TeamManagement");
+        }
+         
+        @{ Html.RenderAction("Details", "TeamView");}
+            
+    </div>
+</section>

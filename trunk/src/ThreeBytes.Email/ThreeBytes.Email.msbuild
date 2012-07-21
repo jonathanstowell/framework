@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets = "all-email"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\ThreeBytes.Build\msbuild\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+	<UsingTask AssemblyFile="ThreeBytes.Email.Infrastructure.ServiceBuildConvention\bin\Debug\ThreeBytes.Email.Infrastructure.ServiceBuildConvention.dll" TaskName="CopyService"/>
+	<PropertyGroup>
+		<ProductName>Three Bytes Email</ProductName>
+		<ProjectType>Shared Libaries</ProjectType>
+		<PublisherName>Three Bytes</PublisherName>
+		<BuildFolder></BuildFolder>
+		<ExportFolder></ExportFolder>
+		<CustomViewsFolder></CustomViewsFolder>
+		<ConfigMergerExePath></ConfigMergerExePath>
+		<Client></Client>
+		<OrganisationName></OrganisationName>
+		<ReleaseType></ReleaseType>
+		<Configuration Condition=" $(Configuration)=='' ">Debug</Configuration>
+		<BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
+		<WebPluginLocation>ThreeBytes.Email.WebUI\Plugins</WebPluginLocation>
+		<BusPluginLocation>ThreeBytes.Email.ServiceHost\bin\$(Configuration)\Plugins</BusPluginLocation>
+		<EmailWebPluginLocation>$(WebPluginLocation)\ThreeBytes.Email</EmailWebPluginLocation>
+		<EmailBusPluginLocation>$(BusPluginLocation)\ThreeBytes.Email</EmailBusPluginLocation>
+		<JobPluginLocation>ThreeBytes.Email.JobHost\bin\$(Configuration)\Plugins</JobPluginLocation>
+		<UserWebPluginLocation>..\ThreeBytes.User\ThreeBytes.User.WebUI\Plugins\ThreeBytes.Email</UserWebPluginLocation>
+		<ProjectHollywoodWebPluginLocation>..\ThreeBytes.ProjectHollywood\ThreeBytes.ProjectHollywood.WebUI\Plugins\ThreeBytes.Email</ProjectHollywoodWebPluginLocation>
+	</PropertyGroup>
+	
+	<Target Name="build-threebytes-email">
+		<MSBuild Projects="ThreeBytes.Email.sln" Properties="Configuration=$(Configuration)" Targets="Build"/>
+		<Message Text="BUILT THREEBYTES EMAIL"></Message>
+	</Target>
+	
+	<Target Name="external-messages">
+		<ItemGroup>
+			<ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.Email.Messages\ThreeBytes.Email.Messages.*"/>
+			<ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.Logging.Messages\ThreeBytes.Logging.Messages.*"/>
+			<ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.User.Messages\ThreeBytes.User.Messages.*"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(WebPluginLocation)" />
+		<Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(BusPluginLocation)" />
+	</Target>
+	
+	<Target Name="external-core-libs">
+		<ItemGroup>
+			<ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Encryption.*"/>
+			<ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Utilities.Concrete.dll"/>
+			<ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Email.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Caching.*"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Core" />
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Core" />
+	</Target>
+	
+	<Target Name="external-caching-libs">
+		<ItemGroup>
+			<ExternalCachingLibs Include="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.*" Exclude="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.WebCache.dll"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Caching" />
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Caching" />
+	</Target>
+
+  <Target Name="external-signalr-libs">
+    <ItemGroup>
+      <ExternalSignalRLibs Include="..\..\lib\internal\ThreeBytes.SignalR\ThreeBytes.SignalR.Hubs.*"/>
+    </ItemGroup>
+    <Copy SourceFiles="@(ExternalSignalRLibs)" DestinationFolder="$(WebPluginLocation)" />
+  </Target>
+  
+    <Target Name="host">
+		<ItemGroup>
+			<Host Include="Host.Home" />
+		</ItemGroup>
+		<CopyService Prefix="ThreeBytes.Email" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\Host" />
+	</Target>
+
+  <Target Name="navigation">
+    <ItemGroup>
+      <Navigation Include="Navigation" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.Email" AC="@(Navigation)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\Navigation" />
+  </Target>
+
+  <Target Name="about">
+    <ItemGroup>
+      <About Include="About" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.Email" AC="@(About)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\About" />
+  </Target>
+
+  <Target Name="configuration">
+    <ItemGroup>
+      <ConfigurationLibs Include="ThreeBytes.Email.Configuration.*\bin\$(Configuration)\ThreeBytes.Email.Configuration.*.dll"/>
+    </ItemGroup>
+    <Copy SourceFiles="@(ConfigurationLibs)" DestinationFolder="$(WebPluginLocation)\Configuration" />
+    <Copy SourceFiles="@(ConfigurationLibs)" DestinationFolder="$(BusPluginLocation)\Configuration" />
+    <Copy SourceFiles="@(ConfigurationLibs)" DestinationFolder="$(UserWebPluginLocation)\Configuration" />
+    <Copy SourceFiles="@(ConfigurationLibs)" DestinationFolder="$(LoggingWebPluginLocation)\Configuration" />
+    <Copy SourceFiles="@(ConfigurationLibs)" DestinationFolder="$(ProjectHollywoodWebPluginLocation)\Configuration" />
+  </Target>
+	
+	<Target Name="dispatch">
+		<ItemGroup>
+			<Dispatch Include="Dispatch" />
+			<Dispatch Include="Dispatch.Host" />
+			<Dispatch Include="Dispatch.List" />
+			<Dispatch Include="Dispatch.Management" />
+			<Dispatch Include="Dispatch.View" />
+			<Dispatch Include="Dispatch.Widget" />
+		</ItemGroup>
+		<CopyService Prefix="ThreeBytes.Email" AC="@(Dispatch)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\Dispatch" BackendFolder="$(EmailBusPluginLocation)\Dispatch" />
+		<CopyService Prefix="ThreeBytes.Email" AC="@(Dispatch)" Configuration="$(Configuration)" FrontendFolder="$(UserWebPluginLocation)\Dispatch" />
+		<CopyService Prefix="ThreeBytes.Email" AC="@(Dispatch)" Configuration="$(Configuration)" FrontendFolder="$(ProjectHollywoodWebPluginLocation)\Dispatch" />
+	</Target>
+	
+	<Target Name="template">
+		<ItemGroup>
+			<Template Include="Template" />
+			<Template Include="Template.Host" />
+			<Template Include="Template.List" />
+			<Template Include="Template.Management" />
+			<Template Include="Template.View" />
+			<Template Include="Template.Widget" />
+		</ItemGroup>
+		<CopyService Prefix="ThreeBytes.Email" AC="@(Template)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\Template" BackendFolder="$(EmailBusPluginLocation)\Template" />
+		<CopyService Prefix="ThreeBytes.Email" AC="@(Template)" Configuration="$(Configuration)" FrontendFolder="$(UserWebPluginLocation)\Template" />
+		<CopyService Prefix="ThreeBytes.Email" AC="@(Template)" Configuration="$(Configuration)" FrontendFolder="$(ProjectHollywoodWebPluginLocation)\Template" />
+	</Target>
+
+  <Target Name="dashboard">
+    <ItemGroup>
+      <Dashboard Include="Dashboard" />
+      <Dashboard Include="Dashboard.Host" />
+      <Dashboard Include="Dashboard.DispatchDaily" />
+      <Dashboard Include="Dashboard.DispatchMonthly" />
+      <Dashboard Include="Dashboard.DispatchQuarterly" />
+      <Dashboard Include="Dashboard.DispatchYearly" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.Email" AC="@(Dashboard)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\Dashboard" BackendFolder="$(EmailBusPluginLocation)\Dashboard" />
+    <CopyService Prefix="ThreeBytes.Email" AC="@(Dashboard)" Configuration="$(Configuration)" FrontendFolder="$(UserWebPluginLocation)\Dashboard" />
+    <CopyService Prefix="ThreeBytes.Email" AC="@(Dashboard)" Configuration="$(Configuration)" FrontendFolder="$(ProjectHollywoodWebPluginLocation)\Dashboard" />
+  </Target>
+  
+  <Target Name="all-email" DependsOnTargets="build-threebytes-email;copy-plugins;" />
+  <Target Name="copy-plugins" DependsOnTargets="external-messages;external-core-libs;external-caching-libs;external-signalr-libs;host;navigation;about;configuration;dispatch;template;dashboard;" />
+</Project>

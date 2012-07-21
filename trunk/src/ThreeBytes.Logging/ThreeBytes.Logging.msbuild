@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets = "all-logging"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\ThreeBytes.Build\msbuild\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+	<UsingTask AssemblyFile="ThreeBytes.Logging.Infrastructure.ServiceBuildConvention\bin\Debug\ThreeBytes.Logging.Infrastructure.ServiceBuildConvention.dll" TaskName="CopyService"/>
+	<PropertyGroup>
+		<ProductName>Three Bytes Logging</ProductName>
+		<ProjectType>Shared Libaries</ProjectType>
+		<PublisherName>Three Bytes</PublisherName>
+		<BuildFolder></BuildFolder>
+		<ExportFolder></ExportFolder>
+		<CustomViewsFolder></CustomViewsFolder>
+		<ConfigMergerExePath></ConfigMergerExePath>
+		<Client></Client>
+		<OrganisationName></OrganisationName>
+		<ReleaseType></ReleaseType>
+		<Configuration Condition=" $(Configuration)=='' ">Debug</Configuration>
+		<BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
+		<WebPluginLocation>ThreeBytes.Logging.WebUI\Plugins</WebPluginLocation>
+		<BusPluginLocation>ThreeBytes.Logging.ServiceHost\bin\$(Configuration)\Plugins</BusPluginLocation>
+		<LoggingWebPluginLocation>$(WebPluginLocation)\ThreeBytes.Logging</LoggingWebPluginLocation>
+		<LoggingBusPluginLocation>$(BusPluginLocation)\ThreeBytes.Logging</LoggingBusPluginLocation>
+	</PropertyGroup>
+	
+	<Target Name="build-threebytes-logging">
+		<MSBuild Projects="ThreeBytes.Logging.sln" Properties="Configuration=$(Configuration)" Targets="Build"/>
+		<Message Text="BUILT THREEBYTES LOGGING"></Message>
+	</Target>
+	
+	<Target Name="external-messages">
+		<ItemGroup>
+			<ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.Email.Messages\ThreeBytes.Email.Messages.*"/>
+			<ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.Logging.Messages\ThreeBytes.Logging.Messages.*"/>
+			<ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.User.Messages\ThreeBytes.User.Messages.*"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(WebPluginLocation)" />
+		<Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(BusPluginLocation)" />
+	</Target>
+	
+	<Target Name="external-core-libs">
+		<ItemGroup>
+			<ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Encryption.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Utilities.Concrete.dll"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Caching.*"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Core" />
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Core" />
+	</Target>
+	
+	<Target Name="external-caching-libs">
+		<ItemGroup>
+			<ExternalCachingLibs Include="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.*" Exclude="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.WebCache.dll"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Caching" />
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Caching" />
+	</Target>
+	
+	<Target Name="host">
+		<ItemGroup>
+			<Host Include="Host.Home" />
+		</ItemGroup>
+		<CopyService Prefix="ThreeBytes.Logging" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(LoggingWebPluginLocation)\Host" />
+	</Target>
+	
+	<Target Name="exceptions">
+		<ItemGroup>
+			<Exceptions Include="Exceptions" />
+			<Exceptions Include="Exceptions.Host" />
+			<Exceptions Include="Exceptions.List" />
+			<Exceptions Include="Exceptions.Management" />
+			<Exceptions Include="Exceptions.View" />
+			<Exceptions Include="Exceptions.Widget" />
+		</ItemGroup>
+		<CopyService Prefix="ThreeBytes.Logging" AC="@(Exceptions)" Configuration="$(Configuration)" FrontendFolder="$(LoggingWebPluginLocation)\Exceptions" BackendFolder="$(LoggingBusPluginLocation)\Exceptions" />
+	</Target>
+  
+  <Target Name="all-logging" DependsOnTargets="build-threebytes-Logging;copy-plugins;" />
+  <Target Name="copy-plugins" DependsOnTargets="external-messages;external-core-libs;external-caching-libs;host;exceptions;" />
+</Project>

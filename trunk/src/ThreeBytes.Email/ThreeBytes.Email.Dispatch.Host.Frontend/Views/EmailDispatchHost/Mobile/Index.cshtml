@@ -1,0 +1,33 @@
+﻿<div id="host" data-role="page">
+ 
+  <div data-role="header">
+    <h1>Resources.PageHeader</h1>
+  </div>
+ 
+  <div data-role="content">
+    @{ Html.RenderAction("List", "EmailDispatchList"); }
+
+    <a href="/" rel="external" data-role="button" data-icon="home" data-theme="a" class="ui-btn ui-btn-icon-left ui-btn-corner-all ui-shadow ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true"><span class="ui-btn-text">Home</span><span class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
+  </div>
+ 
+  <div data-role="footer">
+    <h4>Designed and built by <a href="http://www.threebytes.co.uk" target="_blank">Three Bytes</a>.</h4>
+  </div>
+
+</div>
+
+@{ Html.RenderAction("Details", "EmailDispatchView"); }
+
+<script type="text/javascript">
+
+    var dispatched_emails_host = {};
+
+    (function (index) {
+
+        dispatched_emails_host = index;
+
+        jQuery(document).bind('dispatchedEmailsHost', function () {
+            jQuery.mobile.changePage("#host", "flip", true, false);
+        });
+    } (dispatched_emails_host));
+</script>

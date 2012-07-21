@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{70E4289F-1611-4E3C-B5C1-35903B3DB407}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.Core.Email.Concrete</RootNamespace>
+    <AssemblyName>ThreeBytes.Core.Email.Concrete</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmailDispatcher.cs" />
+    <Compile Include="EmailMessage.cs" />
+    <Compile Include="Installers\BusWindsorInstaller.cs" />
+    <Compile Include="SendEmailResult.cs" />
+    <Compile Include="SmtpClientFactory.cs" />
+    <Compile Include="SmtpClientWrapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendBatchEmailResult.cs" />
+    <Compile Include="ThreeBytesTemplateEngine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.Core.Bootstrapper.Extensions\ThreeBytes.Core.Bootstrapper.Extensions.csproj">
+      <Project>{F7614B0B-C539-43B0-ABFC-1339EBFAB4A6}</Project>
+      <Name>ThreeBytes.Core.Bootstrapper.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Concrete\ThreeBytes.Core.Concrete.csproj">
+      <Project>{1D3A54D0-128A-4849-A86E-FD0DB4C67CA6}</Project>
+      <Name>ThreeBytes.Core.Concrete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Email.Abstract\ThreeBytes.Core.Email.Abstract.csproj">
+      <Project>{274086D5-C2C1-425D-8BDB-9FD13C00B0A2}</Project>
+      <Name>ThreeBytes.Core.Email.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Email.Configuration.Abstract\ThreeBytes.Core.Email.Configuration.Abstract.csproj">
+      <Project>{789B1937-900B-4E28-9F96-4463C5C2EC8A}</Project>
+      <Name>ThreeBytes.Core.Email.Configuration.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Entities.Abstract\ThreeBytes.Core.Entities.Abstract.csproj">
+      <Project>{107D9BF8-5442-41C2-B57B-D4055925323C}</Project>
+      <Name>ThreeBytes.Core.Entities.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Entities.Concrete\ThreeBytes.Core.Entities.Concrete.csproj">
+      <Project>{F9875356-9E5D-4297-B1B7-5468F44CD04B}</Project>
+      <Name>ThreeBytes.Core.Entities.Concrete</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

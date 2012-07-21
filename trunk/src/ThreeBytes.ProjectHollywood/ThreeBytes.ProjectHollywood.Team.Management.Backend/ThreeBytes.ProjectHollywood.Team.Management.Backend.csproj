@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2E2B8382-AF5E-418C-879A-DCA6B496720B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.ProjectHollywood.Team.Management.Backend</RootNamespace>
+    <AssemblyName>ThreeBytes.ProjectHollywood.Team.Management.Backend</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=3.1.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThreeBytes.Core.Entities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.NServiceBus">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Validations.Exceptions">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Validations.Exceptions.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.ProjectHollywood.Messages">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.ProjectHollywood.Messages\ThreeBytes.ProjectHollywood.Messages.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MessageHandlers\DeleteTeamEmployeeCommandMessageHandler.cs" />
+    <Compile Include="MessageHandlers\CreateTeamEmployeeCommandMessageHandler.cs" />
+    <Compile Include="MessageHandlers\RenameTeamEmployeeCommandMessageHandler.cs" />
+    <Compile Include="MessageHandlers\RenameTeamEmployeeJobTitleCommandMessageHandler.cs" />
+    <Compile Include="MessageHandlers\UpdateTeamEmployeeProfileImageCommandMessageHandler.cs" />
+    <Compile Include="MessageHandlers\UpdateTeamEmployeeSummaryCommandMessageHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.ProjectHollywood.Team.Management.Entities\ThreeBytes.ProjectHollywood.Team.Management.Entities.csproj">
+      <Project>{C40833BB-0659-454F-90AC-ADBA9A527231}</Project>
+      <Name>ThreeBytes.ProjectHollywood.Team.Management.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.ProjectHollywood.Team.Management.Service.Abstract\ThreeBytes.ProjectHollywood.Team.Management.Service.Abstract.csproj">
+      <Project>{EB622962-C156-4B3D-AF87-E886EDAB9569}</Project>
+      <Name>ThreeBytes.ProjectHollywood.Team.Management.Service.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.ProjectHollywood.Team.Management.Validations.Abstract\ThreeBytes.ProjectHollywood.Team.Management.Validations.Abstract.csproj">
+      <Project>{7BD0591A-DDD8-4565-9463-BD9AA12B2965}</Project>
+      <Name>ThreeBytes.ProjectHollywood.Team.Management.Validations.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.ProjectHollywood.Team.Messages\ThreeBytes.ProjectHollywood.Team.Messages.csproj">
+      <Project>{41BE181A-95F2-4392-9558-7213661A7BD2}</Project>
+      <Name>ThreeBytes.ProjectHollywood.Team.Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

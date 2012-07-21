@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E6F4775-563C-41AD-BA85-A8DF4F309B0C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.Core.Facebook.Concrete</RootNamespace>
+    <AssemblyName>ThreeBytes.Core.Facebook.Concrete</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\..\..\lib\external\Facebook\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FacebookClient.cs" />
+    <Compile Include="Installers\BusWindsorInstaller.cs" />
+    <Compile Include="Installers\WebWindsorInstaller.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.Core.Bootstrapper.Extensions\ThreeBytes.Core.Bootstrapper.Extensions.csproj">
+      <Project>{F7614B0B-C539-43B0-ABFC-1339EBFAB4A6}</Project>
+      <Name>ThreeBytes.Core.Bootstrapper.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Facebook.Abstract\ThreeBytes.Core.Facebook.Abstract.csproj">
+      <Project>{9D924D3C-4CB3-4F6F-9202-1581A302E129}</Project>
+      <Name>ThreeBytes.Core.Facebook.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Facebook.Configuration.Abstract\ThreeBytes.Core.Facebook.Configuration.Abstract.csproj">
+      <Project>{F5D020C0-D153-4CAD-B275-9BEC20C8C1DD}</Project>
+      <Name>ThreeBytes.Core.Facebook.Configuration.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Facebook.Entities.Abstract\ThreeBytes.Core.Facebook.Entities.Abstract.csproj">
+      <Project>{DFC17F54-669F-499C-BF07-DE6C4849EA0E}</Project>
+      <Name>ThreeBytes.Core.Facebook.Entities.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Facebook.Entities.Concrete\ThreeBytes.Core.Facebook.Entities.Concrete.csproj">
+      <Project>{62EDC784-BACF-45C0-BC2C-31386F025CE2}</Project>
+      <Name>ThreeBytes.Core.Facebook.Entities.Concrete</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

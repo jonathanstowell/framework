@@ -1,0 +1,1 @@
+﻿Feature: Core Entities Tests

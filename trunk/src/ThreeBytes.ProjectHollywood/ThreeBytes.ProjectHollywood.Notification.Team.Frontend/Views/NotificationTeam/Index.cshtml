@@ -1,0 +1,23 @@
+﻿@using ThreeBytes.Core.Security.Concrete
+
+@if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
+{
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+
+        var notification_team = {};
+
+        (function (index) {
+            
+            notification_team = index;
+
+            var hub = jQuery.connection.notificationTeamHub;
+
+            hub.handleNotification = function(id, title, message) {
+                jQuery(document).trigger('publishNotification', [id, title, message]);
+            };
+
+        } (notification_team));");
+    }
+}

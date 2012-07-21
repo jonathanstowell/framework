@@ -1,0 +1,79 @@
+@model IPagedResult<DashboardActiveUsers>
+
+<div id="most-active-users-login-container">
+    <h5>Most Active Users</h5>
+    <div>
+        <div data-bind="pagedGrid: pagedViewModel, pagedGridTemplate: 'most-active-users-login-table-tmpl', pagedGridPagerTemplate: 'ko_simpleGrid_basicPageLinks'"></div>
+    </div>
+</div>
+
+<script type="text/x-jquery-tmpl" id="most-active-users-login-table-tmpl">
+    <table id="most-active-users-login-table" class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th class="header">
+                    Username
+                </th>
+                <th class="header">
+                    Logins
+                </th>
+            </tr>
+        </thead>
+        <tbody id="most-active-users-login-tbody" data-bind="foreach: items">
+            <tr>        
+                <td data-bind="text: Username"></td>
+                <td data-bind="text: Logins"></td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+
+@{ 
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+        var most_active_users_login_model  = {};
+
+        (function (index) {
+
+            var itemMapping = {
+			    'CreationDateTime': ko.utils.getDateFromJson('dd/MMM HH:mm'),
+                'LastModifiedDateTime': ko.utils.getDateFromJson('dd/MMM HH:mm')
+		    };
+
+            var itemViewModel = function(data) {
+			    ko.mapping.fromJS(data, itemMapping, this);
+		    };
+
+            var mapping = {	
+			    'Items': {
+				    create: function(options) {
+					    return new itemViewModel(options.data);
+				    }
+			    }
+		    };
+
+            most_active_users_login_model = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model)) + @", mapping);
+
+            index.pagedViewModel = new ko.pagedGrid.viewModel({
+                controller: 'ActiveUsers',
+                action: 'GetPage',
+                data: index,
+                singular: 'User',
+                plural: 'Users',
+                loadPageCallback: function(data) {
+                    ko.mapping.fromJS(data, index);
+                },
+                columns: [
+                    { headerText: 'Username', rowText: 'Name' },
+                    { headerText: 'Logins Name', rowText: 'ApplicationName' }
+                ]
+            });
+        
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#most-active-users-login-container')[0]);
+            });
+
+        } (most_active_users_login_model));");
+    }
+}

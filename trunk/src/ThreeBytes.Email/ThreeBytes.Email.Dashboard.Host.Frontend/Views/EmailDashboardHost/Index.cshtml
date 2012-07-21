@@ -1,0 +1,41 @@
+﻿@using ThreeBytes.Core.Security.Concrete
+@{
+	Page.Title = "Email System Dashboard";
+}
+
+<section id="home">
+    <div class="hero-unit"> 
+        <h1>ThreeBytes Email Dashboard</h1> 
+    </div>
+    <div class="row"> 
+        <div class="span8 columns">
+            <div class="row">    
+                <div class="span3 columns well">
+                    @{ Html.RenderAction("DailyStatistics", "DispatchDaily"); }
+                    @{ Html.RenderAction("MonthlyStatistics", "DispatchMonthly"); }
+                </div>
+                <div class="span4 columns well">
+                    @{ Html.RenderAction("QuarterlyStatistics", "DispatchQuarterly"); }
+                    @{ Html.RenderAction("YearlyStatistics", "DispatchYearly"); }
+                </div>  
+            </div>
+        </div>
+        <div class="span4">
+            @{ Html.RenderAction("MostRecent", "EmailDispatchWidget"); }
+            @{ Html.RenderAction("MostRecent", "EmailTemplateWidget"); }
+        </div>   
+    </div>
+
+    @{ Html.RenderAction("Details", "EmailDispatchView");}
+    @{ Html.RenderAction("Details", "EmailTemplateView");}
+
+    @if (((ThreeBytesPrincipal) Context.User).IsInAnyRoles(new[] { "Admin", "EmailTemplateManager" }))
+    {
+        { Html.RenderAction("Edit", "EmailTemplateManagement"); }
+    }
+        
+    @if (((ThreeBytesPrincipal) Context.User).IsInAnyRoles(new[] { "Admin", "EmailTemplateManager" }))
+    { 
+        { Html.RenderAction("Delete", "EmailTemplateManagement"); }
+    }
+</section>

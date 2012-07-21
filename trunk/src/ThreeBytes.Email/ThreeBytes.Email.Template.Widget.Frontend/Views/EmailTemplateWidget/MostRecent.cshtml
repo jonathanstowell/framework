@@ -1,0 +1,55 @@
+﻿@model IList<ThreeBytes.Email.Template.Widget.Entities.EmailTemplateWidgetTemplate>
+
+@{
+    ViewBag.Title = Resources.BrowserTitle;
+}
+    
+<div id="most-recent-templates-container">
+    <h3>@Resources.MostRecentlyCreatedTemplates</h3>
+    <table id="most-recent-templates-emails-table" class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>
+                    @Resources.Name
+                </th>
+                <th>
+                    Subject
+                </th>
+            </tr>
+        </thead>
+        <tbody id="most-recent-templates-emails-tbody" data-bind="foreach: Items">
+            <tr data-bind="click: function(event) { $parent.raiseDetails($data); }" class="selectable">        
+                <td data-bind="text: Name"></td>
+                <td data-bind="text: Subject"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@{ 
+    using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var most_recent_templates_latest_list = {};
+
+        (function(index) {
+
+            most_recent_templates_latest_list = index = ko.mapping.fromJS(" + @Html.Raw(string.Format("{{\"Items\" : {0}}}", new JavaScriptSerializer().Serialize(Model))) + @");
+        
+            index.raiseDetails = function(obj) {
+                jQuery(document).trigger('emailTemplateDetails', [obj]);
+            };
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#most-recent-templates-container')[0]);
+            });
+        
+            setInterval(function() {
+                jQuery.getJSON('EmailTemplateWidget/MostRecent', function (data) {
+                    ko.mapping.fromJS(data, index);          
+                });
+            }, 5000);
+         
+        } (most_recent_templates_latest_list));");
+  }
+}

@@ -1,0 +1,101 @@
+﻿@model ThreeBytes.ProjectHollywood.News.Management.Entities.NewsManagementNewsArticle
+
+@if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "NewsManager" }))
+{
+    <div id="create-news-article-container">
+        <p>
+            <button class="btn btn-primary" data-bind="click: raiseCreate" rel = "popover" data_content ="@Resources.CreatePopoverContent" data_original_title ="@Resources.CreatePopoverTitle">@Resources.Create</button>
+        </p>
+        <div id="create-news-article-modal" class="modal modal-medium-wide hide fade">
+            <div class="modal-header">
+                <a href="#" class="close" data-bind="click: raiseClose">×</a>
+                <h3>@Resources.CreateNewsArticle</h3>
+            </div>
+            <div class="modal-body modal-body-scrollable">
+                <div data-bind="error: GeneralErrors"></div>
+                <form id="create-news-article-form">
+                    <fieldset>
+                        <div class="clearfix">
+                            @Html.LabelFor(model => model.Title, Resources.Title)
+                            <div class="input input-small-margin">
+                                @Html.TextBoxFor(model => model.Title, new { @data_val = "true", @data_val_required = "'Title' should not be empty.", @data_val_length = "'Title' must be a string with a maximum length of 100.", @data_val_length_max = "100", @data_bind = "value: Title" })
+                                <div data-valmsg-for="Title" data-valmsg-replace="true" data-bind="error: TitleErrors"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            @Html.LabelFor(model => model.Content, Resources.Content)
+                            <div class="input input-small-margin">
+                                @Html.TextAreaFor(model => model.Content, new { @data_val = "true", @data_val_required = "'Content' should not be empty.", @data_bind = "value: Content" })
+                                <div data-valmsg-for="Content" data-valmsg-replace="true" data-bind="error: ContentErrors"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bind="click: save">@Resources.SaveChanges</button>&nbsp;
+                <button type="submit" class="btn btn-danger" data-bind="click: raiseClose">@Resources.Cancel</button>&nbsp;
+            </div>
+        </div>
+    </div>
+
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+
+        var news_article_create = {};
+
+        (function (index) {
+
+            news_article_create = index;
+
+            var val = ko.setupValidation([], []);
+            val.createErrorCollections({Title: 0, Content: 0, General: 0}, index, 'create-news-article-form');
+
+            index.Title = ko.observable();
+            index.Content = ko.observable();
+
+            index.toJS = function() {
+                return { Title: index.Title(), Content: index.Content() }
+            };
+
+            index.raiseCreate = function () {
+                index.clear();
+                index.createModal.modal('show');
+            };
+
+            index.raiseClose = function () {
+                index.createModal.modal('hide');
+            };
+
+            index.save = function (form) {
+                if(!jQuery('#create-news-article-form').valid())
+                    return;
+
+                jQuery.post('" + @Url.Action("Create", "News") + @"', index.toJS(), function (dataReturned) {
+                    if (dataReturned.IsValid) {
+                        jQuery(document).trigger('newsArticleCreated');
+                        jQuery(document).trigger('publishProcessingNotification', ['Processing news article creation.', 'We are currently processing your request to create the news article ' + index.Title() + '.']);
+                        index.createModal.modal('hide');
+                    }
+                    else {
+                        val.rebindValidations({Title: 0, Content: 0, General: 0}, index, dataReturned.Errors);
+                    }
+                });
+            };
+
+            index.clear = function() {
+                index.Title(null);
+                index.Content(null);
+
+                val.clearValidations({Title: 0, Content: 0, General: 0}, index);
+            };
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#create-news-article-container')[0]);
+                index.createModal = jQuery('#create-news-article-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+            });
+
+        } (news_article_create));");
+    }
+}

@@ -1,0 +1,74 @@
+﻿@model ThreeBytes.Email.Template.Management.Entities.EmailTemplateManagementTemplate
+
+@{
+    ViewBag.Title = Resources.BrowserTitleDelete;
+}
+
+<div id="delete-template-container">
+    <div id="email-template-delete-modal" class="modal hide fade">
+        <div class="modal-header">
+            <a href="#" class="close" data-bind="click: function() { email_template_delete.raiseClose() }">×</a>
+            <h3>@Resources.Delete <span data-bind="text:Name"></span> @Resources.Template</h3>
+        </div>
+        <div id="delete-template-form-container" class="modal-body">
+            <div data-bind="error: GeneralErrors"></div>
+            <p>Are you sure you wish to delete the <span data-bind="text: Name"></span> template?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bind="click: deleteTemplate">@Resources.ConfirmDelete</button>&nbsp;
+            <button type="submit" class="btn btn-danger" data-bind="click: function() { email_template_delete.raiseClose() }">@Resources.Cancel</button>&nbsp;
+            <button class="btn btn-danger" data-bind="click: raiseClose">Close</button>
+        </div>
+    </div>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var email_template_delete = {};
+
+        (function (index) {
+
+            email_template_delete = index;
+
+            var val = ko.setupValidation([], []);
+            val.createErrorCollections({Name: 0, General: 0}, index, 'delete-template-form-container');
+
+            index.Id = ko.observable();
+            index.Name = ko.observable();
+
+            index.deleteTemplate = function () {
+                jQuery.post('" + @Url.Action("Delete", "Template") + @"', { id: index.Id() }, function (dataReturned) {
+                    if (dataReturned.IsValid) {
+                        jQuery(document).trigger('emailTemplateDeleted', [dataReturned.Id]);
+                        index.deleteModal.modal('hide');
+                    }
+                    else {
+                        val.rebindValidations({Name: 0, General: 0}, index, dataReturned.Errors);
+                    }
+                });
+            };
+
+            index.raiseClose = function () {
+                index.deleteModal.modal('hide');
+            };
+
+            jQuery(document).bind('emailTemplateDelete', function (event, id) {
+
+                jQuery.getJSON('" + @Url.Action("Get", "TemplateManagement") + @"', { id: id }, function (data) {
+
+                    index.Id(data.Id);
+                    index.Name(data.Name);
+
+                    index.deleteModal.modal('show');
+                });
+            });
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#delete-template-container')[0]);
+                index.deleteModal = jQuery('#email-template-delete-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+            });
+        } (email_template_delete));");
+  }
+}

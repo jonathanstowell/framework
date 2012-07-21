@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets = "all-signalr"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<ProductName>Three Bytes SignalR</ProductName>
+		<ProjectType>Share Libaries</ProjectType>
+		<PublisherName>Three Bytes</PublisherName>
+		<BuildFolder></BuildFolder>
+		<ExportFolder></ExportFolder>
+		<CustomViewsFolder></CustomViewsFolder>
+		<ConfigMergerExePath></ConfigMergerExePath>
+		<Client></Client>
+		<OrganisationName></OrganisationName>
+		<ReleaseType></ReleaseType>
+		<Configuration Condition=" $(Configuration)=='' ">Debug</Configuration>
+		<BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
+		<SharedLibrariesLocation>..\..\..\lib\internal\ThreeBytes.SignalR</SharedLibrariesLocation>
+	</PropertyGroup>
+	<Target Name="clear-shared-libs">
+		<Delete Files="$(SharedLibrariesLocation)\*" />
+		<Message Text="Cleared Shared Libraries Folder" />
+	</Target>
+	<Target Name="build-threebytes-signalr">
+		<MSBuild Projects="..\ThreeBytes.SignalR.sln" Properties="Configuration=$(Configuration)" Targets="Build"/>
+		<Message Text="BUILT THREEBYTES SIGNALR"></Message>
+	</Target>
+	<Target Name="distribute-signalr-libs" DependsOnTargets="clear-shared-libs;build-threebytes-signalr;">
+		<ItemGroup>
+			<SignalRLibraries Include="..\ThreeBytes.SignalR.*\bin\$(Configuration)\ThreeBytes.SignalR.*.*" />
+		</ItemGroup>
+		<MakeDir Directories = "$(SharedLibrariesLocation)" Condition="!Exists('$(SharedLibrariesLocation)')" />
+		<Copy SourceFiles="@(SignalRLibraries)" DestinationFolder="$(SharedLibrariesLocation)" />
+		<Message Text="COPIED SHARED SIGNAL R LIBS"></Message>
+	</Target>
+	
+	<Target Name="all-signalr" DependsOnTargets="build-threebytes-signalr;distribute-signalr-libs;"/>
+</Project>

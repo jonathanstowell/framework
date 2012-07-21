@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5FD3BC65-A07C-4C21-B66C-B1B7B6051D30}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.Core.Data.nHibernate.Concrete</RootNamespace>
+    <AssemblyName>ThreeBytes.Core.Data.nHibernate.Concrete</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\..\lib\external\NHibernate.Castle.3.1.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractDatabaseFactoryBase.cs" />
+    <Compile Include="GenericRepository.cs" />
+    <Compile Include="HistoricGenericRepository.cs" />
+    <Compile Include="HistoricKeyedGenericRepository.cs" />
+    <Compile Include="HistoricReadOnlyGenericRepository.cs" />
+    <Compile Include="Installers\BusWindsorInstaller.cs" />
+    <Compile Include="Installers\WebWindsorInstaller.cs" />
+    <Compile Include="KeyedGenericRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadOnlyGenericRepository.cs" />
+    <Compile Include="RepositoryBase.cs" />
+    <Compile Include="UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.Core.Bootstrapper.Extensions\ThreeBytes.Core.Bootstrapper.Extensions.csproj">
+      <Project>{F7614B0B-C539-43B0-ABFC-1339EBFAB4A6}</Project>
+      <Name>ThreeBytes.Core.Bootstrapper.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Concrete\ThreeBytes.Core.Concrete.csproj">
+      <Project>{1D3A54D0-128A-4849-A86E-FD0DB4C67CA6}</Project>
+      <Name>ThreeBytes.Core.Concrete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Data.Abstract\ThreeBytes.Core.Data.Abstract.csproj">
+      <Project>{1D61579A-EC49-4038-BFE9-C904C0962B67}</Project>
+      <Name>ThreeBytes.Core.Data.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Data.Entities.Abstract\ThreeBytes.Core.Data.Entities.Abstract.csproj">
+      <Project>{B4B1DEC0-FB73-4F04-BD30-66301366A644}</Project>
+      <Name>ThreeBytes.Core.Data.Entities.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Data.nHibernate.Abstract\ThreeBytes.Core.Data.nHibernate.Abstract.csproj">
+      <Project>{02BE81E1-E0DE-439B-897B-A5F57E994A2E}</Project>
+      <Name>ThreeBytes.Core.Data.nHibernate.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Data.ResultSets.Abstract\ThreeBytes.Core.Data.ResultSets.Abstract.csproj">
+      <Project>{E35E7235-82A4-497B-A896-7410C9603D17}</Project>
+      <Name>ThreeBytes.Core.Data.ResultSets.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Data.ResultSets.Concrete\ThreeBytes.Core.Data.ResultSets.Concrete.csproj">
+      <Project>{B6C54E5F-1F03-4030-816D-11233F6C065B}</Project>
+      <Name>ThreeBytes.Core.Data.ResultSets.Concrete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Entities.Abstract\ThreeBytes.Core.Entities.Abstract.csproj">
+      <Project>{107D9BF8-5442-41C2-B57B-D4055925323C}</Project>
+      <Name>ThreeBytes.Core.Entities.Abstract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

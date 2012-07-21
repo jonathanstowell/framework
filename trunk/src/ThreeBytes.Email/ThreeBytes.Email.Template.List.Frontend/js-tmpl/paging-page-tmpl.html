@@ -1,0 +1,7 @@
+﻿{{each(i) ko.utils.range(1, PageCount)}} 
+    <li  data-bind="css: { active: i + 1 === PageNumber() }">
+        <a href="#" title="View page ${ i + 1 }" data-bind="click: function (event) { navigate(event) }">
+            ${ i + 1 }
+        </a>
+    </li>
+{{/each}}

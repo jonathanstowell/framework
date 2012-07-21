@@ -1,0 +1,44 @@
+﻿<script type="text/javascript">
+
+    var most_recent_dispatched_emails_latest_list = {};
+
+    (function(index) {
+
+        most_recent_dispatched_emails_latest_list = index = ko.mapping.fromJS(@Html.Raw(string.Format("{{\"Items\" : {0}}}", new JavaScriptSerializer().Serialize(Model))));
+        
+        index.raiseDetails = function (obj) {
+                jQuery(document).trigger('dispatchedEmailDetails', [obj, 'home']);
+            };
+        
+        jQuery(function() {
+            ko.applyBindings(index, jQuery('#most-recent-dispatched-emails-container')[0]);
+        });
+        
+        setInterval(function() {
+            jQuery.getJSON("EmailDispatchWidget/MostRecent", function (data) {
+                ko.mapping.fromJS(data, index);          
+            });
+        }, 1000);
+         
+    } (most_recent_dispatched_emails_latest_list));
+    
+</script>
+
+<script id="most-recent-dispatched-emails-list-grid-tmpl" type="text/x-jquery-tmpl">    
+    <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c">
+        <div class="ui-btn-inner ui-li" aria-hidden="true">
+            <div class="ui-btn-text">
+                <a href="#" class="ui-link-inherit" data-bind="click: function() { most_recent_dispatched_emails_latest_list.raiseDetails($data) }">
+                    <h3 class="ui-li-heading">${To}</h3>
+                    <p class="ui-li-desc">${Subject}</p>
+                </a>
+            </div>
+            <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+        </div>
+    </li>
+</script>
+
+<div id="most-recent-dispatched-emails-container">
+    <h3>Most Recently Dispatched Emails</h3>
+    <ul data-role="listview" data-inset="true" data-bind="template: { name: 'most-recent-dispatched-emails-list-grid-tmpl', foreach: Items }" class="ui-listview"></ul>
+</div>

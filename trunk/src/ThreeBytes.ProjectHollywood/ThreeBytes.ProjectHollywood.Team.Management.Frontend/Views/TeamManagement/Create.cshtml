@@ -1,0 +1,195 @@
+﻿@model ThreeBytes.ProjectHollywood.Team.Management.Entities.TeamManagementEmployee
+
+@if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
+{
+    <div id="create-team-employee-container">
+        <p>
+            <button class="btn btn-primary" data-bind="click: raiseCreate" rel = "popover" data_content ="@Resources.CreatePopoverContent" data_original_title ="@Resources.CreatePopoverTitle">@Resources.Create</button>
+        </p>
+        <div id="create-team-employee-modal" class="modal modal-medium-wide hide fade">
+            <div class="modal-header">
+                <a href="#" class="close" data-bind="click: raiseClose">×</a>
+                <h3>@Resources.CreateTeamEmployee</h3>
+            </div>
+            <div class="modal-body modal-body-scrollable">
+                <div data-bind="error: GeneralErrors"></div>
+                <form id="create-team-employee-form">
+                    <fieldset>
+                        <div class="row">
+                            <div class="span3 columns">
+                                <div class="clearfix"> 
+                                    @Html.LabelFor(model => model.FirstName, Resources.FirstName)
+        
+                                    <div class="input input-small-margin">
+                                        @Html.TextBoxFor(model => model.FirstName, new { @data_val = "true", @data_val_required = "'First Name' should not be empty.", @data_val_length = "'First Name' must be a string with a maximum length of 35.", @data_val_length_max = "35", @data_bind = "value: FirstName" })
+                                        <div data-valmsg-for="FirstName" data-valmsg-replace="true" data-bind="error: FirstNameErrors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"> 
+                                    @Html.LabelFor(model => model.LastName, Resources.LastName)
+        
+                                    <div class="input input-small-margin">
+                                        @Html.TextBoxFor(model => model.LastName, new { @data_val = "true", @data_val_required = "'Last Name' should not be empty.", @data_val_length = "'Last Name' must be a string with a maximum length of 35.", @data_val_length_max = "35", @data_bind = "value: LastName" })
+                                        <div data-valmsg-for="LastName" data-valmsg-replace="true" data-bind="error: LastNameErrors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"> 
+                                    @Html.LabelFor(model => model.LastName, Resources.JobTitle)
+        
+                                    <div class="input input-small-margin">
+                                        @Html.TextBoxFor(model => model.JobTitle, new { @data_val = "true", @data_val_required = "'Job Title' should not be empty.", @data_val_length = "'Job Title' must be a string with a maximum length of 50.", @data_val_length_max = "50", @data_bind = "value: JobTitle" })
+                                        <div data-valmsg-for="JobTitle" data-valmsg-replace="true" data-bind="error: JobTitleErrors"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="clearfix image">
+                                    <label for="team-profile-image">Profile Image <input type="file" id="team-profile-image" name="team-profile-image" /></label>
+                                    <div data-bind="error: ProfileImageLocationErrors"></div>
+                                    <span class="label label-success" data-bind="visible: HasImageBeenUploaded">Upload Success</span>
+
+                                    <div data-valmsg-for="ProfileImageLocation" data-valmsg-replace="true" data-bind="error: ProfileImageLocationErrors"></div>
+                                    <input type="hidden" id="ProfileImageLocation" name="ProfileImageLocation" data-bind = "value: ProfileImageLocation" />
+                                    <input type="hidden" id="ProfileThumbnailImageLocation" name="ProfileThumbnailImageLocation" data-bind = "value: ProfileThumbnailImageLocation" />
+                                </div>
+                            </div>
+                            <div class="span3 columns">
+                                <div id="team-profile-image-container">
+                                    <ul class="thumbnails">
+                                        <li class="span3">
+                                            <div class="thumbnail">
+                                                <img data-bind="attr: { src: ProfileImageUrl() }" />
+                                                <div class="caption"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="columns">
+                                <div class="clearfix">
+                                    @Html.LabelFor(model => model.Summary, Resources.Summary)
+        
+                                    <div class="input input-small-margin">
+                                        @Html.TextAreaFor(model => model.Summary, new { @data_val = "true", @data_val_required = "'Summary' should not be empty.", @data_bind = "value: Summary" })
+                                        <div data-valmsg-for="Summary" data-valmsg-replace="true" data-bind="error: SummaryErrors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bind="click: save">@Resources.SaveChanges</button>&nbsp;
+                <button type="submit" class="btn btn-danger" data-bind="click: raiseClose">@Resources.Cancel</button>&nbsp;
+            </div>
+        </div>
+    </div>
+
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+        var team_employee_create = {};
+
+        (function (index) {
+
+            team_employee_create = index;
+
+            var val = ko.setupValidation([], []);
+            val.createErrorCollections({FirstName: 0, LastName: 0, JobTitle: 0, ProfileImageLocation: 0, Summary: 0, General: 0}, index, 'create-team-employee-form');
+
+            index.FirstName = ko.observable();
+            index.LastName = ko.observable();
+            index.JobTitle = ko.observable();
+            index.ProfileImageLocation = ko.observable();
+            index.ProfileThumbnailImageLocation = ko.observable();
+            index.Summary = ko.observable();
+
+            index.HasImageBeenUploaded = ko.observable(false);
+
+            index.ProfileImageUrl = ko.computed(function() {
+                return index.HasImageBeenUploaded() ? '" + @Url.Action("GetProfileImage", "Team") + @"' + '/' + index.ProfileThumbnailImageLocation() : '" + @Url.Content("img/placeholder260x180.gif") + @"';
+            });
+
+            index.toJS = function() {
+                return { 
+                    FirstName: index.FirstName() == null ? '' : index.FirstName(), 
+                    LastName: index.LastName() == null ? '' : index.LastName(),
+                    JobTitle: index.JobTitle() == null ? '' : index.JobTitle(),  
+                    ProfileImageLocation: index.ProfileImageLocation() == null ? '' : index.ProfileImageLocation(),  
+                    ProfileThumbnailImageLocation: index.ProfileThumbnailImageLocation() == null ? '' : index.ProfileThumbnailImageLocation(),  
+                    Summary: index.Summary() == null ? '' : index.Summary()
+                }
+            };
+
+            index.raiseCreate = function () {
+                index.clear();
+                index.createModal.modal('show');
+            };
+
+            index.raiseClose = function () {
+                index.createModal.modal('hide');
+            };
+
+            index.save = function (form) {
+                if(!jQuery('#create-team-employee-form').valid())
+                    return;
+
+                jQuery.post('" + @Url.Action("Create", "Team") + @"', index.toJS(), function (dataReturned) {
+                    if (dataReturned.IsValid) {
+                        jQuery(document).trigger('teamEmployeeCreated');
+                        jQuery(document).trigger('publishProcessingNotification', ['Processing team member creation.', 'We are currently processing your request to create ' + index.FirstName() + ' ' + index.LastName() + '.']);
+                        index.createModal.modal('hide');
+                    }
+                    else {
+                        val.rebindValidations({FirstName: 0, LastName: 0, JobTitle: 0, ProfileImageLocation: 0, Summary: 0, General: 0}, index, dataReturned.Errors);
+                    }
+                });
+            };
+
+            index.clear = function() {
+                index.FirstName(null);
+                index.LastName(null);
+                index.ProfileImageLocation(null);
+                index.ProfileThumbnailImageLocation(null);
+                index.JobTitle(null);
+                index.Summary(null);
+
+                index.HasImageBeenUploaded(false);
+
+                val.clearValidations({FirstName: 0, LastName: 0, JobTitle: 0, ProfileImageLocation: 0, Summary: 0, General: 0}, index);
+            };
+
+            jQuery(function () {
+                jQuery('#team-profile-image').makeAsyncUploader({
+                    upload_url: '" + @Url.Action("ImageUpload", "Home") + @"',
+                    flash_url: '" + @Url.Content("~/js/libs/swfupload.swf") + @"',
+                    button_image_url: '" + @Url.Content("~/img/blankButton.png") + @"',
+	                file_types : '*.jpg;*.jpeg;*.png;*.bmp;*.gif',
+                    upload_success_handler: function(file, data, response) {
+                        var item = jQuery.parseJSON(data);                        
+
+                        if (item.Result.IsValid) {
+                            index.ProfileImageLocation(item.Filename);
+                            index.ProfileThumbnailImageLocation(item.ThumbnailName);
+                            index.HasImageBeenUploaded(true);
+                        }
+                        else {
+                            val.rebindValidations({
+                                ProfileImageLocation: 0,
+                                General: 0
+                            }, index, item.Result.Errors);
+                        }
+                    }
+                });
+
+                ko.applyBindings(index, jQuery('#create-team-employee-container')[0]);
+                index.createModal = jQuery('#create-team-employee-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+            });
+
+        } (team_employee_create));");
+    }
+}

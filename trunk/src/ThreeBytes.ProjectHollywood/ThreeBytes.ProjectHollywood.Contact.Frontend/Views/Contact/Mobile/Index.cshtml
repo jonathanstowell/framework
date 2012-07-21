@@ -1,0 +1,86 @@
+﻿@section Header
+{
+    <h1>Contact Us</h1>
+}
+
+<div id="contact-us-content">
+    <div class="row">
+        <div class="span12">
+            <div id="contact-us-address-container">
+                <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			        <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-top ui-btn-up-c">
+                        <div class="ui-li ui-corner-top">
+                            <div class="ui-btn-text">
+				                <h3 class="ui-li-heading">Address</h3>
+                                <p class="ui-li-desc">Kingsway House</p>
+                                <p class="ui-li-desc">103 Kingsway</p>
+                                <p class="ui-li-desc">London</p>
+                                <p class="ui-li-desc">WC2B 6QX</p>
+                            </div>
+                        </div>
+                    </li>
+		        </ul>
+            </div>
+            <div id="contact-us-phone-container">
+                <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			        <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-top ui-btn-up-c">
+                        <div class="ui-li ui-corner-top">
+                            <div class="ui-btn-text">
+				                <h3 class="ui-li-heading">Phone Numbers</h3>
+                                <p class="ui-li-desc">Tel: 020 7242 5066</p>
+                                <p class="ui-li-desc">Fax: 020 7242 8119</p>
+                            </div>
+                        </div>
+                    </li>
+		        </ul>
+            </div>
+            <div id="contact-us-email-container">
+                <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			        <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-top ui-btn-up-c">
+                        <div class="ui-li ui-corner-top">
+                            <div class="ui-btn-text">
+				                <h3 class="ui-li-heading">Email</h3>
+                                <p class="ui-li-desc"><a href="mailto:email@felixdewolfe.com">email@felixdewolfe.com</a></p>
+                            </div>
+                        </div>
+                    </li>
+		        </ul>
+            </div>
+            <div id="contact-us-address-container">
+                <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			        <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-top ui-btn-up-c">
+                        <div class="ui-li ui-corner-top">
+                            <div class="ui-btn-text">
+				                <h3 class="ui-li-heading">Company Details</h3>
+				                <p class="ui-li-desc">Felix de Wolfe Limited</p>
+                                <p class="ui-li-desc">Registered in England: 32295323</p>
+                                <p class="ui-li-desc">Acorn Business Centre</p>
+                                <p class="ui-li-desc">Northarbour Road</p>
+                                <p class="ui-li-desc">Cosham</p>
+                                <p class="ui-li-desc">Portsmouth</p>
+                                <p class="ui-li-desc">P06 3TH</p>
+                                <p class="ui-li-desc">VAT Registration No. GB 238 718 830</p>
+                            </div>
+                        </div>
+                    </li>
+		        </ul>
+            </div>
+
+            <div data-role="collapsible" data-theme="a" data-content-theme="a">
+               <h3>Map</h3>
+               <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=felix+de+wolfe+London&amp;aq=&amp;sll=51.559871,-0.112181&amp;sspn=0.011939,0.033023&amp;vpsrc=0&amp;ie=UTF8&amp;hq=felix+de+wolfe&amp;hnear=London,+United+Kingdom&amp;t=m&amp;z=14&amp;iwloc=A&amp;cid=17154246103610845139&amp;ll=51.516386,-0.12012&amp;output=embed"></iframe>
+                <br />
+                <small>
+                    <a href="http://maps.google.co.uk/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=felix+de+wolfe+London&amp;aq=&amp;sll=51.559871,-0.112181&amp;sspn=0.011939,0.033023&amp;vpsrc=0&amp;ie=UTF8&amp;hq=felix+de+wolfe&amp;hnear=London,+United+Kingdom&amp;t=m&amp;z=14&amp;iwloc=A&amp;cid=17154246103610845139&amp;ll=51.516386,-0.12012" style="color:#0000FF;text-align:right" class="pull-right">View Larger Map</a>
+                </small>
+            </div>
+        </div>      
+    </div>
+</div>
+
+@{
+  using (var context = Html.BeginScriptContext())
+  {
+      context.ScriptFiles.Add("http://maps.google.com/maps/api/js?sensor=false");
+  }   
+}

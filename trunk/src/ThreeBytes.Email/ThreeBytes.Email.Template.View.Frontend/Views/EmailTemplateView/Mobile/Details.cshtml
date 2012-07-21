@@ -1,0 +1,113 @@
+﻿<div id="details" data-role="page">
+    <div id="details-template-container">
+        <div data-role="header">
+            <h1><span data-bind="text:Name"></span> Details</h1>
+        </div>
+        <div data-role="content">
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">Name</div>
+                <div class="ui-block-b"><span data-bind="text:Name"></span></div>
+            </fieldset>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">Application Name</div>
+                <div class="ui-block-b"><span data-bind="text:ApplicationName"></span></div>
+            </fieldset>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">From</div>
+                <div class="ui-block-b"><span data-bind="text:From"></span></div>
+            </fieldset>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">Subject</div>
+                <div class="ui-block-b"><span data-bind="text:Subject"></span></div>
+            </fieldset>
+            <div data-role="collapsible" data-theme="b">
+                <h3>Body</h3>
+                <p><span data-bind="text:Body"></span></p>
+            </div>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">IsHtml</div>
+                <div class="ui-block-b"><span data-bind="text:IsHtml"></span></div>
+            </fieldset>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">Encoding</div>
+                <div class="ui-block-b"><span data-bind="text:Encoding"></span></div>
+            </fieldset>
+            <a href="#" data-bind="click: function() { email_template_details.raiseEdit() }" data-role="button" data-icon="check" data-theme="b">Edit</a>
+            <a href="#" data-bind="click: function() { email_template_details.raiseDelete() }" data-role="button" data-icon="delete" data-theme="b">Delete</a>
+            <a href="#" data-bind="click: function() { email_template_details.raiseBack() }" data-role="button" data-icon="arrow-l" data-theme="a">Back</a>
+        </div>
+        <div data-role="footer">
+            <h4>Designed and built by <a href="http://www.threebytes.co.uk" target="_blank">Three Bytes</a>.</h4>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var email_template_details = {};
+
+    (function (index) {
+
+        email_template_details = index;
+
+        index.Id = ko.observable();
+        index.ItemId = ko.observable();
+        index.Name = ko.observable();
+        index.ApplicationName = ko.observable();
+        index.From = ko.observable();
+        index.Subject = ko.observable();
+        index.Body = ko.observable();
+        index.IsHtml = ko.observable();
+        index.Encoding = ko.observable();
+        index.History = ko.observableArray();
+
+        index.Back = ko.observable();
+
+        index.raiseBack = function () {
+            if (index.Back() == 'list') {
+                jQuery(document).trigger('emailTemplateHost');
+            }
+
+            if (index.Back() == 'home') {
+                jQuery(document).trigger('home');
+            }
+        };
+
+        index.raiseEdit = function () {
+            jQuery(document).trigger('emailTemplateEdit', [index.ItemId()]);
+        };
+
+        index.raiseDelete = function () {
+            jQuery(document).trigger('emailTemplateDelete', [index.ItemId()]);
+        };
+
+        jQuery(document).bind('emailTemplateDetails', function (event, template, back) {
+
+            index.Back(back);
+            
+            if (index.Back() != 'list') {
+                index.Back('home');
+            }
+
+            jQuery.getJSON("Template/Details/" + template.Id(), function (data) {
+
+                index.Id(data.Id);
+                index.ItemId(data.ItemId);
+                index.Name(data.Name);
+                index.ApplicationName(data.ApplicationName);
+                index.From(data.From);
+                index.Subject(data.Subject);
+                index.Body(data.Body);
+                index.IsHtml(data.IsHtml);
+                index.Encoding(data.Encoding);
+                index.History(data.History);
+
+                jQuery.mobile.changePage("#details", "flip", true, false);
+            });
+        });
+
+        jQuery(function () {
+            ko.applyBindings(index, jQuery('#details-template-container')[0]);
+        });
+    } (email_template_details));
+</script>

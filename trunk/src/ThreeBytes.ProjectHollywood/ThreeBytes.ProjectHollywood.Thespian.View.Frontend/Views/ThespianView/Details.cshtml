@@ -1,0 +1,238 @@
+﻿@model ThreeBytes.ProjectHollywood.Thespian.View.Frontend.Models.ThespianDetailsViewModel
+
+@{
+    ViewBag.Title = "";
+}
+
+<div id="thespian-details-container">
+    <div id="thespian-details-modal" class="modal modal-medium-wide hide fade">
+        <div class="modal-header">
+            <a href="#" class="close" data-bind="click: raiseClose">×</a>
+            <h3>
+                <span data-bind="fadeInText:FirstName"></span> <span data-bind="fadeInText:LastName"></span> @Resources.Details
+            </h3>
+        </div>
+        <div class="modal-body modal-body-scrollable">
+            <div class="row">
+                <div class="span3">
+                    <ul class="thumbnails">
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <img data-bind="attr: { src: ProfileImageUrl() }" />
+                            </div>
+                        </li>
+                    </ul>
+                    <fieldset>
+                        <div class="display-label">Summary</div>
+                        <div class="display-field"><span data-bind="fadeInText:Summary"></span></div>
+
+                        <div class="display-label">Twitter</div>
+                        <div class="display-field"><span data-bind="fadeInText:Twitter"></span></div>
+
+                        <div class="display-label">Facebook</div>
+                        <div class="display-field"><span data-bind="fadeInText:Facebook"></span></div>
+
+                        <div class="display-label">Spotlight</div>
+                        <div class="display-field"><span data-bind="fadeInText:Spotlight"></span></div>
+
+                        <div class="display-label">Imdb</div>
+                        <div class="display-field"><span data-bind="fadeInText:Imdb"></span></div>
+                    </fieldset>
+                </div>
+                <div class="span3">
+                    <fieldset>
+                        <div class="display-label">@Resources.FirstName</div>
+                        <div class="display-field"><span data-bind="fadeInText:FirstName"></span></div>
+
+                        <div class="display-label">@Resources.LastName</div>
+                        <div class="display-field"><span data-bind="fadeInText:LastName"></span></div>
+
+                        <div class="display-label">Date Of Birth</div>
+                        <div class="display-field"><span data-bind="fadeInText: GetDate(DateOfBirth())"></span></div>
+
+                        <div class="display-label">Gender</div>
+                        <div class="display-field"><span data-bind="fadeInText:Gender"></span></div>
+
+                        <div class="display-label">Location</div>
+                        <div class="display-field"><span data-bind="fadeInText:Location"></span></div>
+
+                        <div class="display-label">Height</div>
+                        <div class="display-field"><span data-bind="fadeInText:Height"></span></div>
+
+                        <div class="display-label">Weight</div>
+                        <div class="display-field"><span data-bind="fadeInText:Weight"></span></div>
+
+                        <div class="display-label">Playing Age</div>
+                        <div class="display-field"><span data-bind="fadeInText:PlayingAge"></span></div>
+
+                        <div class="display-label">Eye Colour</div>
+                        <div class="display-field"><span data-bind="fadeInText:EyeColour"></span></div>
+
+                        <div class="display-label">Hair Length</div>
+                        <div class="display-field"><span data-bind="fadeInText:HairLength"></span></div>
+                    </fieldset>
+                </div>
+            </div>
+            @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "ThespianManager" }))
+            {
+                <div class="row"data-bind="visible: History().length > 0">
+                    <div class="span6">
+                        <h2>@Resources.History</h2>
+                        <table class="table table-striped table-bordered table-condensed scrollable">
+                            <thead>
+                                <tr>
+                                    <th>Date Time</th>
+                                    <th>@Resources.Operation</th>
+                                </tr>
+                            </thead>
+                            <tbody id="role-tbody" data-bind="foreach: History">
+                                <tr>        
+                                    <td data-bind="text: GetDate(LastModifiedDateTime)"></td>
+                                    <td data-bind="text: Operation"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="modal-footer">
+            @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "ThespianManager" }))
+            {
+                <button class="btn btn-primary" data-bind="click: raiseEdit">@Resources.Edit</button>
+                <button class="btn btn-danger" data-bind="click: raiseDelete">@Resources.Delete</button>
+            }
+            <button class="btn btn-danger" data-bind="click: raiseClose">Close</button>
+        </div>
+    </div>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var thespian_details = {};
+
+        (function (index) {
+
+            var hub = jQuery.connection.thespianViewHub;
+
+            thespian_details = index;
+
+            index.Id = ko.observable();
+            index.ItemId = ko.observable();
+            index.FirstName = ko.observable();
+            index.ProfileImageLocation = ko.observable();
+            index.ProfileThumbnailImageLocation = ko.observable();
+            index.LastName = ko.observable();
+            index.DateOfBirth = ko.observable();
+            index.Gender = ko.observable();
+            index.Location = ko.observable();
+            index.Height = ko.observable();
+            index.Weight = ko.observable();
+            index.PlayingAge = ko.observable();
+            index.EyeColour = ko.observable();
+            index.HairLength = ko.observable();
+            index.Summary = ko.observable();
+            index.Twitter = ko.observable();
+            index.Facebook = ko.observable();
+            index.Spotlight = ko.observable();
+            index.Imdb = ko.observable();
+            index.ThespianType = ko.observable();
+
+            index.ProfileImageUrl = ko.computed(function() {
+                if(index.ProfileThumbnailImageLocation() != '' && index.ProfileThumbnailImageLocation() != null && index.ProfileThumbnailImageLocation() != typeof('undefined'))
+                    return '" + @Url.Action("GetProfileImage", "OurClients") + @"' + '/' + index.ProfileThumbnailImageLocation();
+
+                return '" + @Url.Content("img/placeholder260x180.gif") + @"';
+            });
+
+            index.History = ko.observableArray();
+
+            index.raiseClose = function () {
+                index.detailModal.modal('hide');
+            };
+
+            index.raiseEdit = function (obj) {
+                index.detailModal.modal('hide');
+                jQuery(document).trigger('thespianEdit', [obj.ItemId()]);
+            };
+
+            index.raiseDelete = function (obj) {
+                index.detailModal.modal('hide');
+                jQuery(document).trigger('thespianDelete', [obj.ItemId()]);
+            };
+
+            hub.handleRenamedThespianEventMessage = function(id, newFirstName, newLastName) {
+                if (index.ItemId() != id)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;
+
+                if (index.FirstName() != newFirstName)
+                    index.FirstName(newFirstName);
+
+                if (index.LastName() != newLastName)
+                    index.LastName(newLastName);
+
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            hub.handleThespianProfileImageUpdatedEventMessage = function(id, newProfileImageLocation, newProfileThumbnailImageLocation) {
+                if (index.ItemId() != id)
+                    return;
+
+                if (index.ProfileImageLocation() != newProfileImageLocation)
+                    index.ProfileImageLocation(newProfileImageLocation);
+
+                if (index.ProfileThumbnailImageLocation() != newProfileThumbnailImageLocation)
+                    index.ProfileThumbnailImageLocation(newProfileThumbnailImageLocation);
+            };
+
+            hub.handleDeletedThespianEventMessage = function(id) {
+                if (index.ItemId() != id)
+                    return;
+
+                jQuery(document).trigger('publishNotAllowedNotification', ['Thespian No Longer Available.', 'This thespian has been removed by another user. The window will automatically close.']);
+                index.detailModal.modal('hide');
+                index.Id(null);
+            };
+
+            jQuery(document).bind('thespianDetails', function (event, thespian) {
+
+                jQuery.getJSON('/OurClients/GetDetails/' + thespian.Id(), function (data) {
+
+                    index.Id(data.Id);
+                    index.ItemId(data.ItemId);
+                    index.FirstName(data.FirstName);
+                    index.LastName(data.LastName);
+                    index.ProfileImageLocation(data.ProfileImageLocation);
+                    index.ProfileThumbnailImageLocation(data.ProfileThumbnailImageLocation);
+                    index.DateOfBirth(data.DateOfBirth);
+                    index.Gender(data.Gender);
+                    index.Location(data.Location);
+                    index.Height(data.Height);
+                    index.Weight(data.Weight);
+                    index.PlayingAge(data.PlayingAge);
+                    index.EyeColour(data.EyeColour);
+                    index.HairLength(data.HairLength);
+                    index.Summary(data.Summary);
+                    index.Twitter(data.Twitter);
+                    index.Facebook(data.Facebook);
+                    index.Spotlight(data.Spotlight);
+                    index.Imdb(data.Imdb);
+                    index.ThespianType(data.ThespianType);
+
+                    index.History(data.History);
+
+                    index.detailModal.modal('show');
+                });
+            });
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#thespian-details-container')[0]);
+                index.detailModal = jQuery('#thespian-details-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+            });
+        } (thespian_details));");
+  }
+}

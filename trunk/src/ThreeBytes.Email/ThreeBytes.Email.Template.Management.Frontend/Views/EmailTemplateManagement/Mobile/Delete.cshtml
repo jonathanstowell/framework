@@ -1,0 +1,50 @@
+﻿<div id="delete" data-role="page">
+ 
+  <div data-role="header">
+    <h1>Delete</h1>
+  </div>
+ 
+  <div data-role="content">
+    <div id="delete-template-container">
+        <p>Are you sure you wish to delete this item?</p> 
+        <a href="#" data-bind="click: function() { email_template_delete.raiseBack() }" class="ui-block-a" data-role="button" data-icon="arrow-l" data-theme="a" data-inline="true">Back</a>
+        <a href="#" class="ui-block-b" data-role="button" data-icon="delete" data-theme="b" data-inline="true">Delete</a>
+    </div>
+  </div>
+ 
+  <div data-role="footer">
+    <h4>Designed and built by <a href="http://www.threebytes.co.uk" target="_blank">Three Bytes</a>.</h4>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+    var email_template_delete = {};
+
+    (function (index) {
+
+        email_template_delete = index;
+
+        index.Id = ko.observable();
+        index.Name = ko.observable();
+
+        index.raiseBack = function () {
+            jQuery(document).trigger('emailTemplateDetails', [index]);
+        };
+
+        jQuery(document).bind('emailTemplateDelete', function (event, id) {
+
+            jQuery.getJSON("Template/Delete/" + id, function (data) {
+
+                index.Id(data.Id);
+                index.Name(data.Name);
+
+                jQuery.mobile.changePage("#delete", "flip", true, false);
+            });
+        });
+
+        jQuery(function () {
+            ko.applyBindings(index, jQuery('#delete-template-container')[0]);
+        });
+    } (email_template_delete));
+</script>

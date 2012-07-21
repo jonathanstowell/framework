@@ -1,0 +1,85 @@
+﻿@model ThreeBytes.User.Authentication.Registration.FrontEnd.Models.RegisterViewModel
+
+<div id="registation-form-container">
+    @using (Html.BeginForm("Register", "Registration", FormMethod.Post, new { id = "registration-form", @class = "well" }))
+    {
+            <fieldset>
+
+                <h3><strong>New?</strong> Sign up</h3>
+                <hr />
+
+                <div class="clearfix">
+                    <div class="input">
+                        @Html.TextBoxFor(model => model.UserName, new { placeholder = "Username" })
+                        @if (!ViewData.ModelState.IsValidField("UserName"))
+                        {
+                            <div class="alert alert-error">
+                                <a class="close" data-dismiss="alert">×</a>
+                                @Html.ValidationMessageFor(model => model.UserName)
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="clearfix">
+                    <div class="input">
+                        @Html.TextBoxFor(model => model.Email, new { placeholder = "Email" })
+                        @if (!ViewData.ModelState.IsValidField("Email"))
+                        {
+                            <div class="alert alert-error">
+                                <a class="close" data-dismiss="alert">×</a>
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="clearfix">
+                    <div class="input">
+                        @Html.PasswordFor(model => model.Password, new { placeholder = "Password" })
+                        @if (!ViewData.ModelState.IsValidField("Password"))
+                        {
+                            <div class="alert alert-error">
+                                <a class="close" data-dismiss="alert">×</a>
+                                @Html.ValidationMessageFor(model => model.Password)
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="clearfix">
+                    <div class="input">
+                        @Html.PasswordFor(model => model.ConfirmPassword, new { placeholder = "Confirm Password" })
+                        <button class="btn btn-primary pull-right" data-bind="click: register">@Resources.Register</button>
+                        @if (!ViewData.ModelState.IsValidField("ConfirmPassword"))
+                        {
+                            <div class="alert alert-error">
+                                <a class="close" data-dismiss="alert">×</a>
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                            </div>
+                        }
+                    </div>
+                </div>
+            </fieldset>
+        }
+</div>
+
+@using (Html.BeginScriptContext())
+{
+    Html.AddScriptBlock(@"
+    var registration = {};
+
+    (function (index) {
+
+        registration = index;
+
+        index.register = function () {
+            jQuery('#registration-form').submit();
+        };
+
+        jQuery(function () {
+            ko.applyBindings(index, jQuery('#registation-form-container')[0]);
+        });
+
+    } (registration));");
+}

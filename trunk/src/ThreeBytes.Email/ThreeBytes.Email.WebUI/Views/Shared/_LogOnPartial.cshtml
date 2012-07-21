@@ -1,0 +1,12 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <ul class="nav pull-right">
+        <li>
+            @Html.ActionLink("Log Off", "LogOff", "Login", null, new { @class = "pull-right" })
+        </li>
+    </ul>
+}
+else
+{
+    { Html.RenderAction("LoginPartial", "Login"); }
+}

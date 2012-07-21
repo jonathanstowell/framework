@@ -1,0 +1,44 @@
+﻿<script type="text/javascript">
+
+    var most_recent_templates_latest_list = {};
+
+    (function(index) {
+
+        most_recent_templates_latest_list = index = ko.mapping.fromJS(@Html.Raw(string.Format("{{\"Items\" : {0}}}", new JavaScriptSerializer().Serialize(Model))));
+        
+        index.raiseDetails = function (obj) {
+                jQuery(document).trigger('emailTemplateDetails', [obj, 'home']);
+            };
+        
+        jQuery(function() {
+            ko.applyBindings(index, jQuery('#most_recent_templates-container')[0]);
+        });
+        
+        setInterval(function() {
+            jQuery.getJSON("EmailTemplateWidget/MostRecent", function (data) {
+                ko.mapping.fromJS(data, index);          
+            });
+        }, 1000);
+         
+    } (most_recent_templates_latest_list));
+    
+</script>
+
+<script id="most_recent_templates-list-grid-tmpl" type="text/x-jquery-tmpl">    
+    <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c">
+        <div class="ui-btn-inner ui-li" aria-hidden="true">
+            <div class="ui-btn-text">
+                <a href="#" class="ui-link-inherit" data-bind="click: function() { most_recent_templates_latest_list.raiseDetails($data) }">
+                    <h3 class="ui-li-heading">${Name}</h3>
+                    <p class="ui-li-desc">${ApplicationName}</p>
+                </a>
+            </div>
+            <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+        </div>
+    </li>
+</script>
+
+<div id="most_recent_templates-container">
+    <h3>Most Created Templates</h3>
+    <ul data-role="listview" data-inset="true" data-bind="template: { name: 'most_recent_templates-list-grid-tmpl', foreach: Items }" class="ui-listview"></ul>
+</div>

@@ -1,0 +1,219 @@
+﻿@model object
+@{
+    ViewBag.Title = @Resources.BrowserTitle;
+}
+    
+<div id="team-employees-list-container" data-bind="visible: Items().length > 0">
+    <ul id="team-employees-list" class="thumbnails" data-bind="foreach: Items">
+        <li class="span3">
+            <div class="thumbnail">
+                <img data-bind="attr: { src: ProfileImageUrl() }" />
+                <div class="caption">
+                    <h5>
+                        <span data-bind="fadeInText: FirstName"></span> <span data-bind="fadeInText: LastName"></span>
+                    </h5>
+                    <p>
+                        Job Title: <span data-bind="fadeInText: JobTitle"></span>
+                    </p>
+                    @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
+                    {
+                        <div class="btn-group open">
+                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Select <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-bind="click: $parent.raiseDetails">@Resources.Details</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" data-bind="click: $parent.raiseEdit">@Resources.Edit</a></li>
+                                <li><a href="#" data-bind="click: $parent.raiseDelete">@Resources.Delete</a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <button class="btn btn-info" data-bind="click: $parent.raiseDetails">More</button>
+                    }
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+    
+        var team_employees_list  = {};
+
+        (function (index) {
+            
+            var itemMapping = {
+                create: function(options) {
+                    var item = ko.mapping.fromJS(options.data);
+
+                    item.ProfileImageUrl = ko.computed(function() {
+                        if(item.ProfileThumbnailImageLocation() != '' && item.ProfileThumbnailImageLocation() != null && item.ProfileThumbnailImageLocation() != typeof('undefined'))
+                            return '" + @Url.Action("GetProfileImage", "Team") + @"' + '/' + item.ProfileThumbnailImageLocation();
+
+                        return '" + @Url.Content("img/placeholder260x180.gif") + @"';
+                    });
+
+                    return item;
+                }
+            };
+
+            var mapping = {
+			    'Items': {
+                    create: function(options) {
+                        return ko.mapping.fromJS(options.data, itemMapping);
+                    }
+                }
+		    };
+
+            var hub = jQuery.connection.teamListHub;
+        
+            team_employees_list = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model)) + @", mapping);
+
+            index.raiseEdit = function (obj) {
+                jQuery(document).trigger('teamEmployeeEdit', [obj.Id()]);
+            };
+        
+            index.raiseDetails = function (obj) {
+                jQuery(document).trigger('teamEmployeeDetails', [obj]);
+            };
+        
+            index.raiseDelete = function (obj) {
+                jQuery(document).trigger('teamEmployeeDelete', [obj.Id()]);
+            };
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#team-employees-list-container')[0]);
+            });
+
+            jQuery(document).bind('newTeamEmployees', function(event, items) {
+                jQuery.each(items, function(i, item) {
+                    index.Items.unshift(item);
+                });
+            });
+
+            hub.handleCreatedTeamEmployeeEventMessage = function(message) {
+                var exists = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == message.Id;
+                });
+
+                if (exists != null)
+                    return;
+
+                jQuery.getJSON('" + @Url.Action("GetAll", "Team") + @"', function(data) {
+                    
+                    index.Items.removeAll();
+
+                    jQuery.each(data.Items, function() {
+                        index.Items.push(ko.mapping.fromJS(this, itemMapping));
+                    });
+                });
+            };
+
+            hub.handleRenamedTeamEmployeeEventMessage = function(id, newFirstName, newLastName) {
+                var update = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == id;
+                });
+
+                if (update == null)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;
+
+                if (update.FirstName() != newFirstName)
+                    update.FirstName(newFirstName);
+
+                if (update.LastName() != newLastName)
+                    update.LastName(newLastName);
+
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            hub.handleRenamedTeamEmployeeJobTitleEventMessage = function(id, newJobTitle) {
+                var update = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == id;
+                });
+
+                if (update == null)
+                    return;
+
+                if (update.JobTitle() == newJobTitle)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;
+                update.JobTitle(newJobTitle);
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            hub.handleUpdatedTeamEmployeeSummaryEventMessage = function(id, newSummary) {
+                var update = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == id;
+                });
+
+                if (update == null)
+                    return;
+
+                if (update.Summary() == newSummary)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;
+                update.Summary(newSummary);
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            hub.handleTeamProfileImageUpdatedEventMessage = function(id, newProfileImageLocation, newProfileThumbnailImageLocation) {
+                var update = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == id;
+                });
+
+                if (update == null)
+                    return;
+
+                if (update.ProfileImageLocation() != newProfileImageLocation)
+                    update.ProfileImageLocation(newProfileImageLocation);
+
+                if (update.ProfileThumbnailImageLocation() != newProfileThumbnailImageLocation)
+                    update.ProfileThumbnailImageLocation(newProfileThumbnailImageLocation);
+            };
+
+            hub.handleDeletedTeamEmployeeEventMessage = function(id) {
+                var toDelete = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == id;
+                });
+
+                if (toDelete == null)
+                    return;
+
+                index.Items.remove(toDelete);
+            };
+
+            jQuery(document).bind('teamEmployeeUpdated', function (event, id) {
+                setTimeout(function() {
+                    jQuery.getJSON('/Team/List/Get/' + id, function(data) {
+                        var replacement = ko.mapping.fromJS(data);
+                    
+                        jQuery.each(index.Items(), function(i, item) {
+                            if (item.Id() == id) {
+                                index.Items.splice(i, 1, replacement);
+                                return false;
+                            }
+                        });
+                    });
+                }, 200);
+            });
+        
+            jQuery(document).bind('teamEmployeeDeleted', function (event, id) {
+                jQuery.each(index.Items(), function(i, item) {
+                    if (item.Id() == id) {
+                        index.Items.splice(i, 1);
+                        return false;
+                    }
+                });
+            });
+
+        } (team_employees_list));");
+  }
+}

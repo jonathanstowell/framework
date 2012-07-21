@@ -1,0 +1,30 @@
+
+SharpSquare Release Notes
+=========================
+
+
+1.3, released 2011-07-25
+(Thanks to Vlad Kozin)
+------------------------
+- Updated method SearchVenues
+
+1.2, released 2011-06-21
+(Thanks to Axel Denker)
+------------------------
+- Method GetVenue returns a not empty Mayor
+
+1.1, released 2011-05-16
+(Thanks to Raymond Ris)
+------------------------
+- Method GetAccessToken returns a string (not JSON)
+- Methods GetVenue, GetVenueHereNow, GetVenueTips, GetVenuePhotos, 
+GetVenueLinks, GetTip, GetSpecial, GetVenue Categories, SearchVenues, 
+GetVenuesTending, SearchTips do not require authentication
+
+1.0, released 2011-04-07
+------------------------
+- Beta version released
+
+
+Igloo Snc
+http://www.igloolab.com

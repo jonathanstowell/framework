@@ -1,0 +1,191 @@
+﻿@model PagedNewsListNewsArticleViewModel
+
+<div id="latest-news-articles-container">
+    <div data-bind="latestItems: latestViewModel"></div>
+</div>
+<div id="paged-news-articles-container">
+    <div data-bind="pagedList: pagedViewModel, pagedListTemplate: 'paged-news-articles-table-tmpl'"></div>
+</div>
+
+<script type="text/x-jquery-tmpl" id="paged-news-articles-table-tmpl">
+    <div class="content-primary">					
+        <div id="paged-news-articles-container">
+            <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			    <li data-bind="visible: items().length > 0, foreach: items" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-top ui-btn-up-c">
+                    <div class="ui-btn-inner ui-li ui-corner-top">
+                        <div class="ui-btn-text">
+                            <a href="#" data-bind="click: function(event) { $parent.additionalFunctions.raiseDetails($data); }" class="ui-link-inherit">
+                                <p class="ui-li-aside ui-li-desc">Created: <span data-bind="fadeInText: CreationDateTime"></span></p>
+				                <h3 data-bind="fadeInText: Title" class="ui-li-heading"></h3>
+				                <p class="ui-li-desc"><strong>Created By: <span data-bind="fadeInText: CreatedBy"></span></strong></p>
+				                <p class="ui-li-desc" data-bind="fadeInText: Content"></p>
+				            </a>
+                        </div>
+                        <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
+                    </div>
+                </li>
+		    </ul>
+        </div>
+    </div>
+</script>
+
+@{ 
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+        var news_articles_latest_list  = {};
+    
+        (function (index) {
+
+            var itemMapping = {
+			    'CreationDateTime': ko.utils.getTimeAgoFromJson(),
+                'LastModifiedDateTime': ko.utils.getDateFromJson('dd/MMM HH:mm')
+		    };
+
+            var itemViewModel = function(data) {
+			    ko.mapping.fromJS(data, itemMapping, this);
+		    };
+
+            var mapping = {	
+			    'Items': {
+				    create: function(options) {
+					    return new itemViewModel(options.data);
+				    }
+			    }
+		    };
+        
+            news_articles_latest_list = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model.MostRecentResult)) + @", mapping);
+
+            index.latestViewModel = new ko.latestItems.viewModel({
+                controller: 'News/List',
+                action: 'GetNewerThan',
+                data: index,
+                singular: '" + @Resources.NewsArticle + @"',
+                plural: '" + @Resources.NewsArticles + @"',
+                loadPageCallback: function(data) {
+                    ko.mapping.fromJS(data, index);
+                },
+                divIdentifier: 'latest-news-articles-container',
+                pagingComponentIdentifier: 'paged-news-articles',
+                columns: [
+                    { headerText: 'Created By', rowText: 'CreatedBy' },
+                    { headerText: 'Created On', rowText: 'CreationDateTime' },
+                    { headerText: 'Title', rowText: 'Title' }
+                ]
+            });
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#latest-news-articles-container')[0]);
+            });
+        
+        } (news_articles_latest_list));
+    
+        var news_articles_list  = {};
+
+        (function (index) {
+
+            var itemMapping = {
+			    'CreationDateTime': ko.utils.getTimeAgoFromJson(),
+                'LastModifiedDateTime': ko.utils.getDateFromJson('dd/MMM HH:mm')
+		    };
+
+            var itemViewModel = function(data) {
+			    ko.mapping.fromJS(data, itemMapping, this);
+		    };
+
+            var mapping = {	
+			    'Items': {
+				    create: function(options) {
+					    return new itemViewModel(options.data);
+				    }
+			    }
+		    };
+        
+            news_articles_list = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model.PagedResult)) + @", mapping);
+
+            index.HighlightEdits = ko.observable(false);
+
+            index.pagedViewModel = new ko.pagedList.viewModel({
+                controller: 'News',
+                action: 'GetPage',
+                data: index,
+                singular: '" + @Resources.NewsArticle + @"',
+                plural: '" + @Resources.NewsArticles + @"',
+                pagingComponentIdentifier: 'paged-news-articles',
+                loadPageCallback: function(data) {
+                    ko.mapping.fromJS(data, index);
+                },
+                columns: [
+                    { headerText: 'Created By', rowText: 'CreatedBy' },
+                    { headerText: 'Created On', rowText: 'CreationDateTime' },
+                    { headerText: 'Title', rowText: 'Title' },
+                    { headerText: 'Content', rowText: 'Content' }
+                ],
+                additionalFunctions: {
+                    raiseEdit: function (obj) {
+                        jQuery(document).trigger('newsArticleEdit', [obj.Id()]);
+                    },
+                    raiseDetails: function (obj) {
+                        jQuery(document).trigger('newsArticleDetails', [obj]);
+                    },
+                    raiseDelete: function (obj) {
+                        jQuery(document).trigger('newsArticleDelete', [obj.Id()]);
+                    }
+                },
+                updateEvent: null,
+                deleteEvent: null
+            });
+
+            var hub = jQuery.connection.newsListHub;
+
+            hub.handleRenamedNewsArticleTitleEventMessage = function(id, newTitle) {
+                var update = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == id;
+                });
+
+                if (update == null)
+                    return;
+
+                if (update.Title() == newTitle)
+                    return;
+                
+                ko.bindingHandlers.fadeInText.highlight = true;
+                update.Title(newTitle);
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            hub.handleUpdatedNewsArticleContentEventMessage = function(id, newContent) {
+                var update = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == id;
+                });
+
+                if (update == null)
+                    return;
+
+                if (update.Content() == newContent)
+                    return;
+
+                ko.bindingHandlers.fadeInText.highlight = true;
+                update.Content(newContent);
+                ko.bindingHandlers.fadeInText.highlight = false;
+            };
+
+            hub.handleDeletedNewsArticleEventMessage = function(id) {
+                var toDelete = ko.utils.arrayFirst(index.Items(), function(item) {
+                    return item.Id() == id;
+                });
+
+                if (toDelete == null)
+                    return;
+
+                index.Items.remove(toDelete);
+                index.TotalItemCount((index.TotalItemCount() - 1))
+            };
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#paged-news-articles-container')[0]);
+            });
+
+        } (news_articles_list));");
+    }
+}

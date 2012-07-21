@@ -1,0 +1,87 @@
+﻿@model ThreeBytes.User.Authentication.Registration.FrontEnd.Models.VerifyAccountViewModel
+
+@{
+    ViewBag.Title = Resources.BrowserTitleVerifyAccount;
+}
+
+<section id="account-verification">
+    <div id="account-verification-container">
+        <div class="hero-unit"> 
+            <h1>Verify My Account</h1> 
+        </div>
+        <div class="row">
+            <div class="span6">&nbsp;</div>
+            <div class="span5 well">
+                @if (Model.Success)
+                {
+                    <h2>@Resources.SuccessfullyVerified</h2> 
+                    <p>@Resources.YouAreNowAbleTo @Html.ActionLink(Resources.Login, "Login", "Login")</p>
+                }
+                else
+                {
+                    using (Html.BeginForm("VerifyAccount", "Registration", FormMethod.Post, new { id = "verify-form" }))
+                    {
+                        <fieldset>
+
+                            <div class="clearfix">
+                                @Html.LabelFor(model => model.UserIdentifier, Resources.UserIdentifier)
+                                <div class="input">
+                                    @Html.EditorFor(model => model.UserIdentifier)
+                                    @if (!ViewData.ModelState.IsValidField("UserIdentifier"))
+                                    {
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">×</a>
+                                            @Html.ValidationMessageFor(model => model.UserIdentifier)
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="clearfix">
+                                @Html.LabelFor(model => model.VerifiedCode, Resources.VerifyCode)
+                                <div class="input">
+                                    @Html.EditorFor(model => model.VerifiedCode)
+                                    @if (!ViewData.ModelState.IsValidField("VerifiedCode"))
+                                    {
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">×</a>
+                                            @Html.ValidationMessageFor(model => model.VerifiedCode)
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div>
+                                <button class="btn btn-primary pull-right" data-bind="click: verify">@Resources.Verify</button>
+                            </div>
+                        </fieldset>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@{ if (!Model.Success)
+   {
+       using (Html.BeginScriptContext())
+       {
+           Html.AddScriptBlock(@"
+        var verify_view_model = {};
+
+        (function (index) {
+
+            verify_view_model = index;
+
+            index.verify = function () {
+                jQuery('#verify-form').submit();
+            };
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#account-verification-container')[0]);
+            });
+
+        } (verify_view_model));");
+       }
+   } 
+}

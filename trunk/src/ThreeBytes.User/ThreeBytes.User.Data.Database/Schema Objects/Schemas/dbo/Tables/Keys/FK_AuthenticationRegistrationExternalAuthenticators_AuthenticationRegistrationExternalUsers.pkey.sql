@@ -1,0 +1,2 @@
+﻿ALTER TABLE [dbo].[AuthenticationRegistrationExternalAuthenticators]
+    ADD CONSTRAINT [FK_AuthenticationRegistrationExternalAuthenticators_AuthenticationRegistrationExternalUsers] FOREIGN KEY ([UserId]) REFERENCES [dbo].[AuthenticationRegistrationExternalUsers] ([UserId]) ON DELETE NO ACTION ON UPDATE NO ACTION;

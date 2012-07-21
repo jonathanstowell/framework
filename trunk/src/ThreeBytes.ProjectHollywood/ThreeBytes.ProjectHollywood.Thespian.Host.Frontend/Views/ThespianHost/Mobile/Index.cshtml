@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Id = "our-clients-page";
+}
+
+@section Header
+{
+    <h1>Our Clients</h1>
+}
+
+@{ Html.RenderAction("List", "ThespianList"); }
+
+@section OtherPages
+{
+    @{ Html.RenderAction("Details", "ThespianView");}
+}
+
+@{ 
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+
+        var thespian_host  = {};
+
+        (function (index) {
+
+            thespian_host = index;
+
+            jQuery(document).bind('thespianHost', function (event) {
+                jQuery.mobile.changePage('#our-clients-page', {
+	                transition: 'flow',
+	                reverse: false,
+	                changeHash: false
+                });
+            });
+
+        } (thespian_host));");
+    }
+}

@@ -1,0 +1,109 @@
+﻿@model ThreeBytes.Email.Dispatch.View.Entities.EmailDispatchViewEmailMessage
+
+@{
+    ViewBag.Title = Resources.BrowserTitle;
+}
+
+<div id="dispatched-email-details-container">
+    <div id="dispatched-emails-details-modal" class="modal modal-medium-wide hide fade">
+        <div class="modal-header">
+            <a href="#" class="close" data-bind="click: raiseClose">×</a>
+            <h3>
+                <span data-bind="text: Subject"></span> @Resources.Details
+            </h3>
+        </div>
+        <div class="modal-body modal-body-scrollable">
+            <div class="row">
+                <div class="span6">    
+                    <div class="row">
+                        <div class="span2">
+                            <div class="display-label">@Resources.From</div>
+                            <div class="display-field"><span data-bind="text: From"></span></div>
+
+                            <div class="display-label">@Resources.BCC</div>
+                            <div class="display-field"><span data-bind="text: BCC"></span></div>
+                        </div>
+
+                        <div class="span2">
+                            <div class="display-label">@Resources.To</div>
+                            <div class="display-field"><span data-bind="text: To"></span></div>
+
+                            <div class="display-label">@Resources.Html</div>
+                            <div class="display-field"><span data-bind="text: IsHtml"></span></div>
+                        </div>
+
+                        <div class="span2">
+                            <div class="display-label">@Resources.CC</div>
+                            <div class="display-field"><span data-bind="text: CC"></span></div>
+
+                            <div class="display-label">@Resources.Encoding</div>
+                            <div class="display-field"><span data-bind="text: Encoding"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span6">
+                    <div class="display-label">@Resources.Subject</div>
+                    <div class="display-field well"><span data-bind="text: Subject"></span></div>
+
+                    <div class="display-label">@Resources.Body</div>
+                    <div class="display-field well"><span data-bind="text: Body"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" data-bind="click: raiseClose">Close</button>
+        </div>
+    </div>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+    var dispatched_emails_details = {};
+
+    (function (index) {
+
+        dispatched_emails_details = index;
+
+        index.Id = ko.observable();
+        index.From = ko.observable();
+        index.To = ko.observable();
+        index.CC = ko.observable();
+        index.BCC = ko.observable();
+        index.Subject = ko.observable();
+        index.Body = ko.observable();
+        index.IsHtml = ko.observable();
+        index.Encoding = ko.observable();
+
+        index.raiseClose = function () {
+            index.detailModal.modal('hide');
+        };
+
+        jQuery(document).bind('dispatchedEmailDetails', function (event, template) {
+
+            jQuery.getJSON('" + @Url.Action("GetDetails", "Dispatch") + @"', { id: template.Id() }, function (data) {
+
+                index.Id(data.Id);
+                index.From(data.From);
+                index.To(data.To);
+                index.CC(data.CC);
+                index.BCC(data.BCC);
+                index.Subject(data.Subject);
+                index.Body(data.Body);
+                index.IsHtml(data.IsHtml);
+                index.Encoding(data.Encoding);
+
+                index.detailModal.modal('show');
+            });
+        });
+
+        jQuery(function () {
+            ko.applyBindings(index, jQuery('#dispatched-email-details-container')[0]);
+            index.detailModal = jQuery('#dispatched-emails-details-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+        });
+    } (dispatched_emails_details));");
+  }
+}

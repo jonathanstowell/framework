@@ -1,0 +1,123 @@
+﻿@model ThreeBytes.User.Authentication.Registration.FrontEnd.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = Resources.BrowserTitleRegister;
+}
+
+<section id="registation">
+    <div id="registation-container">
+        <div class="hero-unit"> 
+            <h1>@Resources.Register</h1> 
+        </div>
+        <div class="row">
+            <div class="span6">&nbsp;</div>
+            <div class="span5 well">
+                @if (Model.Success)
+                {
+                    <h2>@Resources.RegistrationSuccess</h2>
+                    <p>@string.Format(Resources.WeAreProcessingYourRequest, Model.Email) @Html.ActionLink(Resources.UnlockAccountPage, "VerifyAccount", new { userIdentifier = Model.UserName }).</p>
+                }
+                else
+                {
+                    <p>
+                        @Resources.FormForNewAccount
+                    </p>
+
+                    using (Html.BeginForm("Register", "Registration", FormMethod.Post, new { id = "registration-form" }))
+                    {
+                         <fieldset>
+
+                             <div class="clearfix">
+                                 @Html.LabelFor(model => model.UserName, Resources.UserName)
+                                 <div class="input">
+                                     @Html.EditorFor(model => model.UserName)
+                                     @if (!ViewData.ModelState.IsValidField("UserName"))
+                                     {
+                                         <div class="alert alert-error">
+                                             <a class="close" data-dismiss="alert">×</a>
+                                             @Html.ValidationMessageFor(model => model.UserName)
+                                         </div>
+                                     }
+                                 </div>
+                                 
+                             </div>
+
+                             <div class="clearfix">
+                                 @Html.LabelFor(model => model.Email, Resources.Email)
+                                 <div class="input">
+                                     @Html.EditorFor(model => model.Email)
+                                     @if (!ViewData.ModelState.IsValidField("Email"))
+                                     {
+                                         <div class="alert alert-error">
+                                             <a class="close" data-dismiss="alert">×</a>
+                                             @Html.ValidationMessageFor(model => model.Email)
+                                         </div>
+                                     }
+                                 </div>
+                             </div>
+
+                             <div class="clearfix">
+                                 @Html.LabelFor(model => model.Password, Resources.Password)
+                                 <div class="input">
+                                     @Html.PasswordFor(model => model.Password)
+                                     @if (!ViewData.ModelState.IsValidField("Password"))
+                                     {
+                                         <div class="alert alert-error">
+                                             <a class="close" data-dismiss="alert">×</a>
+                                             @Html.ValidationMessageFor(model => model.Password)
+                                         </div>
+                                     }
+                                 </div>
+                             </div>
+
+                             <div class="clearfix">
+                                 @Html.LabelFor(model => model.ConfirmPassword, Resources.ConfirmPassword)
+                                 <div class="input">
+                                     @Html.PasswordFor(model => model.ConfirmPassword)
+                                     @if (!ViewData.ModelState.IsValidField("ConfirmPassword"))
+                                     {
+                                         <div class="alert alert-error">
+                                             <a class="close" data-dismiss="alert">×</a>
+                                             @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                                         </div>
+                                     }
+                                 </div>
+                             </div>
+
+                             <div>
+                                <button class="btn btn-primary pull-right" data-bind="click: register">@Resources.Register</button>
+                             </div>
+                         </fieldset>
+                    }
+                }
+            </div>
+        </div>
+        <div class="page-footer">
+        </div>
+    </div>
+</section>
+
+@{ 
+    if (!Model.Success)
+    {
+        using (Html.BeginScriptContext())
+        {
+            Html.AddScriptBlock(@"
+        var registration = {};
+
+        (function (index) {
+
+            registration = index;
+
+            index.register = function () {
+                jQuery('#registration-form').submit();
+            };
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#registation-container')[0]);
+            });
+
+        } (registration));");
+        }
+    }
+}

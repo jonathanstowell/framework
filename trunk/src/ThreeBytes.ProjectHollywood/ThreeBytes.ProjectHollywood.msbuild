@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets = "all-projecthollywood"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\ThreeBytes.Build\msbuild\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+  <UsingTask AssemblyFile="ThreeBytes.ProjectHollywood.Infrastructure.ServiceBuildConvention\bin\Debug\ThreeBytes.ProjectHollywood.Infrastructure.ServiceBuildConvention.dll" TaskName="CopyService"/>
+  <PropertyGroup>
+		<ProductName>Three Bytes Project Hollywood</ProductName>
+		<ProjectType>Project Hollywood</ProjectType>
+		<PublisherName>Three Bytes</PublisherName>
+		<BuildFolder></BuildFolder>
+		<ExportFolder></ExportFolder>
+		<CustomViewsFolder></CustomViewsFolder>
+		<ConfigMergerExePath></ConfigMergerExePath>
+		<Client></Client>
+		<OrganisationName></OrganisationName>
+		<ReleaseType></ReleaseType>
+		<Configuration Condition=" $(Configuration)=='' ">Debug</Configuration>
+		<BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
+		<AllTemplatesLocation></AllTemplatesLocation>
+		<WebPluginLocation>ThreeBytes.ProjectHollywood.WebUI\Plugins</WebPluginLocation>
+		<BusPluginLocation>ThreeBytes.ProjectHollywood.ServiceHost\bin\$(Configuration)\Plugins</BusPluginLocation>
+    <JobPluginLocation>ThreeBytes.ProjectHollywood.JobHost\bin\$(Configuration)\Plugins</JobPluginLocation>
+		<PHWebPluginLocation>$(WebPluginLocation)\ThreeBytes.ProjectHollywood</PHWebPluginLocation>
+		<PHBusPluginLocation>$(BusPluginLocation)\ThreeBytes.ProjectHollywood</PHBusPluginLocation>
+		<PHJobPluginLocation>$(JobPluginLocation)\ThreeBytes.ProjectHollywood</PHJobPluginLocation>
+	</PropertyGroup>
+	
+	<Target Name="build-threebytes-projecthollywood">
+		<MSBuild Projects="ThreeBytes.ProjectHollywood.sln" Properties="Configuration=$(Configuration)" Targets="Build"/>
+		<Message Text="BUILT THREEBYTES PROJECT HOLLYWOOD"></Message>
+	</Target>
+
+  <Target Name="external-messages">
+    <ItemGroup>
+      <ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.Email.Messages\ThreeBytes.Email.Messages.*"/>
+      <ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.Logging.Messages\ThreeBytes.Logging.Messages.*"/>
+      <ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.ProjectHollywood.Messages\ThreeBytes.ProjectHollywood.Messages.*"/>
+      <ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.User.Messages\ThreeBytes.User.Messages.*"/>
+    </ItemGroup>
+    <Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(WebPluginLocation)" />
+    <Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(BusPluginLocation)" />
+  </Target>
+  
+    <Target Name="external-core-libs">
+		<ItemGroup>
+			<ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Encryption.*"/>
+			<ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Utilities.Concrete.dll"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Email.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Caching.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Upload.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Image.Service.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Facebook.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Foursquare.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Twitter.*"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Core" />
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Core" />
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(JobPluginLocation)\ThreeBytes.Core" />
+	</Target>
+	
+	<Target Name="external-caching-libs">
+		<ItemGroup>
+			<ExternalCachingLibs Include="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.*" Exclude="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.WebCache.dll;"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Caching" />
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Caching" />
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(JobPluginLocation)\ThreeBytes.Caching" />
+	</Target>
+
+  <Target Name="external-signalr-libs">
+    <ItemGroup>
+      <ExternalSignalRLibs Include="..\..\lib\internal\ThreeBytes.SignalR\ThreeBytes.SignalR.Hubs.*"/>
+    </ItemGroup>
+    <Copy SourceFiles="@(ExternalSignalRLibs)" DestinationFolder="$(WebPluginLocation)" />
+  </Target>
+
+	<Target Name="host">
+		<ItemGroup>
+			<Host Include="Host" />
+		</ItemGroup>
+		<CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\Host" />
+	</Target>
+
+  <Target Name="contact">
+    <ItemGroup>
+      <Contact Include="Contact" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(Contact)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\Contact" />
+  </Target>
+
+  <Target Name="history">
+    <ItemGroup>
+      <History Include="History" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(History)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\History" />
+  </Target>
+
+  <Target Name="about">
+    <ItemGroup>
+      <About Include="About" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(About)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\About" />
+  </Target>
+
+  <Target Name="navigation">
+    <ItemGroup>
+      <Navigation Include="Navigation" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(Navigation)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\Navigation" />
+  </Target>
+
+  <Target Name="thespian">
+    <ItemGroup>
+      <Thespian Include="Thespian" />
+      <Thespian Include="Thespian.Host" />
+      <Thespian Include="Thespian.List" />
+      <Thespian Include="Thespian.Management" />
+      <Thespian Include="Thespian.View" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(Thespian)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\Thespian" BackendFolder="$(PHBusPluginLocation)\Thespian" JobFolder="$(PHJobPluginLocation)\Thespian" />
+  </Target>
+
+  <Target Name="news">
+    <ItemGroup>
+      <News Include="News" />
+      <News Include="News.Host" />
+      <News Include="News.List" />
+      <News Include="News.Management" />
+      <News Include="News.View" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(News)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\News" BackendFolder="$(PHBusPluginLocation)\News" />
+  </Target>
+
+  <Target Name="team">
+    <ItemGroup>
+      <Team Include="Team" />
+      <Team Include="Team.Host" />
+      <Team Include="Team.List" />
+      <Team Include="Team.Management" />
+      <Team Include="Team.View" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(Team)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\Team" BackendFolder="$(PHBusPluginLocation)\Team" />
+  </Target>
+
+  <Target Name="notification">
+    <ItemGroup>
+      <Notification Include="Notification" />
+      <Notification Include="Notification.Host" />
+      <Notification Include="Notification.News" />
+      <Notification Include="Notification.Team" />
+      <Notification Include="Notification.Thespian" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(Notification)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\Notification" />
+  </Target>
+  
+  <Target Name="all-projecthollywood" DependsOnTargets="build-threebytes-projecthollywood;copy-plugins;" />
+  <Target Name="copy-plugins" DependsOnTargets="external-messages;external-core-libs;external-caching-libs;external-signalr-libs;host;contact;history;about;navigation;thespian;news;team;notification" />
+</Project>

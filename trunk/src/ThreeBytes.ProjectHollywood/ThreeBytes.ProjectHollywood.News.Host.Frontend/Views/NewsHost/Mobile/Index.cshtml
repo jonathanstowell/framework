@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Id = "news-page";
+}
+
+@section Header
+{
+    <h1>News</h1>
+}
+
+@{ Html.RenderAction("List", "NewsList"); }
+
+@section OtherPages
+{
+    @{ Html.RenderAction("Details", "NewsView");}
+}
+
+@{ 
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
+
+        var news_host  = {};
+
+        (function (index) {
+
+            news_host = index;
+
+            jQuery(document).bind('newsHost', function (event) {
+                jQuery.mobile.changePage('#news-page', {
+	                transition: 'flow',
+	                reverse: false,
+	                changeHash: false
+                });
+            });
+
+        } (news_host));");
+    }
+}

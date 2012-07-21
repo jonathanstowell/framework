@@ -1,0 +1,90 @@
+﻿@{
+    Page.Title = "About";
+}
+
+<section id="about">
+    <div id="about-container">
+        <div class="hero-unit"> 
+            <h1>About Us</h1> 
+        </div>
+        <div class="row">
+            <div class="span6">&nbsp;</div>
+            <div class="span6"> 
+                <p>
+                    FELIX DE WOLFE, one of the longest established independent entertainment and literary agencies in the United Kingdom. 
+                    Over the past sixty plus years, the agency has, and continues to look after some of the country’s most talented performers, writers and directors, whose works encompass a wide spectrum of the arts.
+                </p>
+                <p>
+                    The agency prides itself on the quality of its client base and continues to be one of the frontrunners in the entertainment business today.
+                </p>
+                <p>
+                    Our exclusive client base includes actors, actresses, presenters, directors and composers, as well as authors and writers for film, television, stage and radio.
+                </p>
+                <p>
+                    Felix de Wolfe is a member of the PMA (Personal Managers Association); the late Felix de Wolfe himself was the Chair of the organisation for many years.
+                </p>
+                <p>
+                    <button class="btn btn-primary pull-right" data-bind="click: raiseAmericanContacts" rel = "popover" data_content ="Holloway | Broadway" data_original_title ="American Contacts">American Contacts</button>
+                </p>
+            </div>
+        </div>
+        
+        <div id="american-contacts-modal" class="modal hide fade">
+            <div class="modal-header">
+                <a href="#" class="close" data-bind="click: raiseClose">×</a>
+                <h3>American Contacts</h3>
+            </div>
+            <div class="modal-body">
+                <p>
+                    We enjoy non-exclusive affiliations with both East and West Coast agents and managers including:
+
+                    <ul>
+                        <li>Abrams Artists</li>
+                        <li>Alan Siegel Entertainment</li>
+                        <li>Andy Howard</li>
+                        <li>APA</li>
+                        <li>Don Buchwald & Associates</li>
+                        <li>Gage Group</li>
+                        <li>Gersh Agency</li>
+                        <li>Hartig Hilepo</li>
+                        <li>Innovative Artists</li>
+                        <li>Louisa Spring</li>
+                        <li>Paradigm</li>
+                        <li>Rough Diamond</li>
+                        <li>Vincent Cirrincione Associates</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" data-bind="click: raiseClose">Close</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var about_host = {};
+
+        (function (index) {
+
+            about_host = index;
+
+            index.raiseAmericanContacts = function () {
+                index.americanContactsModal.modal('show');
+            };
+
+            index.raiseClose = function () {
+                index.americanContactsModal.modal('hide');
+            };
+
+            jQuery(function () {
+                ko.applyBindings(index, jQuery('#about-container')[0]);
+                index.americanContactsModal = jQuery('#american-contacts-modal').modal({ backdrop: true, closeOnEscape: true, modal: true, show: false });
+            });
+
+        } (about_host));");
+  }
+}

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets = "all-user-system"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\ThreeBytes.Build\msbuild\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+	<UsingTask AssemblyFile="ThreeBytes.User.Infrastructure.ServiceBuildConvention\bin\Debug\ThreeBytes.User.Infrastructure.ServiceBuildConvention.dll" TaskName="CopyService"/>
+	<PropertyGroup>
+		<ProductName>Three Bytes User</ProductName>
+		<ProjectType>Three Bytes User</ProjectType>
+		<PublisherName>Three Bytes</PublisherName>
+		<BuildFolder></BuildFolder>
+		<ExportFolder></ExportFolder>
+		<CustomViewsFolder></CustomViewsFolder>
+		<ConfigMergerExePath></ConfigMergerExePath>
+		<Client></Client>
+		<OrganisationName></OrganisationName>
+		<ReleaseType></ReleaseType>
+		<Configuration Condition=" $(Configuration)=='' ">Debug</Configuration>
+		<BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
+		<AllTemplatesLocation></AllTemplatesLocation>
+		<WebPluginLocation>ThreeBytes.User.WebUI\Plugins</WebPluginLocation>
+		<BusPluginLocation>ThreeBytes.User.ServiceHost\bin\$(Configuration)\Plugins</BusPluginLocation>
+		<UserWebPluginLocation>$(WebPluginLocation)\ThreeBytes.User</UserWebPluginLocation>
+		<UserBusPluginLocation>$(BusPluginLocation)\ThreeBytes.User</UserBusPluginLocation>
+		<JobPluginLocation>ThreeBytes.User.JobHost\bin\$(Configuration)\Plugins</JobPluginLocation>
+		<EmailWebPluginLocation>..\ThreeBytes.Email\ThreeBytes.Email.WebUI\Plugins\ThreeBytes.User</EmailWebPluginLocation>
+		<LoggingWebPluginLocation>..\ThreeBytes.Logging\ThreeBytes.Logging.WebUI\Plugins\ThreeBytes.User</LoggingWebPluginLocation>
+		<ProjectHollywoodWebPluginLocation>..\ThreeBytes.ProjectHollywood\ThreeBytes.ProjectHollywood.WebUI\Plugins\ThreeBytes.User</ProjectHollywoodWebPluginLocation>
+	</PropertyGroup>
+	
+	<Target Name="build-threebytes-user">
+		<MSBuild Projects="ThreeBytes.User.sln" Properties="Configuration=$(Configuration)" Targets="Build"/>
+		<Message Text="BUILT THREEBYTES USER"></Message>
+	</Target>
+	
+	<Target Name="external-messages">
+		<ItemGroup>
+			<ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.Email.Messages\ThreeBytes.Email.Messages.*"/>
+			<ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.Logging.Messages\ThreeBytes.Logging.Messages.*"/>
+			<ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.User.Messages\ThreeBytes.User.Messages.*"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(WebPluginLocation)" />
+		<Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(BusPluginLocation)" />
+	</Target>
+	
+	<Target Name="external-core-libs">
+		<ItemGroup>
+			<ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Encryption.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Utilities.Concrete.dll"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Email.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Caching.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Facebook.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Foursquare.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Twitter.*"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Core" />
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Core" />
+	</Target>
+	
+	<Target Name="external-caching-libs">
+		<ItemGroup>
+			<ExternalCachingLibs Include="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.*" Exclude="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.WebCache.dll"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Caching" />
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Caching" />
+	</Target>
+
+  <Target Name="external-signalr-libs">
+    <ItemGroup>
+      <ExternalSignalRLibs Include="..\..\lib\internal\ThreeBytes.SignalR\ThreeBytes.SignalR.Hubs.*"/>
+    </ItemGroup>
+    <Copy SourceFiles="@(ExternalSignalRLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.SignalR" />
+  </Target>
+  
+    <Target Name="host">
+		<ItemGroup>
+			<Host Include="Host.Home" />
+		</ItemGroup>
+		<CopyService Prefix="ThreeBytes.User" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(UserWebPluginLocation)\Host" BackendFolder="$(UserBusPluginLocation)\Host" />
+		<CopyService Prefix="ThreeBytes.User" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\Host" />
+		<CopyService Prefix="ThreeBytes.User" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(LoggingWebPluginLocation)\Host" />
+		<CopyService Prefix="ThreeBytes.User" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(ProjectHollywoodWebPluginLocation)\Host" />
+	</Target>
+	
+	<Target Name="configuration">
+		<ItemGroup>
+		  <ConfigurationLibs Include="ThreeBytes.User.Configuration.*\bin\$(Configuration)\ThreeBytes.User.Configuration.*.dll"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ConfigurationLibs)" DestinationFolder="$(UserWebPluginLocation)\Configuration" />
+		<Copy SourceFiles="@(ConfigurationLibs)" DestinationFolder="$(UserBusPluginLocation)\Configuration" />
+		<Copy SourceFiles="@(ConfigurationLibs)" DestinationFolder="$(EmailWebPluginLocation)\Configuration" />
+		<Copy SourceFiles="@(ConfigurationLibs)" DestinationFolder="$(LoggingWebPluginLocation)\Configuration" />
+		<Copy SourceFiles="@(ConfigurationLibs)" DestinationFolder="$(ProjectHollywoodWebPluginLocation)\Configuration" />
+  </Target>
+	
+	<Target Name="authentication">
+		<ItemGroup>
+			<Authentication Include="Authentication" />
+			<Authentication Include="Authentication.Login" />
+			<Authentication Include="Authentication.OAuth" />
+			<Authentication Include="Authentication.Registration" />
+			<Authentication Include="Authentication.Password" />
+			<Authentication Include="Authentication.UserHost" />
+			<Authentication Include="Authentication.UserList" />
+			<Authentication Include="Authentication.UserView" />
+			<Authentication Include="Authentication.UserManagement" />
+			<Authentication Include="Authentication.Email" />
+		</ItemGroup>
+		<CopyService Prefix="ThreeBytes.User" AC="@(Authentication)" Configuration="$(Configuration)" FrontendFolder="$(UserWebPluginLocation)\Authentication" BackendFolder="$(UserBusPluginLocation)\Authentication" />
+		<CopyService Prefix="ThreeBytes.User" AC="@(Authentication)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\Authentication" />
+		<CopyService Prefix="ThreeBytes.User" AC="@(Authentication)" Configuration="$(Configuration)" FrontendFolder="$(LoggingWebPluginLocation)\Authentication" />
+		<CopyService Prefix="ThreeBytes.User" AC="@(Authentication)" Configuration="$(Configuration)" FrontendFolder="$(ProjectHollywoodWebPluginLocation)\Authentication" />
+	</Target>
+	
+	<Target Name="role">
+		<ItemGroup>
+			<Role Include="Role" />
+			<Role Include="Role.Host" />
+			<Role Include="Role.List" />
+			<Role Include="Role.View" />
+			<Role Include="Role.Management" />
+		</ItemGroup>
+		<CopyService Prefix="ThreeBytes.User" AC="@(Role)" Configuration="$(Configuration)" FrontendFolder="$(UserWebPluginLocation)\Role" BackendFolder="$(UserBusPluginLocation)\Role" />
+		<CopyService Prefix="ThreeBytes.User" AC="@(Role)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\Role" />
+		<CopyService Prefix="ThreeBytes.User" AC="@(Role)" Configuration="$(Configuration)" FrontendFolder="$(LoggingWebPluginLocation)\Role" />
+		<CopyService Prefix="ThreeBytes.User" AC="@(Role)" Configuration="$(Configuration)" FrontendFolder="$(ProjectHollywoodWebPluginLocation)\Role" />
+	</Target>
+
+  <Target Name="dashboard">
+    <ItemGroup>
+      <Dashboard Include="Dashboard" />
+      <Dashboard Include="Dashboard.Host" />
+      <Dashboard Include="Dashboard.ActiveUsers" />
+      <Dashboard Include="Dashboard.NewestUsers" />
+      <Dashboard Include="Dashboard.LoginStatisticsDaily" />
+      <Dashboard Include="Dashboard.LoginStatisticsMonthly" />
+      <Dashboard Include="Dashboard.LoginStatisticsQuarterly" />
+      <Dashboard Include="Dashboard.LoginStatisticsYearly" />
+      <Dashboard Include="Dashboard.RegistrationStatisticsDaily" />
+      <Dashboard Include="Dashboard.RegistrationDaily" />
+      <Dashboard Include="Dashboard.RegistrationStatisticsMonthly" />
+      <Dashboard Include="Dashboard.RegistrationMonthly" />
+      <Dashboard Include="Dashboard.RegistrationStatisticsQuarterly" />
+      <Dashboard Include="Dashboard.RegistrationQuarterly" />
+      <Dashboard Include="Dashboard.RegistrationStatisticsYearly" />
+      <Dashboard Include="Dashboard.RegistrationYearly" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.User" AC="@(Dashboard)" Configuration="$(Configuration)" FrontendFolder="$(UserWebPluginLocation)\Dashboard" BackendFolder="$(UserBusPluginLocation)\Dashboard" />
+    <CopyService Prefix="ThreeBytes.User" AC="@(Dashboard)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\Dashboard" />
+    <CopyService Prefix="ThreeBytes.User" AC="@(Dashboard)" Configuration="$(Configuration)" FrontendFolder="$(LoggingWebPluginLocation)\Dashboard" />
+    <CopyService Prefix="ThreeBytes.User" AC="@(Dashboard)" Configuration="$(Configuration)" FrontendFolder="$(ProjectHollywoodWebPluginLocation)\Dashboard" />
+  </Target>
+
+  <Target Name="profile">
+    <ItemGroup>
+      <Profile Include="Profile" />
+      <Profile Include="Profile.Host" />
+      <Profile Include="Profile.View" />
+      <Profile Include="Profile.Management" />
+    </ItemGroup>
+    <CopyService Prefix="ThreeBytes.User" AC="@(Profile)" Configuration="$(Configuration)" FrontendFolder="$(UserWebPluginLocation)\Profile" BackendFolder="$(UserBusPluginLocation)\Profile" />
+    <CopyService Prefix="ThreeBytes.User" AC="@(Profile)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\Profile" />
+    <CopyService Prefix="ThreeBytes.User" AC="@(Profile)" Configuration="$(Configuration)" FrontendFolder="$(LoggingWebPluginLocation)\Profile" />
+    <CopyService Prefix="ThreeBytes.User" AC="@(Profile)" Configuration="$(Configuration)" FrontendFolder="$(ProjectHollywoodWebPluginLocation)\Profile" />
+  </Target>
+  
+  <Target Name="all-user-system" DependsOnTargets="build-threebytes-user;copy-plugins;" />
+  <Target Name="copy-plugins" DependsOnTargets="external-messages;external-core-libs;external-caching-libs;external-signalr-libs;host;configuration;authentication;role;dashboard;profile;" />
+  
+</Project>

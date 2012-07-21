@@ -1,0 +1,47 @@
+﻿<div id="host" data-role="page">
+ 
+  <div data-role="header">
+    <h1>Templates</h1>
+  </div>
+ 
+  <div data-role="content"> 
+    @{ Html.RenderAction("List", "EmailTemplateList"); }
+
+    <div id="template-host-container">
+        <a href="#" data-bind="click: function() { email_template_host.raiseCreate() }" data-role="button" data-icon="plus" data-theme="b">Create</a>
+        <a href="/" rel="external" data-role="button" data-icon="home" data-theme="a" class="ui-btn ui-btn-icon-left ui-btn-corner-all ui-shadow ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true"><span class="ui-btn-text">Home</span><span class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
+    </div>
+  </div>
+ 
+  <div data-role="footer">
+    <h4>Designed and built by <a href="http://www.threebytes.co.uk" target="_blank">Three Bytes</a>.</h4>
+  </div>
+
+</div>
+
+@{ Html.RenderAction("Details", "EmailTemplateView");}
+@{ Html.RenderAction("Create", "EmailTemplateManagement");}
+@{ Html.RenderAction("Edit", "EmailTemplateManagement");}
+@{ Html.RenderAction("Delete", "EmailTemplateManagement");}
+
+<script type="text/javascript">
+
+    var email_template_host = {};
+
+    (function (index) {
+
+        email_template_host = index;
+
+        index.raiseCreate = function() {
+            jQuery(document).trigger('emailTemplateCreate');
+        };
+
+        jQuery(function () {
+            ko.applyBindings(index, jQuery('#template-host-container')[0]);
+        });
+
+        jQuery(document).bind('emailTemplateHost', function () {
+            jQuery.mobile.changePage("#host", "flip", true, false);
+        });
+    } (email_template_host));
+</script>

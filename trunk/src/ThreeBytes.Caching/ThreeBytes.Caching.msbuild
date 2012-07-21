@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets = "all-caching"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="..\ThreeBytes.Build\msbuild\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+	<UsingTask AssemblyFile="ThreeBytes.Caching.Infrastructure.ServiceBuildConvention\bin\Debug\ThreeBytes.Caching.Infrastructure.ServiceBuildConvention.dll" TaskName="CopyService"/>
+	<PropertyGroup>
+		<ProductName>Three Bytes Caching</ProductName>
+		<ProjectType>Three Bytes Caching</ProjectType>
+		<PublisherName>Three Bytes</PublisherName>
+		<BuildFolder></BuildFolder>
+		<ExportFolder></ExportFolder>
+		<CustomViewsFolder></CustomViewsFolder>
+		<ConfigMergerExePath></ConfigMergerExePath>
+		<Client></Client>
+		<OrganisationName></OrganisationName>
+		<ReleaseType></ReleaseType>
+		<Configuration Condition=" $(Configuration)=='' ">Debug</Configuration>
+		<BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
+		<AllTemplatesLocation></AllTemplatesLocation>
+		<SharedLibrariesLocation>..\..\lib\internal\ThreeBytes.Caching</SharedLibrariesLocation>
+		<JobPluginLocation>ThreeBytes.Caching.JobHost\bin\$(Configuration)\Plugins</JobPluginLocation>
+	</PropertyGroup>
+	
+	<Target Name="clear-shared-libs">
+		<Delete Files="$(SharedLibrariesLocation)\*" />
+		<Message Text="Cleared Shared Libraries Folder" />
+	</Target>
+
+  <Target Name="build-threebytes-caching">
+    <MSBuild Projects="ThreeBytes.Caching.sln" Properties="Configuration=$(Configuration)" Targets="Build"/>
+    <Message Text="BUILT THREEBYTES CACHING"></Message>
+  </Target>
+  
+  <Target Name="external-caching-libs">
+		<ItemGroup>
+			<ExternalCachingLibs Include="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.*" Exclude="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.WebCache.dll"/>
+		</ItemGroup>
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(JobPluginLocation)\ThreeBytes.Caching" />
+	</Target>
+  
+  <Target Name="distribute-caching-libs" DependsOnTargets="clear-shared-libs;build-threebytes-caching;">
+    <ItemGroup>
+      <CoreLibraries Include="ThreeBytes.Caching.Core.*\bin\$(Configuration)\ThreeBytes.Caching.Core.*.dll"/>
+    </ItemGroup>
+    <MakeDir Directories = "$(SharedLibrariesLocation)" Condition="!Exists('$(SharedLibrariesLocation)')" />
+    <Copy SourceFiles="@(CoreLibraries)" DestinationFolder="$(SharedLibrariesLocation)" />
+    <Message Text="COPIED SHARED LIBS"></Message>
+  </Target>
+  
+   <Target Name="kill-out-of-date-items">
+		<ItemGroup>
+			<KillOutOfDateItems Include="KillOutOfDateItems" />
+		</ItemGroup>
+		<CopyService Prefix="ThreeBytes.Caching" AC="@(KillOutOfDateItems)" Configuration="$(Configuration)" JobFolder="$(JobPluginLocation)\KillOutOfDateItems" />
+	</Target>
+  
+  <Target Name="all-caching" DependsOnTargets="build-threebytes-caching;external-caching-libs;distribute-caching-libs;copy-plugins;" />
+  <Target Name="copy-plugins" DependsOnTargets="kill-out-of-date-items;" />
+  
+</Project>

@@ -1,0 +1,5 @@
+﻿@using ThreeBytes.Core.Extensions.Web
+
+@{
+    Layout = Request.IsMobile() ? "~/Views/Shared/_MobileLayout.cshtml" : "~/Views/Shared/_Layout.cshtml";
+}

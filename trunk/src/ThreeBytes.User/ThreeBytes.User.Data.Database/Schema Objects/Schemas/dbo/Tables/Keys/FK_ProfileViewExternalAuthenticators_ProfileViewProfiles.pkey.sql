@@ -1,0 +1,2 @@
+﻿ALTER TABLE [dbo].[ProfileViewExternalAuthenticators]
+    ADD CONSTRAINT [FK_ProfileViewExternalAuthenticators_ProfileViewProfiles] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[ProfileViewProfiles] ([ProfileId]) ON DELETE NO ACTION ON UPDATE NO ACTION;

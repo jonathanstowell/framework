@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC4C3C21-CDC6-4E85-AD77-AD7C32D90919}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.Core.Foursquare.Concrete</RootNamespace>
+    <AssemblyName>ThreeBytes.Core.Foursquare.Concrete</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpSquare">
+      <HintPath>..\..\..\lib\external\SharpSquare\SharpSquare.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FoursquareClient.cs" />
+    <Compile Include="Installers\BusWindsorInstaller.cs" />
+    <Compile Include="Installers\WebWindsorInstaller.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.Core.Bootstrapper.Extensions\ThreeBytes.Core.Bootstrapper.Extensions.csproj">
+      <Project>{F7614B0B-C539-43B0-ABFC-1339EBFAB4A6}</Project>
+      <Name>ThreeBytes.Core.Bootstrapper.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Extensions.Dictionary\ThreeBytes.Core.Extensions.Dictionary.csproj">
+      <Project>{B1F8C839-2A86-4E6C-B010-598B2B03FE63}</Project>
+      <Name>ThreeBytes.Core.Extensions.Dictionary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Extensions.SharpSquare\ThreeBytes.Core.Extensions.SharpSquare.csproj">
+      <Project>{EB6A8C35-57C2-4825-AB01-2A430372CB3E}</Project>
+      <Name>ThreeBytes.Core.Extensions.SharpSquare</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Foursquare.Abstract\ThreeBytes.Core.Foursquare.Abstract.csproj">
+      <Project>{2A6C8EA7-BED2-4E32-A66E-ECD20F587765}</Project>
+      <Name>ThreeBytes.Core.Foursquare.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Foursquare.Configuration.Abstract\ThreeBytes.Core.Foursquare.Configuration.Abstract.csproj">
+      <Project>{8F02F336-3AAF-4494-A8F9-53B354E6FDE3}</Project>
+      <Name>ThreeBytes.Core.Foursquare.Configuration.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Foursquare.Entities.Abstract\ThreeBytes.Core.Foursquare.Entities.Abstract.csproj">
+      <Project>{A5CF59E6-F7B2-4C20-BACD-4701B600F0FC}</Project>
+      <Name>ThreeBytes.Core.Foursquare.Entities.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Foursquare.Entities.Concrete\ThreeBytes.Core.Foursquare.Entities.Concrete.csproj">
+      <Project>{CB0D19D0-15DF-44E6-8EA2-5C7C006A3903}</Project>
+      <Name>ThreeBytes.Core.Foursquare.Entities.Concrete</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

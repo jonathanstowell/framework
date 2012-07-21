@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3740C252-9CEE-49BF-9574-94EAAEDD6AE1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.User.Authentication.Messages</RootNamespace>
+    <AssemblyName>ThreeBytes.User.Authentication.Messages</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThreeBytes.User.Messages">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.User.Messages\ThreeBytes.User.Messages.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\ICreateUserRoleAssociationCommandMessage.cs" />
+    <Compile Include="Commands\ILinkExistingUserToExternalProviderCommandMessage.cs" />
+    <Compile Include="Commands\ILoggedUserInUsingOAuthProviderCommandMessage.cs" />
+    <Compile Include="Commands\IRegisterExistingExternalUserCommandMessage.cs" />
+    <Compile Include="Commands\IRegisterUserCommandMessage.cs" />
+    <Compile Include="Commands\IRemoveUserRoleAssociationCommandMessage.cs" />
+    <Compile Include="Commands\IResetPasswordConfirmCommandMessage.cs" />
+    <Compile Include="Commands\IResetPasswordInitialCommandMessage.cs" />
+    <Compile Include="Commands\IUnlockUserCommandMessage.cs" />
+    <Compile Include="Commands\IRegisterUserFromExternalProviderCommandMessage.cs" />
+    <Compile Include="Commands\IUserEnteredIncorrectPasswordCommandMessage.cs" />
+    <Compile Include="Commands\IUserLoggedInCommandMessage.cs" />
+    <Compile Include="Commands\IVerifyUserCommandMessage.cs" />
+    <Compile Include="InternalEvents\ICreatedUserRoleAssociationInternalEventMessage.cs" />
+    <Compile Include="InternalEvents\ILinkExistingUserToExternalProviderInternalEventMessage.cs" />
+    <Compile Include="InternalEvents\IRegisterExistingExternalUserInternalEventMessage.cs" />
+    <Compile Include="InternalEvents\IRegisterUserFromExternalProviderInternalEventMessage.cs" />
+    <Compile Include="InternalEvents\IRemoveUserRoleAssociationInternalEventMessage.cs" />
+    <Compile Include="InternalEvents\IResetPasswordConfirmedInternalEventMessage.cs" />
+    <Compile Include="InternalEvents\IResetPasswordInitialInternalEventMessage.cs" />
+    <Compile Include="InternalEvents\ILockUserOutInternalEventMessage.cs" />
+    <Compile Include="InternalEvents\IRegisteredUserInternalEventMessage.cs" />
+    <Compile Include="InternalEvents\IUnlockUserInternalEventMessage.cs" />
+    <Compile Include="InternalEvents\IUserEnteredIncorrectPasswordEventMessage.cs.cs" />
+    <Compile Include="InternalEvents\IAuthenticationUserEventBase.cs" />
+    <Compile Include="InternalEvents\IUserLoggedInInternalEventMessage.cs" />
+    <Compile Include="InternalEvents\IVerifiedUserInternalEventMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

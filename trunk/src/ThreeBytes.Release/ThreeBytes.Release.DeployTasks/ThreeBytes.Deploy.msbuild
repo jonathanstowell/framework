@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets = "deploy"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="msbuild\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+  <PropertyGroup>
+    <ProductName>Three Bytes ProjectHollywood Deploy</ProductName>
+    <ProjectType>Project Hollywood Deploy</ProjectType>
+    <PublisherName>Three Bytes</PublisherName>
+    <BuildFolder></BuildFolder>
+    <ExportFolder></ExportFolder>
+    <CustomViewsFolder></CustomViewsFolder>
+    <ConfigMergerExePath></ConfigMergerExePath>
+    <Client></Client>
+    <OrganisationName></OrganisationName>
+    <ReleaseType></ReleaseType>
+    <Configuration Condition=" $(Configuration)=='' ">Release</Configuration>
+    <BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
+    <Drive Condition=" $(Drive)=='' ">C</Drive>
+    <ProjectHollywoodWeb Condition=" $(ProjectHollywoodWeb)=='' ">$(Drive):\inetpub\wwwroot\ProjectHollywood</ProjectHollywoodWeb>
+    <ProjectHollywoodBus Condition=" $(ProjectHollywoodBus)=='' ">$(Drive):\Program Files (x86)\ThreeBytes\ThreeBytes.ProjectHollywood.ServiceHost</ProjectHollywoodBus>
+    <ProjectHollywoodJob Condition=" $(ProjectHollywoodJob)=='' ">$(Drive):\Program Files (x86)\ThreeBytes\ThreeBytes.ProjectHollywood.JobHost</ProjectHollywoodJob>
+    <UserBus Condition=" $(UserBus)=='' ">$(Drive):\Program Files (x86)\ThreeBytes\ThreeBytes.User.ServiceHost</UserBus>
+    <UserJob Condition=" $(UserJob)=='' ">$(Drive):\Program Files (x86)\ThreeBytes\ThreeBytes.User.JobHost</UserJob>
+    <EmailBus Condition=" $(EmailBus)=='' ">$(Drive):\Program Files (x86)\ThreeBytes\ThreeBytes.Email.ServiceHost</EmailBus>
+    <EmailJob Condition=" $(EmailJob)=='' ">$(Drive):\Program Files (x86)\ThreeBytes\ThreeBytes.Email.JobHost</EmailJob>
+    <LoggingBus Condition=" $(LoggingBus)=='' ">$(Drive):\Program Files (x86)\ThreeBytes\ThreeBytes.Logging.ServiceHost</LoggingBus>
+  </PropertyGroup>
+
+  <Target Name="deploy">
+
+    <MakeDir Directories=".\temp" Condition="!Exists('.\temp')" />
+
+    <unzip ZipFileName =".\Email-Bus-Release.zip" TargetDirectory=".\temp\Email-Bus-Release" />
+    <unzip ZipFileName =".\Email-Job-Release.zip" TargetDirectory=".\temp\Email-Job-Release" />
+    <unzip ZipFileName =".\Logging-Bus-Release.zip" TargetDirectory=".\temp\Logging-Bus-Release" />
+    <unzip ZipFileName =".\ProjectHollywood-Bus-Release.zip" TargetDirectory=".\temp\ProjectHollywood-Bus-Release" />
+    <unzip ZipFileName =".\ProjectHollywood-Web-Release.zip" TargetDirectory=".\temp\ProjectHollywood-Web-Release" />
+    <unzip ZipFileName =".\ProjectHollywood-Job-Release.zip" TargetDirectory=".\temp\ProjectHollywood-Job-Release" />
+    <unzip ZipFileName =".\User-Bus-Release.zip" TargetDirectory=".\temp\User-Bus-Release" />
+    <unzip ZipFileName =".\User-Job-Release.zip" TargetDirectory=".\temp\User-Job-Release" />
+    <unzip ZipFileName =".\Configurations-Release.zip" TargetDirectory=".\temp\Configurations-Release" />
+
+    <ItemGroup>
+      <BackupProjectHollywoodWebFiles Include="$(ProjectHollywoodWeb)\**\*.*" />
+      <BackupProjectHollywoodBusFiles Include="$(ProjectHollywoodBus)\**\*.*" />
+      <BackupProjectHollywoodJobFiles Include="$(ProjectHollywoodJob)\**\*.*" />
+      <BackupUserBusFiles Include=".\temp\User-Bus-Release\**\*.*" />
+      <BackupUserJobFiles Include=".\temp\User-Job-Release\**\*.*" />
+      <BackupEmailBusFiles Include=".\temp\Email-Bus-Release\**\*.*" />
+      <BackupEmailJobFiles Include=".\temp\Email-Job-Release\**\*.*" />
+      <BackupLoggingBusFiles Include=".\temp\Logging-Bus-Release\**\*.*" />
+      <CopyProjectHollywoodWebFiles Include=".\temp\ProjectHollywood-Web-Release\**\*.*" />
+      <CopyProjectHollywoodBusFiles Include=".\temp\ProjectHollywood-Bus-Release\**\*.*" />
+      <CopyProjectHollywoodJobFiles Include=".\temp\ProjectHollywood-Job-Release\**\*.*" />
+      <CopyUserBusFiles Include=".\temp\User-Bus-Release\**\*.*" />
+      <CopyUserJobFiles Include=".\temp\User-Job-Release\**\*.*" />
+      <CopyEmailBusFiles Include=".\temp\Email-Bus-Release\**\*.*" />
+      <CopyEmailJobFiles Include=".\temp\Email-Job-Release\**\*.*" />
+      <CopyLoggingBusFiles Include=".\temp\Logging-Bus-Release\**\*.*" />
+    </ItemGroup>
+
+    <MakeDir Directories="..\backup\ProjectHollywoodWeb" Condition="!Exists('..\backup\ProjectHollywoodWeb')" />
+    <Copy SourceFiles="@(BackupProjectHollywoodWebFiles)" DestinationFolder="..\backup\ProjectHollywoodWeb\%(RecursiveDir)"></Copy>
+
+    <MakeDir Directories="..\backup\ProjectHollywoodBus" Condition="!Exists('..\backup\ProjectHollywoodBus')" />
+    <Copy SourceFiles="@(BackupProjectHollywoodBusFiles)" DestinationFolder="..\backup\ProjectHollywoodBus\%(RecursiveDir)"></Copy>
+	
+	<MakeDir Directories="..\backup\ProjectHollywoodJob" Condition="!Exists('..\backup\ProjectHollywoodJob')" />
+    <Copy SourceFiles="@(BackupProjectHollywoodJobFiles)" DestinationFolder="..\backup\ProjectHollywoodJob\%(RecursiveDir)"></Copy>
+
+    <MakeDir Directories="..\backup\UserBus" Condition="!Exists('..\backup\UserBus')" />
+    <Copy SourceFiles="@(BackupUserBusFiles)" DestinationFolder="..\backup\UserBus\%(RecursiveDir)"></Copy>
+	
+	<MakeDir Directories="..\backup\UserJob" Condition="!Exists('..\backup\UserJob')" />
+    <Copy SourceFiles="@(BackupUserJobFiles)" DestinationFolder="..\backup\UserJob\%(RecursiveDir)"></Copy>
+
+    <MakeDir Directories="..\backup\EmailBus" Condition="!Exists('..\backup\EmailBus')" />
+    <Copy SourceFiles="@(BackupEmailBusFiles)" DestinationFolder="..\backup\EmailBus\%(RecursiveDir)"></Copy>
+	
+	<MakeDir Directories="..\backup\EmailJob" Condition="!Exists('..\backup\EmailJob')" />
+    <Copy SourceFiles="@(BackupEmailJobFiles)" DestinationFolder="..\backup\EmailJob\%(RecursiveDir)"></Copy>
+
+    <MakeDir Directories="..\backup\LoggingBus" Condition="!Exists('..\backup\LoggingBus')" />
+    <Copy SourceFiles="@(BackupLoggingBusFiles)" DestinationFolder="..\backup\LoggingBus\%(RecursiveDir)"></Copy>
+
+    <MakeDir Directories="$(ProjectHollywoodWeb)" Condition="!Exists('$(ProjectHollywoodWeb)')" />
+    <Copy SourceFiles="@(CopyProjectHollywoodWebFiles)" DestinationFolder="$(ProjectHollywoodWeb)\%(RecursiveDir)"></Copy>
+	
+	<MakeDir Directories="$(ProjectHollywoodWeb)\img\uploads\temp" Condition="!Exists('$(ProjectHollywoodWeb)\img\uploads\temp')" />
+
+    <MakeDir Directories="$(ProjectHollywoodBus)" Condition="!Exists('$(ProjectHollywoodBus)')" />
+    <Copy SourceFiles="@(CopyProjectHollywoodBusFiles)" DestinationFolder="$(ProjectHollywoodBus)\%(RecursiveDir)"></Copy>
+	
+	<MakeDir Directories="$(ProjectHollywoodJob)" Condition="!Exists('$(ProjectHollywoodJob)')" />
+    <Copy SourceFiles="@(CopyProjectHollywoodJobFiles)" DestinationFolder="$(ProjectHollywoodJob)\%(RecursiveDir)"></Copy>
+
+    <MakeDir Directories="$(UserBus)" Condition="!Exists('$(UserBus)')" />
+    <Copy SourceFiles="@(CopyUserBusFiles)" DestinationFolder="$(UserBus)\%(RecursiveDir)"></Copy>
+	
+	<MakeDir Directories="$(UserJob)" Condition="!Exists('$(UserJob)')" />
+    <Copy SourceFiles="@(CopyUserJobFiles)" DestinationFolder="$(UserJob)\%(RecursiveDir)"></Copy>
+
+    <MakeDir Directories="$(EmailBus)" Condition="!Exists('$(EmailBus)')" />
+    <Copy SourceFiles="@(CopyEmailBusFiles)" DestinationFolder="$(EmailBus)\%(RecursiveDir)"></Copy>
+	
+	<MakeDir Directories="$(EmailJob)" Condition="!Exists('$(EmailJob)')" />
+    <Copy SourceFiles="@(CopyEmailJobFiles)" DestinationFolder="$(EmailJob)\%(RecursiveDir)"></Copy>
+
+    <MakeDir Directories="$(LoggingBus)" Condition="!Exists('$(LoggingBus)')" />
+    <Copy SourceFiles="@(CopyLoggingBusFiles)" DestinationFolder="$(LoggingBus)\%(RecursiveDir)"></Copy>
+
+    <Copy SourceFiles=".\temp\Configurations-Release\ThreeBytes.ProjectHollywood\Web.config" DestinationFolder="$(ProjectHollywoodWeb)\"></Copy>
+    <Copy SourceFiles=".\temp\Configurations-Release\ThreeBytes.ProjectHollywood\ThreeBytes.ProjectHollywood.ServiceHost.dll.config" DestinationFolder="$(ProjectHollywoodBus)\"></Copy>
+    <Copy SourceFiles=".\temp\Configurations-Release\ThreeBytes.User\ThreeBytes.User.ServiceHost.dll.config" DestinationFolder="$(UserBus)\"></Copy>
+    <Copy SourceFiles=".\temp\Configurations-Release\ThreeBytes.Email\ThreeBytes.Email.ServiceHost.dll.config" DestinationFolder="$(EmailBus)\"></Copy>
+    <Copy SourceFiles=".\temp\Configurations-Release\ThreeBytes.Logging\ThreeBytes.Logging.ServiceHost.dll.config" DestinationFolder="$(LoggingBus)\"></Copy>
+
+    <RemoveDir Directories=".\temp" />
+
+  </Target>
+</Project>

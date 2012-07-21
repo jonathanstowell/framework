@@ -1,0 +1,24 @@
+﻿@model DispatchStatisticsViewModel
+
+<div id="quarterly-email-dispatch-statistics-container">
+    <div><span class="inline-sparkline"></span><span>@Model.CurrentStatistic Dispatched Emails This Quarter</span></div>
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var quarterly_email_dispatch_statistics  = {};
+    
+        (function (index) {
+        
+            quarterly_email_dispatch_statistics = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model)) + @");
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#quarterly-email-dispatch-statistics-container')[0]);
+                jQuery('#quarterly-email-dispatch-statistics-container .inline-sparkline').sparkline(index.HistoricStatistics(), {type:'line', lineColor:'blue', height:'30px', width:'80px'});
+            });     
+
+        } (quarterly_email_dispatch_statistics));");
+  }
+}

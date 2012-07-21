@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{32C9734F-0C7C-48D2-B39F-E30FE265A843}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.Core.Service.Tests</RootNamespace>
+    <AssemblyName>ThreeBytes.Core.Service.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET35\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Enyim.Caching">
+      <HintPath>..\..\..\lib\external\EnyimMemcached.2.11\lib\net35\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\..\lib\external\FluentNHibernate.1.2.0.712\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\lib\external\Iesi.Collections.3.1.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SHDocVw">
+      <HintPath>..\..\..\lib\external\WatiN.2.1.0\lib\net35\Interop.SHDocVw.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\lib\external\WatiN.2.1.0\lib\net35\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\..\lib\external\NHibernate.Castle.3.1.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\external\NUnit.2.5.9.10348\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\..\..\lib\external\SpecFlow.1.7.1\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Caching.Core.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Caching.Core.Configuration.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.Configuration.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Caching.Core.Configuration.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.Configuration.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Caching.Core.Memcached">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.Memcached.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Caching.Core.WebCache">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.WebCache.dll</HintPath>
+    </Reference>
+    <Reference Include="WatiN.Core">
+      <HintPath>..\..\..\lib\external\WatiN.2.1.0\lib\net35\WatiN.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bindings\ServiceBindingsBase.cs" />
+    <Compile Include="Features\GenericService.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenericService.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\KeyedGenericService.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeyedGenericService.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ReadOnlyGenericService.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReadOnlyGenericService.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Features\GenericService.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GenericService.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\KeyedGenericService.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>KeyedGenericService.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ReadOnlyGenericService.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ReadOnlyGenericService.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeBytes.Core.Concrete\ThreeBytes.Core.Concrete.csproj">
+      <Project>{1D3A54D0-128A-4849-A86E-FD0DB4C67CA6}</Project>
+      <Name>ThreeBytes.Core.Concrete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Data.Abstract\ThreeBytes.Core.Data.Abstract.csproj">
+      <Project>{1D61579A-EC49-4038-BFE9-C904C0962B67}</Project>
+      <Name>ThreeBytes.Core.Data.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Data.ResultSets.Abstract\ThreeBytes.Core.Data.ResultSets.Abstract.csproj">
+      <Project>{E35E7235-82A4-497B-A896-7410C9603D17}</Project>
+      <Name>ThreeBytes.Core.Data.ResultSets.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Data.ResultSets.Concrete\ThreeBytes.Core.Data.ResultSets.Concrete.csproj">
+      <Project>{B6C54E5F-1F03-4030-816D-11233F6C065B}</Project>
+      <Name>ThreeBytes.Core.Data.ResultSets.Concrete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Entities.Abstract\ThreeBytes.Core.Entities.Abstract.csproj">
+      <Project>{107D9BF8-5442-41C2-B57B-D4055925323C}</Project>
+      <Name>ThreeBytes.Core.Entities.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Entities.Concrete\ThreeBytes.Core.Entities.Concrete.csproj">
+      <Project>{F9875356-9E5D-4297-B1B7-5468F44CD04B}</Project>
+      <Name>ThreeBytes.Core.Entities.Concrete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Extensions.String\ThreeBytes.Core.Extensions.String.csproj">
+      <Project>{D7001E16-65D6-45AD-92BC-FF7474CCFC36}</Project>
+      <Name>ThreeBytes.Core.Extensions.String</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Service.Abstract\ThreeBytes.Core.Service.Abstract.csproj">
+      <Project>{EC1DC6BE-C748-446D-A2C5-4E19A77BB079}</Project>
+      <Name>ThreeBytes.Core.Service.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Service.Concrete\ThreeBytes.Core.Service.Concrete.csproj">
+      <Project>{33A08DEE-3FE3-4B8F-98BB-C6788C9956F4}</Project>
+      <Name>ThreeBytes.Core.Service.Concrete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Tests.Entities\ThreeBytes.Core.Tests.Entities.csproj">
+      <Project>{F04B49FF-AAA3-4D93-B5C7-4A9CDA4DAFA2}</Project>
+      <Name>ThreeBytes.Core.Tests.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThreeBytes.Core.Tests\ThreeBytes.Core.Tests.csproj">
+      <Project>{388A04ED-0D0A-4567-A4A6-FB8C988345D9}</Project>
+      <Name>ThreeBytes.Core.Tests</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
