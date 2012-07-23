@@ -48,17 +48,7 @@ WriteLiteral("<a href=\"");
             
             #line default
             #line hidden
-WriteLiteral("\"><img src=\"");
-
-
-            
-            #line 1 "..\..\Views\Facebook\Index.cshtml"
-                                                Write(Url.Content("~/img/facebook_64.png"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\"/></a>");
+WriteLiteral("\">Login with Facebook</a>");
 
 
         }

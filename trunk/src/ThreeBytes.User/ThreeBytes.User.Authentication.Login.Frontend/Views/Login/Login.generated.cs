@@ -54,36 +54,161 @@ WriteLiteral("           \r\n");
             
             #line default
             #line hidden
-WriteLiteral("\r\n<section id=\"login\">\r\n    <div id=\"login-container\">\r\n        <div class=\"hero-" +
-"unit\"> \r\n            <h1>");
+WriteLiteral("\r\n<section id=\"login\">\r\n    <div id=\"login-container\" class=\"account-container\">\r" +
+"\n        <div class=\"content clearfix\">\r\n");
 
 
             
             #line 10 "..\..\Views\Login\Login.cshtml"
-           Write(Resources.Login);
+             using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "login-form" }))
+            {
 
             
             #line default
             #line hidden
-WriteLiteral("</h1>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"span8 c" +
-"olumns\">&nbsp;</div>\r\n            <div class=\"span4 columns\">\r\n                <" +
-"div id=\"login-form-container\">\r\n");
+WriteLiteral("                <h1>Sign in</h1>\r\n");
+
+
+
+WriteLiteral(@"                <div class=""login-fields"">
+                    <p>Sign in using your registered account:</p>
+                    <div class=""field"">
+                        <label for=""username"">Username:</label>
+                        <input type=""text"" id=""username"" name=""username"" value="""" placeholder=""Username"" class=""login username-field"" />
+                    </div>
+");
 
 
             
-            #line 16 "..\..\Views\Login\Login.cshtml"
-                     using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "login-form", @class="well" }))
+            #line 19 "..\..\Views\Login\Login.cshtml"
+                     if (!ViewData.ModelState.IsValidField("Username"))
                     {
 
             
             #line default
             #line hidden
-WriteLiteral("                        <fieldset>\r\n                            ");
+WriteLiteral("                        <div class=\"alert alert-error\">\r\n                        " +
+"    <a class=\"close\" data-dismiss=\"alert\">×</a>\r\n                            ");
 
 
             
-            #line 19 "..\..\Views\Login\Login.cshtml"
-                       Write(Html.TextBoxFor(model => model.Username, new { placeholder="Username or Email"}));
+            #line 23 "..\..\Views\Login\Login.cshtml"
+                       Write(Html.ValidationMessageFor(model => model.Username));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n                        </div>\r\n");
+
+
+            
+            #line 25 "..\..\Views\Login\Login.cshtml"
+                    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral(@"
+                    <div class=""field"">
+                        <label for=""password"">Password:</label>
+                        <input type=""password"" id=""password"" name=""password"" value="""" placeholder=""Password"" class=""login password-field""/>
+                    </div>
+");
+
+
+            
+            #line 31 "..\..\Views\Login\Login.cshtml"
+                     if (!ViewData.ModelState.IsValidField("Password"))
+                    {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                        <div class=\"alert alert-error\">\r\n                        " +
+"    <a class=\"close\" data-dismiss=\"alert\">×</a>\r\n                            ");
+
+
+            
+            #line 35 "..\..\Views\Login\Login.cshtml"
+                       Write(Html.ValidationMessageFor(model => model.Password));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n                        </div>\r\n");
+
+
+            
+            #line 37 "..\..\Views\Login\Login.cshtml"
+                    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral(@"                            
+                    <div class=""login-actions"">		
+                        <span class=""login-checkbox"">
+                            <input id=""rememberMe"" name=""rememberMe"" type=""checkbox"" class=""field login-checkbox"" tabindex=""4"" />
+                            <label class=""choice"" for=""rememberMe"">Keep me signed in</label>
+                        </span>
+									
+                        <button class=""button btn btn-warning btn-large"" data-bind=""click: login"">Sign In</button>			
+                    </div>
+                            
+                    <div class=""login-social"">
+                        <p>Sign in using social network:</p>
+				
+                        <div class=""twitter"">
+                            <a href=""");
+
+
+            
+            #line 52 "..\..\Views\Login\Login.cshtml"
+                                Write(Url.Action("Login", "Foursquare"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\">Login with Foursquare</a>\t\r\n                        </div>\r\n\t\t\t\t\r\n             " +
+"           <div class=\"fb\">\r\n                            <a href=\"");
+
+
+            
+            #line 56 "..\..\Views\Login\Login.cshtml"
+                                Write(Url.Action("Login", "Facebook"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\">Login with Facebook</a>\r\n                        </div>\r\n                    </" +
+"div>\r\n                </div>\r\n");
+
+
+            
+            #line 60 "..\..\Views\Login\Login.cshtml"
+            }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        </div>\r\n    </div>\r\n    \r\n    <div class=\"login-extra\">\r\n        Don\'t ha" +
+"ve an account? <a href=\"");
+
+
+            
+            #line 65 "..\..\Views\Login\Login.cshtml"
+                                   Write(Url.Action("Register", "Registration"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\">Sign Up</a><br/>\r\n        Remind <a href=\"#\" data-bind=\"click: raiseForgottenPa" +
+"sswordOpen\">Password</a>\r\n    </div>\r\n</section>\r\n\r\n");
+
+
+            
+            #line 70 "..\..\Views\Login\Login.cshtml"
+   Html.RenderAction("ResetPassword", "PasswordManagement");
 
             
             #line default
@@ -92,133 +217,11 @@ WriteLiteral("\r\n");
 
 
             
-            #line 20 "..\..\Views\Login\Login.cshtml"
-                             if (!ViewData.ModelState.IsValidField("Username"))
-                            {
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                                <div class=\"alert alert-error\">\r\n                " +
-"                    <a class=\"close\" data-dismiss=\"alert\">×</a>\r\n               " +
-"                     ");
-
-
-            
-            #line 24 "..\..\Views\Login\Login.cshtml"
-                               Write(Html.ValidationMessageFor(model => model.Username));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                                </div>\r\n");
-
-
-            
-            #line 26 "..\..\Views\Login\Login.cshtml"
-                            }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                            ");
-
-
-            
-            #line 28 "..\..\Views\Login\Login.cshtml"
-                       Write(Html.PasswordFor(model => model.Password, new { placeholder="Password"}));
-
-            
-            #line default
-            #line hidden
-WriteLiteral(" \r\n                            <button class=\"btn btn-primary\" data-bind=\"click: " +
-"login\">Sign in</button>\r\n");
-
-
-            
-            #line 30 "..\..\Views\Login\Login.cshtml"
-                             if (!ViewData.ModelState.IsValidField("Password"))
-                             {
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                                 <div class=\"alert alert-error\">\r\n               " +
-"                      <a class=\"close\" data-dismiss=\"alert\">×</a>\r\n             " +
-"                        ");
-
-
-            
-            #line 34 "..\..\Views\Login\Login.cshtml"
-                                Write(Html.ValidationMessageFor(model => model.Password));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                                 </div>\r\n");
-
-
-            
-            #line 36 "..\..\Views\Login\Login.cshtml"
-                             }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                                \r\n                            <label class=\"check" +
-"box\">\r\n                                ");
-
-
-            
-            #line 39 "..\..\Views\Login\Login.cshtml"
-                           Write(Html.CheckBoxFor(model => model.RememberMe));
-
-            
-            #line default
-            #line hidden
-WriteLiteral(" Remember me <span class=\"separator\">·</span> <a href=\"#\" data-bind=\"click: raise" +
-"ForgottenPasswordOpen\">Forgotten Password?</a>\r\n                            </la" +
-"bel>\r\n\r\n                        </fieldset>\r\n");
-
-
-            
-            #line 43 "..\..\Views\Login\Login.cshtml"
-                    }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                </div>\r\n                <hr />\r\n                <div id=\"registat" +
-"ion-container\">\r\n");
-
-
-            
-            #line 47 "..\..\Views\Login\Login.cshtml"
-                       Html.RenderAction("PartialRegister", "Registration"); 
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                </div>\r\n            </div>\r\n        </div>\r\n        <div id=\"logi" +
-"n-footer-container\" class=\"page-footer\"></div>\r\n    </div>\r\n\r\n");
-
-
-            
-            #line 54 "..\..\Views\Login\Login.cshtml"
-       Html.RenderAction("ResetPassword", "PasswordManagement"); 
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</section>\r\n\r\n");
-
-
-            
-            #line 57 "..\..\Views\Login\Login.cshtml"
+            #line 72 "..\..\Views\Login\Login.cshtml"
    
-  using (Html.BeginScriptContext())
-  {
-    Html.AddScriptBlock(@"
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
         var login = {};
 
         (function (index) {
@@ -234,11 +237,11 @@ WriteLiteral("</section>\r\n\r\n");
             };
 
             jQuery(function () {
-                ko.applyBindings(index, jQuery('#login-form-container')[0]);
+                ko.applyBindings(index, jQuery('#login')[0]);
             });
 
         } (login));");
-  }
+    }
 
             
             #line default

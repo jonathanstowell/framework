@@ -48,17 +48,7 @@ WriteLiteral("<a href=\"");
             
             #line default
             #line hidden
-WriteLiteral("\"><img src=\"");
-
-
-            
-            #line 1 "..\..\Views\Foursquare\Index.cshtml"
-                                                  Write(Url.Content("~/img/foursquare_64.png"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\"/></a>");
+WriteLiteral("\">Login with Foursquare</a>");
 
 
         }

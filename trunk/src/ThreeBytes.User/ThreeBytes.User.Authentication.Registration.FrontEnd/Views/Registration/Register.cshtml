@@ -5,95 +5,88 @@
 }
 
 <section id="registation">
-    <div id="registation-container">
-        <div class="hero-unit"> 
-            <h1>@Resources.Register</h1> 
-        </div>
-        <div class="row">
-            <div class="span6">&nbsp;</div>
-            <div class="span5 well">
-                @if (Model.Success)
+    <div id="registation-container" class="account-container register">
+        <div class="content clearfix">
+            @if (Model.Success)
+            {
+                <h1>@Resources.RegistrationSuccess</h1>
+                <p>@string.Format(Resources.WeAreProcessingYourRequest, Model.Email) @Html.ActionLink(Resources.UnlockAccountPage, "VerifyAccount", new { userIdentifier = Model.UserName }).</p>
+            }
+            else
+            {
+                using (Html.BeginForm("Register", "Registration", FormMethod.Post, new { id = "registration-form" }))
                 {
-                    <h2>@Resources.RegistrationSuccess</h2>
-                    <p>@string.Format(Resources.WeAreProcessingYourRequest, Model.Email) @Html.ActionLink(Resources.UnlockAccountPage, "VerifyAccount", new { userIdentifier = Model.UserName }).</p>
+                    <h1>Create Your Account</h1> 
+                
+                    <div class="login-social">
+                        <p>Sign in using social network:</p>
+				
+                        <div class="twitter">
+                            <a href="@Url.Action("Login", "Foursquare")">Login with Foursquare</a>
+                        </div>
+				
+                        <div class="fb">
+                            <a href="@Url.Action("Login", "Facebook")">Login with Facebook</a>
+                        </div>
+                    </div>
+            
+                    <div class="login-fields">
+				
+                        <p>Create your free account:</p>
+				
+                        <div class="field">
+                            <label for="UserName">Username:</label>
+                            <input type="text" id="userName" name="userName" value="" placeholder="Username" class="login" />
+                        </div>
+                        @if (!ViewData.ModelState.IsValidField("UserName"))
+                        {
+                            <div class="alert alert-error">
+                                <a class="close" data-dismiss="alert">×</a>
+                                @Html.ValidationMessageFor(model => model.UserName)
+                            </div>
+                        }
+				
+                        <div class="field">
+                            <label for="email">Email Address:</label>
+                            <input type="text" id="email" name="email" value="" placeholder="Email" class="login"/>
+                        </div>
+                        @if (!ViewData.ModelState.IsValidField("Email"))
+                        {
+                            <div class="alert alert-error">
+                                <a class="close" data-dismiss="alert">×</a>
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+                        }
+				
+                        <div class="field">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" value="" placeholder="Password" class="login"/>
+                        </div>
+                        @if (!ViewData.ModelState.IsValidField("Password"))
+                        {
+                            <div class="alert alert-error">
+                                <a class="close" data-dismiss="alert">×</a>
+                                @Html.ValidationMessageFor(model => model.Password)
+                            </div>
+                        }
+				
+                        <div class="field">
+                            <label for="confirmPassword">Confirm Password:</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" value="" placeholder="Confirm Password" class="login"/>
+                        </div>
+				
+                    </div>
+            
+                    <div class="login-actions">						
+                        <button class="button btn btn-primary btn-large" data-bind="click: register">Register</button>		
+                    </div>
                 }
-                else
-                {
-                    <p>
-                        @Resources.FormForNewAccount
-                    </p>
-
-                    using (Html.BeginForm("Register", "Registration", FormMethod.Post, new { id = "registration-form" }))
-                    {
-                         <fieldset>
-
-                             <div class="clearfix">
-                                 @Html.LabelFor(model => model.UserName, Resources.UserName)
-                                 <div class="input">
-                                     @Html.EditorFor(model => model.UserName)
-                                     @if (!ViewData.ModelState.IsValidField("UserName"))
-                                     {
-                                         <div class="alert alert-error">
-                                             <a class="close" data-dismiss="alert">×</a>
-                                             @Html.ValidationMessageFor(model => model.UserName)
-                                         </div>
-                                     }
-                                 </div>
-                                 
-                             </div>
-
-                             <div class="clearfix">
-                                 @Html.LabelFor(model => model.Email, Resources.Email)
-                                 <div class="input">
-                                     @Html.EditorFor(model => model.Email)
-                                     @if (!ViewData.ModelState.IsValidField("Email"))
-                                     {
-                                         <div class="alert alert-error">
-                                             <a class="close" data-dismiss="alert">×</a>
-                                             @Html.ValidationMessageFor(model => model.Email)
-                                         </div>
-                                     }
-                                 </div>
-                             </div>
-
-                             <div class="clearfix">
-                                 @Html.LabelFor(model => model.Password, Resources.Password)
-                                 <div class="input">
-                                     @Html.PasswordFor(model => model.Password)
-                                     @if (!ViewData.ModelState.IsValidField("Password"))
-                                     {
-                                         <div class="alert alert-error">
-                                             <a class="close" data-dismiss="alert">×</a>
-                                             @Html.ValidationMessageFor(model => model.Password)
-                                         </div>
-                                     }
-                                 </div>
-                             </div>
-
-                             <div class="clearfix">
-                                 @Html.LabelFor(model => model.ConfirmPassword, Resources.ConfirmPassword)
-                                 <div class="input">
-                                     @Html.PasswordFor(model => model.ConfirmPassword)
-                                     @if (!ViewData.ModelState.IsValidField("ConfirmPassword"))
-                                     {
-                                         <div class="alert alert-error">
-                                             <a class="close" data-dismiss="alert">×</a>
-                                             @Html.ValidationMessageFor(model => model.ConfirmPassword)
-                                         </div>
-                                     }
-                                 </div>
-                             </div>
-
-                             <div>
-                                <button class="btn btn-primary pull-right" data-bind="click: register">@Resources.Register</button>
-                             </div>
-                         </fieldset>
-                    }
-                }
-            </div>
+            }
         </div>
-        <div class="page-footer">
-        </div>
+    </div>
+    
+    <div class="login-extra">
+	    Already have an account? <a href="@Url.Action("Login", "Login")">Login</a>
     </div>
 </section>
 

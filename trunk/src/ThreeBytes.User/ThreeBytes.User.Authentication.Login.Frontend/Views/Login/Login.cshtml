@@ -5,59 +5,74 @@
 }
 
 <section id="login">
-    <div id="login-container">
-        <div class="hero-unit"> 
-            <h1>@Resources.Login</h1>
-        </div>
-        <div class="row">
-            <div class="span8 columns">&nbsp;</div>
-            <div class="span4 columns">
-                <div id="login-form-container">
-                    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "login-form", @class="well" }))
+    <div id="login-container" class="account-container">
+        <div class="content clearfix">
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "login-form" }))
+            {
+                <h1>Sign in</h1>
+                <div class="login-fields">
+                    <p>Sign in using your registered account:</p>
+                    <div class="field">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" value="" placeholder="Username" class="login username-field" />
+                    </div>
+                    @if (!ViewData.ModelState.IsValidField("Username"))
                     {
-                        <fieldset>
-                            @Html.TextBoxFor(model => model.Username, new { placeholder="Username or Email"})
-                            @if (!ViewData.ModelState.IsValidField("Username"))
-                            {
-                                <div class="alert alert-error">
-                                    <a class="close" data-dismiss="alert">×</a>
-                                    @Html.ValidationMessageFor(model => model.Username)
-                                </div>
-                            }
-
-                            @Html.PasswordFor(model => model.Password, new { placeholder="Password"}) 
-                            <button class="btn btn-primary" data-bind="click: login">Sign in</button>
-                            @if (!ViewData.ModelState.IsValidField("Password"))
-                             {
-                                 <div class="alert alert-error">
-                                     <a class="close" data-dismiss="alert">×</a>
-                                     @Html.ValidationMessageFor(model => model.Password)
-                                 </div>
-                             }
-                                
-                            <label class="checkbox">
-                                @Html.CheckBoxFor(model => model.RememberMe) Remember me <span class="separator">·</span> <a href="#" data-bind="click: raiseForgottenPasswordOpen">Forgotten Password?</a>
-                            </label>
-
-                        </fieldset>
+                        <div class="alert alert-error">
+                            <a class="close" data-dismiss="alert">×</a>
+                            @Html.ValidationMessageFor(model => model.Username)
+                        </div>
                     }
-                </div>
-                <hr />
-                <div id="registation-container">
-                    @{ Html.RenderAction("PartialRegister", "Registration"); }
-                </div>
-            </div>
-        </div>
-        <div id="login-footer-container" class="page-footer"></div>
-    </div>
 
-    @{ Html.RenderAction("ResetPassword", "PasswordManagement"); }
+                    <div class="field">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field"/>
+                    </div>
+                    @if (!ViewData.ModelState.IsValidField("Password"))
+                    {
+                        <div class="alert alert-error">
+                            <a class="close" data-dismiss="alert">×</a>
+                            @Html.ValidationMessageFor(model => model.Password)
+                        </div>
+                    }
+                            
+                    <div class="login-actions">		
+                        <span class="login-checkbox">
+                            <input id="rememberMe" name="rememberMe" type="checkbox" class="field login-checkbox" tabindex="4" />
+                            <label class="choice" for="rememberMe">Keep me signed in</label>
+                        </span>
+									
+                        <button class="button btn btn-warning btn-large" data-bind="click: login">Sign In</button>			
+                    </div>
+                            
+                    <div class="login-social">
+                        <p>Sign in using social network:</p>
+				
+                        <div class="twitter">
+                            <a href="@Url.Action("Login", "Foursquare")">Login with Foursquare</a>	
+                        </div>
+				
+                        <div class="fb">
+                            <a href="@Url.Action("Login", "Facebook")">Login with Facebook</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    
+    <div class="login-extra">
+        Don't have an account? <a href="@Url.Action("Register", "Registration")">Sign Up</a><br/>
+        Remind <a href="#" data-bind="click: raiseForgottenPasswordOpen">Password</a>
+    </div>
 </section>
 
+@{ Html.RenderAction("ResetPassword", "PasswordManagement");}
+
 @{ 
-  using (Html.BeginScriptContext())
-  {
-    Html.AddScriptBlock(@"
+    using (Html.BeginScriptContext())
+    {
+        Html.AddScriptBlock(@"
         var login = {};
 
         (function (index) {
@@ -73,9 +88,9 @@
             };
 
             jQuery(function () {
-                ko.applyBindings(index, jQuery('#login-form-container')[0]);
+                ko.applyBindings(index, jQuery('#login')[0]);
             });
 
         } (login));");
-  }
+    }
 }

@@ -2,7 +2,6 @@
 using Castle.Core;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
-using FluentValidation;
 using ThreeBytes.Core.Bootstrapper.Extensions.Mvc;
 using ThreeBytes.Core.Bootstrapper.Extensions.Windsor.Installers;
 using ThreeBytes.Core.Commands.Abstract;

@@ -30,13 +30,21 @@ namespace ThreeBytes.Core.Security.Utilities.Concrete
             if (string.IsNullOrEmpty(cookie.Value))
                 return null;
 
-            FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(cookie.Value);
-            string[] userData = authTicket.UserData.Split(',');
-            Guid userId = Guid.Parse(userData[0]);
-            string[] roles = userData[1].Split('|');
-            string externalProvider = userData[2];
-            FormsIdentity id = new FormsIdentity(authTicket);
-            return new ThreeBytesPrincipal(id, userId, roles, externalProvider);
+            try
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(cookie.Value);
+                string[] userData = authTicket.UserData.Split(',');
+                Guid userId = Guid.Parse(userData[0]);
+                string[] roles = userData[1].Split('|');
+                string externalProvider = userData[2];
+                FormsIdentity id = new FormsIdentity(authTicket);
+                return new ThreeBytesPrincipal(id, userId, roles, externalProvider);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            
         }
     }
 }
