@@ -1,0 +1,28 @@
+@model RegistrationStatisticViewModel
+
+<div id="monthly-registration-statistic-container" class="stat">								
+    <h4>Unique <span data-bind="text: plural"></span> This Month</h4>
+    <span class="value">@Model.CurrentStatistic</span>								
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var monthly_registration_statistic  = {};
+    
+        (function (index) {
+        
+            monthly_registration_statistic = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model)) + @");
+
+            index.plural = ko.dependentObservable(function () {
+                return index.CurrentStatistic() == 1 ? 'Registration' : 'Registrations';
+            }, index);
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#monthly-registration-statistic-container')[0]);
+            });     
+
+        } (monthly_registration_statistic));");
+  }
+}

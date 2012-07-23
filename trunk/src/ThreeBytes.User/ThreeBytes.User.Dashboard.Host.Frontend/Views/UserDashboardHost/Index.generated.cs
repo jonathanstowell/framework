@@ -48,51 +48,112 @@ namespace ThreeBytes.User.Dashboard.Host.Frontend.Views.UserDashboardHost
             
             #line default
             #line hidden
-WriteLiteral("\r\n<div class=\"main\">\t\r\n    <div class=\"main-inner\">\r\n        <div class=\"containe" +
-"r\">\r\n            <section id=\"user-user-home\">\r\n                <div class=\"row\"" +
-">    \r\n\t      \t        <div class=\"span12\">      \t\t\r\n\t      \t\t        <div class" +
-"=\"widget big-stats-container\">\t\t\r\n\t      \t\t\t        <div class=\"widget-content\">" +
-"\t\t\t\r\n\t\t\t      \t\t        <div id=\"big_stats\" class=\"cf\">\r\n\t\t\t\t\t\t\t        <div cla" +
-"ss=\"stat\">\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t        <h4>Logins Today</h4>\r\n\t\t\t\t\t\t\t\t        <span" +
-" class=\"value\">12</span>\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t        </div>\t\t\t\t\r\n\t\t\t\t\t\t\t        <div" +
-" class=\"stat\">\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t        <h4>Registrations Today</h4>\r\n\t\t\t\t\t\t\t\t  " +
-"      <span class=\"value\">23</span>\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t        </div>\r\n\t\t\t\t\t\t\t     " +
-"   <div class=\"stat\">\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t        <h4>Returned Items Today</h4>\r\n\t\t" +
-"\t\t\t\t\t\t        <span class=\"value\">2</span>\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t        </div>\r\n\t\t\t\t\t" +
-"\t\t        <div class=\"stat\">\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t        <h4>Something Else</h4>\r\n\t" +
-"\t\t\t\t\t\t\t        <span class=\"value\">13</span>\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t        </div>\r\n\t\t\t" +
-"\t\t\t        </div>\t\t\t\t\r\n\t\t\t\t\t        </div>\t\t\t\t\t\r\n\t\t\t\t        </div>\r\n\t      \t   " +
-"     </div>\t      \t\r\n\t  \t        </div>\r\n                <div class=\"row\">\r\n    " +
-"                <div class=\"span8\">            \r\n                        <div cl" +
-"ass=\"widget\">\r\n                            <div class=\"widget-header\">\r\n        " +
-"                        <i class=\"icon-star\"></i>\r\n                             " +
-"   <h3>Login Statistics</h3>\r\n                            </div>\r\n              " +
-"              <div class=\"widget-content\">\r\n                                <div" +
-" class=\"row\">    \r\n                                    <div class=\"span3\">\r\n");
+WriteLiteral("\r\n<section id=\"user-user-home\">\r\n    <div class=\"row\">    \r\n\t    <div class=\"span" +
+"12\">      \t\t\r\n\t      \t<div class=\"widget big-stats-container\">\t\t\r\n\t      \t\t<div " +
+"class=\"widget-content\">\t\t\t\r\n\t\t\t      \t<div id=\"big_stats\" class=\"cf\">\r\n");
 
 
             
-            #line 45 "..\..\Views\UserDashboardHost\Index.cshtml"
-                                           Html.RenderAction("DailyStatistics", "LoginStatisticsDaily"); 
+            #line 11 "..\..\Views\UserDashboardHost\Index.cshtml"
+  						 Html.RenderAction("DailyStatistic", "LoginStatisticsDaily"); 	
 
             
             #line default
             #line hidden
 
             
-            #line 46 "..\..\Views\UserDashboardHost\Index.cshtml"
-                                           Html.RenderAction("MonthlyStatistics", "LoginStatisticsMonthly"); 
+            #line 12 "..\..\Views\UserDashboardHost\Index.cshtml"
+  						 Html.RenderAction("MonthlyStatistic", "LoginStatisticsMonthly"); 	
 
             
             #line default
             #line hidden
-WriteLiteral("                                    </div>\r\n                                    <" +
-"div class=\"span4\">\r\n");
+
+            
+            #line 13 "..\..\Views\UserDashboardHost\Index.cshtml"
+                           Html.RenderAction("DailyStatistic", "RegistrationStatisticsDaily"); 
+
+            
+            #line default
+            #line hidden
+
+            
+            #line 14 "..\..\Views\UserDashboardHost\Index.cshtml"
+                           Html.RenderAction("MonthlyStatistic", "RegistrationStatisticsMonthly"); 
+
+            
+            #line default
+            #line hidden
+WriteLiteral(@"					</div>				
+				</div>					
+			</div>
+	    </div>	      	
+	</div>
+    <div class=""row"">
+        <div class=""span8"">            
+            <div class=""widget"">
+                <div class=""widget-header"">
+                    <i class=""icon-star""></i>
+                    <h3>Login Statistics</h3>
+                </div>
+                <div class=""widget-content"">
+                    <div class=""row"">    
+                        <div class=""span4"">
+");
+
+
+            
+            #line 30 "..\..\Views\UserDashboardHost\Index.cshtml"
+                               Html.RenderAction("DailyStatistics", "LoginStatisticsDaily"); 
+
+            
+            #line default
+            #line hidden
+
+            
+            #line 31 "..\..\Views\UserDashboardHost\Index.cshtml"
+                               Html.RenderAction("MonthlyStatistics", "LoginStatisticsMonthly"); 
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                        </div>\r\n                        <div class=\"span3\">\r\n");
+
+
+            
+            #line 34 "..\..\Views\UserDashboardHost\Index.cshtml"
+                               Html.RenderAction("QuarterlyStatistics", "LoginStatisticsQuarterly"); 
+
+            
+            #line default
+            #line hidden
+
+            
+            #line 35 "..\..\Views\UserDashboardHost\Index.cshtml"
+                               Html.RenderAction("YearlyStatistics", "LoginStatisticsYearly"); 
+
+            
+            #line default
+            #line hidden
+WriteLiteral(@"                        </div>  
+                    </div>
+                </div>
+            </div>
+            <div class=""widget"">
+                <div class=""widget-header"">
+                    <i class=""icon-star""></i>
+                    <h3>Registration Statistics</h3>
+                </div>
+					
+                <div class=""widget-content"">
+                    <div class=""row""> 
+                        <div class=""span4"">
+");
 
 
             
             #line 49 "..\..\Views\UserDashboardHost\Index.cshtml"
-                                           Html.RenderAction("QuarterlyStatistics", "LoginStatisticsQuarterly"); 
+                               Html.RenderAction("DailyStatistics", "RegistrationStatisticsDaily"); 
 
             
             #line default
@@ -100,83 +161,49 @@ WriteLiteral("                                    </div>\r\n                    
 
             
             #line 50 "..\..\Views\UserDashboardHost\Index.cshtml"
-                                           Html.RenderAction("YearlyStatistics", "LoginStatisticsYearly"); 
+                               Html.RenderAction("MonthlyStatistics", "RegistrationStatisticsMonthly"); 
 
             
             #line default
             #line hidden
-WriteLiteral(@"                                    </div>  
-                                </div>
-                            </div>
-                        </div>
-                        <div class=""widget"">
-                            <div class=""widget-header"">
-                                <i class=""icon-star""></i>
-                                <h3>Registration Statistics</h3>
-                            </div>
-					
-                            <div class=""widget-content"">
-                                <div class=""row""> 
-                                    <div class=""span3"">
-");
+WriteLiteral("                        </div>\r\n                        <div class=\"span3\">\r\n");
 
 
             
-            #line 64 "..\..\Views\UserDashboardHost\Index.cshtml"
-                                           Html.RenderAction("DailyStatistics", "RegistrationStatisticsDaily"); 
+            #line 53 "..\..\Views\UserDashboardHost\Index.cshtml"
+                               Html.RenderAction("QuarterlyStatistics", "RegistrationStatisticsQuarterly"); 
 
             
             #line default
             #line hidden
 
             
-            #line 65 "..\..\Views\UserDashboardHost\Index.cshtml"
-                                           Html.RenderAction("MonthlyStatistics", "RegistrationStatisticsMonthly"); 
+            #line 54 "..\..\Views\UserDashboardHost\Index.cshtml"
+                               Html.RenderAction("YearlyStatistics", "RegistrationStatisticsYearly"); 
 
             
             #line default
             #line hidden
-WriteLiteral("                                    </div>\r\n                                    <" +
-"div class=\"span4\">\r\n");
+WriteLiteral("                        </div>\r\n                    </div>\r\n                </div" +
+">\r\n            </div>\r\n        </div>\r\n        <div class=\"span4\">\r\n");
 
 
             
-            #line 68 "..\..\Views\UserDashboardHost\Index.cshtml"
-                                           Html.RenderAction("QuarterlyStatistics", "RegistrationStatisticsQuarterly"); 
-
-            
-            #line default
-            #line hidden
-
-            
-            #line 69 "..\..\Views\UserDashboardHost\Index.cshtml"
-                                           Html.RenderAction("YearlyStatistics", "RegistrationStatisticsYearly"); 
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                                    </div>\r\n                                </div" +
-">\r\n                            </div>\r\n                        </div>\r\n         " +
-"           </div>\r\n                    <div class=\"span4\">\r\n");
-
-
-            
-            #line 76 "..\..\Views\UserDashboardHost\Index.cshtml"
-                           Html.RenderAction("MostLoggedIn", "ActiveUsers"); 
+            #line 61 "..\..\Views\UserDashboardHost\Index.cshtml"
+               Html.RenderAction("MostLoggedIn", "ActiveUsers"); 
 
             
             #line default
             #line hidden
 
             
-            #line 77 "..\..\Views\UserDashboardHost\Index.cshtml"
-                           Html.RenderAction("MostRecent", "NewestUsers"); 
+            #line 62 "..\..\Views\UserDashboardHost\Index.cshtml"
+               Html.RenderAction("MostRecent", "NewestUsers"); 
 
             
             #line default
             #line hidden
-WriteLiteral("                    </div>\r\n                </div>\r\n            </section>\r\n     " +
-"   </div>\r\n    </div>\r\n</div>");
+WriteLiteral("        </div>\r\n    </div>\r\n</section>");
 
 
         }

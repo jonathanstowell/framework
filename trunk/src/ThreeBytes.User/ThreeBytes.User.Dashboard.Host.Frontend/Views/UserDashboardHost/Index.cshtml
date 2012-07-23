@@ -2,82 +2,64 @@
     ViewBag.Title = "User Dashboard";
 }
 
-<div class="main">	
-    <div class="main-inner">
-        <div class="container">
-            <section id="user-user-home">
-                <div class="row">    
-	      	        <div class="span12">      		
-	      		        <div class="widget big-stats-container">		
-	      			        <div class="widget-content">			
-			      		        <div id="big_stats" class="cf">
-							        <div class="stat">								
-								        <h4>Logins Today</h4>
-								        <span class="value">12</span>								
-							        </div>				
-							        <div class="stat">								
-								        <h4>Registrations Today</h4>
-								        <span class="value">23</span>								
-							        </div>
-							        <div class="stat">								
-								        <h4>Returned Items Today</h4>
-								        <span class="value">2</span>								
-							        </div>
-							        <div class="stat">								
-								        <h4>Something Else</h4>
-								        <span class="value">13</span>								
-							        </div>
-						        </div>				
-					        </div>					
-				        </div>
-	      	        </div>	      	
-	  	        </div>
-                <div class="row">
-                    <div class="span8">            
-                        <div class="widget">
-                            <div class="widget-header">
-                                <i class="icon-star"></i>
-                                <h3>Login Statistics</h3>
-                            </div>
-                            <div class="widget-content">
-                                <div class="row">    
-                                    <div class="span3">
-                                        @{ Html.RenderAction("DailyStatistics", "LoginStatisticsDaily"); }
-                                        @{ Html.RenderAction("MonthlyStatistics", "LoginStatisticsMonthly"); }
-                                    </div>
-                                    <div class="span4">
-                                        @{ Html.RenderAction("QuarterlyStatistics", "LoginStatisticsQuarterly"); }
-                                        @{ Html.RenderAction("YearlyStatistics", "LoginStatisticsYearly"); }
-                                    </div>  
-                                </div>
-                            </div>
+<section id="user-user-home">
+    <div class="row">    
+	    <div class="span12">      		
+	      	<div class="widget big-stats-container">		
+	      		<div class="widget-content">			
+			      	<div id="big_stats" class="cf">
+						@{ Html.RenderAction("DailyStatistic", "LoginStatisticsDaily"); }	
+						@{ Html.RenderAction("MonthlyStatistic", "LoginStatisticsMonthly"); }	
+                        @{ Html.RenderAction("DailyStatistic", "RegistrationStatisticsDaily"); }
+                        @{ Html.RenderAction("MonthlyStatistic", "RegistrationStatisticsMonthly"); }
+					</div>				
+				</div>					
+			</div>
+	    </div>	      	
+	</div>
+    <div class="row">
+        <div class="span8">            
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-star"></i>
+                    <h3>Login Statistics</h3>
+                </div>
+                <div class="widget-content">
+                    <div class="row">    
+                        <div class="span4">
+                            @{ Html.RenderAction("DailyStatistics", "LoginStatisticsDaily"); }
+                            @{ Html.RenderAction("MonthlyStatistics", "LoginStatisticsMonthly"); }
                         </div>
-                        <div class="widget">
-                            <div class="widget-header">
-                                <i class="icon-star"></i>
-                                <h3>Registration Statistics</h3>
-                            </div>
-					
-                            <div class="widget-content">
-                                <div class="row"> 
-                                    <div class="span3">
-                                        @{ Html.RenderAction("DailyStatistics", "RegistrationStatisticsDaily"); }
-                                        @{ Html.RenderAction("MonthlyStatistics", "RegistrationStatisticsMonthly"); }
-                                    </div>
-                                    <div class="span4">
-                                        @{ Html.RenderAction("QuarterlyStatistics", "RegistrationStatisticsQuarterly"); }
-                                        @{ Html.RenderAction("YearlyStatistics", "RegistrationStatisticsYearly"); }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span4">
-                        @{ Html.RenderAction("MostLoggedIn", "ActiveUsers"); }
-                        @{ Html.RenderAction("MostRecent", "NewestUsers"); }
+                        <div class="span3">
+                            @{ Html.RenderAction("QuarterlyStatistics", "LoginStatisticsQuarterly"); }
+                            @{ Html.RenderAction("YearlyStatistics", "LoginStatisticsYearly"); }
+                        </div>  
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-star"></i>
+                    <h3>Registration Statistics</h3>
+                </div>
+					
+                <div class="widget-content">
+                    <div class="row"> 
+                        <div class="span4">
+                            @{ Html.RenderAction("DailyStatistics", "RegistrationStatisticsDaily"); }
+                            @{ Html.RenderAction("MonthlyStatistics", "RegistrationStatisticsMonthly"); }
+                        </div>
+                        <div class="span3">
+                            @{ Html.RenderAction("QuarterlyStatistics", "RegistrationStatisticsQuarterly"); }
+                            @{ Html.RenderAction("YearlyStatistics", "RegistrationStatisticsYearly"); }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span4">
+            @{ Html.RenderAction("MostLoggedIn", "ActiveUsers"); }
+            @{ Html.RenderAction("MostRecent", "NewestUsers"); }
         </div>
     </div>
-</div>
+</section>

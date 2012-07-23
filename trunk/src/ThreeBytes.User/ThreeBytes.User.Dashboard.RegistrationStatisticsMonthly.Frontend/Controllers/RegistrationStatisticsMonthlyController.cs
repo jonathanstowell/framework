@@ -26,6 +26,15 @@ namespace ThreeBytes.User.Dashboard.RegistrationStatisticsMonthly.Frontend.Contr
             this.userConfiguration = userConfiguration;
         }
 
+        public ActionResult MonthlyStatistic()
+        {
+            RegistrationStatisticViewModel model = new RegistrationStatisticViewModel();
+
+            model.CurrentStatistic = service.GetThisMonthsRegistrationCount(userConfiguration.ApplicationName);
+
+            return PartialView(model);
+        }
+
         public ActionResult MonthlyStatistics()
         {
             RegistrationStatisticsViewModel model = new RegistrationStatisticsViewModel();

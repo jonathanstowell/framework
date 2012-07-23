@@ -1,0 +1,28 @@
+@model LoginStatisticViewModel
+
+<div id="daily-login-statistic-container" class="stat">								
+    <h4>Unique <span data-bind="text: plural"></span> Today</h4>
+    <span class="value">@Model.CurrentStatistic</span>								
+</div>
+
+@{ 
+  using (Html.BeginScriptContext())
+  {
+    Html.AddScriptBlock(@"
+        var daily_login_statistic  = {};
+    
+        (function (index) {
+        
+            daily_login_statistic = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model)) + @");
+
+            index.plural = ko.dependentObservable(function () {
+                return index.CurrentStatistic() == 1 ? 'Login' : 'Logins';
+            }, index);
+
+            jQuery(function() {
+                ko.applyBindings(index, jQuery('#daily-login-statistic-container')[0]);
+            });     
+
+        } (daily_login_statistic));");
+  }
+}

@@ -26,6 +26,15 @@ namespace ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Frontend.Controllers
             this.userConfiguration = userConfiguration;
         }
 
+        public ActionResult MonthlyStatistic()
+        {
+            LoginStatisticViewModel model = new LoginStatisticViewModel();
+
+            model.CurrentStatistic = service.GetThisMonthsLoginCount(userConfiguration.ApplicationName);
+
+            return PartialView(model);
+        }
+
         public ActionResult MonthlyStatistics()
         {
             LoginStatisticsViewModel model = new LoginStatisticsViewModel();
