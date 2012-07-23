@@ -1,14 +1,19 @@
 ﻿@using System.Web.Script.Serialization
 @model ThreeBytes.User.Profile.View.Entities.UserProfileViewProfile
 
-<div id="user-profile-links-container">
-    <h2>Links</h2>
-    <span data-bind="visible: hasFacebook() == false"><img class="link" src="@Url.Content("~/img/facebook-nonactive-48x48.png")" data-bind="click: raiseLinkFacebook" /></span>
-    <span data-bind="visible: hasFacebook"><a data-bind="attr: { href: facebookUrl }" target="_blank"><img src="@Url.Content("~/img/facebook-48x48.png")"/></a></span>
-    <span data-bind="visible: hasFoursquare() == false"><img class="link" src="@Url.Content("~/img/foursquare-nonactive-48x48.png")" data-bind="click: raiseLinkFoursquare" /></span>
-    <span data-bind="visible: hasFoursquare"><a data-bind="attr: { href: foursquareUrl }" target="_blank"><img src="@Url.Content("~/img/foursquare-48x48.png")"/></a></span>
-    <span data-bind="visible: hasTwitter() == false"><img class="link" src="@Url.Content("~/img/twitter-nonactive-48x48.png")" data-bind="click: raiseLinkTwitter" /></span>
-    <span data-bind="visible: hasTwitter"><a data-bind="attr: { href: twitterUrl }" target="_blank"><img src="@Url.Content("~/img/twitter-48x48.png")"/></a></span>
+<div id="user-profile-links-container" class="widget">
+    <div class="widget-header">
+        <i class="icon-star"></i>
+        <h3>Links</h3>
+    </div>
+    <div class="widget-content center">
+        <span data-bind="visible: hasFacebook() == false"><img class="link" src="@Url.Content("~/img/facebook-nonactive-48x48.png")" data-bind="click: raiseLinkFacebook" /></span>
+        <span data-bind="visible: hasFacebook"><a data-bind="attr: { href: facebookUrl }" target="_blank"><img src="@Url.Content("~/img/facebook-48x48.png")"/></a></span>
+        <span data-bind="visible: hasFoursquare() == false"><img class="link" src="@Url.Content("~/img/foursquare-nonactive-48x48.png")" data-bind="click: raiseLinkFoursquare" /></span>
+        <span data-bind="visible: hasFoursquare"><a data-bind="attr: { href: foursquareUrl }" target="_blank"><img src="@Url.Content("~/img/foursquare-48x48.png")"/></a></span>
+        <span data-bind="visible: hasTwitter() == false"><img class="link" src="@Url.Content("~/img/twitter-nonactive-48x48.png")" data-bind="click: raiseLinkTwitter" /></span>
+        <span data-bind="visible: hasTwitter"><a data-bind="attr: { href: twitterUrl }" target="_blank"><img src="@Url.Content("~/img/twitter-48x48.png")"/></a></span>
+    </div>
 </div>
 
 @{ 

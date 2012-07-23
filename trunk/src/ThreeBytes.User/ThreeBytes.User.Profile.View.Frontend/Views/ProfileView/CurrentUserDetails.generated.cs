@@ -47,25 +47,37 @@ namespace ThreeBytes.User.Profile.View.Frontend.Views.ProfileView
 
 
 WriteLiteral(@"
-<div id=""current-user-profile-details-container"">
-    <div class=""display-label"">Username</div>
-    <div class=""display-field"" data-bind=""text: Username""></div>
+<div id=""current-user-profile-details-container"" class=""widget"">
+    <div class=""widget-header"">
+        <i class=""icon-star""></i>
+        <h3>User Details</h3>
+        <button class=""btn btn-primary pull-right-menu"" data-bind=""click: raiseEdit"">Update</button>
+    </div>
+    <div class=""widget-content"">
+        <div class=""row"">    
+            <div class=""span4"">
+                <div class=""display-label"">Username</div>
+                <div class=""display-field"" data-bind=""text: Username""></div>
 
-    <div class=""display-label"" data-bind=""visible: Forename().length > 0"">Forename</div>
-    <div class=""display-field"" data-bind=""text: Forename""></div>
+                <div class=""display-label"" data-bind=""visible: Forename().length > 0"">Forename</div>
+                <div class=""display-field"" data-bind=""text: Forename""></div>
+            </div>
+            <div class=""span4"">
+                <div class=""display-label"" data-bind=""visible: Surname().length > 0"">Surname</div>
+                <div class=""display-field"" data-bind=""text: Surname""></div>
 
-    <div class=""display-label"" data-bind=""visible: Surname().length > 0"">Surname</div>
-    <div class=""display-field"" data-bind=""text: Surname""></div>
-
-    <div class=""display-label"">Email</div>
-    <div><span class=""display-field"" data-bind=""text: Email""></span>&nbsp;&nbsp;<button class=""btn btn-primary"" data-bind=""click: raiseEdit"">Update</button></div>
+                <div class=""display-label"">Email</div>
+                <div class=""display-field"" data-bind=""text: Email""></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 ");
 
 
             
-            #line 18 "..\..\Views\ProfileView\CurrentUserDetails.cshtml"
+            #line 30 "..\..\Views\ProfileView\CurrentUserDetails.cshtml"
    
   using (Html.BeginScriptContext())
   {

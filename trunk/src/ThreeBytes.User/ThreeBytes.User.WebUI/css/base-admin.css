@@ -594,3 +594,8 @@ textarea {
 {
     margin: 20px 20px 20px 20px;
 }
+
+.center
+{
+    text-align: center;
+}

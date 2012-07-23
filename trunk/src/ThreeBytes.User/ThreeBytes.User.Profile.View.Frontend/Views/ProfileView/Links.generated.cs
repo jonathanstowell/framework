@@ -46,79 +46,86 @@ namespace ThreeBytes.User.Profile.View.Frontend.Views.ProfileView
         {
 
 
-WriteLiteral("\r\n<div id=\"user-profile-links-container\">\r\n    <h2>Links</h2>\r\n    <span data-bin" +
-"d=\"visible: hasFacebook() == false\"><img class=\"link\" src=\"");
-
-
-            
-            #line 6 "..\..\Views\ProfileView\Links.cshtml"
-                                                                        Write(Url.Content("~/img/facebook-nonactive-48x48.png"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\" data-bind=\"click: raiseLinkFacebook\" /></span>\r\n    <span data-bind=\"visible: h" +
-"asFacebook\"><a data-bind=\"attr: { href: facebookUrl }\" target=\"_blank\"><img src=" +
-"\"");
-
-
-            
-            #line 7 "..\..\Views\ProfileView\Links.cshtml"
-                                                                                                           Write(Url.Content("~/img/facebook-48x48.png"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\"/></a></span>\r\n    <span data-bind=\"visible: hasFoursquare() == false\"><img clas" +
-"s=\"link\" src=\"");
-
-
-            
-            #line 8 "..\..\Views\ProfileView\Links.cshtml"
-                                                                          Write(Url.Content("~/img/foursquare-nonactive-48x48.png"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\" data-bind=\"click: raiseLinkFoursquare\" /></span>\r\n    <span data-bind=\"visible:" +
-" hasFoursquare\"><a data-bind=\"attr: { href: foursquareUrl }\" target=\"_blank\"><im" +
-"g src=\"");
-
-
-            
-            #line 9 "..\..\Views\ProfileView\Links.cshtml"
-                                                                                                               Write(Url.Content("~/img/foursquare-48x48.png"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\"/></a></span>\r\n    <span data-bind=\"visible: hasTwitter() == false\"><img class=\"" +
-"link\" src=\"");
+WriteLiteral(@"
+<div id=""user-profile-links-container"" class=""widget"">
+    <div class=""widget-header"">
+        <i class=""icon-star""></i>
+        <h3>Links</h3>
+    </div>
+    <div class=""widget-content center"">
+        <span data-bind=""visible: hasFacebook() == false""><img class=""link"" src=""");
 
 
             
             #line 10 "..\..\Views\ProfileView\Links.cshtml"
-                                                                       Write(Url.Content("~/img/twitter-nonactive-48x48.png"));
+                                                                            Write(Url.Content("~/img/facebook-nonactive-48x48.png"));
 
             
             #line default
             #line hidden
-WriteLiteral("\" data-bind=\"click: raiseLinkTwitter\" /></span>\r\n    <span data-bind=\"visible: ha" +
-"sTwitter\"><a data-bind=\"attr: { href: twitterUrl }\" target=\"_blank\"><img src=\"");
+WriteLiteral("\" data-bind=\"click: raiseLinkFacebook\" /></span>\r\n        <span data-bind=\"visibl" +
+"e: hasFacebook\"><a data-bind=\"attr: { href: facebookUrl }\" target=\"_blank\"><img " +
+"src=\"");
 
 
             
             #line 11 "..\..\Views\ProfileView\Links.cshtml"
-                                                                                                         Write(Url.Content("~/img/twitter-48x48.png"));
+                                                                                                               Write(Url.Content("~/img/facebook-48x48.png"));
 
             
             #line default
             #line hidden
-WriteLiteral("\"/></a></span>\r\n</div>\r\n\r\n");
+WriteLiteral("\"/></a></span>\r\n        <span data-bind=\"visible: hasFoursquare() == false\"><img " +
+"class=\"link\" src=\"");
+
+
+            
+            #line 12 "..\..\Views\ProfileView\Links.cshtml"
+                                                                              Write(Url.Content("~/img/foursquare-nonactive-48x48.png"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\" data-bind=\"click: raiseLinkFoursquare\" /></span>\r\n        <span data-bind=\"visi" +
+"ble: hasFoursquare\"><a data-bind=\"attr: { href: foursquareUrl }\" target=\"_blank\"" +
+"><img src=\"");
+
+
+            
+            #line 13 "..\..\Views\ProfileView\Links.cshtml"
+                                                                                                                   Write(Url.Content("~/img/foursquare-48x48.png"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\"/></a></span>\r\n        <span data-bind=\"visible: hasTwitter() == false\"><img cla" +
+"ss=\"link\" src=\"");
 
 
             
             #line 14 "..\..\Views\ProfileView\Links.cshtml"
+                                                                           Write(Url.Content("~/img/twitter-nonactive-48x48.png"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\" data-bind=\"click: raiseLinkTwitter\" /></span>\r\n        <span data-bind=\"visible" +
+": hasTwitter\"><a data-bind=\"attr: { href: twitterUrl }\" target=\"_blank\"><img src" +
+"=\"");
+
+
+            
+            #line 15 "..\..\Views\ProfileView\Links.cshtml"
+                                                                                                             Write(Url.Content("~/img/twitter-48x48.png"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\"/></a></span>\r\n    </div>\r\n</div>\r\n\r\n");
+
+
+            
+            #line 19 "..\..\Views\ProfileView\Links.cshtml"
    
   using (Html.BeginScriptContext())
   {
