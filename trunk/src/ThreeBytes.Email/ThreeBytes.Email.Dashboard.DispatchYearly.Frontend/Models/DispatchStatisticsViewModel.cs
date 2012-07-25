@@ -1,4 +1,4 @@
-﻿namespace ThreeBytes.Email.Dashboard.DispatchQuarterly.Frontend.Models
+﻿namespace ThreeBytes.Email.Dashboard.DispatchYearly.Frontend.Models
 {
     public class DispatchStatisticsViewModel
     {

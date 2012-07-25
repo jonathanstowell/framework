@@ -100,7 +100,13 @@
     <Compile Include="Installers\InstallMvcFromPlugin.cs" />
     <Compile Include="Installers\RegisterRoutes.cs" />
     <Compile Include="Models\DispatchStatisticsViewModel.cs" />
+    <Compile Include="Models\DispatchStatisticViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\DispatchYearly\YearlyStatistic.generated.cs">
+      <DependentUpon>YearlyStatistic.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Views\DispatchYearly\YearlyStatistics.generated.cs">
       <DependentUpon>YearlyStatistics.cshtml</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -114,6 +120,10 @@
     <Content Include="Views\DispatchYearly\YearlyStatistics.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>YearlyStatistics.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\DispatchYearly\YearlyStatistic.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>YearlyStatistic.generated.cs</LastGenOutput>
     </Content>
     <None Include="Views\Web.config" />
   </ItemGroup>

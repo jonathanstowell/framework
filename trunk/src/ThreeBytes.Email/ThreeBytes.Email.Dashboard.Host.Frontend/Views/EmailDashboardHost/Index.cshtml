@@ -4,6 +4,20 @@
 }
 
 <section id="home">
+    <div class="row">    
+	    <div class="span12">      		
+	      	<div class="widget big-stats-container">		
+	      		<div class="widget-content">			
+			      	<div id="big_stats" class="cf">
+						@{ Html.RenderAction("DailyStatistic", "DispatchDaily"); }	
+						@{ Html.RenderAction("MonthlyStatistic", "DispatchMonthly"); }	
+                        @{ Html.RenderAction("QuarterlyStatistic", "DispatchQuarterly"); }
+                        @{ Html.RenderAction("YearlyStatistic", "DispatchYearly"); }
+					</div>				
+				</div>					
+			</div>
+	    </div>	      	
+	</div>
     <div class="row"> 
         <div class="span8">
             <div class="widget">

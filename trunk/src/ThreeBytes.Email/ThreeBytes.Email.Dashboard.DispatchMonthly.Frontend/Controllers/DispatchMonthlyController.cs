@@ -26,6 +26,15 @@ namespace ThreeBytes.Email.Dashboard.DispatchMonthly.Frontend.Controllers
             this.userConfiguration = userConfiguration;
         }
 
+        public ActionResult MonthlyStatistic()
+        {
+            DispatchStatisticViewModel model = new DispatchStatisticViewModel();
+
+            model.CurrentStatistic = service.GetThisMonthsDispatchCount(userConfiguration.ApplicationName);
+
+            return PartialView(model);
+        }
+
         public ActionResult MonthlyStatistics()
         {
             DispatchStatisticsViewModel model = new DispatchStatisticsViewModel();

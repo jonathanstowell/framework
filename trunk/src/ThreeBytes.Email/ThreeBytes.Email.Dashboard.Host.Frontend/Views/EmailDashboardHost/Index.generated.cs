@@ -55,8 +55,47 @@ namespace ThreeBytes.Email.Dashboard.Host.Frontend.Views.EmailDashboardHost
             
             #line default
             #line hidden
-WriteLiteral(@"
-<section id=""home"">
+WriteLiteral("\r\n<section id=\"home\">\r\n    <div class=\"row\">    \r\n\t    <div class=\"span12\">      " +
+"\t\t\r\n\t      \t<div class=\"widget big-stats-container\">\t\t\r\n\t      \t\t<div class=\"wid" +
+"get-content\">\t\t\t\r\n\t\t\t      \t<div id=\"big_stats\" class=\"cf\">\r\n");
+
+
+            
+            #line 12 "..\..\Views\EmailDashboardHost\Index.cshtml"
+  						 Html.RenderAction("DailyStatistic", "DispatchDaily"); 	
+
+            
+            #line default
+            #line hidden
+
+            
+            #line 13 "..\..\Views\EmailDashboardHost\Index.cshtml"
+  						 Html.RenderAction("MonthlyStatistic", "DispatchMonthly"); 	
+
+            
+            #line default
+            #line hidden
+
+            
+            #line 14 "..\..\Views\EmailDashboardHost\Index.cshtml"
+                           Html.RenderAction("QuarterlyStatistic", "DispatchQuarterly"); 
+
+            
+            #line default
+            #line hidden
+
+            
+            #line 15 "..\..\Views\EmailDashboardHost\Index.cshtml"
+                           Html.RenderAction("YearlyStatistic", "DispatchYearly"); 
+
+            
+            #line default
+            #line hidden
+WriteLiteral(@"					</div>				
+				</div>					
+			</div>
+	    </div>	      	
+	</div>
     <div class=""row""> 
         <div class=""span8"">
             <div class=""widget"">
@@ -71,7 +110,7 @@ WriteLiteral(@"
 
 
             
-            #line 17 "..\..\Views\EmailDashboardHost\Index.cshtml"
+            #line 31 "..\..\Views\EmailDashboardHost\Index.cshtml"
                                Html.RenderAction("DailyStatistics", "DispatchDaily"); 
 
             
@@ -79,7 +118,7 @@ WriteLiteral(@"
             #line hidden
 
             
-            #line 18 "..\..\Views\EmailDashboardHost\Index.cshtml"
+            #line 32 "..\..\Views\EmailDashboardHost\Index.cshtml"
                                Html.RenderAction("MonthlyStatistics", "DispatchMonthly"); 
 
             
@@ -89,7 +128,7 @@ WriteLiteral("                        </div>\r\n                        <div cla
 
 
             
-            #line 21 "..\..\Views\EmailDashboardHost\Index.cshtml"
+            #line 35 "..\..\Views\EmailDashboardHost\Index.cshtml"
                                Html.RenderAction("QuarterlyStatistics", "DispatchQuarterly"); 
 
             
@@ -97,7 +136,7 @@ WriteLiteral("                        </div>\r\n                        <div cla
             #line hidden
 
             
-            #line 22 "..\..\Views\EmailDashboardHost\Index.cshtml"
+            #line 36 "..\..\Views\EmailDashboardHost\Index.cshtml"
                                Html.RenderAction("YearlyStatistics", "DispatchYearly"); 
 
             
@@ -108,7 +147,7 @@ WriteLiteral("                        </div>\r\n                    </div>\r\n  
 
 
             
-            #line 29 "..\..\Views\EmailDashboardHost\Index.cshtml"
+            #line 43 "..\..\Views\EmailDashboardHost\Index.cshtml"
                Html.RenderAction("MostRecent", "EmailDispatchWidget"); 
 
             
@@ -116,7 +155,7 @@ WriteLiteral("                        </div>\r\n                    </div>\r\n  
             #line hidden
 
             
-            #line 30 "..\..\Views\EmailDashboardHost\Index.cshtml"
+            #line 44 "..\..\Views\EmailDashboardHost\Index.cshtml"
                Html.RenderAction("MostRecent", "EmailTemplateWidget"); 
 
             
@@ -126,7 +165,7 @@ WriteLiteral("        </div>   \r\n    </div>\r\n</section>\r\n\r\n");
 
 
             
-            #line 35 "..\..\Views\EmailDashboardHost\Index.cshtml"
+            #line 49 "..\..\Views\EmailDashboardHost\Index.cshtml"
    Html.RenderAction("Details", "EmailDispatchView");
 
             
@@ -134,7 +173,7 @@ WriteLiteral("        </div>   \r\n    </div>\r\n</section>\r\n\r\n");
             #line hidden
 
             
-            #line 36 "..\..\Views\EmailDashboardHost\Index.cshtml"
+            #line 50 "..\..\Views\EmailDashboardHost\Index.cshtml"
    Html.RenderAction("Details", "EmailTemplateView");
 
             
@@ -144,7 +183,7 @@ WriteLiteral("\r\n");
 
 
             
-            #line 38 "..\..\Views\EmailDashboardHost\Index.cshtml"
+            #line 52 "..\..\Views\EmailDashboardHost\Index.cshtml"
  if (((ThreeBytesPrincipal) Context.User).IsInAnyRoles(new[] { "Admin", "EmailTemplateManager" }))
 {
     { Html.RenderAction("Edit", "EmailTemplateManagement"); }
@@ -157,7 +196,7 @@ WriteLiteral("        \r\n");
 
 
             
-            #line 43 "..\..\Views\EmailDashboardHost\Index.cshtml"
+            #line 57 "..\..\Views\EmailDashboardHost\Index.cshtml"
  if (((ThreeBytesPrincipal) Context.User).IsInAnyRoles(new[] { "Admin", "EmailTemplateManager" }))
 { 
     { Html.RenderAction("Delete", "EmailTemplateManagement"); }

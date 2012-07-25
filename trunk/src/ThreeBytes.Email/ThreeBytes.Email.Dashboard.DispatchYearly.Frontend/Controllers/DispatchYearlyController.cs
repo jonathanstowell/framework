@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using ThreeBytes.Core.Security.Concrete;
 using ThreeBytes.Core.Web.Mvc.Controllers;
 using ThreeBytes.Email.Configuration.Abstract;
-using ThreeBytes.Email.Dashboard.DispatchQuarterly.Frontend.Models;
+using ThreeBytes.Email.Dashboard.DispatchYearly.Frontend.Models;
 using ThreeBytes.Email.Dashboard.DispatchYearly.Service.Abstract;
 
 namespace ThreeBytes.Email.Dashboard.DispatchYearly.Frontend.Controllers
@@ -24,6 +24,15 @@ namespace ThreeBytes.Email.Dashboard.DispatchYearly.Frontend.Controllers
 
             this.service = service;
             this.userConfiguration = userConfiguration;
+        }
+
+        public ActionResult YearlyStatistic()
+        {
+            DispatchStatisticViewModel model = new DispatchStatisticViewModel();
+
+            model.CurrentStatistic = service.GetThisYearsDispatchCount(userConfiguration.ApplicationName);
+
+            return PartialView(model);
         }
 
         public ActionResult YearlyStatistics()

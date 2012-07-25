@@ -4,9 +4,6 @@
 }
 
 <div id="create-template-container">
-    <p>
-        <button class="btn btn-primary" data-bind="click: raiseCreate" rel = "popover" data_content ="@Resources.CreatePopoverContent" data_original_title ="@Resources.CreatePopoverTitle">@Resources.Create</button>
-    </p>
     <div id="email-template-create-modal" class="modal modal-medium-wide hide fade">
         <div class="modal-header">
             <a href="#" class="close" data-bind="click: raiseClose">×</a>
@@ -100,6 +97,11 @@
             index.raiseClose = function () {
                 index.createModal.modal('hide');
             };
+
+            jQuery(document).bind('emailTemplateCreate', function (event) {
+                val.clearValidations({Name: 0, General: 0}, index);
+                index.createModal.modal('show');
+            });
 
             index.save = function (form) {
                 if(!jQuery('#create-template-form').valid())

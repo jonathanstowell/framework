@@ -106,11 +106,6 @@
 
     <script type="text/javascript">
         jQuery.connection.hub.start();
-        if (window.location.hash == '#_=_') {
-            window.location.hash = ''; // for older browsers, leaves a # behind
-            history.pushState('', document.title, window.location.pathname); // nice and clean
-            e.preventDefault(); // no page reload
-        }
     </script>
     <!--[if lt IE 7 ]>
     <script src="@Url.Content("~/js/libs/dd_belatedpng.js")"></script>
