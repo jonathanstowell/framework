@@ -50,7 +50,7 @@ WriteLiteral(@"
 <script type=""text/x-jquery-tmpl"" id=""newest-users-table-tmpl"">
     <div class=""widget widget-table"">
         <div class=""widget-header"">
-            <span class=""icon-file""></span>
+            <span class=""icon-user""></span>
             <h3>Newest Users</h3>
         </div>
         <div class=""widget-content"">

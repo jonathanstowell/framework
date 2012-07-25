@@ -320,16 +320,7 @@
     <Content Include="css\base-admin.css" />
     <Content Include="css\bootstrap-responsive.min.css" />
     <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\docs.css" />
     <Content Include="css\font-awesome.css" />
-    <Content Include="css\media.css" />
-    <Content Include="css\pages\dashboard.css" />
-    <Content Include="css\pages\faq.css" />
-    <Content Include="css\pages\plans.css" />
-    <Content Include="css\pages\reports.css" />
-    <Content Include="css\pages\signin.css" />
-    <Content Include="css\report.css" />
-    <Content Include="css\site.css" />
     <Content Include="demo\hack.css" />
     <Content Include="demo\hack2.css" />
     <Content Include="demo\internet_explorer.png" />
@@ -399,7 +390,6 @@
     <Content Include="js\libs\knockout.mapping.js" />
     <Content Include="js\libs\respond.min.js" />
     <Content Include="js\libs\modernizr-2.0.min.js" />
-    <Content Include="js\libs\signin.js" />
     <Content Include="js\mylibs\ThreeBytes.Bootstrap.js" />
     <Content Include="js\mylibs\ThreeBytes.Core.Knockout.DateTime.js" />
     <Content Include="js\mylibs\ThreeBytes.Core.Knockout.Paging.js" />

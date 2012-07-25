@@ -91,14 +91,14 @@
             var resetPaging = {};
 
             (function (index, model) {
-                index.execute = function(pagingIdentifier, datetime) {
+                index.execute = function (pagingIdentifier, datetime) {
 
                     if (model.pagingComponentIdentfier == pagingIdentifier) {
                         model.originalRequestDateTime(datetime);
 
                         var sortBy = model.isAsc() ? 'Asc' : 'Desc';
 
-                        jQuery.getJSON('/' + configuration.controller + '/' + configuration.action, { 'page': model.pageNumber(), 'datetime': ko.utils.toISOStringFromJson(model.originalRequestDateTime()), 'orderBy': model.orderBy(), 'sortBy': sortBy }, function(data) {
+                        jQuery.getJSON('/' + configuration.controller + '/' + configuration.action, { 'page': model.pageNumber(), 'datetime': ko.utils.toISOStringFromJson(model.originalRequestDateTime()), 'orderBy': model.orderBy(), 'sortBy': sortBy }, function (data) {
                             configuration.loadPageCallback(data);
                         });
                     }
@@ -217,38 +217,38 @@
             // If you don't specify columns configuration, we'll use scaffolding
             this.columns = configuration.columns || getColumnsForScaffolding(ko.utils.unwrapObservable(this.items));
 
-            this.plural = ko.dependentObservable(function() {
+            this.plural = ko.dependentObservable(function () {
                 return this.items() == 1 ? configuration.singular : configuration.plural;
             }, this);
 
-            this.is_are = ko.dependentObservable(function() {
+            this.is_are = ko.dependentObservable(function () {
                 return this.items() == 1 ? 'is' : 'are';
             }, this);
 
-            this.raiseOpen = function() {
+            this.raiseOpen = function () {
                 if (this.createdModal == false) {
                     this.detailModal = jQuery('#' + configuration.divIdentifier + ' .modal').modal({ backdrop: true, closeOnEscape: true, modal: true });
                     this.createdModal = true;
                 }
-                
+
                 this.detailModal.modal('show');
             };
 
-            this.raiseClose = function() {
+            this.raiseClose = function () {
                 this.detailModal.modal('hide');
             };
 
-            this.resetPaging = function() {
+            this.resetPaging = function () {
                 var id = this.pagingComponentIdentfier;
                 var datetime = this.requestDateTime();
-                jQuery(document).trigger('resetPaging', [ id, datetime ]);
+                jQuery(document).trigger('resetPaging', [id, datetime]);
                 this.items.removeAll();
                 this.originalRequestDateTime(this.requestDateTime());
                 this.detailModal.modal('hide');
             };
 
-            setInterval(function() {
-                jQuery.getJSON('/' + configuration.controller + '/' + configuration.action, { 'datetime': ko.utils.toISOStringFromJson(configuration.data.OriginalRequestDateTime()) }, function(data) {
+            setInterval(function () {
+                jQuery.getJSON('/' + configuration.controller + '/' + configuration.action, { 'datetime': ko.utils.toISOStringFromJson(configuration.data.OriginalRequestDateTime()) }, function (data) {
                     configuration.loadPageCallback(data);
                 });
             }, 5000);

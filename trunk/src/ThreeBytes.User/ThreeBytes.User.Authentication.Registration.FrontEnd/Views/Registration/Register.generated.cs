@@ -156,13 +156,13 @@ WriteLiteral("\">Login with Facebook</a>\r\n                        </div>\r\n  
             
             #line default
             #line hidden
-WriteLiteral(@"                    <div class=""login-fields"">
+WriteLiteral(@"                    <div class=""registration-fields"">
 				
                         <p>Create your free account:</p>
 				
                         <div class=""field"">
                             <label for=""UserName"">Username:</label>
-                            <input type=""text"" id=""userName"" name=""userName"" value="""" placeholder=""Username"" class=""login"" />
+                            <input type=""text"" id=""UserName"" name=""UserName"" value="""" placeholder=""Username"" class=""login"" />
                         </div>
 ");
 
@@ -199,8 +199,8 @@ WriteLiteral("\r\n                            </div>\r\n");
             #line hidden
 WriteLiteral(@"				
                         <div class=""field"">
-                            <label for=""email"">Email Address:</label>
-                            <input type=""text"" id=""email"" name=""email"" value="""" placeholder=""Email"" class=""login""/>
+                            <label for=""Email"">Email Address:</label>
+                            <input type=""text"" id=""Email"" name=""Email"" value="""" placeholder=""Email"" class=""login""/>
                         </div>
 ");
 
@@ -237,8 +237,8 @@ WriteLiteral("\r\n                            </div>\r\n");
             #line hidden
 WriteLiteral(@"				
                         <div class=""field"">
-                            <label for=""password"">Password:</label>
-                            <input type=""password"" id=""password"" name=""password"" value="""" placeholder=""Password"" class=""login""/>
+                            <label for=""Password"">Password:</label>
+                            <input type=""Password"" id=""Password"" name=""Password"" value="""" placeholder=""Password"" class=""login""/>
                         </div>
 ");
 
@@ -275,8 +275,8 @@ WriteLiteral("\r\n                            </div>\r\n");
             #line hidden
 WriteLiteral(@"				
                         <div class=""field"">
-                            <label for=""confirmPassword"">Confirm Password:</label>
-                            <input type=""password"" id=""confirmPassword"" name=""confirmPassword"" value="""" placeholder=""Confirm Password"" class=""login""/>
+                            <label for=""ConfirmPassword"">Confirm Password:</label>
+                            <input type=""password"" id=""ConfirmPassword"" name=""ConfirmPassword"" value="""" placeholder=""Confirm Password"" class=""login""/>
                         </div>
 				
                     </div>
@@ -291,7 +291,7 @@ WriteLiteral(@"
             #line default
             #line hidden
 WriteLiteral("                    <div class=\"login-actions\">\t\t\t\t\t\t\r\n                        <b" +
-"utton class=\"button btn btn-primary btn-large\" data-bind=\"click: register\">Regis" +
+"utton class=\"button btn btn-warning btn-large\" data-bind=\"click: register\">Regis" +
 "ter</button>\t\t\r\n                    </div>\r\n");
 
 

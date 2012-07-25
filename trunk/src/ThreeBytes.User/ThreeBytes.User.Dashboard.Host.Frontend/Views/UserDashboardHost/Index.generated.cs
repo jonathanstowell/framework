@@ -93,7 +93,7 @@ WriteLiteral(@"					</div>
         <div class=""span8"">            
             <div class=""widget"">
                 <div class=""widget-header"">
-                    <i class=""icon-star""></i>
+                    <i class=""icon-user""></i>
                     <h3>Login Statistics</h3>
                 </div>
                 <div class=""widget-content"">
@@ -141,7 +141,7 @@ WriteLiteral(@"                        </div>
             </div>
             <div class=""widget"">
                 <div class=""widget-header"">
-                    <i class=""icon-star""></i>
+                    <i class=""icon-user""></i>
                     <h3>Registration Statistics</h3>
                 </div>
 					

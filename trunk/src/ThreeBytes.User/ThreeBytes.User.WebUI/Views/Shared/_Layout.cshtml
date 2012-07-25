@@ -25,8 +25,6 @@
                                      .Add("~/css/font-awesome.css")
                                      .Add("~/css/base-admin.css")
                                      .Add("~/css/base-admin-responsive.css")
-                                     .Add("~/css/pages/signin.css")
-                                     .Add("~/css/pages/reports.css")
             //.ForceRelease() // Test it out with minification
                                      .Render("~/css/style_#.css"))
 
@@ -63,7 +61,7 @@
                 @RenderBody()
             </div>
         </div>
-    <//div>
+    </div>
 
     <!-- All JavaScript at the bottom, except for Modernizr and Respond.
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
@@ -96,7 +94,6 @@
                                      .Add("~/js/mylibs/ThreeBytes.SignalR.Knockout.CurrentlyViewing.js")
                                      .Add("~/js/mylibs/ThreeBytes.Bootstrap.js")
                                      .Add("~/js/libs/bootstrap.js")
-                                     .Add("~/js/libs/signin.js")
                                      .Add("~/js/libs/diff_match_patch.js")
                                      .Render("~/js/script_#.js"))
                                      

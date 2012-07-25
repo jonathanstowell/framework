@@ -5,9 +5,6 @@
 }
 
 <div id="user-role-create-container">
-    <p>
-        @Html.ActionLink(Resources.Create, "Create", "Role", null, new { @class = "btn btn-primary", data_bind = "click: raiseCreate", rel = "popover", data_content = Resources.CreatePopoverContent, data_original_title = Resources.CreatePopoverTitle })
-    </p>
     <div id="user-role-create-modal" class="modal hide fade">
         <div class="modal-header">
             <a href="#" class="close" data-bind="click: raiseClose">×</a>
@@ -56,6 +53,11 @@
             index.raiseClose = function () {
                 index.createModal.modal('hide');
             };
+
+            jQuery(document).bind('userRoleCreate', function (event) {
+                val.clearValidations({Name: 0, General: 0}, index);
+                index.createModal.modal('show');
+            });
 
             index.save = function (form) {
                 if(!jQuery('#create-role-form').valid())

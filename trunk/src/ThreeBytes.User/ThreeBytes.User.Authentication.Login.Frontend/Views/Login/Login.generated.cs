@@ -74,7 +74,7 @@ WriteLiteral(@"                <div class=""login-fields"">
                     <p>Sign in using your registered account:</p>
                     <div class=""field"">
                         <label for=""username"">Username:</label>
-                        <input type=""text"" id=""username"" name=""username"" value="""" placeholder=""Username"" class=""login username-field"" />
+                        <input type=""text"" id=""Username"" name=""Username"" value="""" placeholder=""Username"" class=""username-field"" />
                     </div>
 ");
 
@@ -110,8 +110,8 @@ WriteLiteral("\r\n                        </div>\r\n");
             #line hidden
 WriteLiteral(@"
                     <div class=""field"">
-                        <label for=""password"">Password:</label>
-                        <input type=""password"" id=""password"" name=""password"" value="""" placeholder=""Password"" class=""login password-field""/>
+                        <label for=""Password"">Password:</label>
+                        <input type=""password"" id=""Password"" name=""Password"" value="""" placeholder=""Password"" class=""password-field""/>
                     </div>
 ");
 
@@ -148,8 +148,8 @@ WriteLiteral("\r\n                        </div>\r\n");
 WriteLiteral(@"                            
                     <div class=""login-actions"">		
                         <span class=""login-checkbox"">
-                            <input id=""rememberMe"" name=""rememberMe"" type=""checkbox"" class=""field login-checkbox"" tabindex=""4"" />
-                            <label class=""choice"" for=""rememberMe"">Keep me signed in</label>
+                            <input id=""RememberMe"" name=""RememberMe"" type=""checkbox"" class=""field login-checkbox"" tabindex=""4"" />
+                            <label class=""choice"" for=""RememberMe"">Keep me signed in</label>
                         </span>
 									
                         <button class=""button btn btn-warning btn-large"" data-bind=""click: login"">Sign In</button>			

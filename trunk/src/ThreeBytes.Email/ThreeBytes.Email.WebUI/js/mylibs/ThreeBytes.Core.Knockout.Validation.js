@@ -12,8 +12,11 @@
                 var ele = jQuery(element), allErrors = valueAccessor()();
                 ele.empty();
                 if (allErrors != null && allErrors.length > 0) {
+                    var container = jQuery('<div class="alert alert-error"></div>');
+                    container.append(jQuery('<a class="close" data-dismiss="alert">').text('×'));
                     for (var i in allErrors)
-                        ele.append(jQuery('<div>').text(allErrors[i]));
+                        container.append(jQuery('<div>').text(allErrors[i]));
+                    ele.append(container);
                 }
             }
         };
@@ -23,7 +26,6 @@
             createErrorCollections: function (obj, model, formIdentifier) {
                 for (var i in obj) {
                     model[i + 'Errors'] = new ko.observableArray(typeof (errors[i]) != 'undefined' ? errors[i] : []);
-                    jQuery("[name='" + i + "']").parent().parent().removeClass("error");
                 }
 
                 model.hasErrors = false;
@@ -32,7 +34,6 @@
             clearValidations: function (obj, model) {
                 for (var i in obj) {
                     model[i + 'Errors'].removeAll();
-                    jQuery("#" + model.formIdentifier + " [name='" + i + "']").parent().parent().removeClass("error");
                 }
             },
             rebindValidations: function (obj, model, errors) {
@@ -41,7 +42,6 @@
                     jQuery.each(errors, function (index, item) {
                         if (item.PropertyName == i) {
                             model[i + 'Errors'].push(item.ErrorMessage);
-                            jQuery("#" + model.formIdentifier + " [name='" + item.PropertyName + "']").parent().parent().addClass("error");
                             model.hasErrors = true;
                         }
                     });

@@ -49,9 +49,11 @@ namespace ThreeBytes.User.Profile.View.Frontend.Views.ProfileView
 WriteLiteral(@"
 <div id=""current-user-profile-details-container"" class=""widget"">
     <div class=""widget-header"">
-        <i class=""icon-star""></i>
+        <i class=""icon-user""></i>
         <h3>User Details</h3>
-        <button class=""btn btn-primary pull-right-menu"" data-bind=""click: raiseEdit"">Update</button>
+        <div class=""pull-right-menu"">
+            <button class=""btn btn-primary"" data-bind=""click: raiseEdit"">Update</button>
+        </div>
     </div>
     <div class=""widget-content"">
         <div class=""row"">    
@@ -77,7 +79,7 @@ WriteLiteral(@"
 
 
             
-            #line 30 "..\..\Views\ProfileView\CurrentUserDetails.cshtml"
+            #line 32 "..\..\Views\ProfileView\CurrentUserDetails.cshtml"
    
   using (Html.BeginScriptContext())
   {

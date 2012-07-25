@@ -48,25 +48,12 @@ namespace ThreeBytes.User.Profile.Host.Frontend.Views.ProfileHost
             
             #line default
             #line hidden
-
-            
-            #line 4 "..\..\Views\ProfileHost\Index.cshtml"
-WriteLiteral("\r\n<section id=\"user-profile-home\">\r\n    <div class=\"hero-unit\"> \r\n        <h1>");
-
-            
-            #line default
-            #line hidden
-            
-            #line 7 "..\..\Views\ProfileHost\Index.cshtml"
-               Html.RenderAction("WelcomeUser", "ProfileView"); 
-            
-            #line default
-            #line hidden
-WriteLiteral("</h1> \r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"span8 columns\">\r\n");
+WriteLiteral("\r\n<section id=\"user-profile-home\">\r\n    <div class=\"row\">\r\n        <div class=\"sp" +
+"an8 columns\">\r\n");
 
 
             
-            #line 11 "..\..\Views\ProfileHost\Index.cshtml"
+            #line 8 "..\..\Views\ProfileHost\Index.cshtml"
                Html.RenderAction("CurrentUserDetails", "ProfileView");     
 
             
@@ -76,7 +63,7 @@ WriteLiteral("        </div>\r\n        <div class=\"span4 columns\">\r\n");
 
 
             
-            #line 14 "..\..\Views\ProfileHost\Index.cshtml"
+            #line 11 "..\..\Views\ProfileHost\Index.cshtml"
                Html.RenderAction("Links", "ProfileView");   
 
             
@@ -86,7 +73,7 @@ WriteLiteral("        </div>\r\n    </div>\r\n\r\n");
 
 
             
-            #line 18 "..\..\Views\ProfileHost\Index.cshtml"
+            #line 15 "..\..\Views\ProfileHost\Index.cshtml"
        Html.RenderAction("Edit", "ProfileManagement"); 
 
             
@@ -94,7 +81,7 @@ WriteLiteral("        </div>\r\n    </div>\r\n\r\n");
             #line hidden
 
             
-            #line 19 "..\..\Views\ProfileHost\Index.cshtml"
+            #line 16 "..\..\Views\ProfileHost\Index.cshtml"
        Html.RenderAction("Link", "Facebook"); 
 
             
@@ -102,7 +89,7 @@ WriteLiteral("        </div>\r\n    </div>\r\n\r\n");
             #line hidden
 
             
-            #line 20 "..\..\Views\ProfileHost\Index.cshtml"
+            #line 17 "..\..\Views\ProfileHost\Index.cshtml"
        Html.RenderAction("Link", "Foursquare"); 
 
             
@@ -110,7 +97,7 @@ WriteLiteral("        </div>\r\n    </div>\r\n\r\n");
             #line hidden
 
             
-            #line 21 "..\..\Views\ProfileHost\Index.cshtml"
+            #line 18 "..\..\Views\ProfileHost\Index.cshtml"
        Html.RenderAction("Link", "Twitter"); 
 
             

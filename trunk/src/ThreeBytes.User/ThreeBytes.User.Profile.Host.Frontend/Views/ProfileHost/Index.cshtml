@@ -3,9 +3,6 @@
 }
 
 <section id="user-profile-home">
-    <div class="hero-unit"> 
-        <h1>@{ Html.RenderAction("WelcomeUser", "ProfileView"); }</h1> 
-    </div>
     <div class="row">
         <div class="span8 columns">
             @{ Html.RenderAction("CurrentUserDetails", "ProfileView"); }    

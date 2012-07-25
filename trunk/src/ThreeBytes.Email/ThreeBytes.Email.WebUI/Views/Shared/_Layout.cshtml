@@ -15,27 +15,24 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <!--  Mobile viewport optimized: j.mp/bplateviewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
     <!-- CSS : implied media="all" -->
     @* More info about SquishIt from http://www.codethinked.com/squishit-the-friendly-aspnet-javascript-and-css-squisher *@
     @Html.Raw(SquishIt.Framework.Bundle.Css()
-                                     .Add("~/css/normalize.css")
-                                     .Add("~/css/media.css")
-                                     .Add("~/css/bootstrap-2.02.css")
-                                     .Add("~/css/bootstrap-responsive-2.02.css")
-                                     .Add("~/css/site.css")
+                                     .Add("~/css/bootstrap.min.css")
+                                     .Add("~/css/bootstrap-responsive.min.css")
+                                     .Add("~/css/font-awesome.css")
+                                     .Add("~/css/base-admin.css")
+                                     .Add("~/css/base-admin-responsive.css")
             //.ForceRelease() // Test it out with minification
                                      .Render("~/css/style_#.css"))
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+
     @RenderSection("HeadContent", false)
 
     <script src="@Url.Content("~/js/libs/modernizr-2.0.min.js")"></script>
-    <script src="@Url.Content("~/js/libs/respond.min.js")"></script>
     <!-- More ideas for your <head> here: h5bp.com/docs/#head-Tips -->
 </head>
 <body>
@@ -45,29 +42,26 @@
         <div class="navbar-inner">
             <div class="container">
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </a>
                 @Html.ActionLink(Resources.ThreeBytes, "Index", "EmailHost", new { @class = "brand" })
                 <div class="nav-collapse">
                     @{ Html.RenderAction("Index", "Navigation"); }
-					@Html.Partial("_LogOnPartial")
+                    @Html.Partial("_LogOnPartial")
                 </div>              
             </div>
         </div>
     </div>
-
-    <div class="container content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p> 
-                Designed and built by <a href="http://www.threebytes.co.uk" target="_blank">Three Bytes</a>.
-            </p> 
-        </footer>
+    
+    <div class="main">	
+        <div class="main-inner">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
     </div>
-    <!--! end of #container -->
 
     <!-- All JavaScript at the bottom, except for Modernizr and Respond.
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
@@ -75,8 +69,8 @@
 
      <!-- JavaScript at the bottom for fast page loading -->
     <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script>      window.jQuery || document.write("<script src='@Url.Content("~/js/libs/jquery-1.7.1.min.js")'>\x3C/script>")</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>      window.jQuery || document.write("<script src='@Url.Content("~/js/libs/jquery-1.7.2.min.js")'>\x3C/script>")</script>
     <script src="@Url.Content("~/js/libs/jquery.validate.min.js")"></script>
     <script src="@Url.Content("~/js/libs/jquery.validate.unobtrusive.js")"></script>
 
@@ -99,7 +93,7 @@
                                      .Add("~/js/mylibs/ThreeBytes.Core.Knockout.Paging.js")
                                      .Add("~/js/mylibs/ThreeBytes.SignalR.Knockout.CurrentlyViewing.js")
                                      .Add("~/js/mylibs/ThreeBytes.Bootstrap.js")
-                                     .Add("~/js/libs/bootstrap-2.02.js")
+                                     .Add("~/js/libs/bootstrap.js")
                                      .Add("~/js/libs/diff_match_patch.js")
                                      .Render("~/js/script_#.js"))
                                      
@@ -112,6 +106,11 @@
 
     <script type="text/javascript">
         jQuery.connection.hub.start();
+        if (window.location.hash == '#_=_') {
+            window.location.hash = ''; // for older browsers, leaves a # behind
+            history.pushState('', document.title, window.location.pathname); // nice and clean
+            e.preventDefault(); // no page reload
+        }
     </script>
     <!--[if lt IE 7 ]>
     <script src="@Url.Content("~/js/libs/dd_belatedpng.js")"></script>

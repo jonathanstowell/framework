@@ -3,14 +3,9 @@
 }
 
 <section id="user-user-home">
-    <div class="hero-unit"> 
-        <h1>@Resources.Users</h1> 
-    </div>
     <div class="row">
         <div class="span12 columns">
-
-            @{ Html.RenderAction("List", "AuthenticationUserList"); }
-       
+            @{ Html.RenderAction("List", "AuthenticationUserList"); }    
         </div>
 
         @{ Html.RenderAction("Details", "AuthenticationUserView"); }
