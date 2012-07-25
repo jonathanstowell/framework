@@ -29,8 +29,6 @@
             this.orderBy = ko.observable('Name');
             this.isAsc = ko.observable(true);
             this.pagingComponentIdentfier = configuration.pagingComponentIdentifier;
-            this.updateEvent = configuration.updateEvent || null;
-            this.deleteEvent = configuration.deleteEvent || null;
 
             // If you don't specify columns configuration, we'll use scaffolding
             this.columns = configuration.columns || getColumnsForScaffolding(ko.utils.unwrapObservable(this.items));
@@ -107,48 +105,9 @@
                 };
             } (resetPaging, this));
 
-            jQuery(document).bind('resetPaging', function (event, pagingIdentifier, datetime, items) {
+            jQuery(document).bind('resetPaging', function (event, pagingIdentifier, datetime) {
                 resetPaging.execute(pagingIdentifier, datetime);
             });
-
-            if (this.deleteEvent != null) {
-                jQuery(document).bind(this.deleteEvent, function (event, id) {
-                    var toRemove = ko.utils.arrayFirst(index.Items(), function (item) {
-                        return item.Id() == id;
-                    });
-
-                    if (toRemove == null || toRemove == undefined)
-                        return;
-
-                    index.Items.remove(toRemove);
-
-                    if (index.Items().length < 10) {
-                        jQuery.getJSON('/' + configuration.controller + '/' + configuration.action, { 'page': model.PageNumber(), 'datetime': ko.utils.toISOStringFromJson(model.originalRequestDateTime()), 'orderBy': model.orderBy(), 'sortBy': sortBy }, function (data) {
-                            ko.mapping.fromJS(data, index);
-                        });
-                    }
-                });
-            }
-
-            if (this.updateEvent != null) {
-                jQuery(document).bind(this.updateEvent, function(event, newItem) {
-                    var update = ko.utils.arrayFirst(index.Items(), function(item) {
-                        return item.Id() == id;
-                    });
-
-                    if (update == null || update == undefined)
-                        return;
-
-                    update.Title(newItem.Title());
-                    update.Content(newItem.Content());
-
-                    for (var propertyName in update[0]) {
-                        if (newItem[propertyName] != null || newItem[propertyName] != undefined) {
-                            update[propertyName](newItem[propertyName]());
-                        }
-                    }
-                });
-            }
         }
     };
 
@@ -161,7 +120,7 @@
 
     templateEngine.addTemplate("ko_simpleGrid_grid", "\
                     <em>There&nbsp;<span data-bind=\"text:is_are\"></span>&nbsp;<span data-bind=\"text:totalItemCount\"></span>&nbsp;<span data-bind=\"text:plural\"></span></em>\
-                    <table class=\"ko-grid table table-striped table-bordered table-condensed\">\
+                    <table class=\"ko-grid zebra-striped\">\
                         <thead>\
                             <tr data-bind=\"foreach: columns\">\
                                <th data-bind=\"text: headerText\" class=\"header\"></th>\
@@ -282,8 +241,7 @@
             this.resetPaging = function () {
                 var id = this.pagingComponentIdentfier;
                 var datetime = this.requestDateTime();
-                var items = this.items();
-                jQuery(document).trigger('resetPaging', [id, datetime, items]);
+                jQuery(document).trigger('resetPaging', [id, datetime]);
                 this.items.removeAll();
                 this.originalRequestDateTime(this.requestDateTime());
                 this.detailModal.modal('hide');
@@ -306,7 +264,7 @@
 
     templateEngine.addTemplate("ko_latest_items", "\
                     <div class=\"latest-items\" data-bind=\"visible: items().length > 0\">\
-                        <div class=\"alert alert-info\" data-bind=\"click: raiseOpen\">\
+                        <div class=\"alert-message info\" data-bind=\"click: raiseOpen\">\
                             <em>There&nbsp;<span data-bind=\"text:is_are\"></span>&nbsp;<span data-bind=\"text:items().length\"></span>&nbsp;New&nbsp;<span data-bind=\"text:plural\"></span></em></p>\
                         </div>\
                         <div class=\"modal hide fade\">\
@@ -315,7 +273,7 @@
                                 <h3>Latest Items</h3>\
                             </div>\
                             <div class=\"modal-body modal-body-scrollable\">\
-                                <table class=\"ko-grid table table-striped table-bordered table-condensed\">\
+                                <table class=\"ko-grid zebra-striped\">\
                                     <thead>\
                                         <tr data-bind=\"foreach: columns\">\
                                             <th data-bind=\"text: headerText\" class=\"header\"></th>\
@@ -329,8 +287,8 @@
                                 </table>\
                             </div>\
                             <div class=\"modal-footer\">\
-                                <button class=\"btn btn-danger\" data-bind=\"click: raiseClose\">Close</button>\
-                                <button class=\"btn btn-primary\" data-bind=\"click: resetPaging\">Reset Paging</button>\
+                                <button class=\"btn danger\" data-bind=\"click: raiseClose\">Close</button>\
+                                <button class=\"btn primary\" data-bind=\"click: resetPaging\">Reset Paging</button>\
                             </div>\
                         </div>\
                     </div>");
@@ -353,168 +311,6 @@
             // Render the main grid
             var itemContainer = element.appendChild(document.createElement("DIV"));
             ko.renderTemplate(latestItemsTemplateName, viewModel, { templateEngine: templateEngine }, itemContainer, "replaceNode");
-        }
-    };
-})();
-
-(function () {
-
-    ko.pagedList = {
-        // Defines a view model class you can use to populate a grid
-        viewModel: function (configuration) {
-            
-            var itemMapping = {
-			    'CreationDateTime': ko.utils.getTimeAgoFromJson(),
-                'LastModifiedDateTime': ko.utils.getDateFromJson('dd/MMM HH:mm')
-		    };
-
-            var itemViewModel = function(data) {
-			    ko.mapping.fromJS(data, itemMapping, this);
-		    };
-
-            var mapping = {	
-			    'Items': {
-				    create: function(options) {
-					    return new itemViewModel(options.data);
-				    }
-			    }
-		    };
-
-            this.items = configuration.data.Items;
-            this.originalRequestDateTime = configuration.data.OriginalRequestDateTime;
-            this.pageCount = configuration.data.PageCount;
-            this.totalItemCount = configuration.data.TotalItemCount;
-            this.pageNumber = configuration.data.PageNumber;
-            this.pageSize = configuration.data.PageSize || 5;
-            this.hasPreviousPage = configuration.data.HasPreviousPage;
-            this.hasNextPage = configuration.data.HasNextPage;
-            this.isFirstPage = configuration.data.IsFirstPage;
-            this.isLastPage = configuration.data.IsLastPage;
-            this.additionalFunctions = configuration.additionalFunctions;
-            this.orderBy = ko.observable('Name');
-            this.isAsc = ko.observable(true);
-            this.pagingComponentIdentfier = configuration.pagingComponentIdentifier;
-            this.updateEvent = configuration.updateEvent || null;
-            this.deleteEvent = configuration.deleteEvent || null;
-
-            this.plural = ko.dependentObservable(function () {
-                return this.totalItemCount() == 1 ? configuration.singular : configuration.plural;
-            }, this);
-
-            this.is_are = ko.dependentObservable(function () {
-                return this.totalItemCount() == 1 ? 'is' : 'are';
-            }, this);
-            
-            var more = {};
-
-            (function (index, model) {
-                index.more = true;
-                index.execute = function () {
-                    if(!more)
-                        return;
-                    
-                    model.pageNumber((model.pageNumber() + 1));
-                    
-                    jQuery.getJSON('/' + configuration.controller + '/' + configuration.action, { 'page': model.pageNumber(), 'datetime': ko.utils.toISOStringFromJson(model.originalRequestDateTime()) }, function (data) {
-                        if(data.Items.length == 0) {
-                            more = false;
-                            return;
-                        }
-
-                        var newItems = ko.mapping.fromJS(data, mapping);
-                        
-                        ko.utils.arrayForEach(newItems.Items(), function(item) {
-                            model.items.push(item);
-                        });
-                    });
-                };
-            } (more, this));
-            
-            jQuery(window).scroll(function () {
-                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-                    more.execute();
-               }
-            });
-            
-            var resetPaging = {};
-
-            (function (index, model) {
-                index.execute = function (pagingIdentifier, datetime, items) {
-
-                    if (model.pagingComponentIdentfier == pagingIdentifier) {
-                        ko.utils.arrayForEach(items, function(item) {
-                            model.items.unshift(item);
-                            model.totalItemCount((model.totalItemCount() + 1));
-                        });
-                    }
-                };
-            } (resetPaging, this));
-            
-            jQuery(document).bind('resetPaging', function (event, pagingIdentifier, datetime, items) {
-                resetPaging.execute(pagingIdentifier, datetime, items);
-            });
-
-            if (this.deleteEvent != null) {
-                jQuery(document).bind(this.deleteEvent, function (event, id) {
-                    var toRemove = ko.utils.arrayFirst(index.Items(), function (item) {
-                        return item.Id() == id;
-                    });
-
-                    if (toRemove == null || toRemove == undefined)
-                        return;
-
-                    index.Items.remove(toRemove);
-
-                    if (index.Items().length < 10) {
-                        jQuery.getJSON('/' + configuration.controller + '/' + configuration.action, { 'page': model.PageNumber(), 'datetime': ko.utils.toISOStringFromJson(model.originalRequestDateTime()), 'orderBy': model.orderBy(), 'sortBy': sortBy }, function (data) {
-                            ko.mapping.fromJS(data, index);
-                        });
-                    }
-                });
-            }
-
-            if (this.updateEvent != null) {
-                jQuery(document).bind(this.updateEvent, function(event, newItem) {
-                    var update = ko.utils.arrayFirst(index.Items(), function(item) {
-                        return item.Id() == id;
-                    });
-
-                    if (update == null || update == undefined)
-                        return;
-
-                    update.Title(newItem.Title());
-                    update.Content(newItem.Content());
-
-                    for (var propertyName in update[0]) {
-                        if (newItem[propertyName] != null || newItem[propertyName] != undefined) {
-                            update[propertyName](newItem[propertyName]());
-                        }
-                    }
-                });
-            }
-        }
-    };
-    
-    var templateEngine = new ko.nativeTemplateEngine();
-
-    ko.bindingHandlers.pagedList = {
-        init: function () {
-            return { 'controlsDescendantBindings': true };
-        },
-        // This method is called to initialize the node, and will also be called again if you change what the grid is bound to
-        update: function (element, viewModelAccessor, allBindingsAccessor) {
-            var viewModel = viewModelAccessor(), allBindings = allBindingsAccessor();
-
-            // Empty the element
-            while (element.firstChild)
-                ko.removeNode(element.firstChild);
-
-            // Allow the default templates to be overridden
-            var gridTemplateName = allBindings.pagedListTemplate;
-
-            // Render the main grid
-            var gridContainer = element.appendChild(document.createElement("DIV"));
-            ko.renderTemplate(gridTemplateName, viewModel, { templateEngine: templateEngine }, gridContainer, "replaceNode");
         }
     };
 })();
