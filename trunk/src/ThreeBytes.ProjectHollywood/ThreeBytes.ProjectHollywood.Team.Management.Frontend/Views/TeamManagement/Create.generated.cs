@@ -52,46 +52,15 @@ WriteLiteral("\r\n");
             
             #line default
             #line hidden
-WriteLiteral("    <div id=\"create-team-employee-container\">\r\n        <p>\r\n            <button c" +
-"lass=\"btn btn-primary\" data-bind=\"click: raiseCreate\" rel = \"popover\" data_conte" +
-"nt =\"");
+WriteLiteral(@"    <div id=""create-team-employee-container"">
+        <div id=""create-team-employee-modal"" class=""modal modal-medium-wide hide fade"">
+            <div class=""modal-header"">
+                <a href=""#"" class=""close"" data-bind=""click: raiseClose"">×</a>
+                <h3>");
 
 
             
-            #line 7 "..\..\Views\TeamManagement\Create.cshtml"
-                                                                                                     Write(Resources.CreatePopoverContent);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\" data_original_title =\"");
-
-
-            
-            #line 7 "..\..\Views\TeamManagement\Create.cshtml"
-                                                                                                                                                            Write(Resources.CreatePopoverTitle);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\">");
-
-
-            
-            #line 7 "..\..\Views\TeamManagement\Create.cshtml"
-                                                                                                                                                                                           Write(Resources.Create);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</button>\r\n        </p>\r\n        <div id=\"create-team-employee-modal\" class=\"moda" +
-"l modal-medium-wide hide fade\">\r\n            <div class=\"modal-header\">\r\n       " +
-"         <a href=\"#\" class=\"close\" data-bind=\"click: raiseClose\">×</a>\r\n        " +
-"        <h3>");
-
-
-            
-            #line 12 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 9 "..\..\Views\TeamManagement\Create.cshtml"
                Write(Resources.CreateTeamEmployee);
 
             
@@ -110,7 +79,7 @@ WriteLiteral(@"</h3>
 
 
             
-            #line 21 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 18 "..\..\Views\TeamManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.FirstName, Resources.FirstName));
 
             
@@ -121,7 +90,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 24 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 21 "..\..\Views\TeamManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.FirstName, new { @data_val = "true", @data_val_required = "'First Name' should not be empty.", @data_val_length = "'First Name' must be a string with a maximum length of 35.", @data_val_length_max = "35", @data_bind = "value: FirstName" }));
 
             
@@ -137,7 +106,7 @@ WriteLiteral(@"
 
 
             
-            #line 30 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 27 "..\..\Views\TeamManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.LastName, Resources.LastName));
 
             
@@ -148,7 +117,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 33 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 30 "..\..\Views\TeamManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.LastName, new { @data_val = "true", @data_val_required = "'Last Name' should not be empty.", @data_val_length = "'Last Name' must be a string with a maximum length of 35.", @data_val_length_max = "35", @data_bind = "value: LastName" }));
 
             
@@ -164,7 +133,7 @@ WriteLiteral(@"
 
 
             
-            #line 39 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 36 "..\..\Views\TeamManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.LastName, Resources.JobTitle));
 
             
@@ -175,7 +144,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 42 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 39 "..\..\Views\TeamManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.JobTitle, new { @data_val = "true", @data_val_required = "'Job Title' should not be empty.", @data_val_length = "'Job Title' must be a string with a maximum length of 50.", @data_val_length_max = "50", @data_bind = "value: JobTitle" }));
 
             
@@ -212,7 +181,7 @@ WriteLiteral("\r\n                                        <div data-valmsg-for=\
 
 
             
-            #line 73 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 70 "..\..\Views\TeamManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.Summary, Resources.Summary));
 
             
@@ -223,7 +192,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 76 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 73 "..\..\Views\TeamManagement\Create.cshtml"
                                    Write(Html.TextAreaFor(model => model.Summary, new { @data_val = "true", @data_val_required = "'Summary' should not be empty.", @data_bind = "value: Summary" }));
 
             
@@ -243,7 +212,7 @@ WriteLiteral(@"
 
 
             
-            #line 86 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 83 "..\..\Views\TeamManagement\Create.cshtml"
                                                                                  Write(Resources.SaveChanges);
 
             
@@ -254,7 +223,7 @@ WriteLiteral("</button>&nbsp;\r\n                <button type=\"submit\" class=\
 
 
             
-            #line 87 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 84 "..\..\Views\TeamManagement\Create.cshtml"
                                                                                       Write(Resources.Cancel);
 
             
@@ -264,7 +233,7 @@ WriteLiteral("</button>&nbsp;\r\n            </div>\r\n        </div>\r\n    </d
 
 
             
-            #line 91 "..\..\Views\TeamManagement\Create.cshtml"
+            #line 88 "..\..\Views\TeamManagement\Create.cshtml"
 
     using (Html.BeginScriptContext())
     {
@@ -302,10 +271,10 @@ WriteLiteral("</button>&nbsp;\r\n            </div>\r\n        </div>\r\n    </d
                 }
             };
 
-            index.raiseCreate = function () {
+            jQuery(document).bind('teamEmployeeCreate', function() {
                 index.clear();
                 index.createModal.modal('show');
-            };
+            });
 
             index.raiseClose = function () {
                 index.createModal.modal('hide');

@@ -43,107 +43,134 @@ namespace ThreeBytes.ProjectHollywood.Thespian.List.Frontend.Views.ThespianList
         }
         public override void Execute()
         {
-WriteLiteral("<div id=\"thespian-list-container\">\r\n    <div class=\"row\">\r\n        <div class=\"sp" +
-"an12\">\r\n            <div id=\"thespian-options-container\" class=\"btn-toolbar\">\r\n " +
-"               <div class=\"btn-group inline\" data-toggle=\"buttons-radio\" style=\"" +
-"margin: 9px 0;\">\r\n                    <button class=\"btn btn-primary\" data-bind=" +
-"\"click: function() { setThespianTypeFilter(\'Artist\') }, css: { active: ThespianT" +
-"ypeFilter() == \'Artist\' }\">\r\n                        Artists</button>\r\n         " +
-"           <button class=\"btn btn-primary\" data-bind=\"click: function() { setThe" +
-"spianTypeFilter(\'Creative\') }, css: { active: ThespianTypeFilter() == \'Creative\'" +
-" }\">\r\n                        Creatives</button>\r\n                </div>\r\n      " +
-"          <div class=\"btn-group inline\" data-toggle=\"buttons-radio\" style=\"margi" +
-"n: 9px 0;\">\r\n                    <button class=\"btn btn-primary\" data-bind=\"clic" +
-"k: function() { setGenderFilter(\'Male\') }, css: { active: GenderFilter() == \'Mal" +
-"e\' }\">\r\n                        Male</button>\r\n                    <button class" +
-"=\"btn btn-primary\" data-bind=\"click: function() { setGenderFilter(\'Female\') }, c" +
-"ss: { active: GenderFilter() == \'Female\' }\">\r\n                        Female</bu" +
-"tton>\r\n                </div>\r\n                <div class=\"btn-group inline\" dat" +
-"a-toggle=\"buttons-radio\" style=\"margin: 9px 0;\">\r\n                    <button cl" +
-"ass=\"btn btn-primary\" data-bind=\"click: setAKFilter, css: { active: AToKFilter }" +
-"\">\r\n                        A-K</button>\r\n                    <button class=\"btn" +
-" btn-primary\" data-bind=\"click: setLZFilter, css: { active: LToKFilter }\">\r\n    " +
-"                    L-Z</button>\r\n                </div>\r\n            </div>\r\n  " +
-"      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"span12\">\r\n " +
-"           <div id=\"thespian-filtered-list-container\" data-bind=\"visible: Items(" +
-").length > 0\">\r\n                <ul id=\"thespian-list\" class=\"thumbnails\" data-b" +
-"ind=\"foreach: Items\">\r\n                    <li class=\"span3\">\r\n                 " +
-"       <div class=\"thumbnail\">\r\n                            <img data-bind=\"attr" +
-": { src: ProfileImageUrl() }\" />\r\n                            <div class=\"captio" +
-"n\">\r\n                                <h5>\r\n                                    <" +
-"span data-bind=\"fadeInText: FirstName\"></span> <span data-bind=\"fadeInText: Last" +
-"Name\"></span>\r\n                                </h5>\r\n                          " +
-"      <p>\r\n                                    Add a trunced Client Summary here" +
-"?\r\n                                </p>\r\n");
+WriteLiteral("<div id=\"thespian-list-container\">\r\n<div class=\"row\">\r\n    <div class=\"span12 col" +
+"umns\">\r\n        <div class=\"widget\">\r\n            <div class=\"widget-header\">\r\n " +
+"               <i class=\"icon-pushpin\"></i>\r\n                <h3>Our Clients</h3" +
+">\r\n                <div class=\"pull-right-menu btn-toolbar\">\r\n                  " +
+"  <div class=\"btn-group inline\" data-toggle=\"buttons-radio\">\r\n                  " +
+"      <button class=\"btn btn-primary\" data-bind=\"click: function() { setThespian" +
+"TypeFilter(\'Artist\') }, css: { active: ThespianTypeFilter() == \'Artist\' }\">Artis" +
+"ts</button>\r\n                        <button class=\"btn btn-primary\" data-bind=\"" +
+"click: function() { setThespianTypeFilter(\'Creative\') }, css: { active: Thespian" +
+"TypeFilter() == \'Creative\' }\">Creatives</button>\r\n                    </div>\r\n  " +
+"                  <div class=\"btn-group inline\" data-toggle=\"buttons-radio\">\r\n  " +
+"                      <button class=\"btn btn-primary\" data-bind=\"click: function" +
+"() { setGenderFilter(\'Male\') }, css: { active: GenderFilter() == \'Male\' }\">Male<" +
+"/button>\r\n                        <button class=\"btn btn-primary\" data-bind=\"cli" +
+"ck: function() { setGenderFilter(\'Female\') }, css: { active: GenderFilter() == \'" +
+"Female\' }\">Female</button>\r\n                    </div>\r\n                    <div" +
+" class=\"btn-group inline\" data-toggle=\"buttons-radio\">\r\n                        " +
+"<button class=\"btn btn-primary\" data-bind=\"click: setAKFilter, css: { active: AT" +
+"oKFilter }\">A-K</button>\r\n                        <button class=\"btn btn-primary" +
+"\" data-bind=\"click: setLZFilter, css: { active: LToKFilter }\">L-Z</button>\r\n    " +
+"                </div>\r\n");
 
 
             
-            #line 40 "..\..\Views\ThespianList\List.cshtml"
-                                 if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "ThespianManager" }))
-                                {
+            #line 21 "..\..\Views\ThespianList\List.cshtml"
+                     if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "ThespianManager" }))
+                    {
 
             
             #line default
             #line hidden
-WriteLiteral(@"                                    <div class=""btn-group open"">
-                                        <button class=""btn btn-primary dropdown-toggle"" data-toggle=""dropdown"">
-                                            Select <span class=""caret""></span>
-                                        </button>
-                                        <ul class=""dropdown-menu"">
-                                            <li><a href=""#"" data-bind=""click: $parent.raiseDetails"">More</a></li>
-                                            <li class=""divider""></li>
-                                            <li><a href=""#"" data-bind=""click: $parent.raiseEdit"">");
+WriteLiteral("                        <div class=\"btn-group inline\">\r\n                         " +
+"   <button class=\"btn btn-primary\" data-bind=\"click: raiseCreate\">Create</button" +
+">\r\n                        </div>\r\n");
 
 
             
-            #line 49 "..\..\Views\ThespianList\List.cshtml"
-                                                                                            Write(Resources.Edit);
+            #line 26 "..\..\Views\ThespianList\List.cshtml"
+                    }
 
             
             #line default
             #line hidden
-WriteLiteral("</a></li>\r\n                                            <li><a href=\"#\" data-bind=" +
-"\"click: $parent.raiseDelete\">");
+WriteLiteral(@"                </div>
+            </div>
+            <div class=""widget-content"">
+                <div id=""thespian-filtered-list-container"" data-bind=""visible: Items().length > 0"">
+                    <ul id=""thespian-list"" class=""thumbnails"" data-bind=""foreach: Items"">
+                        <li class=""span3"">
+                            <div class=""thumbnail"">
+                                <img data-bind=""attr: { src: ProfileImageUrl() }"" />
+                                <div class=""caption"">
+                                    <h5>
+                                        <span data-bind=""fadeInText: FirstName""></span> <span data-bind=""fadeInText: LastName""></span>
+                                    </h5>
+                                    <p>
+                                        Add a trunced Client Summary here?
+                                    </p>
+");
 
 
             
-            #line 50 "..\..\Views\ThespianList\List.cshtml"
-                                                                                              Write(Resources.Delete);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</a></li>\r\n                                        </ul>\r\n                       " +
-"             </div>\r\n");
-
-
-            
-            #line 53 "..\..\Views\ThespianList\List.cshtml"
-                                }
-                                else
-                                {
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                                    <button class=\"btn btn-info\" data-bind=\"click" +
-": $parent.raiseDetails\">More</button>\r\n");
-
-
-            
-            #line 57 "..\..\Views\ThespianList\List.cshtml"
-                                }
+            #line 42 "..\..\Views\ThespianList\List.cshtml"
+                                     if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "ThespianManager" }))
+                                    {
 
             
             #line default
             #line hidden
-WriteLiteral("                            </div>\r\n                        </div>\r\n             " +
-"       </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </d" +
-"iv>\r\n</div>\r\n");
+WriteLiteral(@"                                        <div class=""btn-group open"">
+                                            <button class=""btn btn-primary dropdown-toggle"" data-toggle=""dropdown"">
+                                                Select <span class=""caret""></span>
+                                            </button>
+                                            <ul class=""dropdown-menu"">
+                                                <li><a href=""#"" data-bind=""click: $parent.raiseDetails"">More</a></li>
+                                                <li class=""divider""></li>
+                                                <li><a href=""#"" data-bind=""click: $parent.raiseEdit"">");
 
 
             
-            #line 66 "..\..\Views\ThespianList\List.cshtml"
+            #line 51 "..\..\Views\ThespianList\List.cshtml"
+                                                                                                Write(Resources.Edit);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</a></li>\r\n                                                <li><a href=\"#\" data-b" +
+"ind=\"click: $parent.raiseDelete\">");
+
+
+            
+            #line 52 "..\..\Views\ThespianList\List.cshtml"
+                                                                                                  Write(Resources.Delete);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</a></li>\r\n                                            </ul>\r\n                   " +
+"                     </div>\r\n");
+
+
+            
+            #line 55 "..\..\Views\ThespianList\List.cshtml"
+                                    }
+                                    else
+                                    {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                                        <button class=\"btn btn-info\" data-bind=\"c" +
+"lick: $parent.raiseDetails\">More</button>\r\n");
+
+
+            
+            #line 59 "..\..\Views\ThespianList\List.cshtml"
+                                    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                                </div>\r\n                            </div>\r\n     " +
+"                   </li>\r\n                    </ul>\r\n                </div>\r\n   " +
+"         </div>  \r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n");
+
+
+            
+            #line 70 "..\..\Views\ThespianList\List.cshtml"
    
     using (Html.BeginScriptContext())
     {
@@ -187,6 +214,10 @@ WriteLiteral("                            </div>\r\n                        </di
                     });
                 });
             }, index);
+
+            index.raiseCreate = function () {
+                jQuery(document).trigger('thespianCreate');
+            };
 
             index.setGenderFilter = function(gender) {
                 index.GenderFilter(gender);

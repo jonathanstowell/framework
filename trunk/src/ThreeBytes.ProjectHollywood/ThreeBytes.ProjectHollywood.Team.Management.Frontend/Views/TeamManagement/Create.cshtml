@@ -3,9 +3,6 @@
 @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
 {
     <div id="create-team-employee-container">
-        <p>
-            <button class="btn btn-primary" data-bind="click: raiseCreate" rel = "popover" data_content ="@Resources.CreatePopoverContent" data_original_title ="@Resources.CreatePopoverTitle">@Resources.Create</button>
-        </p>
         <div id="create-team-employee-modal" class="modal modal-medium-wide hide fade">
             <div class="modal-header">
                 <a href="#" class="close" data-bind="click: raiseClose">×</a>
@@ -125,10 +122,10 @@
                 }
             };
 
-            index.raiseCreate = function () {
+            jQuery(document).bind('teamEmployeeCreate', function() {
                 index.clear();
                 index.createModal.modal('show');
-            };
+            });
 
             index.raiseClose = function () {
                 index.createModal.modal('hide');

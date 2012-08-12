@@ -1,43 +1,52 @@
-﻿@model object
-@{
-    ViewBag.Title = @Resources.BrowserTitle;
-}
-    
-<div id="team-employees-list-container" data-bind="visible: Items().length > 0">
-    <ul id="team-employees-list" class="thumbnails" data-bind="foreach: Items">
-        <li class="span3">
-            <div class="thumbnail">
-                <img data-bind="attr: { src: ProfileImageUrl() }" />
-                <div class="caption">
-                    <h5>
-                        <span data-bind="fadeInText: FirstName"></span> <span data-bind="fadeInText: LastName"></span>
-                    </h5>
-                    <p>
-                        Job Title: <span data-bind="fadeInText: JobTitle"></span>
-                    </p>
-                    @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
-                    {
-                        <div class="btn-group open">
-                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Select <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#" data-bind="click: $parent.raiseDetails">@Resources.Details</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#" data-bind="click: $parent.raiseEdit">@Resources.Edit</a></li>
-                                <li><a href="#" data-bind="click: $parent.raiseDelete">@Resources.Delete</a></li>
-                            </ul>
-                        </div>
-                    }
-                    else
-                    {
-                        <button class="btn btn-info" data-bind="click: $parent.raiseDetails">More</button>
-                    }
+﻿<div id="team-employees-list-container">
+    <div class="widget">
+        <div class="widget-header">
+            <i class="icon-pushpin"></i>
+            <h3>Our Team</h3>
+            @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
+            {
+                <div class="pull-right-menu">
+                    <button class="btn btn-primary" data-bind="click: raiseCreate">Create</button>
                 </div>
-            </div>
-        </li>
-    </ul>
+            }
+        </div>
+        <div class="widget-content">
+            <ul id="team-employees-list" class="thumbnails" data-bind="foreach: Items, visible: Items().length > 0">
+                <li class="span3">
+                    <div class="thumbnail">
+                        <img data-bind="attr: { src: ProfileImageUrl() }" />
+                        <div class="caption">
+                            <h5>
+                                <span data-bind="fadeInText: FirstName"></span> <span data-bind="fadeInText: LastName"></span>
+                            </h5>
+                            <p>
+                                Job Title: <span data-bind="fadeInText: JobTitle"></span>
+                            </p>
+                            @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
+                            {
+                                <div class="btn-group open">
+                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Select <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" data-bind="click: $parent.raiseDetails">@Resources.Details</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#" data-bind="click: $parent.raiseEdit">@Resources.Edit</a></li>
+                                        <li><a href="#" data-bind="click: $parent.raiseDelete">@Resources.Delete</a></li>
+                                    </ul>
+                                </div>
+                            }
+                            else
+                            {
+                                <button class="btn btn-info" data-bind="click: $parent.raiseDetails">More</button>
+                            }
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 
-@{ 
+@{
   using (Html.BeginScriptContext())
   {
     Html.AddScriptBlock(@"
@@ -72,6 +81,10 @@
             var hub = jQuery.connection.teamListHub;
         
             team_employees_list = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model)) + @", mapping);
+
+            index.raiseCreate = function() {
+                jQuery(document).trigger('teamEmployeeCreate');
+            };
 
             index.raiseEdit = function (obj) {
                 jQuery(document).trigger('teamEmployeeEdit', [obj.Id()]);

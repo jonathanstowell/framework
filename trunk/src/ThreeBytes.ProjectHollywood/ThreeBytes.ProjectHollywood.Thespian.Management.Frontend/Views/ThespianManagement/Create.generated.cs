@@ -53,46 +53,15 @@ WriteLiteral("\r\n");
             
             #line default
             #line hidden
-WriteLiteral("    <div id=\"create-thespian-container\">\r\n        <p>\r\n            <button class=" +
-"\"btn btn-primary\" data-bind=\"click: raiseCreate\" rel = \"popover\" data_content =\"" +
-"");
+WriteLiteral(@"    <div id=""create-thespian-container"">
+        <div id=""create-thespian-modal"" class=""modal modal-medium-wide hide fade"">
+            <div class=""modal-header"">
+                <a href=""#"" class=""close"" data-bind=""click: raiseClose"">×</a>
+                <h3>");
 
 
             
-            #line 7 "..\..\Views\ThespianManagement\Create.cshtml"
-                                                                                                     Write(Resources.CreatePopoverContent);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\" data_original_title =\"");
-
-
-            
-            #line 7 "..\..\Views\ThespianManagement\Create.cshtml"
-                                                                                                                                                            Write(Resources.CreatePopoverTitle);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\">");
-
-
-            
-            #line 7 "..\..\Views\ThespianManagement\Create.cshtml"
-                                                                                                                                                                                           Write(Resources.Create);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</button>\r\n        </p>\r\n        <div id=\"create-thespian-modal\" class=\"modal mod" +
-"al-medium-wide hide fade\">\r\n            <div class=\"modal-header\">\r\n            " +
-"    <a href=\"#\" class=\"close\" data-bind=\"click: raiseClose\">×</a>\r\n             " +
-"   <h3>");
-
-
-            
-            #line 12 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 9 "..\..\Views\ThespianManagement\Create.cshtml"
                Write(Resources.CreateTemplate);
 
             
@@ -111,7 +80,7 @@ WriteLiteral(@"</h3>
 
 
             
-            #line 21 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 18 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.FirstName, Resources.FirstName));
 
             
@@ -122,7 +91,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 24 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 21 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.FirstName, new { @data_val = "true", @data_val_required = "'First Name' should not be empty.", @data_val_length = "'First Name' must be a string with a maximum length of 35.", @data_val_length_max = "35", @data_bind = "value: FirstName" }));
 
             
@@ -138,7 +107,7 @@ WriteLiteral(@"
 
 
             
-            #line 30 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 27 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.LastName, Resources.LastName));
 
             
@@ -149,7 +118,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 33 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 30 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.LastName, new { @data_val = "true", @data_val_required = "'Last Name' should not be empty.", @data_val_length = "'Last Name' must be a string with a maximum length of 35.", @data_val_length_max = "35", @data_bind = "value: LastName" }));
 
             
@@ -175,7 +144,7 @@ WriteLiteral(@"
 
 
             
-            #line 49 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 46 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.Email, "Email"));
 
             
@@ -186,7 +155,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 52 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 49 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.Email, new { @data_val = "true", @data_val_required = "'Email' should not be empty.", @data_val_email = "'Email' is not a valid email address.", @data_val_length = "'Email' must be a string with a maximum length of 320.", @data_val_length_max = "320", @data_bind = "value: Email" }));
 
             
@@ -217,7 +186,7 @@ WriteLiteral(@"
 
 
             
-            #line 73 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 70 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.LastName, Resources.DateOfBirth));
 
             
@@ -228,7 +197,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 76 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 73 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.DateOfBirth, new { @data_bind = "value: DateOfBirth" }));
 
             
@@ -244,7 +213,7 @@ WriteLiteral(@"
 
 
             
-            #line 82 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 79 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.Gender, Resources.Gender));
 
             
@@ -255,7 +224,7 @@ WriteLiteral("\r\n                                    <div class=\"input input-s
 
 
             
-            #line 84 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 81 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.EnumDropDownListFor(model => model.Gender));
 
             
@@ -271,7 +240,7 @@ WriteLiteral(@"
 
 
             
-            #line 90 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 87 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.Location, Resources.Location));
 
             
@@ -282,7 +251,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 93 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 90 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.Location, new { @data_val_length = "'Location' must be a string with a maximum length of 200.", @data_val_length_max = "200", @data_bind = "value: Location" }));
 
             
@@ -298,7 +267,7 @@ WriteLiteral(@"
 
 
             
-            #line 99 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 96 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.Height, Resources.Height));
 
             
@@ -309,7 +278,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 102 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 99 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.Height, new { @data_bind = "value: Height" }));
 
             
@@ -325,7 +294,7 @@ WriteLiteral(@"
 
 
             
-            #line 108 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 105 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.Weight, Resources.Weight));
 
             
@@ -336,7 +305,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 111 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 108 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.Weight, new { @data_bind = "value: Weight" }));
 
             
@@ -352,7 +321,7 @@ WriteLiteral(@"
 
 
             
-            #line 117 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 114 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.PlayingAge, Resources.PlayingAge));
 
             
@@ -363,7 +332,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 120 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 117 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.PlayingAge, new { @data_bind = "value: PlayingAge" }));
 
             
@@ -379,7 +348,7 @@ WriteLiteral(@"
 
 
             
-            #line 126 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 123 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.EyeColour, Resources.EyeColour));
 
             
@@ -390,7 +359,7 @@ WriteLiteral("\r\n                                    <div class=\"input input-s
 
 
             
-            #line 128 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 125 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.EnumDropDownListFor(model => model.EyeColour));
 
             
@@ -406,7 +375,7 @@ WriteLiteral(@"
 
 
             
-            #line 134 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 131 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.HairLength, Resources.HairLength));
 
             
@@ -417,7 +386,7 @@ WriteLiteral("\r\n                                    <div class=\"input input-s
 
 
             
-            #line 136 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 133 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.EnumDropDownListFor(model => model.HairLength));
 
             
@@ -433,7 +402,7 @@ WriteLiteral(@"
 
 
             
-            #line 142 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 139 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.Summary, Resources.Summary));
 
             
@@ -444,7 +413,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 145 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 142 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextAreaFor(model => model.Summary, new { @data_bind = "value: Summary" }));
 
             
@@ -460,7 +429,7 @@ WriteLiteral(@"
 
 
             
-            #line 151 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 148 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.Twitter, Resources.Twitter));
 
             
@@ -471,7 +440,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 154 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 151 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.Twitter, new { data_val_length = "'Twitter' must be a string with a maximum length of 20.", @data_val_length_max = "20", @data_bind = "value: Twitter" }));
 
             
@@ -487,7 +456,7 @@ WriteLiteral(@"
 
 
             
-            #line 160 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 157 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.Facebook, Resources.Facebook));
 
             
@@ -498,7 +467,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 163 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 160 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.Facebook, new { data_val_length = "'Facebook' must be a string with a maximum length of 255.", @data_val_length_max = "255", @data_bind = "value: Facebook" }));
 
             
@@ -514,7 +483,7 @@ WriteLiteral(@"
 
 
             
-            #line 169 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 166 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.Spotlight, Resources.Spotlight));
 
             
@@ -525,7 +494,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 172 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 169 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.Spotlight, new { data_val_length = "'Spotlight' must be a string with a maximum length of 255.", @data_val_length_max = "255", @data_bind = "value: Spotlight" }));
 
             
@@ -541,7 +510,7 @@ WriteLiteral(@"
 
 
             
-            #line 178 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 175 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.Imdb, Resources.Imdb));
 
             
@@ -552,7 +521,7 @@ WriteLiteral("\r\n        \r\n                                    <div class=\"i
 
 
             
-            #line 181 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 178 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.TextBoxFor(model => model.Imdb, new { data_val_length = "'Imdb' must be a string with a maximum length of 255.", @data_val_length_max = "255", @data_bind = "value: Imdb" }));
 
             
@@ -568,7 +537,7 @@ WriteLiteral(@"
 
 
             
-            #line 187 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 184 "..\..\Views\ThespianManagement\Create.cshtml"
                                Write(Html.LabelFor(model => model.ThespianType, Resources.ThespianType));
 
             
@@ -579,7 +548,7 @@ WriteLiteral("\r\n                                    <div class=\"input input-s
 
 
             
-            #line 189 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 186 "..\..\Views\ThespianManagement\Create.cshtml"
                                    Write(Html.EnumDropDownListFor(model => model.ThespianType));
 
             
@@ -599,7 +568,7 @@ WriteLiteral(@"
 
 
             
-            #line 199 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 196 "..\..\Views\ThespianManagement\Create.cshtml"
                                                                                  Write(Resources.SaveChanges);
 
             
@@ -610,7 +579,7 @@ WriteLiteral("</button>&nbsp;\r\n                <button type=\"submit\" class=\
 
 
             
-            #line 200 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 197 "..\..\Views\ThespianManagement\Create.cshtml"
                                                                                       Write(Resources.Cancel);
 
             
@@ -620,7 +589,7 @@ WriteLiteral("</button>&nbsp;\r\n            </div>\r\n        </div>\r\n    </d
 
 
             
-            #line 204 "..\..\Views\ThespianManagement\Create.cshtml"
+            #line 201 "..\..\Views\ThespianManagement\Create.cshtml"
 
     using (Html.BeginScriptContext())
     {
@@ -704,10 +673,10 @@ WriteLiteral("</button>&nbsp;\r\n            </div>\r\n        </div>\r\n    </d
                 }
             }
 
-            index.raiseCreate = function () {
+            jQuery(document).bind('thespianCreate', function(e) {
                 index.clear();
                 index.createModal.modal('show');
-            };
+            });
 
             index.raiseClose = function () {
                 index.createModal.modal('hide');

@@ -3,11 +3,8 @@
 }
 
 <section id="news-home">
-    <div class="hero-unit"> 
-        <h1>News</h1> 
-    </div>
     <div class="row">
-        <div class="span12 columns">
+        <div class="span8 columns">
             
             @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "NewsManager" }))
             {

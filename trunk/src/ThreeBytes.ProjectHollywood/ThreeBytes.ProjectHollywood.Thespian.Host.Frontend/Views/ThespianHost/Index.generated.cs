@@ -49,38 +49,25 @@ namespace ThreeBytes.ProjectHollywood.Thespian.Host.Frontend.Views.ThespianHost
             
             #line default
             #line hidden
-WriteLiteral("\r\n<section id=\"template-home\">\r\n    <div class=\"hero-unit\"> \r\n        <h1>Our Cli" +
-"ents</h1> \r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"span12 column" +
-"s\">\r\n\r\n");
+WriteLiteral("\r\n<section id=\"template-home\">\r\n    <div class=\"row\">\r\n        <div class=\"span12" +
+" columns\">\r\n");
 
 
             
-            #line 12 "..\..\Views\ThespianHost\Index.cshtml"
-             if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "ThespianManager" }))
-            {
-                Html.RenderAction("Create", "ThespianManagement");
-            }
+            #line 8 "..\..\Views\ThespianHost\Index.cshtml"
+                Html.RenderAction("List", "ThespianList"); 
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
+WriteLiteral("        </div>\r\n\r\n");
 
 
             
-            #line 17 "..\..\Views\ThespianHost\Index.cshtml"
-               Html.RenderAction("List", "ThespianList"); 
-
-            
-            #line default
-            #line hidden
-WriteLiteral("       \r\n        </div>\r\n\r\n");
-
-
-            
-            #line 21 "..\..\Views\ThespianHost\Index.cshtml"
+            #line 11 "..\..\Views\ThespianHost\Index.cshtml"
          if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "ThespianManager" }))
         {
+            Html.RenderAction("Create", "ThespianManagement");
             Html.RenderAction("Edit", "ThespianManagement");
             Html.RenderAction("Delete", "ThespianManagement");
         }
@@ -92,7 +79,7 @@ WriteLiteral("         \r\n");
 
 
             
-            #line 27 "..\..\Views\ThespianHost\Index.cshtml"
+            #line 18 "..\..\Views\ThespianHost\Index.cshtml"
            Html.RenderAction("Details", "ThespianView");
 
             

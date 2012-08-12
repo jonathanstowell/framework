@@ -105,9 +105,9 @@
     <Compile Include="MessageHandlers\UpdateTeamEmployeeProfileImageInternalEventMessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\TeamList\List.generated.cs">
-      <DependentUpon>List.cshtml</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>List.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Views\TeamList\Mobile\List.generated.cs">
       <DependentUpon>List.cshtml</DependentUpon>
@@ -121,8 +121,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\TeamList\List.cshtml">
-      <Generator>RazorGenerator</Generator>
       <LastGenOutput>List.generated.cs</LastGenOutput>
+      <Generator>RazorGenerator</Generator>
     </Content>
     <Content Include="Views\TeamList\Mobile\List.cshtml">
       <Generator>RazorGenerator</Generator>

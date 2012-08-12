@@ -732,8 +732,9 @@ textarea {
 .news-item-date {
 	width: 75px;
 	vertical-align: middle;
-	
-	text-align: right;
+    left: auto;
+    float: right;
+    margin-right: 10px;
 }
 
 .news-item-day {

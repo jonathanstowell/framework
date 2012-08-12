@@ -34,115 +34,132 @@ namespace ThreeBytes.ProjectHollywood.Team.List.Frontend.Views.TeamList
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "1.2.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/TeamList/List.cshtml")]
-    public class List : System.Web.Mvc.WebViewPage<object>
+    public class List : System.Web.Mvc.WebViewPage<dynamic>
     {
         public List()
         {
         }
         public override void Execute()
         {
+WriteLiteral("<div id=\"team-employees-list-container\">\r\n    <div class=\"widget\">\r\n        <div " +
+"class=\"widget-header\">\r\n            <i class=\"icon-pushpin\"></i>\r\n            <h" +
+"3>Our Team</h3>\r\n");
 
 
             
-            #line 2 "..\..\Views\TeamList\List.cshtml"
-  
-    ViewBag.Title = @Resources.BrowserTitle;
-
+            #line 6 "..\..\Views\TeamList\List.cshtml"
+             if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
+            {
 
             
             #line default
             #line hidden
-WriteLiteral(@"    
-<div id=""team-employees-list-container"" data-bind=""visible: Items().length > 0"">
-    <ul id=""team-employees-list"" class=""thumbnails"" data-bind=""foreach: Items"">
-        <li class=""span3"">
-            <div class=""thumbnail"">
-                <img data-bind=""attr: { src: ProfileImageUrl() }"" />
-                <div class=""caption"">
-                    <h5>
-                        <span data-bind=""fadeInText: FirstName""></span> <span data-bind=""fadeInText: LastName""></span>
-                    </h5>
-                    <p>
-                        Job Title: <span data-bind=""fadeInText: JobTitle""></span>
-                    </p>
+WriteLiteral("                <div class=\"pull-right-menu\">\r\n                    <button class=" +
+"\"btn btn-primary\" data-bind=\"click: raiseCreate\">Create</button>\r\n              " +
+"  </div>\r\n");
+
+
+            
+            #line 11 "..\..\Views\TeamList\List.cshtml"
+            }
+
+            
+            #line default
+            #line hidden
+WriteLiteral(@"        </div>
+        <div class=""widget-content"">
+            <ul id=""team-employees-list"" class=""thumbnails"" data-bind=""foreach: Items, visible: Items().length > 0"">
+                <li class=""span3"">
+                    <div class=""thumbnail"">
+                        <img data-bind=""attr: { src: ProfileImageUrl() }"" />
+                        <div class=""caption"">
+                            <h5>
+                                <span data-bind=""fadeInText: FirstName""></span> <span data-bind=""fadeInText: LastName""></span>
+                            </h5>
+                            <p>
+                                Job Title: <span data-bind=""fadeInText: JobTitle""></span>
+                            </p>
 ");
 
 
             
-            #line 18 "..\..\Views\TeamList\List.cshtml"
-                     if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
-                    {
-
-            
-            #line default
-            #line hidden
-WriteLiteral(@"                        <div class=""btn-group open"">
-                            <button class=""btn btn-primary dropdown-toggle"" data-toggle=""dropdown"">Select <span class=""caret""></span></button>
-                            <ul class=""dropdown-menu"">
-                                <li><a href=""#"" data-bind=""click: $parent.raiseDetails"">");
-
-
-            
-            #line 23 "..\..\Views\TeamList\List.cshtml"
-                                                                                   Write(Resources.Details);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</a></li>\r\n                                <li class=\"divider\"></li>\r\n           " +
-"                     <li><a href=\"#\" data-bind=\"click: $parent.raiseEdit\">");
-
-
-            
             #line 25 "..\..\Views\TeamList\List.cshtml"
-                                                                                Write(Resources.Edit);
+                             if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
+                            {
 
             
             #line default
             #line hidden
-WriteLiteral("</a></li>\r\n                                <li><a href=\"#\" data-bind=\"click: $par" +
-"ent.raiseDelete\">");
+WriteLiteral(@"                                <div class=""btn-group open"">
+                                    <button class=""btn btn-primary dropdown-toggle"" data-toggle=""dropdown"">Select <span class=""caret""></span></button>
+                                    <ul class=""dropdown-menu"">
+                                        <li><a href=""#"" data-bind=""click: $parent.raiseDetails"">");
 
 
             
-            #line 26 "..\..\Views\TeamList\List.cshtml"
-                                                                                  Write(Resources.Delete);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</a></li>\r\n                            </ul>\r\n                        </div>\r\n");
-
-
-            
-            #line 29 "..\..\Views\TeamList\List.cshtml"
-                    }
-                    else
-                    {
+            #line 30 "..\..\Views\TeamList\List.cshtml"
+                                                                                           Write(Resources.Details);
 
             
             #line default
             #line hidden
-WriteLiteral("                        <button class=\"btn btn-info\" data-bind=\"click: $parent.ra" +
-"iseDetails\">More</button>\r\n");
+WriteLiteral("</a></li>\r\n                                        <li class=\"divider\"></li>\r\n   " +
+"                                     <li><a href=\"#\" data-bind=\"click: $parent.r" +
+"aiseEdit\">");
+
+
+            
+            #line 32 "..\..\Views\TeamList\List.cshtml"
+                                                                                        Write(Resources.Edit);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</a></li>\r\n                                        <li><a href=\"#\" data-bind=\"cli" +
+"ck: $parent.raiseDelete\">");
 
 
             
             #line 33 "..\..\Views\TeamList\List.cshtml"
-                    }
+                                                                                          Write(Resources.Delete);
 
             
             #line default
             #line hidden
-WriteLiteral("                </div>\r\n            </div>\r\n        </li>\r\n    </ul>\r\n</div>\r\n\r\n");
+WriteLiteral("</a></li>\r\n                                    </ul>\r\n                           " +
+"     </div>\r\n");
+
+
+            
+            #line 36 "..\..\Views\TeamList\List.cshtml"
+                            }
+                            else
+                            {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                                <button class=\"btn btn-info\" data-bind=\"click: $p" +
+"arent.raiseDetails\">More</button>\r\n");
 
 
             
             #line 40 "..\..\Views\TeamList\List.cshtml"
-   
+                            }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                        </div>\r\n                    </div>\r\n                </li>" +
+"\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n");
+
+
+            
+            #line 49 "..\..\Views\TeamList\List.cshtml"
+  
   using (Html.BeginScriptContext())
   {
-    Html.AddScriptBlock(@"
+    ScriptExtensions.AddScriptBlock(Html, @"
     
         var team_employees_list  = {};
 
@@ -174,6 +191,10 @@ WriteLiteral("                </div>\r\n            </div>\r\n        </li>\r\n 
             var hub = jQuery.connection.teamListHub;
         
             team_employees_list = index = ko.mapping.fromJS(" + @Html.Raw(new JavaScriptSerializer().Serialize(Model)) + @", mapping);
+
+            index.raiseCreate = function() {
+                jQuery(document).trigger('teamEmployeeCreate');
+            };
 
             index.raiseEdit = function (obj) {
                 jQuery(document).trigger('teamEmployeeEdit', [obj.Id()]);

@@ -143,6 +143,9 @@
     <Reference Include="ThreeBytes.Core.Quartz.Concrete">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Quartz.Concrete.dll</HintPath>
     </Reference>
+    <Reference Include="ThreeBytes.Core.Security.Utilities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Utilities.Abstract.dll</HintPath>
+    </Reference>
     <Reference Include="ThreeBytes.Core.Service.Abstract">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Abstract.dll</HintPath>
     </Reference>

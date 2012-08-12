@@ -3,23 +3,14 @@
 }
 
 <section id="template-home">
-    <div class="hero-unit"> 
-        <h1>Our Clients</h1> 
-    </div>
     <div class="row">
         <div class="span12 columns">
-
-            @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "ThespianManager" }))
-            {
-                Html.RenderAction("Create", "ThespianManagement");
-            }
-
-            @{ Html.RenderAction("List", "ThespianList"); }
-       
+             @{ Html.RenderAction("List", "ThespianList"); }
         </div>
 
         @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "ThespianManager" }))
         {
+            Html.RenderAction("Create", "ThespianManagement");
             Html.RenderAction("Edit", "ThespianManagement");
             Html.RenderAction("Delete", "ThespianManagement");
         }
