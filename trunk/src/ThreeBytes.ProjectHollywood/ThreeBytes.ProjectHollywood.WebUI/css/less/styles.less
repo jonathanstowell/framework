@@ -453,31 +453,12 @@ table .headerSortUp.yellow, table .headerSortDown.yellow {
 table .headerSortUp.light-blue, table .headerSortDown.light-blue {
     background-color: #049cdb;
 }
-display: {
-    block;margin-bottom: {
-        -40px; {
-            #big_stats .stat;
-        }
-        1em; {
-            .register .login-fields input;
-        }
-    }
-}
 body {
     background: #E9E9E9 url(../img/body-bg.png) repeat 0 0;
     font: 13px/1.7em 'Open Sans';
     background: url(../../img/body-bg.png);
     color:#838383;
     font: 13px/1.7em 'Open Sans';
-}
-float: {
-    left;display: {
-        block;margin-bottom: {
-            0; {
-                #chart-stats;
-            }
-        }
-    }
 }
 .footer-inner {
     padding: 15px 0;
@@ -530,15 +511,6 @@ table .headerSortDown:after, table .headerSortDown:hover:after {
     -moz-opacity: 0.6;
     opacity: 0.6;
 }
-margin: {
-    2em {
-        0 {
-            1em; {
-                .shortcuts .shortcut;
-            }
-        }
-    }
-}
 .navbar {
     .nav {
         a {
@@ -564,47 +536,6 @@ margin: {
     }
     .container {
         position: relative;
-    }
-}
-margin-bottom: {
-    3em; {
-        .stats .stat .stat-value;
-    }
-    .15em;font-size: {
-        20px; {
-            .stats;
-        }
-    }
-}
-span.login-checkbox {
-    float: left;
-    margin-top: 31px;
-    > {
-        input[type='checkbox']:checked {
-            + {
-                label {
-                    background-position: 0 -15px;
-                }
-            }
-        }
-        input[type='checkbox'] {
-            opacity: 0;
-            float: left;
-            width: 15px;
-            + {
-                label {
-                    clear: none;
-                    height: 15px;
-                    display: block;
-                    padding: 0 0 0 22px;
-                    margin: 0;
-                    font-size: 12px;
-                    line-height: 1.2em;
-                    background: url(../../img/signin/check.png) no-repeat 0 0;
-                    cursor: pointer;
-                }
-            }
-        }
     }
 }
 .navbar-fixed-top {
@@ -663,7 +594,6 @@ span.login-checkbox {
         border-bottom-color: white;
     }
     .container {
-        > {
             ul {
                 display: inline-block;
                 height: 80px;
@@ -671,14 +601,11 @@ span.login-checkbox {
                 margin: 0;
                 border-left: 1px solid #292929;
                 border-right: 1px solid #4A4A4A;
-                > {
                     li.active {
-                        > {
                             a {
                                 background: #333;
                                 color: #F90;
                             }
-                        }
                     }
                     li {
                         float: left;
@@ -690,7 +617,6 @@ span.login-checkbox {
                         list-style: none;
                         border-left: 1px solid #4A4A4A;
                         border-right: 1px solid #292929;
-                        > {
                             a {
                                 display: block;
                                 height: 100%;
@@ -699,7 +625,6 @@ span.login-checkbox {
                                 font-weight: bold;
                                 color: #636363;
                                 text-shadow: 1px 1px 1px rgba(0,0,0,.2);
-                                > {
                                     i {
                                         display: inline-block;
                                         width: 24px;
@@ -711,27 +636,18 @@ span.login-checkbox {
                                     span {
                                         display: block;
                                     }
-                                }
                             }
                             a:hover {
                                 color: #888;
                                 text-decoration: none;
                             }
-                        }
                     }
-                }
             }
-        }
     }
 }
 .pricing-plans.plans-1 {
     .plan-container {
         width: 100%;
-    }
-}
-border-right: {
-    none; {
-        #big_stats .stat:nth-child(3);
     }
 }
 .plan.orange {
@@ -1237,28 +1153,6 @@ table .headerSortUp.orange, table .headerSortDown.orange {
     border-bottom-color: #f89406;
     margin-right: 2px;
 }
-width: {
-    100%; {
-        .twitter;
-    }
-    49%;display: {
-        block;margin-bottom: {
-            3em;float: {
-                left; {
-                    #big_stats .stat:nth-child(2);
-                }
-            }
-        }
-    }
-    160px; {
-        .login-social;
-    }
-    280px;margin-top: {
-        35px; {
-            .login-fields input;
-        }
-    }
-}
 .extra-inner {
     padding: 20px 0;
     font-size: 11px;
@@ -1284,16 +1178,12 @@ width: {
         position: relative;
         top: -6px;
         width: 200px;
-        > {
             input[type="checkbox"] {
-                + {
                     label {
                         position: relative;
                         line-height: 1.3em;
                     }
-                }
             }
-        }
     }
     .login-fields {
         input {
@@ -1429,4 +1319,29 @@ width: {
 		padding-left: 6px;
 	}
 	
+}
+span.login-checkbox {
+    float: left;
+    margin-top: 31px;
+        input[type='checkbox']:checked {
+                label {
+                    background-position: 0 -15px;
+                }
+        }
+        input[type='checkbox'] {
+            opacity: 0;
+            float: left;
+            width: 15px;
+                label {
+                    clear: none;
+                    height: 15px;
+                    display: block;
+                    padding: 0 0 0 22px;
+                    margin: 0;
+                    font-size: 12px;
+                    line-height: 1.2em;
+                    background: url(../../img/signin/check.png) no-repeat 0 0;
+                    cursor: pointer;
+                }
+        }
 }
