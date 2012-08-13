@@ -532,6 +532,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="css\less\test.less" />
+    <None Include="css\less\mixins.less" />
+    <None Include="css\less\projecthollywood.less" />
+    <None Include="css\less\styles.less" />
+    <None Include="css\less\variables.less" />
     <None Include="font\fontawesome-webfont.eot" />
     <None Include="font\fontawesome-webfont.svgz" />
     <None Include="font\fontawesome-webfont.ttf" />

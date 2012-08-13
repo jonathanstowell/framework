@@ -19,11 +19,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes"> 
     <!-- CSS : implied media="all" -->
     @* More info about SquishIt from http://www.codethinked.com/squishit-the-friendly-aspnet-javascript-and-css-squisher *@
-    @Html.Raw(SquishIt.Framework.Bundle.Css()
+    @MvcHtmlString.Create(SquishIt.Framework.Bundle.Css()
                                      .Add("~/css/bootstrap.min.css")
                                      .Add("~/css/bootstrap-responsive.min.css")
                                      .Add("~/css/font-awesome.css")
-                                     .Add("~/css/less/test.less")
+                                     .Add("~/css/less/styles.less")
                                      .Add("~/css/base-admin-responsive.css")
                                      .Add("~/css/jquery.gritter.css")
             //.ForceRelease() // Test it out with minification
