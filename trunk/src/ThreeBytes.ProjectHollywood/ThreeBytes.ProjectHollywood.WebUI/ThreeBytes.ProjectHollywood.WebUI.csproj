@@ -531,6 +531,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="css\less\test.less" />
     <None Include="font\fontawesome-webfont.eot" />
     <None Include="font\fontawesome-webfont.svgz" />
     <None Include="font\fontawesome-webfont.ttf" />
