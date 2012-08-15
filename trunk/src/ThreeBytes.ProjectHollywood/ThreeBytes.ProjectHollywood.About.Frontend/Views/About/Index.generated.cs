@@ -48,52 +48,111 @@ namespace ThreeBytes.ProjectHollywood.About.Frontend.Views.About
             
             #line default
             #line hidden
-WriteLiteral("\r\n<section id=\"about\">\r\n    <div id=\"about-container\">\r\n        <div class=\"row\">" +
-"\r\n            <div class=\"span6\">&nbsp;</div>\r\n            <div class=\"span6\">\r\n" +
-"                <div class=\"widget\">\r\n                    <div class=\"widget-hea" +
-"der\">\r\n                        <i class=\"icon-pushpin\"></i>\r\n                   " +
-"     <h3>About Us</h3>\r\n                    </div>\r\n                    <div cla" +
-"ss=\"widget-content\">\r\n                        <p>\r\n                            F" +
-"ELIX DE WOLFE, one of the longest established independent entertainment and lite" +
-"rary agencies in the United Kingdom. \r\n                            Over the past" +
-" sixty plus years, the agency has, and continues to look after some of the count" +
-"ry’s most talented performers, writers and directors, whose works encompass a wi" +
-"de spectrum of the arts.\r\n                        </p>\r\n                        " +
-"<p>\r\n                            The agency prides itself on the quality of its " +
-"client base and continues to be one of the frontrunners in the entertainment bus" +
-"iness today.\r\n                        </p>\r\n                        <p>\r\n       " +
-"                     Our exclusive client base includes actors, actresses, prese" +
-"nters, directors and composers, as well as authors and writers for film, televis" +
-"ion, stage and radio.\r\n                        </p>\r\n                        <p>" +
-"\r\n                            Felix de Wolfe is a member of the PMA (Personal Ma" +
-"nagers Association); the late Felix de Wolfe himself was the Chair of the organi" +
-"sation for many years.\r\n                        </p>\r\n                        <p" +
-">\r\n                            <button class=\"btn btn-primary pull-right\" data-b" +
-"ind=\"click: raiseAmericanContacts\" rel = \"popover\" data_content =\"Holloway | Bro" +
-"adway\" data_original_title =\"American Contacts\">American Contacts</button>\r\n    " +
-"                    </p>\r\n                    </div>\r\n                </div>\r\n  " +
-"          </div>\r\n        </div>\r\n        \r\n        <div id=\"american-contacts-m" +
-"odal\" class=\"modal hide fade\">\r\n            <div class=\"modal-header\">\r\n        " +
-"        <a href=\"#\" class=\"close\" data-bind=\"click: raiseClose\">×</a>\r\n         " +
-"       <h3>American Contacts</h3>\r\n            </div>\r\n            <div class=\"m" +
-"odal-body\">\r\n                <p>\r\n                    We enjoy non-exclusive aff" +
-"iliations with both East and West Coast agents and managers including:\r\n\r\n      " +
-"              <ul>\r\n                        <li>Abrams Artists</li>\r\n           " +
-"             <li>Alan Siegel Entertainment</li>\r\n                        <li>And" +
-"y Howard</li>\r\n                        <li>APA</li>\r\n                        <li" +
-">Don Buchwald & Associates</li>\r\n                        <li>Gage Group</li>\r\n  " +
-"                      <li>Gersh Agency</li>\r\n                        <li>Hartig " +
-"Hilepo</li>\r\n                        <li>Innovative Artists</li>\r\n              " +
-"          <li>Louisa Spring</li>\r\n                        <li>Paradigm</li>\r\n   " +
-"                     <li>Rough Diamond</li>\r\n                        <li>Vincent" +
-" Cirrincione Associates</li>\r\n                    </ul>\r\n                </p>\r\n " +
-"           </div>\r\n            <div class=\"modal-footer\">\r\n                <butt" +
-"on class=\"btn btn-danger\" data-bind=\"click: raiseClose\">Close</button>\r\n        " +
-"    </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n\r\n");
+WriteLiteral(@"
+<section id=""about"">
+    <div id=""about-container"">
+        <div class=""row"">
+            <div class=""span6"">
+                <div id=""about-us-carousel"" class=""carousel slide"">
+                    <div class=""carousel-inner"">
+                      <div class=""item active"">
+                        <img src=""");
 
 
             
-            #line 70 "..\..\Views\About\Index.cshtml"
+            #line 12 "..\..\Views\About\Index.cshtml"
+                             Write(Url.Content("~/img/bootstrap-mdo-sfmoma-01.jpg"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral(@""" alt="""">
+                        <div class=""carousel-caption"">
+                          <h4>First Thumbnail label</h4>
+                          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                      </div>
+                      <div class=""item"">
+                        <img src=""");
+
+
+            
+            #line 19 "..\..\Views\About\Index.cshtml"
+                             Write(Url.Content("~/img/bootstrap-mdo-sfmoma-02.jpg"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral(@""" alt="""">
+                        <div class=""carousel-caption"">
+                          <h4>Second Thumbnail label</h4>
+                          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                      </div>
+                      <div class=""item"">
+                        <img src=""");
+
+
+            
+            #line 26 "..\..\Views\About\Index.cshtml"
+                             Write(Url.Content("~/img/bootstrap-mdo-sfmoma-03.jpg"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\" alt=\"\">\r\n                        <div class=\"carousel-caption\">\r\n              " +
+"            <h4>Third Thumbnail label</h4>\r\n                          <p>Cras ju" +
+"sto odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta" +
+" gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</" +
+"p>\r\n                        </div>\r\n                      </div>\r\n              " +
+"      </div>\r\n                    <a class=\"left carousel-control\" href=\"#about-" +
+"us-carousel\" data-slide=\"prev\">‹</a>\r\n                    <a class=\"right carous" +
+"el-control\" href=\"#about-us-carousel\" data-slide=\"next\">›</a>\r\n              </d" +
+"iv>\r\n            </div>\r\n            <div class=\"span6\">\r\n                <div c" +
+"lass=\"widget\">\r\n                    <div class=\"widget-header\">\r\n               " +
+"         <i class=\"icon-pushpin\"></i>\r\n                        <h3>About Us</h3>" +
+"\r\n                    </div>\r\n                    <div class=\"widget-content\">\r\n" +
+"                        <p>\r\n                            FELIX DE WOLFE, one of " +
+"the longest established independent entertainment and literary agencies in the U" +
+"nited Kingdom. \r\n                            Over the past sixty plus years, the" +
+" agency has, and continues to look after some of the country’s most talented per" +
+"formers, writers and directors, whose works encompass a wide spectrum of the art" +
+"s.\r\n                        </p>\r\n                        <p>\r\n                 " +
+"           The agency prides itself on the quality of its client base and contin" +
+"ues to be one of the frontrunners in the entertainment business today.\r\n        " +
+"                </p>\r\n                        <p>\r\n                            O" +
+"ur exclusive client base includes actors, actresses, presenters, directors and c" +
+"omposers, as well as authors and writers for film, television, stage and radio.\r" +
+"\n                        </p>\r\n                        <p>\r\n                    " +
+"        Felix de Wolfe is a member of the PMA (Personal Managers Association); t" +
+"he late Felix de Wolfe himself was the Chair of the organisation for many years." +
+"\r\n                        </p>\r\n                        <p>\r\n                   " +
+"         <button class=\"btn btn-primary pull-right\" data-bind=\"click: raiseAmeri" +
+"canContacts\" rel = \"popover\" data_content =\"Holloway | Broadway\" data_original_t" +
+"itle =\"American Contacts\">American Contacts</button>\r\n                        </" +
+"p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n    " +
+"    </div>\r\n        \r\n        <div id=\"american-contacts-modal\" class=\"modal hid" +
+"e fade\">\r\n            <div class=\"modal-header\">\r\n                <a href=\"#\" cl" +
+"ass=\"close\" data-bind=\"click: raiseClose\">×</a>\r\n                <h3>American Co" +
+"ntacts</h3>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n         " +
+"       <p>\r\n                    We enjoy non-exclusive affiliations with both Ea" +
+"st and West Coast agents and managers including:\r\n\r\n                    <ul>\r\n  " +
+"                      <li>Abrams Artists</li>\r\n                        <li>Alan " +
+"Siegel Entertainment</li>\r\n                        <li>Andy Howard</li>\r\n       " +
+"                 <li>APA</li>\r\n                        <li>Don Buchwald & Associ" +
+"ates</li>\r\n                        <li>Gage Group</li>\r\n                        " +
+"<li>Gersh Agency</li>\r\n                        <li>Hartig Hilepo</li>\r\n         " +
+"               <li>Innovative Artists</li>\r\n                        <li>Louisa S" +
+"pring</li>\r\n                        <li>Paradigm</li>\r\n                        <" +
+"li>Rough Diamond</li>\r\n                        <li>Vincent Cirrincione Associate" +
+"s</li>\r\n                    </ul>\r\n                </p>\r\n            </div>\r\n   " +
+"         <div class=\"modal-footer\">\r\n                <button class=\"btn btn-dang" +
+"er\" data-bind=\"click: raiseClose\">Close</button>\r\n            </div>\r\n        </" +
+"div>\r\n    </div>\r\n</section>\r\n\r\n");
+
+
+            
+            #line 98 "..\..\Views\About\Index.cshtml"
    
   using (Html.BeginScriptContext())
   {

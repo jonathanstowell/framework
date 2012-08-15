@@ -325,13 +325,9 @@
     <Compile Include="Installers\SignalRStartupTask.cs" />
     <Compile Include="Installers\WindsorControllerFactoryStartupTask.cs" />
     <Compile Include="Installers\WebWindsorInstaller.cs" />
-    <Content Include="css\base-admin-responsive.css" />
-    <Content Include="css\base-admin.css" />
-    <Content Include="css\bootstrap-responsive-2.02.min.css" />
     <Content Include="css\bootstrap-responsive.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.css" />
-    <Content Include="css\jquery.gritter.css" />
     <Content Include="css\jquery.mobile-1.1.0.css" />
     <Content Include="css\jquery.mobile-1.1.0.min.css" />
     <Content Include="css\jquery.mobile.structure-1.1.0.css" />
@@ -415,7 +411,6 @@
     <Content Include="apple-touch-icon-57x57-precomposed.png" />
     <Content Include="apple-touch-icon-72x72-precomposed.png" />
     <Content Include="apple-touch-icon-precomposed.png" />
-    <Content Include="css\media.css" />
     <Content Include="GenericErrorPage.html" />
     <Content Include="humans.txt" />
     <Content Include="js\libs\jquery-1.2.6.min.js" />
@@ -469,7 +464,6 @@
     <Content Include="404.html" />
     <Content Include="apple-touch-icon.png" />
     <Content Include="crossdomain.xml" />
-    <Content Include="css\normalize.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="js\libs\dd_belatedpng.js" />
@@ -531,9 +525,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="css\less\test.less" />
+    <None Include="css\less\notifications.less" />
+    <None Include="css\less\responsive-1200px-min.less" />
+    <None Include="css\less\responsive-979px-max.less" />
+    <None Include="css\less\responsive-767px-max.less" />
     <None Include="css\less\mixins.less" />
     <None Include="css\less\projecthollywood.less" />
+    <None Include="css\less\responsive-480px-max.less" />
+    <None Include="css\less\projecthollywood-responsive.less" />
     <None Include="css\less\styles.less" />
     <None Include="css\less\variables.less" />
     <None Include="font\fontawesome-webfont.eot" />

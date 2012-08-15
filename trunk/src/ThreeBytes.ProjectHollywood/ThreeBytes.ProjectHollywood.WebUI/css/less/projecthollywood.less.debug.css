@@ -1,4 +1,102 @@
-﻿.link {
+﻿.gritter-image {
+  width: 48px;
+  height: 48px;
+  float: left;
+}
+.gritter-item-wrapper {
+  position: relative;
+  margin: 0 0 10px 0;
+  background: url('../img/ie-spacer.gif');
+}
+.gritter-close {
+  display: none;
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  background: url(../img/gritter.png) no-repeat left top;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+#gritter-notice-wrapper.top-left {
+  left: 20px;
+  right: auto;
+}
+#gritter-notice-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 301px;
+  z-index: 9999;
+}
+.gritter-light .gritter-item,
+.gritter-light .gritter-bottom,
+.gritter-light .gritter-top,
+.gritter-light .gritter-close {
+  background-image: url(../img/gritter-light.png);
+  color: #222222;
+}
+.gritter-with-image {
+  width: 220px;
+  float: right;
+}
+.gritter-with-image,
+.gritter-without-image {
+  padding: 0 0 5px 0;
+}
+.gritter-item {
+  display: block;
+  background: url(../img/gritter.png) no-repeat left -40px;
+  color: #eeeeee;
+  padding: 2px 11px 8px 11px;
+  font-size: 11px;
+  font-family: verdana;
+}
+.gritter-item p {
+  padding: 0;
+  margin: 0;
+}
+.gritter-title {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 0 7px 0;
+  display: block;
+  text-shadow: 1px 1px 0 black;
+}
+.gritter-bottom {
+  background: url(../img/gritter.png) no-repeat left bottom;
+  height: 8px;
+  margin: 0;
+}
+.hover .gritter-item {
+  background-position: right -40px;
+}
+.hover .gritter-bottom {
+  background-position: bottom right;
+}
+.hover .gritter-top {
+  background-position: right -30px;
+}
+.gritter-top {
+  background: url(../img/gritter.png) no-repeat left -30px;
+  height: 10px;
+}
+#gritter-notice-wrapper.bottom-right {
+  top: auto;
+  left: auto;
+  bottom: 20px;
+  right: 20px;
+}
+.gritter-light .gritter-title {
+  text-shadow: none;
+}
+#gritter-notice-wrapper.bottom-left {
+  top: auto;
+  right: auto;
+  bottom: 20px;
+  left: 20px;
+}
+.link {
   cursor: pointer;
 }
 table .headerSortUp.green,
@@ -1162,86 +1260,6 @@ registration-fields .field {
 }
 .faq-empty {
   display: none;
-}
-@media (max-width: 979px) {
-  .shortcuts .shortcut {
-    width: 31%;
-  }
-}
-@media (max-width: 480px) {
-  .stats .stat {
-    margin-bottom: 3em;
-  }
-  .stats .stat .stat-value {
-    margin-bottom: .15em;
-    font-size: 20px;
-  }
-  .stats {
-    float: left;
-    display: block;
-    margin-bottom: 0;
-  }
-  #chart-stats {
-    margin: 2em 0 1em;
-  }
-  .shortcuts .shortcut {
-    width: 48%;
-  }
-}
-@media (min-width: 767px) and (max-width: 979px) {
-  .pricing-plans .plan-container {
-    width: 50% !important;
-    margin-bottom: 2em;
-  }
-}
-@media (max-width: 767px) {
-  .pricing-plans .plan-container {
-    width: 100% !important;
-    margin-bottom: 2em;
-  }
-}
-@media all and (max-width: 950px) and (min-width: 1px) {
-  #big_stats {
-    display: block;
-    margin-bottom: -40px;
-  }
-  #big_stats .stat {
-    width: 49%;
-    display: block;
-    margin-bottom: 3em;
-    float: left;
-  }
-  #big_stats .stat:nth-child(2) {
-    border-right: none;
-  }
-  #big_stats .stat:nth-child(3) {
-    border-left: none;
-  }
-}
-@media (max-width: 767px) {
-  #big_stats .stat .value {
-    font-size: 40px;
-  }
-}
-@media (max-width: 480px) {
-  .account-container {
-    width: 280px;
-    margin-top: 35px;
-  }
-  .login-fields input {
-    width: 160px;
-  }
-  .login-social {
-    width: 100%;
-  }
-  .twitter {
-    display: block;
-    margin-bottom: 1em;
-  }
-  .register .login-fields input {
-    width: 204px;
-    padding-left: 6px;
-  }
 }
 span.login-checkbox {
   float: left;
