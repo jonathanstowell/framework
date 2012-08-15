@@ -65,7 +65,7 @@ WriteLiteral(@"
 <script type=""text/x-jquery-tmpl"" id=""paged-users-table-tmpl"">
     <div class=""widget widget-table"">
     <div class=""widget-header"">
-        <i class=""icon-file""></i>
+        <i class=""icon-user""></i>
         <h3>System Users</h3>
         <div class=""pull-right-menu"">
             <em>");

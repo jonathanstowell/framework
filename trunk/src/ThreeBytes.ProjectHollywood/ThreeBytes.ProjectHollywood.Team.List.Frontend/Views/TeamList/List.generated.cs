@@ -42,8 +42,8 @@ namespace ThreeBytes.ProjectHollywood.Team.List.Frontend.Views.TeamList
         public override void Execute()
         {
 WriteLiteral("<div id=\"team-employees-list-container\">\r\n    <div class=\"widget\">\r\n        <div " +
-"class=\"widget-header\">\r\n            <i class=\"icon-pushpin\"></i>\r\n            <h" +
-"3>Our Team</h3>\r\n");
+"class=\"widget-header\">\r\n            <i class=\"icon-user\"></i>\r\n            <h3>O" +
+"ur Team</h3>\r\n");
 
 
             

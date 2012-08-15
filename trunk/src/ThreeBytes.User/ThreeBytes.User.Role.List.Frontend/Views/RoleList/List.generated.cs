@@ -62,7 +62,7 @@ WriteLiteral(@"<div id=""latest-user-roles-container"">
 <script type=""text/x-jquery-tmpl"" id=""paged-user-roles-table-tmpl"">
     <div class=""widget widget-table"">
         <div class=""widget-header"">
-            <i class=""icon-file""></i>
+            <i class=""icon-th-list""></i>
             <h3>System Roles</h3>
             <div class=""pull-right-menu"">
                 <em>");

@@ -1,7 +1,7 @@
 ﻿<div id="team-employees-list-container">
     <div class="widget">
         <div class="widget-header">
-            <i class="icon-pushpin"></i>
+            <i class="icon-user"></i>
             <h3>Our Team</h3>
             @if (Context.User.Identity.IsAuthenticated && ((ThreeBytesPrincipal)Context.User).IsInAnyRoles(new[] { "Creator", "Admin", "TeamManager" }))
             {

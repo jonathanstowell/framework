@@ -100,7 +100,7 @@ WriteLiteral(@"					</div>
         <div class=""span8"">
             <div class=""widget"">
                 <div class=""widget-header"">
-                    <i class=""icon-envelope""></i>
+                    <i class=""icon-signal""></i>
                     <h3>Email Statistics</h3>
                 </div>
                 <div class=""widget-content"">

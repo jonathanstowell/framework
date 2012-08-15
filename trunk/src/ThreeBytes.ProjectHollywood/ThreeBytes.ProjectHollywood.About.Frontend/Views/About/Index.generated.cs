@@ -110,45 +110,45 @@ WriteLiteral("\" alt=\"\">\r\n                        <div class=\"carousel-capt
 "el-control\" href=\"#about-us-carousel\" data-slide=\"next\">›</a>\r\n              </d" +
 "iv>\r\n            </div>\r\n            <div class=\"span6\">\r\n                <div c" +
 "lass=\"widget\">\r\n                    <div class=\"widget-header\">\r\n               " +
-"         <i class=\"icon-pushpin\"></i>\r\n                        <h3>About Us</h3>" +
-"\r\n                    </div>\r\n                    <div class=\"widget-content\">\r\n" +
-"                        <p>\r\n                            FELIX DE WOLFE, one of " +
-"the longest established independent entertainment and literary agencies in the U" +
-"nited Kingdom. \r\n                            Over the past sixty plus years, the" +
-" agency has, and continues to look after some of the country’s most talented per" +
-"formers, writers and directors, whose works encompass a wide spectrum of the art" +
-"s.\r\n                        </p>\r\n                        <p>\r\n                 " +
-"           The agency prides itself on the quality of its client base and contin" +
-"ues to be one of the frontrunners in the entertainment business today.\r\n        " +
-"                </p>\r\n                        <p>\r\n                            O" +
-"ur exclusive client base includes actors, actresses, presenters, directors and c" +
-"omposers, as well as authors and writers for film, television, stage and radio.\r" +
+"         <i class=\"icon-file\"></i>\r\n                        <h3>About Us</h3>\r\n " +
+"                   </div>\r\n                    <div class=\"widget-content\">\r\n   " +
+"                     <p>\r\n                            FELIX DE WOLFE, one of the" +
+" longest established independent entertainment and literary agencies in the Unit" +
+"ed Kingdom. \r\n                            Over the past sixty plus years, the ag" +
+"ency has, and continues to look after some of the country’s most talented perfor" +
+"mers, writers and directors, whose works encompass a wide spectrum of the arts.\r" +
 "\n                        </p>\r\n                        <p>\r\n                    " +
-"        Felix de Wolfe is a member of the PMA (Personal Managers Association); t" +
-"he late Felix de Wolfe himself was the Chair of the organisation for many years." +
-"\r\n                        </p>\r\n                        <p>\r\n                   " +
-"         <button class=\"btn btn-primary pull-right\" data-bind=\"click: raiseAmeri" +
-"canContacts\" rel = \"popover\" data_content =\"Holloway | Broadway\" data_original_t" +
-"itle =\"American Contacts\">American Contacts</button>\r\n                        </" +
-"p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n    " +
-"    </div>\r\n        \r\n        <div id=\"american-contacts-modal\" class=\"modal hid" +
-"e fade\">\r\n            <div class=\"modal-header\">\r\n                <a href=\"#\" cl" +
-"ass=\"close\" data-bind=\"click: raiseClose\">×</a>\r\n                <h3>American Co" +
-"ntacts</h3>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n         " +
-"       <p>\r\n                    We enjoy non-exclusive affiliations with both Ea" +
-"st and West Coast agents and managers including:\r\n\r\n                    <ul>\r\n  " +
-"                      <li>Abrams Artists</li>\r\n                        <li>Alan " +
-"Siegel Entertainment</li>\r\n                        <li>Andy Howard</li>\r\n       " +
-"                 <li>APA</li>\r\n                        <li>Don Buchwald & Associ" +
-"ates</li>\r\n                        <li>Gage Group</li>\r\n                        " +
-"<li>Gersh Agency</li>\r\n                        <li>Hartig Hilepo</li>\r\n         " +
-"               <li>Innovative Artists</li>\r\n                        <li>Louisa S" +
-"pring</li>\r\n                        <li>Paradigm</li>\r\n                        <" +
-"li>Rough Diamond</li>\r\n                        <li>Vincent Cirrincione Associate" +
-"s</li>\r\n                    </ul>\r\n                </p>\r\n            </div>\r\n   " +
-"         <div class=\"modal-footer\">\r\n                <button class=\"btn btn-dang" +
-"er\" data-bind=\"click: raiseClose\">Close</button>\r\n            </div>\r\n        </" +
-"div>\r\n    </div>\r\n</section>\r\n\r\n");
+"        The agency prides itself on the quality of its client base and continues" +
+" to be one of the frontrunners in the entertainment business today.\r\n           " +
+"             </p>\r\n                        <p>\r\n                            Our " +
+"exclusive client base includes actors, actresses, presenters, directors and comp" +
+"osers, as well as authors and writers for film, television, stage and radio.\r\n  " +
+"                      </p>\r\n                        <p>\r\n                       " +
+"     Felix de Wolfe is a member of the PMA (Personal Managers Association); the " +
+"late Felix de Wolfe himself was the Chair of the organisation for many years.\r\n " +
+"                       </p>\r\n                        <p>\r\n                      " +
+"      <button class=\"btn btn-primary pull-right\" data-bind=\"click: raiseAmerican" +
+"Contacts\" rel = \"popover\" data_content =\"Holloway | Broadway\" data_original_titl" +
+"e =\"American Contacts\">American Contacts</button>\r\n                        </p>\r" +
+"\n                    </div>\r\n                </div>\r\n            </div>\r\n       " +
+" </div>\r\n        \r\n        <div id=\"american-contacts-modal\" class=\"modal hide f" +
+"ade\">\r\n            <div class=\"modal-header\">\r\n                <a href=\"#\" class" +
+"=\"close\" data-bind=\"click: raiseClose\">×</a>\r\n                <h3>American Conta" +
+"cts</h3>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n            " +
+"    <p>\r\n                    We enjoy non-exclusive affiliations with both East " +
+"and West Coast agents and managers including:\r\n\r\n                    <ul>\r\n     " +
+"                   <li>Abrams Artists</li>\r\n                        <li>Alan Sie" +
+"gel Entertainment</li>\r\n                        <li>Andy Howard</li>\r\n          " +
+"              <li>APA</li>\r\n                        <li>Don Buchwald & Associate" +
+"s</li>\r\n                        <li>Gage Group</li>\r\n                        <li" +
+">Gersh Agency</li>\r\n                        <li>Hartig Hilepo</li>\r\n            " +
+"            <li>Innovative Artists</li>\r\n                        <li>Louisa Spri" +
+"ng</li>\r\n                        <li>Paradigm</li>\r\n                        <li>" +
+"Rough Diamond</li>\r\n                        <li>Vincent Cirrincione Associates</" +
+"li>\r\n                    </ul>\r\n                </p>\r\n            </div>\r\n      " +
+"      <div class=\"modal-footer\">\r\n                <button class=\"btn btn-danger\"" +
+" data-bind=\"click: raiseClose\">Close</button>\r\n            </div>\r\n        </div" +
+">\r\n    </div>\r\n</section>\r\n\r\n");
 
 
             

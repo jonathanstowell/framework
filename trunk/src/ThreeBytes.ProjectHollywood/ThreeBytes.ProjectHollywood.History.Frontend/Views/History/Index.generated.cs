@@ -107,38 +107,38 @@ WriteLiteral("\" alt=\"\">\r\n                    <div class=\"carousel-caption\
 "e=\"prev\">‹</a>\r\n                <a class=\"right carousel-control\" href=\"#about-u" +
 "s-carousel\" data-slide=\"next\">›</a>\r\n            </div>\r\n        </div>\r\n       " +
 " <div class=\"span6\"> \r\n            <div class=\"widget\">\r\n                <div cl" +
-"ass=\"widget-header\">\r\n                    <i class=\"icon-pushpin\"></i>\r\n        " +
-"            <h3>Our History</h3>\r\n                </div>\r\n                <div c" +
-"lass=\"widget-content\">\r\n                    <p>The global de Wolfe dynasty histo" +
-"rically and still today, has its members at the forefront of the entertainment, " +
-"<a href=\"http://www.dewolfe.co.uk/\" rel=\'tooltip\' title=\'For more information on" +
-" de Wolfe Music click.\'>music*</a>, and legal industries.</p>\r\n                 " +
-"   <p>\r\n                        The late Felix de Wolfe, was the founder of the " +
-"Felix de Wolfe Theatrical and Literary Agency, which for over sixty years has re" +
-"presented some of the best loved internationally renowned stars.\r\n              " +
-"          His daughter Caroline de Wolfe, who took the helm in 2004, worked alon" +
-"gside him for 20 years and shares his passion for the business and his tradition" +
-"al work ethic.\r\n                    </p>\r\n                    <p>\r\n             " +
-"           Felix\'s hallmarks as an agent were his talent for friendship and his " +
-"endless courtesy and patience. Many of his clients became personal friends, and " +
-"his reputation throughout the industry was a fair but charmingly  effective nego" +
-"tiator.\r\n                        In a world where celebrity has become the unive" +
-"rsal currency, Felix\'s style was wonderfully un-vulgar and full or old-world gra" +
-"vitas.\r\n                        He simply wouldn\'t countenance short-term money-" +
-"spinning deals.\r\n                        Client\'s careers were, in many cases li" +
-"terally, a lifetime\'s reponsibility.\r\n                    </p>\r\n                " +
-"    <p>\r\n                        His solicitude and professional charm cloaked a" +
-" brilliant instinct for matching talent to popular taste: few agents were able t" +
-"o read the emerging zeitgeist like de Wolfe.\r\n                        These rare" +
-" qualities are still the corner stones of the agency ethos today.\r\n             " +
-"       </p>\r\n                    <p>\r\n                        Through Caroline a" +
-"nd her team\'s progressive approach she has successfully renewed the agency witho" +
-"ut compromising her father\'s principles, pushing it forward into a new and deman" +
-"ding present.\r\n                        Developing and strengthening home and int" +
-"ernational relationships, to be a catalyst for the careers of her lesser-known c" +
-"lients, and a facilitator to the already established ones.\r\n                    " +
-"</p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</" +
-"section>");
+"ass=\"widget-header\">\r\n                    <i class=\"icon-file\"></i>\r\n           " +
+"         <h3>Our History</h3>\r\n                </div>\r\n                <div clas" +
+"s=\"widget-content\">\r\n                    <p>The global de Wolfe dynasty historic" +
+"ally and still today, has its members at the forefront of the entertainment, <a " +
+"href=\"http://www.dewolfe.co.uk/\" rel=\'tooltip\' title=\'For more information on de" +
+" Wolfe Music click.\'>music*</a>, and legal industries.</p>\r\n                    " +
+"<p>\r\n                        The late Felix de Wolfe, was the founder of the Fel" +
+"ix de Wolfe Theatrical and Literary Agency, which for over sixty years has repre" +
+"sented some of the best loved internationally renowned stars.\r\n                 " +
+"       His daughter Caroline de Wolfe, who took the helm in 2004, worked alongsi" +
+"de him for 20 years and shares his passion for the business and his traditional " +
+"work ethic.\r\n                    </p>\r\n                    <p>\r\n                " +
+"        Felix\'s hallmarks as an agent were his talent for friendship and his end" +
+"less courtesy and patience. Many of his clients became personal friends, and his" +
+" reputation throughout the industry was a fair but charmingly  effective negotia" +
+"tor.\r\n                        In a world where celebrity has become the universa" +
+"l currency, Felix\'s style was wonderfully un-vulgar and full or old-world gravit" +
+"as.\r\n                        He simply wouldn\'t countenance short-term money-spi" +
+"nning deals.\r\n                        Client\'s careers were, in many cases liter" +
+"ally, a lifetime\'s reponsibility.\r\n                    </p>\r\n                   " +
+" <p>\r\n                        His solicitude and professional charm cloaked a br" +
+"illiant instinct for matching talent to popular taste: few agents were able to r" +
+"ead the emerging zeitgeist like de Wolfe.\r\n                        These rare qu" +
+"alities are still the corner stones of the agency ethos today.\r\n                " +
+"    </p>\r\n                    <p>\r\n                        Through Caroline and " +
+"her team\'s progressive approach she has successfully renewed the agency without " +
+"compromising her father\'s principles, pushing it forward into a new and demandin" +
+"g present.\r\n                        Developing and strengthening home and intern" +
+"ational relationships, to be a catalyst for the careers of her lesser-known clie" +
+"nts, and a facilitator to the already established ones.\r\n                    </p" +
+">\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</sec" +
+"tion>");
 
 
         }

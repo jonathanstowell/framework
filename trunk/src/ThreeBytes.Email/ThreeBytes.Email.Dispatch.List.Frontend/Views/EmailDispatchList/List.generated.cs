@@ -64,7 +64,7 @@ WriteLiteral(@"
 <script type=""text/x-jquery-tmpl"" id=""paged-user-roles-table-tmpl"">
 <div class=""widget widget-table"">
     <div class=""widget-header"">
-        <i class=""icon-envelope""></i>
+        <i class=""icon-th-list""></i>
         <h3>Dispatched Emails</h3>
         <div class=""pull-right-menu"">
             <em>");

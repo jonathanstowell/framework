@@ -45,25 +45,25 @@ namespace ThreeBytes.ProjectHollywood.Thespian.List.Frontend.Views.ThespianList
         {
 WriteLiteral("<div id=\"thespian-list-container\">\r\n<div class=\"row\">\r\n    <div class=\"span12 col" +
 "umns\">\r\n        <div class=\"widget\">\r\n            <div class=\"widget-header\">\r\n " +
-"               <i class=\"icon-pushpin\"></i>\r\n                <h3>Our Clients</h3" +
-">\r\n                <div class=\"pull-right-menu btn-toolbar\">\r\n                  " +
-"  <div class=\"btn-group inline\" data-toggle=\"buttons-radio\">\r\n                  " +
-"      <button class=\"btn btn-primary\" data-bind=\"click: function() { setThespian" +
-"TypeFilter(\'Artist\') }, css: { active: ThespianTypeFilter() == \'Artist\' }\">Artis" +
-"ts</button>\r\n                        <button class=\"btn btn-primary\" data-bind=\"" +
-"click: function() { setThespianTypeFilter(\'Creative\') }, css: { active: Thespian" +
-"TypeFilter() == \'Creative\' }\">Creatives</button>\r\n                    </div>\r\n  " +
-"                  <div class=\"btn-group inline\" data-toggle=\"buttons-radio\">\r\n  " +
-"                      <button class=\"btn btn-primary\" data-bind=\"click: function" +
-"() { setGenderFilter(\'Male\') }, css: { active: GenderFilter() == \'Male\' }\">Male<" +
+"               <i class=\"icon-user\"></i>\r\n                <h3>Our Clients</h3>\r\n" +
+"                <div class=\"pull-right-menu btn-toolbar\">\r\n                    <" +
+"div class=\"btn-group inline\" data-toggle=\"buttons-radio\">\r\n                     " +
+"   <button class=\"btn btn-primary\" data-bind=\"click: function() { setThespianTyp" +
+"eFilter(\'Artist\') }, css: { active: ThespianTypeFilter() == \'Artist\' }\">Artists<" +
 "/button>\r\n                        <button class=\"btn btn-primary\" data-bind=\"cli" +
-"ck: function() { setGenderFilter(\'Female\') }, css: { active: GenderFilter() == \'" +
-"Female\' }\">Female</button>\r\n                    </div>\r\n                    <div" +
-" class=\"btn-group inline\" data-toggle=\"buttons-radio\">\r\n                        " +
-"<button class=\"btn btn-primary\" data-bind=\"click: setAKFilter, css: { active: AT" +
-"oKFilter }\">A-K</button>\r\n                        <button class=\"btn btn-primary" +
-"\" data-bind=\"click: setLZFilter, css: { active: LToKFilter }\">L-Z</button>\r\n    " +
-"                </div>\r\n");
+"ck: function() { setThespianTypeFilter(\'Creative\') }, css: { active: ThespianTyp" +
+"eFilter() == \'Creative\' }\">Creatives</button>\r\n                    </div>\r\n     " +
+"               <div class=\"btn-group inline\" data-toggle=\"buttons-radio\">\r\n     " +
+"                   <button class=\"btn btn-primary\" data-bind=\"click: function() " +
+"{ setGenderFilter(\'Male\') }, css: { active: GenderFilter() == \'Male\' }\">Male</bu" +
+"tton>\r\n                        <button class=\"btn btn-primary\" data-bind=\"click:" +
+" function() { setGenderFilter(\'Female\') }, css: { active: GenderFilter() == \'Fem" +
+"ale\' }\">Female</button>\r\n                    </div>\r\n                    <div cl" +
+"ass=\"btn-group inline\" data-toggle=\"buttons-radio\">\r\n                        <bu" +
+"tton class=\"btn btn-primary\" data-bind=\"click: setAKFilter, css: { active: AToKF" +
+"ilter }\">A-K</button>\r\n                        <button class=\"btn btn-primary\" d" +
+"ata-bind=\"click: setLZFilter, css: { active: LToKFilter }\">L-Z</button>\r\n       " +
+"             </div>\r\n");
 
 
             
