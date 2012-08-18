@@ -1531,14 +1531,14 @@ span.login-checkbox > input[type='checkbox']:checked + label {
 }
 
 /** Buttons **/
-.twitter, .fb {
+.foursquare, .fb {
 	position: relative;
 	
 	height: 32px; 
 	width: 157px; 
 	display: block;
 	
-	background: url(../../img/signin/twitter_btn.png) no-repeat; 
+	background: url(../../img/signin/foursquare_btn.png) no-repeat; 
 	
 }
 
@@ -1548,15 +1548,15 @@ span.login-checkbox > input[type='checkbox']:checked + label {
 	background: url(../../img/signin/fb_btn.png) no-repeat; 	
 }
 
-.twitter:active, .fb:active {
+.foursquare:active, .fb:active {
 	top: 1px;
 }
 
-.twitter:hover, .fb:hover {
+.foursquare:hover, .fb:hover {
 	background-position: 0 -32px;
 }
 
-.twitter a, .fb a {
+.foursquare a, .fb a {
 	padding: 5px 0 0 35px; 
 	text-shadow: -1px -1px 0px rgba(0,0,0,.3); 
 	color:#fff; 
@@ -1571,11 +1571,11 @@ span.login-checkbox > input[type='checkbox']:checked + label {
 	
 }
 
-.twitter, .fb {
+.foursquare, .fb {
 	display: inline-block;
 }
 
-.twitter a:hover, .fb a:hover {
+.foursquare a:hover, .fb a:hover {
 	color: #FFF;
 	text-decoration: none;
 }
@@ -1635,7 +1635,7 @@ span.login-checkbox > input[type='checkbox']:checked + label {
 		width: 100%;
 	}
 	
-	.twitter {
+	.foursquare {
 		display: block;
 		margin-bottom: 1em;
 	}

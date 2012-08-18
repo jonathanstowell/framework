@@ -173,7 +173,7 @@ table .headerSortDown.green {
 registration-fields label {
   display: none;
 }
-.twitter:hover,
+.foursquare:hover,
 .fb:hover {
   background-position: 0 -32px;
 }
@@ -508,7 +508,7 @@ table .headerSortDown.red {
 .table td {
   vertical-align: middle;
 }
-.twitter:active,
+.foursquare:active,
 .fb:active {
   top: 1px;
 }
@@ -953,7 +953,7 @@ table .green {
   color: #555555;
   vertical-align: middle;
 }
-.twitter,
+.foursquare,
 .fb {
   position: relative;
   height: 32px;
@@ -961,8 +961,8 @@ table .green {
   display: block;
   display: inline-block;
 }
-.twitter {
-  background: url(../../img/signin/twitter_btn.png) no-repeat;
+.foursquare {
+  background: url(../../img/signin/foursquare_btn.png) no-repeat;
 }
 .btn-support-ask {
   display: block;
@@ -984,7 +984,7 @@ table .green {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#414141', endColorstr='#323232', GradientType=0);
   border-bottom: 1px solid black;
 }
-.twitter a,
+.foursquare a,
 .fb a {
   padding: 5px 0 0 35px;
   text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.3);
@@ -1039,7 +1039,7 @@ table .green {
 .plan.best-value .plan-price {
   background-color: #81994d;
 }
-.twitter a:hover,
+.foursquare a:hover,
 .fb a:hover {
   color: white;
   text-decoration: none;
