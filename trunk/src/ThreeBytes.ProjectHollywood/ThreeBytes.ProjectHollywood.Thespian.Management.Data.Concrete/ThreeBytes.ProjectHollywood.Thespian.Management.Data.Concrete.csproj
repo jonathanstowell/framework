@@ -69,6 +69,10 @@
     <Reference Include="ThreeBytes.Core.Data.nHibernate.Concrete">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.nHibernate.Concrete.dll</HintPath>
     </Reference>
+    <Reference Include="ThreeBytes.Core.Data.ResultSets.Abstract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.ResultSets.Abstract.dll</HintPath>
+    </Reference>
     <Reference Include="ThreeBytes.Core.Entities.Abstract">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Abstract.dll</HintPath>
     </Reference>

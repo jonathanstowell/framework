@@ -1,10 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.WebUI", "ThreeBytes.ProjectHollywood.WebUI\ThreeBytes.ProjectHollywood.WebUI.csproj", "{F9DC3F0E-916C-456A-95CF-10F5AA479FA8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.ServiceHost", "ThreeBytes.ProjectHollywood.ServiceHost\ThreeBytes.ProjectHollywood.ServiceHost.csproj", "{FCFB34DE-CF2C-440F-9EE7-15A65160B149}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{42A44B64-4754-4B6B-96DE-D995DB6CB693}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Thespian", "Thespian", "{BD0497CB-BE2F-4431-96C0-15F1369AEDD6}"
@@ -15,33 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThespianList", "ThespianLis
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThespianManagement", "ThespianManagement", "{D0AC0EF1-3B27-45C7-8ED6-87FCEAF61E87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Resources", "ThreeBytes.ProjectHollywood.Resources\ThreeBytes.ProjectHollywood.Resources.csproj", "{899A23DF-EC1D-4E8D-93E7-5DB215E12501}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThespianHost", "ThespianHost", "{8C57206E-BC9F-482C-AB47-0A0BCABF1F1B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{0FE44055-2ED6-4BBA-9513-B4B7E9CE81A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "History", "History", "{20A80806-5652-465A-8EFE-04E42FAFC3C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.History.Frontend", "ThreeBytes.ProjectHollywood.History.Frontend\ThreeBytes.ProjectHollywood.History.Frontend.csproj", "{C0855CDA-46A5-4F57-B747-8EACB59C440B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contact", "Contact", "{B518DD0C-57E7-4622-B8C5-2388F3F7769E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Contact.Frontend", "ThreeBytes.ProjectHollywood.Contact.Frontend\ThreeBytes.ProjectHollywood.Contact.Frontend.csproj", "{3DAC8E20-B8B4-43A6-916F-011C84A6D19B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Contact.Resources", "ThreeBytes.ProjectHollywood.Contact.Resources\ThreeBytes.ProjectHollywood.Contact.Resources.csproj", "{C0D24453-F486-4CA8-9B59-2BDF40AE159C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.History.Resources", "ThreeBytes.ProjectHollywood.History.Resources\ThreeBytes.ProjectHollywood.History.Resources.csproj", "{BB551483-8028-4AA1-AC8C-A1E6F25ED00C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Host.Resources", "ThreeBytes.ProjectHollywood.Host.Resources\ThreeBytes.ProjectHollywood.Host.Resources.csproj", "{E388F6E1-D6DD-4B8C-8F8A-D2ACC41AD712}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Navigation", "Navigation", "{6BA70BEE-85CB-4BA0-AF7C-B309EC5264D1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Navigation.Frontend", "ThreeBytes.ProjectHollywood.Navigation.Frontend\ThreeBytes.ProjectHollywood.Navigation.Frontend.csproj", "{C98512A8-B670-43C3-A9B7-5DCD0516BA57}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Navigation.Resources", "ThreeBytes.ProjectHollywood.Navigation.Resources\ThreeBytes.ProjectHollywood.Navigation.Resources.csproj", "{462BF036-144E-4E1C-98CF-CCDBEE335889}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Host.Frontend", "ThreeBytes.ProjectHollywood.Host.Frontend\ThreeBytes.ProjectHollywood.Host.Frontend.csproj", "{685BAAF2-8773-4683-9280-0BBEFBFE5677}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "News", "News", "{0080C69E-17EF-4257-9571-8AF6F7B677E7}"
 EndProject
@@ -63,6 +41,45 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TeamManagement", "TeamManag
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TeamView", "TeamView", "{76BD1F9A-833F-4502-829F-AAB91723D3B5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{850D748B-722F-46A5-A541-99A86F583E60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{55CC8D39-805A-468E-ACAC-6DFE3EB26193}"
+	ProjectSection(SolutionItems) = preProject
+		ThreeBytes.ProjectHollywood.msbuild = ThreeBytes.ProjectHollywood.msbuild
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notification", "Notification", "{DE728481-9B35-4A62-8C3A-408E9A9D195E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationNews", "NotificationNews", "{5A607399-38C2-406D-9CCB-D29E8AC808C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationHost", "NotificationHost", "{1A48BF07-1EE8-4409-B85A-FDDDD21DFD4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationTeam", "NotificationTeam", "{2E857013-FA5E-43F7-A087-BDD3AC020667}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationThespian", "NotificationThespian", "{3F9CFA09-C83F-4744-8973-AACEF7C834D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.WebUI", "ThreeBytes.ProjectHollywood.WebUI\ThreeBytes.ProjectHollywood.WebUI.csproj", "{F9DC3F0E-916C-456A-95CF-10F5AA479FA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.ServiceHost", "ThreeBytes.ProjectHollywood.ServiceHost\ThreeBytes.ProjectHollywood.ServiceHost.csproj", "{FCFB34DE-CF2C-440F-9EE7-15A65160B149}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Resources", "ThreeBytes.ProjectHollywood.Resources\ThreeBytes.ProjectHollywood.Resources.csproj", "{899A23DF-EC1D-4E8D-93E7-5DB215E12501}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.History.Frontend", "ThreeBytes.ProjectHollywood.History.Frontend\ThreeBytes.ProjectHollywood.History.Frontend.csproj", "{C0855CDA-46A5-4F57-B747-8EACB59C440B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Contact.Frontend", "ThreeBytes.ProjectHollywood.Contact.Frontend\ThreeBytes.ProjectHollywood.Contact.Frontend.csproj", "{3DAC8E20-B8B4-43A6-916F-011C84A6D19B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Contact.Resources", "ThreeBytes.ProjectHollywood.Contact.Resources\ThreeBytes.ProjectHollywood.Contact.Resources.csproj", "{C0D24453-F486-4CA8-9B59-2BDF40AE159C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.History.Resources", "ThreeBytes.ProjectHollywood.History.Resources\ThreeBytes.ProjectHollywood.History.Resources.csproj", "{BB551483-8028-4AA1-AC8C-A1E6F25ED00C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Host.Resources", "ThreeBytes.ProjectHollywood.Host.Resources\ThreeBytes.ProjectHollywood.Host.Resources.csproj", "{E388F6E1-D6DD-4B8C-8F8A-D2ACC41AD712}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Navigation.Frontend", "ThreeBytes.ProjectHollywood.Navigation.Frontend\ThreeBytes.ProjectHollywood.Navigation.Frontend.csproj", "{C98512A8-B670-43C3-A9B7-5DCD0516BA57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Navigation.Resources", "ThreeBytes.ProjectHollywood.Navigation.Resources\ThreeBytes.ProjectHollywood.Navigation.Resources.csproj", "{462BF036-144E-4E1C-98CF-CCDBEE335889}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Host.Frontend", "ThreeBytes.ProjectHollywood.Host.Frontend\ThreeBytes.ProjectHollywood.Host.Frontend.csproj", "{685BAAF2-8773-4683-9280-0BBEFBFE5677}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.News.Messages", "ThreeBytes.ProjectHollywood.News.Messages\ThreeBytes.ProjectHollywood.News.Messages.csproj", "{C35469E5-883E-4844-B4AD-E4C6E8817027}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Team.Messages", "ThreeBytes.ProjectHollywood.Team.Messages\ThreeBytes.ProjectHollywood.Team.Messages.csproj", "{41BE181A-95F2-4392-9558-7213661A7BD2}"
@@ -74,8 +91,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.News.Host.Frontend", "ThreeBytes.ProjectHollywood.News.Host.Frontend\ThreeBytes.ProjectHollywood.News.Host.Frontend.csproj", "{F037D559-6216-4563-9E75-31C11F9F18F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.News.Host.Resources", "ThreeBytes.ProjectHollywood.News.Host.Resources\ThreeBytes.ProjectHollywood.News.Host.Resources.csproj", "{865F5762-517E-435E-966C-C9C63166DDC8}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{850D748B-722F-46A5-A541-99A86F583E60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.About.Frontend", "ThreeBytes.ProjectHollywood.About.Frontend\ThreeBytes.ProjectHollywood.About.Frontend.csproj", "{7D7613E2-A8D9-48B0-B140-CD811E2AFE16}"
 EndProject
@@ -189,7 +204,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Team.View.Service.Concrete", "ThreeBytes.ProjectHollywood.Team.View.Service.Concrete\ThreeBytes.ProjectHollywood.Team.View.Service.Concrete.csproj", "{87BCA3B7-C2C6-4DEF-94F8-4B42B69C8B9A}"
 EndProject
-Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "ThreeBytes.ProjectHollywood.Data.Database", "ThreeBytes.ProjectHollywood.Data.Database\ThreeBytes.ProjectHollywood.Data.Database.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ThreeBytes.ProjectHollywood.Data.Database", "ThreeBytes.ProjectHollywood.Data.Database\ThreeBytes.ProjectHollywood.Data.Database.sqlproj", "{64AA1D2A-5E63-4D14-837E-10170EDC80ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Thespian.Host.Frontend", "ThreeBytes.ProjectHollywood.Thespian.Host.Frontend\ThreeBytes.ProjectHollywood.Thespian.Host.Frontend.csproj", "{ACFFF1E7-BD45-44AA-920A-405631A4145C}"
 EndProject
@@ -251,11 +266,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Thespian.Messages", "ThreeBytes.ProjectHollywood.Thespian.Messages\ThreeBytes.ProjectHollywood.Thespian.Messages.csproj", "{64BFFD07-7210-4CD2-8F4C-C56E3A59375D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{55CC8D39-805A-468E-ACAC-6DFE3EB26193}"
-	ProjectSection(SolutionItems) = preProject
-		ThreeBytes.ProjectHollywood.msbuild = ThreeBytes.ProjectHollywood.msbuild
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Infrastructure.ServiceBuildConvention", "ThreeBytes.ProjectHollywood.Infrastructure.ServiceBuildConvention\ThreeBytes.ProjectHollywood.Infrastructure.ServiceBuildConvention.csproj", "{5C0BDCCF-B4CD-43B6-B844-BDABF7412D16}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Thespian.Management.Validations.Abstract", "ThreeBytes.ProjectHollywood.Thespian.Management.Validations.Abstract\ThreeBytes.ProjectHollywood.Thespian.Management.Validations.Abstract.csproj", "{C74428B1-8006-4F8A-969B-71D18FED10D7}"
@@ -306,19 +316,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.News.List.Data.Tests", "ThreeBytes.ProjectHollywood.News.List.Data.Tests\ThreeBytes.ProjectHollywood.News.List.Data.Tests.csproj", "{CDE55EFB-2298-4064-9B86-6F75D7385C45}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notification", "Notification", "{DE728481-9B35-4A62-8C3A-408E9A9D195E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationNews", "NotificationNews", "{5A607399-38C2-406D-9CCB-D29E8AC808C7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Notification.News.Frontend", "ThreeBytes.ProjectHollywood.Notification.News.Frontend\ThreeBytes.ProjectHollywood.Notification.News.Frontend.csproj", "{A09BC706-B49D-44FF-B63B-B1F076A31B68}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationHost", "NotificationHost", "{1A48BF07-1EE8-4409-B85A-FDDDD21DFD4A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Notification.Host.Frontend", "ThreeBytes.ProjectHollywood.Notification.Host.Frontend\ThreeBytes.ProjectHollywood.Notification.Host.Frontend.csproj", "{683E6643-0EB4-4791-9FE2-735062DEF03F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationTeam", "NotificationTeam", "{2E857013-FA5E-43F7-A087-BDD3AC020667}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationThespian", "NotificationThespian", "{3F9CFA09-C83F-4744-8973-AACEF7C834D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.ProjectHollywood.Notification.Team.Frontend", "ThreeBytes.ProjectHollywood.Notification.Team.Frontend\ThreeBytes.ProjectHollywood.Notification.Team.Frontend.csproj", "{1AC9DA51-D744-4FC1-B3CB-98BC488B19C8}"
 EndProject
@@ -630,12 +630,12 @@ Global
 		{87BCA3B7-C2C6-4DEF-94F8-4B42B69C8B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87BCA3B7-C2C6-4DEF-94F8-4B42B69C8B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87BCA3B7-C2C6-4DEF-94F8-4B42B69C8B9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{64AA1D2A-5E63-4D14-837E-10170EDC80ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64AA1D2A-5E63-4D14-837E-10170EDC80ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64AA1D2A-5E63-4D14-837E-10170EDC80ED}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{64AA1D2A-5E63-4D14-837E-10170EDC80ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64AA1D2A-5E63-4D14-837E-10170EDC80ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64AA1D2A-5E63-4D14-837E-10170EDC80ED}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{ACFFF1E7-BD45-44AA-920A-405631A4145C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ACFFF1E7-BD45-44AA-920A-405631A4145C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACFFF1E7-BD45-44AA-920A-405631A4145C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -893,7 +893,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{FCFB34DE-CF2C-440F-9EE7-15A65160B149} = {42A44B64-4754-4B6B-96DE-D995DB6CB693}
 		{BD0497CB-BE2F-4431-96C0-15F1369AEDD6} = {42A44B64-4754-4B6B-96DE-D995DB6CB693}
 		{0FE44055-2ED6-4BBA-9513-B4B7E9CE81A6} = {42A44B64-4754-4B6B-96DE-D995DB6CB693}
 		{20A80806-5652-465A-8EFE-04E42FAFC3C3} = {42A44B64-4754-4B6B-96DE-D995DB6CB693}
@@ -903,6 +902,7 @@ Global
 		{0EDC182B-9D4A-4F85-A280-86A2DB72E6DA} = {42A44B64-4754-4B6B-96DE-D995DB6CB693}
 		{850D748B-722F-46A5-A541-99A86F583E60} = {42A44B64-4754-4B6B-96DE-D995DB6CB693}
 		{DE728481-9B35-4A62-8C3A-408E9A9D195E} = {42A44B64-4754-4B6B-96DE-D995DB6CB693}
+		{FCFB34DE-CF2C-440F-9EE7-15A65160B149} = {42A44B64-4754-4B6B-96DE-D995DB6CB693}
 		{D38B986B-DDDD-4CC7-9907-601BED10EA6A} = {42A44B64-4754-4B6B-96DE-D995DB6CB693}
 		{5238E0A8-BA6F-46E9-A73C-22C071B4C4B7} = {BD0497CB-BE2F-4431-96C0-15F1369AEDD6}
 		{DD02CDA5-EBCD-4AFD-AE3C-8E5AA108E949} = {BD0497CB-BE2F-4431-96C0-15F1369AEDD6}

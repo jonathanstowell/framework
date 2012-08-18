@@ -1,8 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Logging.WebUI", "ThreeBytes.Logging.WebUI\ThreeBytes.Logging.WebUI.csproj", "{F670D019-245C-4FFF-B8A4-9D54C1748442}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{52A94FC1-D781-4D86-AF9B-2FF679F47F0B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exceptions", "Exceptions", "{C4002B9C-D1C7-4D16-AD8B-791A539E1AF3}"
@@ -18,6 +16,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExceptionsView", "ExceptionsView", "{D8211488-2935-421E-83F9-FA5B98DF28E4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExceptionsWidget", "ExceptionsWidget", "{A46CC03A-3425-45BE-AB91-2D0692639D14}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{FBFABA51-43CD-4876-BD21-ACC7861BD151}"
+	ProjectSection(SolutionItems) = preProject
+		ThreeBytes.Logging.msbuild = ThreeBytes.Logging.msbuild
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Logging.WebUI", "ThreeBytes.Logging.WebUI\ThreeBytes.Logging.WebUI.csproj", "{F670D019-245C-4FFF-B8A4-9D54C1748442}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Logging.Exceptions.Host.Frontend", "ThreeBytes.Logging.Exceptions.Host.Frontend\ThreeBytes.Logging.Exceptions.Host.Frontend.csproj", "{52D5AD0C-40D0-4DBD-BA9D-34AEDA43765E}"
 EndProject
@@ -85,18 +90,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Logging.Exceptio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Logging.ServiceHost", "ThreeBytes.Logging.ServiceHost\ThreeBytes.Logging.ServiceHost.csproj", "{154E5D4A-28D4-4C96-8551-05CBB839649B}"
 EndProject
-Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "ThreeBytes.Logging.Data.Database", "ThreeBytes.Logging.Data.Database\ThreeBytes.Logging.Data.Database.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ThreeBytes.Logging.Data.Database", "ThreeBytes.Logging.Data.Database\ThreeBytes.Logging.Data.Database.sqlproj", "{86879A92-0B3E-448B-A3CF-9466A5AD72FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Logging.Exceptions.Host.Resources", "ThreeBytes.Logging.Exceptions.Host.Resources\ThreeBytes.Logging.Exceptions.Host.Resources.csproj", "{22939B45-3C25-4157-A703-A435D1CBFD6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Logging.Host.Home.Resources", "ThreeBytes.Logging.Host.Home.Resources\ThreeBytes.Logging.Host.Home.Resources.csproj", "{54E7DA1D-AE57-4A64-AAB4-CF115000B853}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Logging.WebUI.Resources", "ThreeBytes.Logging.WebUI.Resources\ThreeBytes.Logging.WebUI.Resources.csproj", "{AADA407D-E6B0-484A-8E14-8C9D1A5A1907}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{FBFABA51-43CD-4876-BD21-ACC7861BD151}"
-	ProjectSection(SolutionItems) = preProject
-		ThreeBytes.Logging.msbuild = ThreeBytes.Logging.msbuild
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Logging.Infrastructure.ServiceBuildConvention", "ThreeBytes.Logging.Infrastructure.ServiceBuildConvention\ThreeBytes.Logging.Infrastructure.ServiceBuildConvention.csproj", "{5C0BDCCF-B4CD-43B6-B844-BDABF7412D16}"
 EndProject
@@ -258,12 +258,12 @@ Global
 		{154E5D4A-28D4-4C96-8551-05CBB839649B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{154E5D4A-28D4-4C96-8551-05CBB839649B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{154E5D4A-28D4-4C96-8551-05CBB839649B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{86879A92-0B3E-448B-A3CF-9466A5AD72FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86879A92-0B3E-448B-A3CF-9466A5AD72FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86879A92-0B3E-448B-A3CF-9466A5AD72FA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{86879A92-0B3E-448B-A3CF-9466A5AD72FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86879A92-0B3E-448B-A3CF-9466A5AD72FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86879A92-0B3E-448B-A3CF-9466A5AD72FA}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{22939B45-3C25-4157-A703-A435D1CBFD6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22939B45-3C25-4157-A703-A435D1CBFD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22939B45-3C25-4157-A703-A435D1CBFD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU

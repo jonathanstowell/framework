@@ -56,6 +56,9 @@
     <Reference Include="ThreeBytes.Core.Data.Abstract">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Abstract.dll</HintPath>
     </Reference>
+    <Reference Include="ThreeBytes.Core.Data.ResultSets.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.ResultSets.Abstract.dll</HintPath>
+    </Reference>
     <Reference Include="ThreeBytes.Core.Email.Abstract">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Email.Abstract.dll</HintPath>
     </Reference>

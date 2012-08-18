@@ -433,6 +433,19 @@
             <param name="predicate">A lambda expression specifying the predicate</param>
             <returns></returns>
         </member>
+        <member name="M:FluentValidation.DefaultValidatorExtensions.Must``2(FluentValidation.IRuleBuilder{``0,``1},System.Func{``0,``1,FluentValidation.Validators.PropertyValidatorContext,System.Boolean})">
+            <summary>
+            Defines a predicate validator on the current rule builder using a lambda expression to specify the predicate.
+            Validation will fail if the specified lambda returns false. 
+            Validation will succeed if the specifed lambda returns true.
+            This overload accepts the object being validated in addition to the property being validated.
+            </summary>
+            <typeparam name="T">Type of object being validated</typeparam>
+            <typeparam name="TProperty">Type of property being validated</typeparam>
+            <param name="ruleBuilder">The rule builder on which the validator should be defined</param>
+            <param name="predicate">A lambda expression specifying the predicate</param>
+            <returns></returns>
+        </member>
         <member name="M:FluentValidation.DefaultValidatorExtensions.LessThan``2(FluentValidation.IRuleBuilder{``0,``1},``1)">
             <summary>
             Defines a 'less than' validator on the current rule builder. 
@@ -886,7 +899,7 @@
             Determines whether or not a rule should execute.
             </summary>
         </member>
-        <member name="M:FluentValidation.Internal.IValidatorSelector.CanExecute(FluentValidation.Internal.PropertyRule,System.String,FluentValidation.ValidationContext)">
+        <member name="M:FluentValidation.Internal.IValidatorSelector.CanExecute(FluentValidation.IValidationRule,System.String,FluentValidation.ValidationContext)">
             <summary>
             Determines whether or not a rule should execute.
             </summary>
@@ -895,7 +908,7 @@
             <param name="context">Contextual information</param>
             <returns>Whether or not the validator can execute.</returns>
         </member>
-        <member name="M:FluentValidation.Internal.DefaultValidatorSelector.CanExecute(FluentValidation.Internal.PropertyRule,System.String,FluentValidation.ValidationContext)">
+        <member name="M:FluentValidation.Internal.DefaultValidatorSelector.CanExecute(FluentValidation.IValidationRule,System.String,FluentValidation.ValidationContext)">
             <summary>
             Determines whether or not a rule should execute.
             </summary>
@@ -1031,7 +1044,7 @@
             Creates a new instance of the RulesetValidatorSelector.
             </summary>
         </member>
-        <member name="M:FluentValidation.Internal.RulesetValidatorSelector.CanExecute(FluentValidation.Internal.PropertyRule,System.String,FluentValidation.ValidationContext)">
+        <member name="M:FluentValidation.Internal.RulesetValidatorSelector.CanExecute(FluentValidation.IValidationRule,System.String,FluentValidation.ValidationContext)">
             <summary>
             Determines whether or not a rule should execute.
             </summary>
@@ -1050,7 +1063,7 @@
             Creates a new instance of MemberNameValidatorSelector.
             </summary>
         </member>
-        <member name="M:FluentValidation.Internal.MemberNameValidatorSelector.CanExecute(FluentValidation.Internal.PropertyRule,System.String,FluentValidation.ValidationContext)">
+        <member name="M:FluentValidation.Internal.MemberNameValidatorSelector.CanExecute(FluentValidation.IValidationRule,System.String,FluentValidation.ValidationContext)">
             <summary>
             Determines whether or not a rule should execute.
             </summary>

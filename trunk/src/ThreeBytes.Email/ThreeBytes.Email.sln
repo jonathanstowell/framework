@@ -1,11 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.ServiceHost", "ThreeBytes.Email.ServiceHost\ThreeBytes.Email.ServiceHost.csproj", "{154E5D4A-28D4-4C96-8551-05CBB839649B}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{899D0412-2FEA-4D8B-AD8A-C38FFED86236}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.WebUI", "ThreeBytes.Email.WebUI\ThreeBytes.Email.WebUI.csproj", "{BFA49DF8-A06D-4A24-B938-4B4220B853F7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template", "Template", "{7A18065C-EBDB-4F68-8E92-0F836C12BEC0}"
 EndProject
@@ -14,6 +10,53 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TemplateManagement", "TemplateManagement", "{96C2BFCF-4E37-41D6-8BA8-BD01C23C8A0E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TemplateView", "TemplateView", "{138F0CA2-A834-4BE4-856B-8BE31DBE2700}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dispatch", "Dispatch", "{C2BBA51D-F2FA-4200-AEFB-56481F12B22C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DispatchManagement", "DispatchManagement", "{FB6AE120-3422-4B0C-953B-538233322102}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DispatchList", "DispatchList", "{C0BEB26D-4D2B-4581-AB07-500B948CA968}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DispatchView", "DispatchView", "{06FAC5D2-94A6-4478-AFB2-269C1FE8F558}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TemplateHost", "TemplateHost", "{988B6224-1260-440F-B10E-A8705C0E3FF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DispatchHost", "DispatchHost", "{27AB66D5-15A2-4F79-B066-3CDF502D812D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DispatchWidget", "DispatchWidget", "{3C9580FE-245F-4A99-97C2-F156F480C478}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TemplateWidget", "TemplateWidget", "{2D654F58-C522-4C4B-928E-D4895FD885DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{44901A41-E5CA-4CD7-8B53-DF259D009B69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Home", "Home", "{3677BB0F-0E03-4C16-A53A-8BA882257C18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{D061332A-231F-4C98-86AD-7762ED4A79A9}"
+	ProjectSection(SolutionItems) = preProject
+		ThreeBytes.Email.msbuild = ThreeBytes.Email.msbuild
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{56249304-A544-4398-9369-3360DD9AA3DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dashboard", "Dashboard", "{303CBB63-EA6C-4917-91F9-9F1434C91614}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardHost", "DashboardHost", "{F8B8BC74-B1F1-432C-BE11-3284FD809DD1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardDispatchDaily", "DashboardDispatchDaily", "{6B9D6E4B-156A-48AE-8584-145559982655}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardDispatchMonthly", "DashboardDispatchMonthly", "{32456E2E-046F-4CAA-8257-1BBFAE6F5A7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardDispatchQuarterly", "DashboardDispatchQuarterly", "{556C6426-1A26-48A7-B98B-B3B23A16D3A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardDispatchYearly", "DashboardDispatchYearly", "{D485DC15-9039-4ADF-B172-418466BF26C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Navigation", "Navigation", "{B24F36EF-AF7A-4156-8A9A-CAEA9BA25A1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{32FCD4FF-66C0-4B2D-AC36-61C1C30C6765}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.ServiceHost", "ThreeBytes.Email.ServiceHost\ThreeBytes.Email.ServiceHost.csproj", "{154E5D4A-28D4-4C96-8551-05CBB839649B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.WebUI", "ThreeBytes.Email.WebUI\ThreeBytes.Email.WebUI.csproj", "{BFA49DF8-A06D-4A24-B938-4B4220B853F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Template.Messages", "ThreeBytes.Email.Template.Messages\ThreeBytes.Email.Template.Messages.csproj", "{209AAB75-60BD-44F6-902C-06CA4A5E8FEB}"
 EndProject
@@ -71,15 +114,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Template.V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Template.View.Service.Concrete", "ThreeBytes.Email.Template.View.Service.Concrete\ThreeBytes.Email.Template.View.Service.Concrete.csproj", "{50C84F6F-1387-444D-ADC7-1B11CB092A42}"
 EndProject
-Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "ThreeBytes.Email.Data.Database", "ThreeBytes.Email.Data.Database\ThreeBytes.Email.Data.Database.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dispatch", "Dispatch", "{C2BBA51D-F2FA-4200-AEFB-56481F12B22C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DispatchManagement", "DispatchManagement", "{FB6AE120-3422-4B0C-953B-538233322102}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DispatchList", "DispatchList", "{C0BEB26D-4D2B-4581-AB07-500B948CA968}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DispatchView", "DispatchView", "{06FAC5D2-94A6-4478-AFB2-269C1FE8F558}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ThreeBytes.Email.Data.Database", "ThreeBytes.Email.Data.Database\ThreeBytes.Email.Data.Database.sqlproj", "{3D9F6B5F-ACCE-4CBB-8BC8-B56A46519C75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Dispatch.Management.Backend", "ThreeBytes.Email.Dispatch.Management.Backend\ThreeBytes.Email.Dispatch.Management.Backend.csproj", "{47FFD5B4-15E8-45AD-8AFF-DD3838240F31}"
 EndProject
@@ -133,15 +168,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Dispatch.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Dispatch.Management.Service.Concrete", "ThreeBytes.Email.Dispatch.Management.Service.Concrete\ThreeBytes.Email.Dispatch.Management.Service.Concrete.csproj", "{82E338E3-9D25-470D-A77C-DCA9C13D5AFE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TemplateHost", "TemplateHost", "{988B6224-1260-440F-B10E-A8705C0E3FF9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Template.Host.Frontend", "ThreeBytes.Email.Template.Host.Frontend\ThreeBytes.Email.Template.Host.Frontend.csproj", "{1471B7C6-DA3D-41B7-AE0C-4EE992B27AC2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DispatchHost", "DispatchHost", "{27AB66D5-15A2-4F79-B066-3CDF502D812D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Dispatch.Host.Frontend", "ThreeBytes.Email.Dispatch.Host.Frontend\ThreeBytes.Email.Dispatch.Host.Frontend.csproj", "{52D5AD0C-40D0-4DBD-BA9D-34AEDA43765E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DispatchWidget", "DispatchWidget", "{3C9580FE-245F-4A99-97C2-F156F480C478}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Dispatch.Widget.Backend", "ThreeBytes.Email.Dispatch.Widget.Backend\ThreeBytes.Email.Dispatch.Widget.Backend.csproj", "{65CBA36B-D3E3-4CB6-9690-2231D3A2A743}"
 EndProject
@@ -161,8 +190,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Dispatch.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Dispatch.Widget.Service.Concrete", "ThreeBytes.Email.Dispatch.Widget.Service.Concrete\ThreeBytes.Email.Dispatch.Widget.Service.Concrete.csproj", "{2D360836-F0A7-43B0-A48E-BD96206BAC1C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TemplateWidget", "TemplateWidget", "{2D654F58-C522-4C4B-928E-D4895FD885DB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Template.Widget.Backend", "ThreeBytes.Email.Template.Widget.Backend\ThreeBytes.Email.Template.Widget.Backend.csproj", "{4BB3C7DB-6405-4C21-AFFF-221D0BA04B3B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Template.Widget.Data.Abstract", "ThreeBytes.Email.Template.Widget.Data.Abstract\ThreeBytes.Email.Template.Widget.Data.Abstract.csproj", "{CD556704-A03B-4882-B60D-7ED1FEBF673D}"
@@ -181,10 +208,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Template.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Template.Widget.Service.Concrete", "ThreeBytes.Email.Template.Widget.Service.Concrete\ThreeBytes.Email.Template.Widget.Service.Concrete.csproj", "{A0F2F29C-D5C1-432A-9727-3E61AE95713C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{44901A41-E5CA-4CD7-8B53-DF259D009B69}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Home", "Home", "{3677BB0F-0E03-4C16-A53A-8BA882257C18}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Host.Home.Frontend", "ThreeBytes.Email.Host.Home.Frontend\ThreeBytes.Email.Host.Home.Frontend.csproj", "{3D795660-F3D5-474A-AC86-2816EAED01B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Dispatch.Host.Resources", "ThreeBytes.Email.Dispatch.Host.Resources\ThreeBytes.Email.Dispatch.Host.Resources.csproj", "{6DF376A3-35C9-4491-8116-744440549F54}"
@@ -194,11 +217,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Template.Host.Resources", "ThreeBytes.Email.Template.Host.Resources\ThreeBytes.Email.Template.Host.Resources.csproj", "{253E5589-BB3E-4B89-B73B-0E8743CA6FBF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.WebUI.Resources", "ThreeBytes.Email.WebUI.Resources\ThreeBytes.Email.WebUI.Resources.csproj", "{C1820F38-63A6-4C11-A83E-9AA02D861F03}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{D061332A-231F-4C98-86AD-7762ED4A79A9}"
-	ProjectSection(SolutionItems) = preProject
-		ThreeBytes.Email.msbuild = ThreeBytes.Email.msbuild
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Infrastructure.ServiceBuildConvention", "ThreeBytes.Email.Infrastructure.ServiceBuildConvention\ThreeBytes.Email.Infrastructure.ServiceBuildConvention.csproj", "{5C0BDCCF-B4CD-43B6-B844-BDABF7412D16}"
 EndProject
@@ -234,23 +252,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Template.V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Template.Widget.Validations.Abstract", "ThreeBytes.Email.Template.Widget.Validations.Abstract\ThreeBytes.Email.Template.Widget.Validations.Abstract.csproj", "{CDF517BB-0D67-4B80-9D2F-92B39E32FB76}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{56249304-A544-4398-9369-3360DD9AA3DC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Configuration.Abstract", "ThreeBytes.Email.Configuration.Abstract\ThreeBytes.Email.Configuration.Abstract.csproj", "{7C5432F6-990A-43DE-A431-B025B828AAC4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Configuration.Concrete", "ThreeBytes.Email.Configuration.Concrete\ThreeBytes.Email.Configuration.Concrete.csproj", "{CBCF1100-992F-4C84-B4BE-3464735D2CF4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dashboard", "Dashboard", "{303CBB63-EA6C-4917-91F9-9F1434C91614}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardHost", "DashboardHost", "{F8B8BC74-B1F1-432C-BE11-3284FD809DD1}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardDispatchDaily", "DashboardDispatchDaily", "{6B9D6E4B-156A-48AE-8584-145559982655}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardDispatchMonthly", "DashboardDispatchMonthly", "{32456E2E-046F-4CAA-8257-1BBFAE6F5A7F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardDispatchQuarterly", "DashboardDispatchQuarterly", "{556C6426-1A26-48A7-B98B-B3B23A16D3A8}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardDispatchYearly", "DashboardDispatchYearly", "{D485DC15-9039-4ADF-B172-418466BF26C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Dashboard.Host.Frontend", "ThreeBytes.Email.Dashboard.Host.Frontend\ThreeBytes.Email.Dashboard.Host.Frontend.csproj", "{B531FCE3-EEBF-4F76-9411-578351F60E59}"
 EndProject
@@ -338,11 +342,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Dashboard.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Dashboard.DispatchQuarterly.Configuration.Concrete", "ThreeBytes.Email.Dashboard.DispatchQuarterly.Configuration.Concrete\ThreeBytes.Email.Dashboard.DispatchQuarterly.Configuration.Concrete.csproj", "{802FD673-6D08-4F74-9D35-0927D21DE94C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Navigation", "Navigation", "{B24F36EF-AF7A-4156-8A9A-CAEA9BA25A1B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.Navigation.Frontend", "ThreeBytes.Email.Navigation.Frontend\ThreeBytes.Email.Navigation.Frontend.csproj", "{6EA77327-A7E5-4415-9C8D-A22078C9BC0F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{32FCD4FF-66C0-4B2D-AC36-61C1C30C6765}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Email.About.Frontend", "ThreeBytes.Email.About.Frontend\ThreeBytes.Email.About.Frontend.csproj", "{76A1E457-AC78-4177-8F4F-65BC54BCB8FB}"
 EndProject
@@ -476,12 +476,12 @@ Global
 		{50C84F6F-1387-444D-ADC7-1B11CB092A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50C84F6F-1387-444D-ADC7-1B11CB092A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50C84F6F-1387-444D-ADC7-1B11CB092A42}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3D9F6B5F-ACCE-4CBB-8BC8-B56A46519C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D9F6B5F-ACCE-4CBB-8BC8-B56A46519C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D9F6B5F-ACCE-4CBB-8BC8-B56A46519C75}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3D9F6B5F-ACCE-4CBB-8BC8-B56A46519C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D9F6B5F-ACCE-4CBB-8BC8-B56A46519C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D9F6B5F-ACCE-4CBB-8BC8-B56A46519C75}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{47FFD5B4-15E8-45AD-8AFF-DD3838240F31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{47FFD5B4-15E8-45AD-8AFF-DD3838240F31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47FFD5B4-15E8-45AD-8AFF-DD3838240F31}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -955,20 +955,20 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{154E5D4A-28D4-4C96-8551-05CBB839649B} = {899D0412-2FEA-4D8B-AD8A-C38FFED86236}
 		{7A18065C-EBDB-4F68-8E92-0F836C12BEC0} = {899D0412-2FEA-4D8B-AD8A-C38FFED86236}
 		{C2BBA51D-F2FA-4200-AEFB-56481F12B22C} = {899D0412-2FEA-4D8B-AD8A-C38FFED86236}
 		{44901A41-E5CA-4CD7-8B53-DF259D009B69} = {899D0412-2FEA-4D8B-AD8A-C38FFED86236}
 		{303CBB63-EA6C-4917-91F9-9F1434C91614} = {899D0412-2FEA-4D8B-AD8A-C38FFED86236}
 		{B24F36EF-AF7A-4156-8A9A-CAEA9BA25A1B} = {899D0412-2FEA-4D8B-AD8A-C38FFED86236}
 		{32FCD4FF-66C0-4B2D-AC36-61C1C30C6765} = {899D0412-2FEA-4D8B-AD8A-C38FFED86236}
+		{154E5D4A-28D4-4C96-8551-05CBB839649B} = {899D0412-2FEA-4D8B-AD8A-C38FFED86236}
 		{236CD877-72ED-4227-9BC3-00FB656E9D81} = {899D0412-2FEA-4D8B-AD8A-C38FFED86236}
 		{E826A0C1-0CD8-4DC1-8463-B1C8DD4A0166} = {7A18065C-EBDB-4F68-8E92-0F836C12BEC0}
 		{96C2BFCF-4E37-41D6-8BA8-BD01C23C8A0E} = {7A18065C-EBDB-4F68-8E92-0F836C12BEC0}
 		{138F0CA2-A834-4BE4-856B-8BE31DBE2700} = {7A18065C-EBDB-4F68-8E92-0F836C12BEC0}
-		{209AAB75-60BD-44F6-902C-06CA4A5E8FEB} = {7A18065C-EBDB-4F68-8E92-0F836C12BEC0}
 		{988B6224-1260-440F-B10E-A8705C0E3FF9} = {7A18065C-EBDB-4F68-8E92-0F836C12BEC0}
 		{2D654F58-C522-4C4B-928E-D4895FD885DB} = {7A18065C-EBDB-4F68-8E92-0F836C12BEC0}
+		{209AAB75-60BD-44F6-902C-06CA4A5E8FEB} = {7A18065C-EBDB-4F68-8E92-0F836C12BEC0}
 		{24DB887A-3DF9-489F-9879-01D85740DAD7} = {E826A0C1-0CD8-4DC1-8463-B1C8DD4A0166}
 		{39823800-A265-44DD-BC75-EF143CF9B38A} = {E826A0C1-0CD8-4DC1-8463-B1C8DD4A0166}
 		{40DA3146-A270-4068-8F94-09E941284CDD} = {E826A0C1-0CD8-4DC1-8463-B1C8DD4A0166}
@@ -1005,9 +1005,9 @@ Global
 		{FB6AE120-3422-4B0C-953B-538233322102} = {C2BBA51D-F2FA-4200-AEFB-56481F12B22C}
 		{C0BEB26D-4D2B-4581-AB07-500B948CA968} = {C2BBA51D-F2FA-4200-AEFB-56481F12B22C}
 		{06FAC5D2-94A6-4478-AFB2-269C1FE8F558} = {C2BBA51D-F2FA-4200-AEFB-56481F12B22C}
-		{F201EEA8-8CE8-44C6-99CB-0127CE495BC9} = {C2BBA51D-F2FA-4200-AEFB-56481F12B22C}
 		{27AB66D5-15A2-4F79-B066-3CDF502D812D} = {C2BBA51D-F2FA-4200-AEFB-56481F12B22C}
 		{3C9580FE-245F-4A99-97C2-F156F480C478} = {C2BBA51D-F2FA-4200-AEFB-56481F12B22C}
+		{F201EEA8-8CE8-44C6-99CB-0127CE495BC9} = {C2BBA51D-F2FA-4200-AEFB-56481F12B22C}
 		{47FFD5B4-15E8-45AD-8AFF-DD3838240F31} = {FB6AE120-3422-4B0C-953B-538233322102}
 		{A69E22EA-9998-440C-99E2-DF4642EF3183} = {FB6AE120-3422-4B0C-953B-538233322102}
 		{22AF416D-322F-4195-A3E6-8828D0723938} = {FB6AE120-3422-4B0C-953B-538233322102}

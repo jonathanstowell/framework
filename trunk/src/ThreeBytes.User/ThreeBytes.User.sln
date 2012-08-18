@@ -1,15 +1,84 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.WebUI", "ThreeBytes.User.WebUI\ThreeBytes.User.WebUI.csproj", "{48F78884-8D10-4526-AAA8-8B51DBB8C456}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.ServiceHost", "ThreeBytes.User.ServiceHost\ThreeBytes.User.ServiceHost.csproj", "{7F01C36D-4902-4882-A641-2DEB953672F8}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FD37EBB3-66BC-4834-9BA9-9F98676CB509}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationLogin", "AuthenticationLogin", "{601FF2A0-C2E1-410C-A878-D7CE1E47B361}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationRegistration", "AuthenticationRegistration", "{5C182731-3A0C-413F-91B4-0E277613299B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Role", "Role", "{1604A5D4-A1B0-4807-9384-52A71C478159}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationUserList", "AuthenticationUserList", "{C3C7736D-9860-488C-B617-B9BF0E4C7B47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationUserView", "AuthenticationUserView", "{76D4E7E2-AF9B-488E-8991-82F8B2899602}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RoleList", "RoleList", "{80C22915-C368-4EBE-A9C5-2411ADCCE85A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RoleView", "RoleView", "{1232BBDD-1FFC-492E-822C-A457DEDBD8CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RoleManagement", "RoleManagement", "{4F269997-8193-42CF-8365-CA7ACF1CC5A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{CE8E018D-E658-4E02-B699-D0FA741C553D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationEmail", "AuthenticationEmail", "{F6D7D7BB-8CF5-40A3-B431-5B834598E7DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationPasswordManagement", "AuthenticationPasswordManagement", "{C81B5AC8-71D3-4705-9FF4-3587D366CE2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{BEB29D6C-8790-457F-9970-A4A37511A3C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{CB35AE19-F031-4F06-8CB3-D1B5EBF81384}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Home", "Home", "{625CA08B-DA72-4110-A86A-E8B057AC4F20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RoleHost", "RoleHost", "{4F0EB8D7-62E2-4C3A-B521-54F950135AAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationUserHost", "AuthenticationUserHost", "{8BAFC1A1-CEEB-4C53-AE19-2EC9CBAC0094}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationUserManagement", "AuthenticationUserManagement", "{00712312-032A-4802-837F-788C637E2F69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{B4D8046D-D3EA-4C7A-87F1-C4ADC49A9E9D}"
+	ProjectSection(SolutionItems) = preProject
+		ThreeBytes.User.msbuild = ThreeBytes.User.msbuild
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dashboard", "Dashboard", "{17FF8A53-288D-4DE5-874F-9DA3A4E41937}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardLoginStatisticsDaily", "DashboardLoginStatisticsDaily", "{55B4F58F-57F9-4A2A-ADAD-0A100FAAFB6A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardLoginStatisticsMonthly", "DashboardLoginStatisticsMonthly", "{B3939735-6037-4454-A20F-D271EF6969B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardLoginStatisticsYearly", "DashboardLoginStatisticsYearly", "{FF5BEF4D-A211-4D3A-AC8A-EA1E6FC009F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardRegistrationStatisticsDaily", "DashboardRegistrationStatisticsDaily", "{92F81635-8ADD-40F5-BB38-286114157823}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardRegistrationStatisticsMonthly", "DashboardRegistrationStatisticsMonthly", "{FAFAA3E4-01F3-408A-9D26-37B37F0CCD37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardRegistrationStatisticsYearly", "DashboardRegistrationStatisticsYearly", "{03565438-94BD-4DD6-8B74-979506761358}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardHost", "DashboardHost", "{B65411CA-AE62-4A37-8AB7-028D910A0315}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardLoginStatisticsQuarterly", "DashboardLoginStatisticsQuarterly", "{372AAFEF-9FCE-4F1E-9922-2600623F1AB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardRegistrationStatisticsQuarterly", "DashboardRegistrationStatisticsQuarterly", "{2703970A-F99D-4200-99A0-85980BD4D498}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardActiveUsers", "DashboardActiveUsers", "{89B4148C-4D70-4738-A77F-7355B8C53CF8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardNewestUsers", "DashboardNewestUsers", "{4989B9D2-6C78-40EC-810B-CA2929E396DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profile", "Profile", "{F37550E2-9C34-42E2-82F0-389428998B6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProfileManagement", "ProfileManagement", "{FBA02CB5-149A-4E62-8BC4-A504B277444B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProfileView", "ProfileView", "{B8355246-FF5D-415D-9E5C-60556FE440F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProfileHost", "ProfileHost", "{29905F3F-DA4A-4884-A35B-BDF5CD86F604}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationOAuth", "AuthenticationOAuth", "{F6E161BF-06C5-4A96-B795-38F405215EC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.WebUI", "ThreeBytes.User.WebUI\ThreeBytes.User.WebUI.csproj", "{48F78884-8D10-4526-AAA8-8B51DBB8C456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.ServiceHost", "ThreeBytes.User.ServiceHost\ThreeBytes.User.ServiceHost.csproj", "{7F01C36D-4902-4882-A641-2DEB953672F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Authentication.Login.Data.Abstract", "ThreeBytes.User.Authentication.Login.Data.Abstract\ThreeBytes.User.Authentication.Login.Data.Abstract.csproj", "{DE03F036-60E7-4255-8AF6-69484D5A084A}"
 EndProject
@@ -49,27 +118,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Authenticat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Authentication.Messages", "ThreeBytes.User.Authentication.Messages\ThreeBytes.User.Authentication.Messages.csproj", "{3740C252-9CEE-49BF-9574-94EAAEDD6AE1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Role", "Role", "{1604A5D4-A1B0-4807-9384-52A71C478159}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationUserList", "AuthenticationUserList", "{C3C7736D-9860-488C-B617-B9BF0E4C7B47}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationUserView", "AuthenticationUserView", "{76D4E7E2-AF9B-488E-8991-82F8B2899602}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RoleList", "RoleList", "{80C22915-C368-4EBE-A9C5-2411ADCCE85A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RoleView", "RoleView", "{1232BBDD-1FFC-492E-822C-A457DEDBD8CC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RoleManagement", "RoleManagement", "{4F269997-8193-42CF-8365-CA7ACF1CC5A6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Role.Messages", "ThreeBytes.User.Role.Messages\ThreeBytes.User.Role.Messages.csproj", "{C3CF5040-FDE1-456C-A1CF-A8E210ACF380}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{CE8E018D-E658-4E02-B699-D0FA741C553D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationEmail", "AuthenticationEmail", "{F6D7D7BB-8CF5-40A3-B431-5B834598E7DA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Authentication.Email.Backend", "ThreeBytes.User.Authentication.Email.Backend\ThreeBytes.User.Authentication.Email.Backend.csproj", "{8CB36D1C-7AB2-4EB7-B716-5AEFA0DA4DB5}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationPasswordManagement", "AuthenticationPasswordManagement", "{C81B5AC8-71D3-4705-9FF4-3587D366CE2D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Authentication.Password.Backend", "ThreeBytes.User.Authentication.Password.Backend\ThreeBytes.User.Authentication.Password.Backend.csproj", "{FF8C119D-678E-489C-B0EF-B4023DFD5799}"
 EndProject
@@ -89,9 +140,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Authenticat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Authentication.Password.Service.Concrete", "ThreeBytes.User.Authentication.Password.Service.Concrete\ThreeBytes.User.Authentication.Password.Service.Concrete.csproj", "{8CAC8E99-1035-47B7-9ECF-DA0E7E97EA28}"
 EndProject
-Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "ThreeBytes.User.Data.Database", "ThreeBytes.User.Data.Database\ThreeBytes.User.Data.Database.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{BEB29D6C-8790-457F-9970-A4A37511A3C9}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ThreeBytes.User.Data.Database", "ThreeBytes.User.Data.Database\ThreeBytes.User.Data.Database.sqlproj", "{3828739C-8F51-4BD1-A153-5AE60CE3AF86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Role.List.Backend", "ThreeBytes.User.Role.List.Backend\ThreeBytes.User.Role.List.Backend.csproj", "{E55EDC17-A9E6-4717-92B2-68C21E6A742D}"
 EndProject
@@ -147,19 +196,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Role.View.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Role.View.Service.Concrete", "ThreeBytes.User.Role.View.Service.Concrete\ThreeBytes.User.Role.View.Service.Concrete.csproj", "{11FC453A-639A-43A2-8474-74D27AE16863}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{CB35AE19-F031-4F06-8CB3-D1B5EBF81384}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Home", "Home", "{625CA08B-DA72-4110-A86A-E8B057AC4F20}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Host.Home.Frontend", "ThreeBytes.User.Host.Home.Frontend\ThreeBytes.User.Host.Home.Frontend.csproj", "{0D822132-891C-4381-8C73-3E661CA69939}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Configuration.Abstract", "ThreeBytes.User.Configuration.Abstract\ThreeBytes.User.Configuration.Abstract.csproj", "{B5C05607-70E1-46A7-B9D5-D9B1152D0A2A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Configuration.Concrete", "ThreeBytes.User.Configuration.Concrete\ThreeBytes.User.Configuration.Concrete.csproj", "{73515BC1-A813-40F9-B72E-F490422942F2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RoleHost", "RoleHost", "{4F0EB8D7-62E2-4C3A-B521-54F950135AAE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationUserHost", "AuthenticationUserHost", "{8BAFC1A1-CEEB-4C53-AE19-2EC9CBAC0094}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Role.Host.Frontend", "ThreeBytes.User.Role.Host.Frontend\ThreeBytes.User.Role.Host.Frontend.csproj", "{2AE7A1F9-6DEB-4EEF-85FC-4D19B461464E}"
 EndProject
@@ -168,8 +209,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.WebUI.Resources", "ThreeBytes.User.WebUI.Resources\ThreeBytes.User.WebUI.Resources.csproj", "{9597C736-FE67-426A-B158-A7F9C34549EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Role.Host.Resources", "ThreeBytes.User.Role.Host.Resources\ThreeBytes.User.Role.Host.Resources.csproj", "{ADDB438D-4050-4716-88E3-E36FC0E0950B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationUserManagement", "AuthenticationUserManagement", "{00712312-032A-4802-837F-788C637E2F69}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Authentication.UserManagement.Backend", "ThreeBytes.User.Authentication.UserManagement.Backend\ThreeBytes.User.Authentication.UserManagement.Backend.csproj", "{CA712CC5-039A-45F6-9E16-89355CEBA775}"
 EndProject
@@ -233,11 +272,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Authenticat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Authentication.Login.Configuration.Concrete", "ThreeBytes.User.Authentication.Login.Configuration.Concrete\ThreeBytes.User.Authentication.Login.Configuration.Concrete.csproj", "{9123B0D3-C532-47BA-A785-337301976FE8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{B4D8046D-D3EA-4C7A-87F1-C4ADC49A9E9D}"
-	ProjectSection(SolutionItems) = preProject
-		ThreeBytes.User.msbuild = ThreeBytes.User.msbuild
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Infrastructure.ServiceBuildConvention", "ThreeBytes.User.Infrastructure.ServiceBuildConvention\ThreeBytes.User.Infrastructure.ServiceBuildConvention.csproj", "{5C0BDCCF-B4CD-43B6-B844-BDABF7412D16}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Role.View.Validations.Abstract", "ThreeBytes.User.Role.View.Validations.Abstract\ThreeBytes.User.Role.View.Validations.Abstract.csproj", "{5F610A6B-FC33-4EAE-8BBD-F1A6CCB28118}"
@@ -275,22 +309,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Role.Management.Validations.Concrete", "ThreeBytes.User.Role.Management.Validations.Concrete\ThreeBytes.User.Role.Management.Validations.Concrete.csproj", "{398AC990-B93F-4212-B0C5-45F55A7CA3D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Role.View.Validations.Concrete", "ThreeBytes.User.Role.View.Validations.Concrete\ThreeBytes.User.Role.View.Validations.Concrete.csproj", "{9DFDB238-357A-42E9-B329-02F9A246BC81}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dashboard", "Dashboard", "{17FF8A53-288D-4DE5-874F-9DA3A4E41937}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardLoginStatisticsDaily", "DashboardLoginStatisticsDaily", "{55B4F58F-57F9-4A2A-ADAD-0A100FAAFB6A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardLoginStatisticsMonthly", "DashboardLoginStatisticsMonthly", "{B3939735-6037-4454-A20F-D271EF6969B4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardLoginStatisticsYearly", "DashboardLoginStatisticsYearly", "{FF5BEF4D-A211-4D3A-AC8A-EA1E6FC009F9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardRegistrationStatisticsDaily", "DashboardRegistrationStatisticsDaily", "{92F81635-8ADD-40F5-BB38-286114157823}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardRegistrationStatisticsMonthly", "DashboardRegistrationStatisticsMonthly", "{FAFAA3E4-01F3-408A-9D26-37B37F0CCD37}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardRegistrationStatisticsYearly", "DashboardRegistrationStatisticsYearly", "{03565438-94BD-4DD6-8B74-979506761358}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardHost", "DashboardHost", "{B65411CA-AE62-4A37-8AB7-028D910A0315}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.Host.Frontend", "ThreeBytes.User.Dashboard.Host.Frontend\ThreeBytes.User.Dashboard.Host.Frontend.csproj", "{DE48FA27-EEA5-4FB1-A051-DEF121688A2F}"
 EndProject
@@ -337,8 +355,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Validations.Abstract", "ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Validations.Abstract\ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Validations.Abstract.csproj", "{A2353F7C-5067-4D98-BA28-742B6B0EF4BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Validations.Concrete", "ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Validations.Concrete\ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Validations.Concrete.csproj", "{B2E9CDBA-40A3-45DA-813F-23648990F2FE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardLoginStatisticsQuarterly", "DashboardLoginStatisticsQuarterly", "{372AAFEF-9FCE-4F1E-9922-2600623F1AB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.DashBoard.LoginStatisticsQuarterly.Backend", "ThreeBytes.User.DashBoard.LoginStatisticsQuarterly.Backend\ThreeBytes.User.DashBoard.LoginStatisticsQuarterly.Backend.csproj", "{5F1828F0-C7F9-4E67-BC4D-746952492D41}"
 EndProject
@@ -387,8 +403,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.LoginStatisticsYearly.Validations.Abstract", "ThreeBytes.User.Dashboard.LoginStatisticsYearly.Validations.Abstract\ThreeBytes.User.Dashboard.LoginStatisticsYearly.Validations.Abstract.csproj", "{4140C3D1-558C-4D33-828A-33024832B5B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.LoginStatisticsYearly.Validations.Concrete", "ThreeBytes.User.Dashboard.LoginStatisticsYearly.Validations.Concrete\ThreeBytes.User.Dashboard.LoginStatisticsYearly.Validations.Concrete.csproj", "{9562B4A6-1CD8-42E8-8F71-6EAC0661DC61}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardRegistrationStatisticsQuarterly", "DashboardRegistrationStatisticsQuarterly", "{2703970A-F99D-4200-99A0-85980BD4D498}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Backend", "ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Backend\ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Backend.csproj", "{4A97F71A-A5C9-4635-B591-52CB359A738A}"
 EndProject
@@ -464,8 +478,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.RegistrationStatisticsQuarterly.Configuration.Concrete", "ThreeBytes.User.Dashboard.RegistrationStatisticsQuarterly.Configuration.Concrete\ThreeBytes.User.Dashboard.RegistrationStatisticsQuarterly.Configuration.Concrete.csproj", "{F203E488-C8A9-478A-8ECA-E9DA09282D80}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardActiveUsers", "DashboardActiveUsers", "{89B4148C-4D70-4738-A77F-7355B8C53CF8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.ActiveUsers.Backend", "ThreeBytes.User.Dashboard.ActiveUsers.Backend\ThreeBytes.User.Dashboard.ActiveUsers.Backend.csproj", "{A1DD3506-8C76-453D-937F-8F9F9353D7CB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.ActiveUsers.Data.Abstract", "ThreeBytes.User.Dashboard.ActiveUsers.Data.Abstract\ThreeBytes.User.Dashboard.ActiveUsers.Data.Abstract.csproj", "{40638A16-5F6B-40B1-96E3-435F8F3FB7F9}"
@@ -483,8 +495,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.ActiveUsers.Service.Abstract", "ThreeBytes.User.Dashboard.ActiveUsers.Service.Abstract\ThreeBytes.User.Dashboard.ActiveUsers.Service.Abstract.csproj", "{74C42F0E-4F93-4C38-A8CB-C4F92696FF77}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.ActiveUsers.Service.Concrete", "ThreeBytes.User.Dashboard.ActiveUsers.Service.Concrete\ThreeBytes.User.Dashboard.ActiveUsers.Service.Concrete.csproj", "{75D10AB9-5D56-42CE-AC37-E93CE7E67DFA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DashboardNewestUsers", "DashboardNewestUsers", "{4989B9D2-6C78-40EC-810B-CA2929E396DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.NewestUsers.Backend", "ThreeBytes.User.Dashboard.NewestUsers.Backend\ThreeBytes.User.Dashboard.NewestUsers.Backend.csproj", "{6475B586-EF48-42AE-B64F-D1F2FB81F48D}"
 EndProject
@@ -527,12 +537,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.RegistrationYearly.Validations.Abstract", "ThreeBytes.User.Dashboard.RegistrationYearly.Validations.Abstract\ThreeBytes.User.Dashboard.RegistrationYearly.Validations.Abstract.csproj", "{3AB1557C-D3D9-4EA8-A159-F6E2302D7F7E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Dashboard.RegistrationYearly.Validations.Concrete", "ThreeBytes.User.Dashboard.RegistrationYearly.Validations.Concrete\ThreeBytes.User.Dashboard.RegistrationYearly.Validations.Concrete.csproj", "{D4F97753-E289-4864-B3FE-F12D72A1C867}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profile", "Profile", "{F37550E2-9C34-42E2-82F0-389428998B6B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProfileManagement", "ProfileManagement", "{FBA02CB5-149A-4E62-8BC4-A504B277444B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProfileView", "ProfileView", "{B8355246-FF5D-415D-9E5C-60556FE440F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Profile.Management.Backend", "ThreeBytes.User.Profile.Management.Backend\ThreeBytes.User.Profile.Management.Backend.csproj", "{93BF90DD-7AF1-41DE-8506-B5410886DA9A}"
 EndProject
@@ -578,8 +582,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Profile.Vie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Profile.View.Validations.Concrete", "ThreeBytes.User.Profile.View.Validations.Concrete\ThreeBytes.User.Profile.View.Validations.Concrete.csproj", "{8A759F99-F805-4A19-A3FB-DD7DD35965FB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProfileHost", "ProfileHost", "{29905F3F-DA4A-4884-A35B-BDF5CD86F604}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Profile.Host.Frontend", "ThreeBytes.User.Profile.Host.Frontend\ThreeBytes.User.Profile.Host.Frontend.csproj", "{14F6E280-FC7E-44DC-92C9-7C8A10947128}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Profile.Host.Resources", "ThreeBytes.User.Profile.Host.Resources\ThreeBytes.User.Profile.Host.Resources.csproj", "{CFB9F6DA-36E7-4BD9-AFAA-FBE153E11BF8}"
@@ -587,8 +589,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Profile.Messages", "ThreeBytes.User.Profile.Messages\ThreeBytes.User.Profile.Messages.csproj", "{7715D2AB-F9F0-4306-9578-04E45AB90453}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.JobHost", "ThreeBytes.User.JobHost\ThreeBytes.User.JobHost.csproj", "{A5AF2990-C289-4D8A-B172-879902D0C246}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationOAuth", "AuthenticationOAuth", "{F6E161BF-06C5-4A96-B795-38F405215EC8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.User.Authentication.OAuth.Backend", "ThreeBytes.User.Authentication.OAuth.Backend\ThreeBytes.User.Authentication.OAuth.Backend.csproj", "{7B54042B-684C-45DA-9187-436AAB847E06}"
 EndProject
@@ -750,12 +750,12 @@ Global
 		{8CAC8E99-1035-47B7-9ECF-DA0E7E97EA28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CAC8E99-1035-47B7-9ECF-DA0E7E97EA28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CAC8E99-1035-47B7-9ECF-DA0E7E97EA28}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3828739C-8F51-4BD1-A153-5AE60CE3AF86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3828739C-8F51-4BD1-A153-5AE60CE3AF86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3828739C-8F51-4BD1-A153-5AE60CE3AF86}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3828739C-8F51-4BD1-A153-5AE60CE3AF86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3828739C-8F51-4BD1-A153-5AE60CE3AF86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3828739C-8F51-4BD1-A153-5AE60CE3AF86}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{E55EDC17-A9E6-4717-92B2-68C21E6A742D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E55EDC17-A9E6-4717-92B2-68C21E6A742D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E55EDC17-A9E6-4717-92B2-68C21E6A742D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -1709,23 +1709,23 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{7F01C36D-4902-4882-A641-2DEB953672F8} = {FD37EBB3-66BC-4834-9BA9-9F98676CB509}
 		{CE8E018D-E658-4E02-B699-D0FA741C553D} = {FD37EBB3-66BC-4834-9BA9-9F98676CB509}
 		{1604A5D4-A1B0-4807-9384-52A71C478159} = {FD37EBB3-66BC-4834-9BA9-9F98676CB509}
 		{CB35AE19-F031-4F06-8CB3-D1B5EBF81384} = {FD37EBB3-66BC-4834-9BA9-9F98676CB509}
 		{17FF8A53-288D-4DE5-874F-9DA3A4E41937} = {FD37EBB3-66BC-4834-9BA9-9F98676CB509}
 		{F37550E2-9C34-42E2-82F0-389428998B6B} = {FD37EBB3-66BC-4834-9BA9-9F98676CB509}
+		{7F01C36D-4902-4882-A641-2DEB953672F8} = {FD37EBB3-66BC-4834-9BA9-9F98676CB509}
 		{A5AF2990-C289-4D8A-B172-879902D0C246} = {FD37EBB3-66BC-4834-9BA9-9F98676CB509}
 		{5C182731-3A0C-413F-91B4-0E277613299B} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
-		{601FF2A0-C2E1-410C-A878-D7CE1E47B361} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
-		{3740C252-9CEE-49BF-9574-94EAAEDD6AE1} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
 		{C3C7736D-9860-488C-B617-B9BF0E4C7B47} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
 		{76D4E7E2-AF9B-488E-8991-82F8B2899602} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
+		{601FF2A0-C2E1-410C-A878-D7CE1E47B361} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
 		{F6D7D7BB-8CF5-40A3-B431-5B834598E7DA} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
 		{C81B5AC8-71D3-4705-9FF4-3587D366CE2D} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
 		{8BAFC1A1-CEEB-4C53-AE19-2EC9CBAC0094} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
 		{00712312-032A-4802-837F-788C637E2F69} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
 		{F6E161BF-06C5-4A96-B795-38F405215EC8} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
+		{3740C252-9CEE-49BF-9574-94EAAEDD6AE1} = {CE8E018D-E658-4E02-B699-D0FA741C553D}
 		{B3E147C0-FBA3-4198-94DC-6BFAD7FF30E1} = {5C182731-3A0C-413F-91B4-0E277613299B}
 		{096147DC-AA13-4B29-8341-B9B36B221DDD} = {5C182731-3A0C-413F-91B4-0E277613299B}
 		{4616B45D-F1EB-459E-86AC-EDB4A519A11F} = {5C182731-3A0C-413F-91B4-0E277613299B}
@@ -1737,24 +1737,11 @@ Global
 		{21B45330-74E9-46F6-A374-89FEE4A7A30E} = {5C182731-3A0C-413F-91B4-0E277613299B}
 		{820EAB47-A0FB-41B4-8DBD-5EB38660C257} = {5C182731-3A0C-413F-91B4-0E277613299B}
 		{2F45D9C0-343E-420C-9160-F6C1C6016B08} = {5C182731-3A0C-413F-91B4-0E277613299B}
-		{FECDEB8C-5F6B-48EF-B206-65526B23509A} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{78633C66-7D8E-47BC-893F-FC329725E597} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{7F788276-5D32-4938-8916-4B955FFA89F0} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{B4725773-4FA8-4357-A07E-914DFB2313B4} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{42CA852C-E082-4DC6-8A31-345962EE191A} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{26571AD8-75CF-4207-AFFE-CE6735688BF5} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{8D2552CB-1987-400E-8171-21D11A050DA5} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{010F90CC-2B1D-4396-BAD1-BC09B02C0254} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{DE03F036-60E7-4255-8AF6-69484D5A084A} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{E95AFA97-4198-4AFE-8852-3271DD77AA93} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{9123B0D3-C532-47BA-A785-337301976FE8} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{5C1605E4-661C-45CA-8F5B-155182F2B74B} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
-		{610CB36A-EEC6-45A6-B7C8-0366393B2178} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
 		{80C22915-C368-4EBE-A9C5-2411ADCCE85A} = {1604A5D4-A1B0-4807-9384-52A71C478159}
 		{1232BBDD-1FFC-492E-822C-A457DEDBD8CC} = {1604A5D4-A1B0-4807-9384-52A71C478159}
 		{4F269997-8193-42CF-8365-CA7ACF1CC5A6} = {1604A5D4-A1B0-4807-9384-52A71C478159}
-		{C3CF5040-FDE1-456C-A1CF-A8E210ACF380} = {1604A5D4-A1B0-4807-9384-52A71C478159}
 		{4F0EB8D7-62E2-4C3A-B521-54F950135AAE} = {1604A5D4-A1B0-4807-9384-52A71C478159}
+		{C3CF5040-FDE1-456C-A1CF-A8E210ACF380} = {1604A5D4-A1B0-4807-9384-52A71C478159}
 		{5619169E-0AFE-4066-BB7F-1B665546254A} = {C3C7736D-9860-488C-B617-B9BF0E4C7B47}
 		{B4671149-A4B3-422E-9AFE-E27C30E1B8A6} = {C3C7736D-9860-488C-B617-B9BF0E4C7B47}
 		{2E67D670-6317-4ECD-B888-4EEF52618ADD} = {C3C7736D-9860-488C-B617-B9BF0E4C7B47}
@@ -1810,6 +1797,19 @@ Global
 		{CAFB7267-E4DF-444E-B72B-826F83F30595} = {4F269997-8193-42CF-8365-CA7ACF1CC5A6}
 		{FED14D9F-7233-4B34-89A2-620400B954E0} = {4F269997-8193-42CF-8365-CA7ACF1CC5A6}
 		{398AC990-B93F-4212-B0C5-45F55A7CA3D0} = {4F269997-8193-42CF-8365-CA7ACF1CC5A6}
+		{DE03F036-60E7-4255-8AF6-69484D5A084A} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{FECDEB8C-5F6B-48EF-B206-65526B23509A} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{78633C66-7D8E-47BC-893F-FC329725E597} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{7F788276-5D32-4938-8916-4B955FFA89F0} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{B4725773-4FA8-4357-A07E-914DFB2313B4} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{42CA852C-E082-4DC6-8A31-345962EE191A} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{26571AD8-75CF-4207-AFFE-CE6735688BF5} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{8D2552CB-1987-400E-8171-21D11A050DA5} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{010F90CC-2B1D-4396-BAD1-BC09B02C0254} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{E95AFA97-4198-4AFE-8852-3271DD77AA93} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{9123B0D3-C532-47BA-A785-337301976FE8} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{5C1605E4-661C-45CA-8F5B-155182F2B74B} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
+		{610CB36A-EEC6-45A6-B7C8-0366393B2178} = {601FF2A0-C2E1-410C-A878-D7CE1E47B361}
 		{8CB36D1C-7AB2-4EB7-B716-5AEFA0DA4DB5} = {F6D7D7BB-8CF5-40A3-B431-5B834598E7DA}
 		{FF8C119D-678E-489C-B0EF-B4023DFD5799} = {C81B5AC8-71D3-4705-9FF4-3587D366CE2D}
 		{110DF4DD-0597-4A41-853E-3236CDB7100D} = {C81B5AC8-71D3-4705-9FF4-3587D366CE2D}
