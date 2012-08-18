@@ -6,14 +6,14 @@
 .gritter-item-wrapper {
   position: relative;
   margin: 0 0 10px 0;
-  background: url('../img/ie-spacer.gif');
+  background: url('../../img/ie-spacer.gif');
 }
 .gritter-close {
   display: none;
   position: absolute;
   top: 5px;
   left: 3px;
-  background: url(../img/gritter.png) no-repeat left top;
+  background: url(../../img/gritter.png) no-repeat left top;
   cursor: pointer;
   width: 30px;
   height: 30px;
@@ -33,7 +33,7 @@
 .gritter-light .gritter-bottom,
 .gritter-light .gritter-top,
 .gritter-light .gritter-close {
-  background-image: url(../img/gritter-light.png);
+  background-image: url(../../img/gritter-light.png);
   color: #222222;
 }
 .gritter-with-image {
@@ -46,7 +46,7 @@
 }
 .gritter-item {
   display: block;
-  background: url(../img/gritter.png) no-repeat left -40px;
+  background: url(../../img/gritter.png) no-repeat left -40px;
   color: #eeeeee;
   padding: 2px 11px 8px 11px;
   font-size: 11px;
@@ -64,7 +64,7 @@
   text-shadow: 1px 1px 0 black;
 }
 .gritter-bottom {
-  background: url(../img/gritter.png) no-repeat left bottom;
+  background: url(../../img/gritter.png) no-repeat left bottom;
   height: 8px;
   margin: 0;
 }
@@ -78,7 +78,7 @@
   background-position: right -30px;
 }
 .gritter-top {
-  background: url(../img/gritter.png) no-repeat left -30px;
+  background: url(../../img/gritter.png) no-repeat left -30px;
   height: 10px;
 }
 #gritter-notice-wrapper.bottom-right {

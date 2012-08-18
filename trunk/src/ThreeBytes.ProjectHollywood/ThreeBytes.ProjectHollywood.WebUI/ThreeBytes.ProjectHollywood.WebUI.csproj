@@ -176,13 +176,6 @@
     <Reference Include="ThreeBytes.Core.Concrete">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Concrete.dll</HintPath>
     </Reference>
-    <Reference Include="ThreeBytes.Core.Configuration.Abstract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Configuration.Abstract.dll</HintPath>
-    </Reference>
-    <Reference Include="ThreeBytes.Core.Configuration.Concrete">
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Configuration.Concrete.dll</HintPath>
-    </Reference>
     <Reference Include="ThreeBytes.Core.Data.Abstract">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Abstract.dll</HintPath>
     </Reference>
