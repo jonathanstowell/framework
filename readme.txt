@@ -1,3 +1,5 @@
+** NOTE Since upgrading to Visual Studio 2012 the database projects are no longer compatible with Visual Studio 2010 SP1, in order to solve this you need to download and install Microsoft SQL Server Data Tools from here http://msdn.microsoft.com/en-us/data/hh297027 **
+
 Please locate the source code in a folder such as c:\git annoyingly I was unaware of Windows restrictions on filepath lengths until it was too late!
 
 Download SpecFlow https://github.com/techtalk/SpecFlow/downloads
