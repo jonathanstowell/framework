@@ -9,7 +9,7 @@ using ThreeBytes.User.Authentication.UserManagement.Validations.Abstract;
 
 namespace ThreeBytes.User.Authentication.UserManagement.Frontend.PreCommands
 {
-    public class RemoveUserRoleAssociationPreCommand : ICommand
+    public class RemoveUserRoleAssociationPreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public ValidationResult Results { get; set; }

@@ -5,7 +5,7 @@ using FluentValidation;
 using ThreeBytes.Core.Bootstrapper.Extensions.Windsor.Installers;
 using ThreeBytes.Email.Dispatch.Management.Validations.Abstract;
 
-namespace ThreeBytes.Email.Dispatch.Management.Validations.Installers
+namespace ThreeBytes.Email.Dispatch.Management.Validations.Concrete.Installers
 {
     public class WebWindsorInstaller : IWebWindsorRegistration
     {
@@ -15,7 +15,7 @@ namespace ThreeBytes.Email.Dispatch.Management.Validations.Installers
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .Configure(x => x.LifeStyle.Transient),
+                   .LifestyleTransient(),
                AllTypes.FromThisAssembly().BasedOn<IEmailDispatchManagementTemplateValidatorResolver>().Configure(
                    component =>
                    {

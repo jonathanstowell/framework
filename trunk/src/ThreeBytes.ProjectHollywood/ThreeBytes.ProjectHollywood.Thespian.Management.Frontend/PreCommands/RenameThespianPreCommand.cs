@@ -11,7 +11,7 @@ using ThreeBytes.ProjectHollywood.Thespian.Messages.Commands;
 
 namespace ThreeBytes.ProjectHollywood.Thespian.Management.Frontend.PreCommands
 {
-    public class RenameThespianPreCommand : ICommand
+    public class RenameThespianPreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public IConnectionManager ConnectionManager;

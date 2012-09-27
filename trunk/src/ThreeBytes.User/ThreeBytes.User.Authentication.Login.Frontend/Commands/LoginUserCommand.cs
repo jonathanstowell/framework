@@ -11,7 +11,7 @@ using ThreeBytes.User.Configuration.Abstract;
 
 namespace ThreeBytes.User.Authentication.Login.Frontend.Commands
 {
-    public class LoginUserCommand : ICommand
+    public class LoginUserCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public ValidationResult Results { get; set; }

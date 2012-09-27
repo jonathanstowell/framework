@@ -1,4 +1,5 @@
 ﻿using NServiceBus;
+using NServiceBus.Hosting.Profiles;
 
 namespace ThreeBytes.Email.ServiceHost.Profiles
 {

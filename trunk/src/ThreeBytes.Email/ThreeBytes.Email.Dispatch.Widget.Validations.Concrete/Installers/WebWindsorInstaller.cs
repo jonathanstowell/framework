@@ -15,7 +15,7 @@ namespace ThreeBytes.Email.Dispatch.Widget.Validations.Concrete.Installers
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .Configure(x => x.LifeStyle.Transient),
+                   .LifestyleTransient(),
                AllTypes.FromThisAssembly().BasedOn<IEmailDispatchWidgetEmailMessageValidatorResolver>().Configure(
                    component =>
                    {

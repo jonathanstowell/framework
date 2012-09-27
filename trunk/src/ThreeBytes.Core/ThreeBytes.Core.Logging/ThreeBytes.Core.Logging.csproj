@@ -38,10 +38,7 @@
       <HintPath>..\..\..\lib\external\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus">
-      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.dll</HintPath>
-    </Reference>
-    <Reference Include="NServiceBus.Core">
-      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.Core.dll</HintPath>
+      <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

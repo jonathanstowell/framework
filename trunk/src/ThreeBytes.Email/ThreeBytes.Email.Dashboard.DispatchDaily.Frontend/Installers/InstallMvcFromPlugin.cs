@@ -25,9 +25,9 @@ namespace ThreeBytes.Email.Dashboard.DispatchDaily.Frontend.Installers
                     {
                         component.Named(ViewKeyGenerator.GetViewKey(component.Implementation.FullName));
                     }).WithService.Base(),
-                AllTypes.FromThisAssembly().BasedOn<IRegisterRoutes>().Unless(x => x.IsAbstract).Configure(x => x.LifeStyle.Singleton),
-                AllTypes.FromThisAssembly().BasedOn<IRegisterNavigation>().Unless(x => x.IsAbstract).Configure(x => x.LifeStyle.Singleton),
-                AllTypes.FromThisAssembly().BasedOn<ICommand>().Unless(x => x.IsAbstract).Configure(x => x.LifeStyle.Transient)
+                AllTypes.FromThisAssembly().BasedOn<IRegisterRoutes>().Unless(x => x.IsAbstract),
+                AllTypes.FromThisAssembly().BasedOn<IRegisterNavigation>().Unless(x => x.IsAbstract),
+                AllTypes.FromThisAssembly().BasedOn<IPreCommand>().Unless(x => x.IsAbstract)
             );
         }
     }

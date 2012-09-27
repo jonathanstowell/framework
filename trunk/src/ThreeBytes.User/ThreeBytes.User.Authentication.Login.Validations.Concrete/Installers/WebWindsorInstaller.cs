@@ -15,7 +15,7 @@ namespace ThreeBytes.User.Authentication.Login.Validations.Concrete.Installers
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .Configure(x => x.LifeStyle.Transient),
+                   .LifestyleTransient(),
                Component.For<ILoginRoleValidatorResolver>().ImplementedBy<LoginRoleValidatorResolver>().LifeStyle.Transient,
                Component.For<ILoginUserValidatorResolver>().ImplementedBy<LoginUserValidatorResolver>().LifeStyle.Transient);
         }

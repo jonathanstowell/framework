@@ -5,7 +5,7 @@ using FluentValidation;
 using ThreeBytes.Core.Bootstrapper.Extensions.Windsor.Installers;
 using ThreeBytes.ProjectHollywood.Team.View.Validations.Abstract;
 
-namespace ThreeBytes.ProjectHollywood.Team.View.Validations.Installers
+namespace ThreeBytes.ProjectHollywood.Team.View.Validations.Concrete.Installers
 {
     public class BusWindsorInstaller : IBusWindsorRegistration
     {
@@ -15,7 +15,7 @@ namespace ThreeBytes.ProjectHollywood.Team.View.Validations.Installers
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .Configure(x => x.LifeStyle.Transient),
+                   .LifestyleTransient(),
                AllTypes.FromThisAssembly().BasedOn<ITeamViewEmployeeValidatorResolver>().Configure(
                    component =>
                    {

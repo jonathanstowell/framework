@@ -2,7 +2,6 @@
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using FluentNHibernate;
-using ThreeBytes.Caching.Core.Fluent.Configuration.Abstract;
 using ThreeBytes.Core.Bootstrapper.Extensions.Windsor.Installers;
 using ThreeBytes.Core.Caching.Configuration.Entities.Abstract;
 

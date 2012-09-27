@@ -10,7 +10,7 @@ using ThreeBytes.ProjectHollywood.Thespian.Messages.Commands;
 
 namespace ThreeBytes.ProjectHollywood.Thespian.Management.Frontend.PreCommands
 {
-    public class CreateThespianPreCommand : ICommand
+    public class CreateThespianPreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public ValidationResult Results { get; set; }

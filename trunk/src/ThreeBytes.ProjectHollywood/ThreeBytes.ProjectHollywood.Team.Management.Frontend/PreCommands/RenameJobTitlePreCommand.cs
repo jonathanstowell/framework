@@ -11,7 +11,7 @@ using ThreeBytes.ProjectHollywood.Team.Messages.Commands;
 
 namespace ThreeBytes.ProjectHollywood.Team.Management.Frontend.PreCommands
 {
-    public class RenameJobTitlePreCommand : ICommand
+    public class RenameJobTitlePreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public IConnectionManager ConnectionManager;

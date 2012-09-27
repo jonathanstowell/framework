@@ -5,7 +5,7 @@ using FluentValidation;
 using ThreeBytes.Core.Bootstrapper.Extensions.Windsor.Installers;
 using ThreeBytes.ProjectHollywood.News.View.Validations.Abstracts;
 
-namespace ThreeBytes.ProjectHollywood.News.View.Validations.Installers
+namespace ThreeBytes.ProjectHollywood.News.View.Validations.Concrete.Installers
 {
     public class WebWindsorInstaller : IWebWindsorRegistration
     {
@@ -15,7 +15,7 @@ namespace ThreeBytes.ProjectHollywood.News.View.Validations.Installers
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .Configure(x => x.LifeStyle.Transient),
+                   .LifestyleTransient(),
                AllTypes.FromThisAssembly().BasedOn<INewsViewNewsArticleValidatorResolver>().Configure(
                    component =>
                    {

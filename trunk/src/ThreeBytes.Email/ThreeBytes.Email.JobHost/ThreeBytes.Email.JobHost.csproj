@@ -35,16 +35,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bootstrapper">
-      <HintPath>..\..\..\lib\external\Bootstrapper.2.0.1.1\lib\Bootstrapper.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.dll</HintPath>
     </Reference>
     <Reference Include="C5">
       <HintPath>..\..\..\lib\external\Quartz.2.0.0\lib\net40\C5.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
-      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.FactorySupport">
+      <HintPath>..\..\..\lib\external\Castle\Castle.Facilities.FactorySupport.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor">
-      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging">
       <HintPath>..\..\..\lib\external\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
@@ -56,7 +59,7 @@
       <HintPath>..\..\..\lib\external\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\..\..\lib\external\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <HintPath>..\..\..\lib\external\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Quartz">
       <HintPath>..\..\..\lib\external\Quartz.2.0.0\lib\net40\Quartz.dll</HintPath>

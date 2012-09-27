@@ -9,7 +9,7 @@ using ThreeBytes.ProjectHollywood.Team.Messages.Commands;
 
 namespace ThreeBytes.ProjectHollywood.Team.Management.Frontend.PreCommands
 {
-    public class CreateTeamEmployeePreCommand : ICommand
+    public class CreateTeamEmployeePreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public ValidationResult Results { get; set; }

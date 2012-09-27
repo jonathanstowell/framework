@@ -11,7 +11,6 @@ using NServiceBus;
 using ThreeBytes.Core.Bootstrapper.Extensions.Windsor;
 using ThreeBytes.Core.Plugin.Abstract;
 using ThreeBytes.Core.Plugin.Concrete;
-using ThreeBytes.Core.Security.Concrete;
 using ThreeBytes.Core.Security.Utilities.Abstract;
 using ThreeBytes.Email.WebUI.Installers;
 

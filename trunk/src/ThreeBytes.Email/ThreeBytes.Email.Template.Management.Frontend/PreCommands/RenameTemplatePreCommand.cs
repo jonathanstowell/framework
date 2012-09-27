@@ -9,7 +9,7 @@ using ThreeBytes.Email.Template.Messages.Commands;
 
 namespace ThreeBytes.Email.Template.Management.Frontend.PreCommands
 {
-    public class RenameTemplatePreCommand : ICommand
+    public class RenameTemplatePreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         private readonly IEmailTemplateManagementTemplateValidatorResolver validatorResolver;

@@ -26,10 +26,10 @@ namespace ThreeBytes.User.Role.Management.Frontend.Installers
                     {
                         component.Named(ViewKeyGenerator.GetViewKey(component.Implementation.FullName));
                     }).WithService.Base(),
-                AllTypes.FromThisAssembly().BasedOn<IHub>().Unless(x => x.IsAbstract).Configure(x => x.LifeStyle.Transient),
-                AllTypes.FromThisAssembly().BasedOn<IRegisterRoutes>().Unless(x => x.IsAbstract).Configure(x => x.LifeStyle.Singleton),
-                AllTypes.FromThisAssembly().BasedOn<IRegisterNavigation>().Unless(x => x.IsAbstract).Configure(x => x.LifeStyle.Singleton),
-                AllTypes.FromThisAssembly().BasedOn<ICommand>().Unless(x => x.IsAbstract).Configure(x => x.LifeStyle.Transient)
+                AllTypes.FromThisAssembly().BasedOn<IHub>().Unless(x => x.IsAbstract).LifestyleTransient(),
+                AllTypes.FromThisAssembly().BasedOn<IRegisterRoutes>().Unless(x => x.IsAbstract).LifestyleSingleton(),
+                AllTypes.FromThisAssembly().BasedOn<IRegisterNavigation>().Unless(x => x.IsAbstract).LifestyleSingleton(),
+                AllTypes.FromThisAssembly().BasedOn<IPreCommand>().Unless(x => x.IsAbstract).LifestyleTransient()
             );
         }
     }

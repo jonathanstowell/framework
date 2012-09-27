@@ -12,7 +12,7 @@ using ThreeBytes.User.Configuration.Abstract;
 
 namespace ThreeBytes.User.Authentication.Password.Frontend.PreCommands
 {
-    public class ResetPasswordConfirmPreCommand : ICommand
+    public class ResetPasswordConfirmPreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public ValidationResult Results { get; set; }

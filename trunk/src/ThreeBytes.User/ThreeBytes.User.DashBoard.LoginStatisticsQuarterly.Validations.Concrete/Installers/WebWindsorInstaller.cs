@@ -15,7 +15,7 @@ namespace ThreeBytes.User.DashBoard.LoginStatisticsQuarterly.Validations.Concret
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .Configure(x => x.LifeStyle.Transient),
+                   .LifestyleTransient(),
                AllTypes.FromThisAssembly().BasedOn<IDashboardLoginStatisticsQuarterlyValidatorResolver>().Configure(
                    component =>
                    {

@@ -9,7 +9,7 @@ using ThreeBytes.User.Role.Messages.Commands;
 
 namespace ThreeBytes.User.Role.Management.Frontend.PreCommands
 {
-    public class CreateRolePreCommand : ICommand
+    public class CreateRolePreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public ValidationResult Results { get; set; }

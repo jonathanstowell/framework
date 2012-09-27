@@ -12,7 +12,7 @@ using ThreeBytes.User.Configuration.Abstract;
 
 namespace ThreeBytes.User.Authentication.OAuth.Frontend.Commands
 {
-    public class FoursquareLoginCommand : ICommand
+    public class FoursquareLoginCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public bool Success { get; set; }

@@ -5,7 +5,7 @@ using FluentNHibernate;
 using ThreeBytes.Core.Bootstrapper.Extensions.Windsor.Installers;
 using ThreeBytes.Core.Caching.Configuration.Entities.Abstract;
 
-namespace ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Entities.Mappi.Installers
+namespace ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Entities.Mappings.Installers
 {
     public class BusWindsorInstaller : IBusWindsorRegistration
     {

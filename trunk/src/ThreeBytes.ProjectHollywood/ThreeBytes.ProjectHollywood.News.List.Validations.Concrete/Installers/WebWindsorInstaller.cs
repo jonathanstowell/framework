@@ -15,7 +15,7 @@ namespace ThreeBytes.ProjectHollywood.News.List.Validations.Installers
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .Configure(x => x.LifeStyle.Transient),
+                   .LifestyleTransient(),
                AllTypes.FromThisAssembly().BasedOn<INewsListNewsArticleValidatorResolver>().Configure(
                    component =>
                    {

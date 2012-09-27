@@ -15,7 +15,7 @@ namespace ThreeBytes.User.Role.Management.Validations.Concrete.Installers
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .Configure(x => x.LifeStyle.Transient),
+                   .LifestyleTransient(),
                AllTypes.FromThisAssembly().BasedOn<IRoleManagementRoleValidatorResolver>().Configure(
                    component =>
                    {

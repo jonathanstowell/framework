@@ -7,7 +7,7 @@ using ThreeBytes.Core.Upload.Abstract;
 
 namespace ThreeBytes.ProjectHollywood.Thespian.Management.Frontend.Command
 {
-    public class PersistImageCommand : ICommand
+    public class PersistImageCommand : IPreCommand
     {
         private readonly IFileStore fileStore;
         private readonly IResizeImageService resizeImageService;

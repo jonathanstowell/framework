@@ -8,7 +8,7 @@ using ThreeBytes.ProjectHollywood.News.Messages.Commands;
 
 namespace ThreeBytes.ProjectHollywood.News.Management.Frontend.PreCommands
 {
-    public class CreatedNewsArticlePreCommand : ICommand
+    public class CreatedNewsArticlePreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public ValidationResult Results { get; set; }

@@ -11,7 +11,7 @@ using ThreeBytes.ProjectHollywood.Thespian.Messages.Commands;
 
 namespace ThreeBytes.ProjectHollywood.Thespian.Management.Frontend.PreCommands
 {
-    public class UpdateThespianProfileImagePreCommand : ICommand
+    public class UpdateThespianProfileImagePreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public IConnectionManager ConnectionManager;

@@ -12,7 +12,7 @@ using ThreeBytes.User.Configuration.Abstract;
 
 namespace ThreeBytes.User.Authentication.OAuth.Frontend.Commands
 {
-    public class TwitterLoginCommand : ICommand
+    public class TwitterLoginCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public bool Success { get; set; }

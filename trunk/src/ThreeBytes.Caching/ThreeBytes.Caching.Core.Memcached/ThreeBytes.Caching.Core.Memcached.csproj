@@ -32,13 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bootstrapper">
-      <HintPath>..\..\..\lib\external\Bootstrapper.2.0.1.1\lib\Bootstrapper.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
-      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor">
-      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="Enyim.Caching, Version=2.11.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

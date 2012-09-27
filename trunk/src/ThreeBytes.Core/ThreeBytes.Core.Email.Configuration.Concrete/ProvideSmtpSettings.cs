@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 using System.Net.Mail;
-using Castle.Windsor.Configuration.Interpreters.XmlProcessor;
+using Castle.Windsor.Configuration.Interpreters;
 using ThreeBytes.Core.Email.Configuration.Abstract;
 
 namespace ThreeBytes.Core.Email.Configuration.Concrete

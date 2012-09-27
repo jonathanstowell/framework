@@ -25,9 +25,9 @@ namespace ThreeBytes.Email.Template.Management.Frontend.Installers
                     {
                         component.Named(ViewKeyGenerator.GetViewKey(component.Implementation.FullName));
                     }).WithService.Base(),
-                AllTypes.FromThisAssembly().BasedOn<IRegisterRoutes>().Unless(x => x.IsAbstract).Configure(x => x.LifeStyle.Transient),
-                AllTypes.FromThisAssembly().BasedOn<IRegisterNavigation>().Unless(x => x.IsAbstract).Configure(x => x.LifeStyle.Transient),
-                AllTypes.FromThisAssembly().BasedOn<ICommand>().Unless(x => x.IsAbstract).Configure(x => x.LifeStyle.Transient)
+                AllTypes.FromThisAssembly().BasedOn<IRegisterRoutes>().LifestyleSingleton(),
+                AllTypes.FromThisAssembly().BasedOn<IRegisterNavigation>().LifestyleSingleton(),
+                AllTypes.FromThisAssembly().BasedOn<IPreCommand>().LifestyleTransient()
             );
         }
     }

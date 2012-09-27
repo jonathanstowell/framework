@@ -11,7 +11,7 @@ using ThreeBytes.User.Configuration.Abstract;
 
 namespace ThreeBytes.User.Authentication.Registration.FrontEnd.PreCommands
 {
-    public class RegisterExistingUserPreCommand : ICommand
+    public class RegisterExistingUserPreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public ValidationResult Results { get; set; }

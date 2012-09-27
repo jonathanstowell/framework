@@ -10,7 +10,7 @@ using ThreeBytes.Email.Template.Messages.Commands;
 
 namespace ThreeBytes.Email.Template.Management.Frontend.PreCommands
 {
-    public class UpdateTemplateEmailContentsPreCommand : ICommand
+    public class UpdateTemplateEmailContentsPreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         private readonly IEmailTemplateManagementTemplateValidatorResolver validatorResolver;

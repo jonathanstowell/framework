@@ -11,7 +11,7 @@ using ThreeBytes.User.Configuration.Abstract;
 
 namespace ThreeBytes.User.Authentication.OAuth.Frontend.PreCommands
 {
-    public class LinkExistingUserToExternalProviderPreCommand : ICommand
+    public class LinkExistingUserToExternalProviderPreCommand : IPreCommand
     {
         private readonly IProvideUserConfiguration configuration;
         private readonly IOAuthUserService service;

@@ -15,7 +15,7 @@ namespace ThreeBytes.ProjectHollywood.Thespian.Management.Validations.Concrete.I
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .Configure(x => x.LifeStyle.Transient),
+                   .LifestyleTransient(),
                AllTypes.FromThisAssembly().BasedOn<IThespianManagementThespianValidatorResolver>().Configure(
                    component =>
                    {

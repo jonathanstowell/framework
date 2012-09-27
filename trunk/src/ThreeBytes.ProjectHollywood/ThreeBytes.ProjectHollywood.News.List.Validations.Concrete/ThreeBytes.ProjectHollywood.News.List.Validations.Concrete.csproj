@@ -32,10 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core">
-      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor">
-      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation">
       <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>

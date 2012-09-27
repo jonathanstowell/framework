@@ -4,7 +4,7 @@ using Castle.Windsor;
 using ThreeBytes.Core.Bootstrapper.Extensions.Windsor.Installers;
 using ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Service.Abstract;
 
-namespace ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Service.C.Installers
+namespace ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Service.Concrete.Installers
 {
     public class BusWindsorInstaller : IBusWindsorRegistration
     {

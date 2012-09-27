@@ -9,7 +9,7 @@ using ThreeBytes.Email.Template.Messages.Commands;
 
 namespace ThreeBytes.Email.Template.Management.Frontend.PreCommands
 {
-    public class DeletedTemplatePreCommand : ICommand
+    public class DeletedTemplatePreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
 

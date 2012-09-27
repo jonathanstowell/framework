@@ -11,7 +11,7 @@ using ThreeBytes.ProjectHollywood.News.Messages.Commands;
 
 namespace ThreeBytes.ProjectHollywood.News.Management.Frontend.PreCommands
 {
-    public class UpdateNewsArticleContentPreCommand : ICommand
+    public class UpdateNewsArticleContentPreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public IConnectionManager ConnectionManager;

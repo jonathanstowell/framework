@@ -9,7 +9,7 @@ using ThreeBytes.User.Profile.Messages.Commands;
 
 namespace ThreeBytes.User.Profile.Management.Frontend.PreCommands
 {
-    public class UpdateProfileNamePreCommand : ICommand
+    public class UpdateProfileNamePreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public ValidationResult Results { get; set; }

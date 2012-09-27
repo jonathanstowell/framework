@@ -9,7 +9,7 @@ using ThreeBytes.User.Authentication.Messages.Commands;
 
 namespace ThreeBytes.User.Authentication.Login.Frontend.PreCommands
 {
-    public class UserEnteredIncorrectPasswordPreCommand : ICommand
+    public class UserEnteredIncorrectPasswordPreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public ValidationResult Results { get; set; }

@@ -10,7 +10,7 @@ using ThreeBytes.User.Configuration.Abstract;
 
 namespace ThreeBytes.User.Authentication.Registration.FrontEnd.PreCommands
 {
-    public class VerifyAccountPreCommand : ICommand
+    public class VerifyAccountPreCommand : IPreCommand
     {
         public IBus Bus { get; set; }
         public ValidationResult Results { get; set; }

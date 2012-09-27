@@ -16,7 +16,7 @@ namespace ThreeBytes.Core.Quartz.Concrete
 
         public object GetService(Type serviceType)
         {
-            return container.GetService(serviceType);
+            return container.Resolve(serviceType);
         }
 
         public object GetInstance(Type serviceType)

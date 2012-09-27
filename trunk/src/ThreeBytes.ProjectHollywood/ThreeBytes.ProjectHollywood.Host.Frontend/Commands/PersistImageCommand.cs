@@ -8,7 +8,7 @@ using ThreeBytes.ProjectHollywood.Host.Validations.Abstract;
 
 namespace ThreeBytes.ProjectHollywood.Host.Frontend.Commands
 {
-    public class PersistImageCommand : ICommand
+    public class PersistImageCommand : IPreCommand
     {
         private readonly IFileStore fileStore;
         private readonly IResizeImageService resizeImageService;

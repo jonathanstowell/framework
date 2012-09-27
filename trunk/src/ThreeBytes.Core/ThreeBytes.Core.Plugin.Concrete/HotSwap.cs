@@ -48,7 +48,7 @@ namespace ThreeBytes.Core.Plugin.Concrete
             {
                 try
                 {
-                    container.Kernel.RemoveComponent(type.FullName);
+                    container.Kernel.ReleaseComponent(type.FullName);
                 }
                 catch (Exception)
                 {}

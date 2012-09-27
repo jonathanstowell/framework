@@ -49,13 +49,19 @@
       <HintPath>..\..\..\lib\external\SquishIt-0.8.6\AjaxMin.dll</HintPath>
     </Reference>
     <Reference Include="Bootstrapper">
-      <HintPath>..\..\..\lib\external\Bootstrapper.2.0.1.1\lib\Bootstrapper.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Bootstrapper.WindsorExtension">
+      <HintPath>..\..\..\lib\external\Bootstrapper.Windsor\Bootstrapper.WindsorExtension.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
-      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET40ClientProfile\Castle.Core.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.FactorySupport">
+      <HintPath>..\..\..\lib\external\Castle\Castle.Facilities.FactorySupport.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor">
-      <HintPath>..\..\..\lib\external\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="dotless.Core, Version=1.1.0.2, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -107,10 +113,13 @@
       <HintPath>..\..\..\lib\external\NHibernate.Castle.3.1.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus">
-      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.dll</HintPath>
+      <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus.Core">
-      <HintPath>..\..\..\lib\external\NServiceBus.2.6.0.1505\lib\net40\NServiceBus.Core.dll</HintPath>
+      <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.ObjectBuilder.CastleWindsor">
+      <HintPath>..\..\..\lib\external\NServiceBus\containers\castle\NServiceBus.ObjectBuilder.CastleWindsor.dll</HintPath>
     </Reference>
     <Reference Include="SharpSquare">
       <HintPath>..\..\..\lib\external\SharpSquare\SharpSquare.dll</HintPath>
@@ -220,9 +229,6 @@
     <Reference Include="ThreeBytes.Core.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="ThreeBytes.Core.NServiceBus.ObjectBuilder.CastleWindsor">
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.NServiceBus.ObjectBuilder.CastleWindsor.dll</HintPath>
     </Reference>
     <Reference Include="ThreeBytes.Core.Plugin.Abstract">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Plugin.Abstract.dll</HintPath>

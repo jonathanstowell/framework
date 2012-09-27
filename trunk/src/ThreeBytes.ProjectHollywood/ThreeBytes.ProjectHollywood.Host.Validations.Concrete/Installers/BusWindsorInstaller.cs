@@ -15,7 +15,7 @@ namespace ThreeBytes.ProjectHollywood.Host.Validations.Concrete.Installers
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .Configure(x => x.LifeStyle.Transient),
+                   .LifestyleTransient(),
                 AllTypes.FromThisAssembly().BasedOn<IPersistImageValidatorResolver>().Configure(
                     component =>
                     {

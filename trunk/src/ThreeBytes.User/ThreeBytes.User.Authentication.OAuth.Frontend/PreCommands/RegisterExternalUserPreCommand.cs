@@ -10,7 +10,7 @@ using ThreeBytes.User.Configuration.Abstract;
 
 namespace ThreeBytes.User.Authentication.OAuth.Frontend.PreCommands
 {
-    public class RegisterExternalUserPreCommand : ICommand
+    public class RegisterExternalUserPreCommand : IPreCommand
     {
         private readonly IProvideUserConfiguration configuration;
         private readonly IOAuthUserValidatorResolver validatorResolver;
