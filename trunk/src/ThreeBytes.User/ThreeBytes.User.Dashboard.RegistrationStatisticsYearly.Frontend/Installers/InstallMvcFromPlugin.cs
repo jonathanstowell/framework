@@ -7,7 +7,7 @@ using ThreeBytes.Core.Bootstrapper.Extensions.Windsor.Installers;
 using ThreeBytes.Core.Commands.Abstract;
 using ThreeBytes.Core.DataStructures;
 
-namespace ThreeBytes.User.Dashboard.RegistrationStatisticsYearly.F.Installers
+namespace ThreeBytes.User.Dashboard.RegistrationStatisticsYearly.Frontend.Installers
 {
     public class InstallMvcFromPlugin : IWebWindsorRegistration
     {
@@ -25,8 +25,8 @@ namespace ThreeBytes.User.Dashboard.RegistrationStatisticsYearly.F.Installers
                     {
                         component.Named(ViewKeyGenerator.GetViewKey(component.Implementation.FullName));
                     }).WithService.Base(),
-                AllTypes.FromThisAssembly().BasedOn<IRegisterRoutes>().Unless(x => x.IsAbstract).LifestyleSingleton(),
-                AllTypes.FromThisAssembly().BasedOn<IRegisterNavigation>().Unless(x => x.IsAbstract).LifestyleSingleton(),
+                AllTypes.FromThisAssembly().BasedOn<IRegisterRoutes>().Unless(x => x.IsAbstract).LifestyleSingleton().WithService.FromInterface(),
+                AllTypes.FromThisAssembly().BasedOn<IRegisterNavigation>().Unless(x => x.IsAbstract).LifestyleSingleton().WithService.FromInterface(),
                 AllTypes.FromThisAssembly().BasedOn<IPreCommand>().Unless(x => x.IsAbstract).LifestyleTransient()
             );
         }
