@@ -19,12 +19,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes"> 
     <!-- CSS : implied media="all" -->
     @* More info about SquishIt from http://www.codethinked.com/squishit-the-friendly-aspnet-javascript-and-css-squisher *@
-    @Html.Raw(SquishIt.Framework.Bundle.Css()
+    @MvcHtmlString.Create(SquishIt.Framework.Bundle.Css()
                                      .Add("~/css/bootstrap.min.css")
                                      .Add("~/css/bootstrap-responsive.min.css")
                                      .Add("~/css/font-awesome.css")
-                                     .Add("~/css/base-admin.css")
-                                     .Add("~/css/base-admin-responsive.css")
+                                     .Add("~/css/less/projecthollywood.less")
+                                     .Add("~/css/less/projecthollywood-responsive.less")
             //.ForceRelease() // Test it out with minification
                                      .Render("~/css/style_#.css"))
 
@@ -46,10 +46,10 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </a>
-                @Html.ActionLink(Resources.ThreeBytes, "Index", "UserDashboardHost", new { @class = "brand" })
+                @Html.ActionLink("Felix de Wolfe", "Index", "About", null, new { @class = "brand" })
                 <div class="nav-collapse">
                     @{ Html.RenderAction("Index", "Navigation"); }
-					@Html.Partial("_LogOnPartial")
+                    @Html.Partial("_LogOnPartial")
                 </div>              
             </div>
         </div>
@@ -62,6 +62,7 @@
             </div>
         </div>
     </div>
+    <!--! end of #container -->
 
     <!-- All JavaScript at the bottom, except for Modernizr and Respond.
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
@@ -80,12 +81,17 @@
                                      .Add("~/js/script.js")
                                      .Add("~/js/libs/jquery.tmpl.js")
                                      .Add("~/js/libs/jquery.sparkline.js")
+                                     .Add("~/js/libs/jquery.gritter.js")
                                      .Add("~/js/libs/jquery.signalR.js")
                                      .Add("~/js/libs/jquery.timeago.js")
                                      .Add("~/js/libs/jquery.validate.js")
+                                     .Add("~/js/libs/jquery.validate.unobtrusive.js")
                                      .Add("~/js/libs/javascript.util.dateformat.js")
                                      .Add("~/js/libs/knockout-2.0.0.debug.js")
                                      .Add("~/js/libs/knockout.mapping.js")
+                                     .Add("~/js/libs/swfupload.js")
+                                     .Add("~/js/libs/jquery-asyncUpload-0.1.js")
+                                     .Add("~/js/mylibs/ThreeBytes.Core.Knockout.Effects.js")
                                      .Add("~/js/mylibs/ThreeBytes.Core.Util.JqueryTmplHelpers.js")
                                      .Add("~/js/mylibs/ThreeBytes.Core.Util.Validation.js")
                                      .Add("~/js/mylibs/ThreeBytes.Core.Knockout.Validation.js")
@@ -93,16 +99,14 @@
                                      .Add("~/js/mylibs/ThreeBytes.Core.Knockout.Paging.js")
                                      .Add("~/js/mylibs/ThreeBytes.SignalR.Knockout.CurrentlyViewing.js")
                                      .Add("~/js/mylibs/ThreeBytes.Bootstrap.js")
-                                     .Add("~/js/libs/bootstrap.js")
+                                      .Add("~/js/libs/bootstrap.js")
                                      .Add("~/js/libs/diff_match_patch.js")
                                      .Render("~/js/script_#.js"))
                                      
     <script type="text/javascript" src="@Url.Content("~/signalr/hubs")"></script>
 
-    @MvcMiniProfiler.MiniProfiler.RenderIncludes()
     <!-- ADDED: Page Level script sections -->
-    @RenderSection("ScriptSection", false)
-    @Html.RenderScripts()
+    @Html.RenderScripts(false)
 
     <script type="text/javascript">
         jQuery.connection.hub.start();

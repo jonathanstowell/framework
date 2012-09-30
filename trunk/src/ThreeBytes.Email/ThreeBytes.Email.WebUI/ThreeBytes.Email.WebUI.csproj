@@ -109,8 +109,9 @@
     <Reference Include="NHibernate">
       <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate.ByteCode.Castle">
-      <HintPath>..\..\..\lib\external\NHibernate.Castle.3.1.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus">
       <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.dll</HintPath>
@@ -314,13 +315,23 @@
     <Content Include="apple-touch-icon-57x57-precomposed.png" />
     <Content Include="apple-touch-icon-72x72-precomposed.png" />
     <Content Include="apple-touch-icon-precomposed.png" />
-    <Content Include="css\base-admin-responsive.css" />
-    <Content Include="css\base-admin.css" />
-    <Content Include="css\bootstrap-responsive-2.02.min.css" />
+    <Content Include="css\bootstrap-2.03.css" />
+    <Content Include="css\bootstrap-2.03.min.css" />
+    <Content Include="css\bootstrap-responsive-2.03.css" />
+    <Content Include="css\bootstrap-responsive.min-2.03.css" />
     <Content Include="css\bootstrap-responsive.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.css" />
-    <Content Include="css\normalize.css" />
+    <Content Include="css\jquery.mobile-1.1.0.css" />
+    <Content Include="css\jquery.mobile-1.1.0.min.css" />
+    <Content Include="css\jquery.mobile.structure-1.1.0.css" />
+    <Content Include="css\jquery.mobile.structure-1.1.0.min.css" />
+    <Content Include="css\jquery.mobile.theme-1.1.0.css" />
+    <Content Include="css\jquery.mobile.theme-1.1.0.min.css" />
+    <Content Include="css\less\projecthollywood-responsive.less.debug.css" />
+    <Content Include="css\less\projecthollywood.less.debug.css" />
+    <Content Include="css\less\styles.less.debug.css" />
+    <Content Include="css\less\test.less.debug.css" />
     <Content Include="demo\hack.css" />
     <Content Include="demo\hack2.css" />
     <Content Include="demo\internet_explorer.png" />
@@ -328,6 +339,16 @@
     <Content Include="demo\test_tubes.png" />
     <Content Include="GenericErrorPage.html" />
     <Content Include="humans.txt" />
+    <Content Include="css\less\mixins.less" />
+    <Content Include="css\less\notifications.less" />
+    <Content Include="css\less\projecthollywood-responsive.less" />
+    <Content Include="css\less\projecthollywood.less" />
+    <Content Include="css\less\responsive-1200px-min.less" />
+    <Content Include="css\less\responsive-480px-max.less" />
+    <Content Include="css\less\responsive-767px-max.less" />
+    <Content Include="css\less\responsive-979px-max.less" />
+    <Content Include="css\less\styles.less" />
+    <Content Include="css\less\variables.less" />
     <None Include="font\fontawesome-webfont.eot" />
     <None Include="font\fontawesome-webfont.svg" />
     <None Include="font\fontawesome-webfont.svgz" />
@@ -365,10 +386,15 @@
     <Content Include="img\twitter-nonactive-48x48.png" />
     <Content Include="js\libs\additional-methods.js" />
     <Content Include="js\libs\additional-methods.min.js" />
+    <Content Include="js\libs\ajaxupload.js" />
     <Content Include="js\libs\base.js" />
+    <Content Include="js\libs\bootstrap-2.02.js" />
     <Content Include="js\libs\bootstrap-2.02.min.js" />
+    <Content Include="js\libs\bootstrap-2.03.js" />
     <Content Include="js\libs\bootstrap-buttons.js" />
     <Content Include="js\libs\bootstrap.js" />
+    <Content Include="js\libs\bootstrap.min-2.02.js" />
+    <Content Include="js\libs\bootstrap.min-2.03.js" />
     <Content Include="js\libs\bootstrap.min.js" />
     <Content Include="js\libs\charts\area.js" />
     <Content Include="js\libs\charts\bar.js" />
@@ -384,11 +410,20 @@
     <Content Include="js\libs\guidely\guidely.js" />
     <Content Include="js\libs\guidely\guidely.min.js" />
     <Content Include="js\libs\javascript.util.dateformat.js" />
+    <Content Include="js\libs\jquery-1.2.6.min.js" />
+    <Content Include="js\libs\jquery-1.7.1.js" />
+    <Content Include="js\libs\jquery-1.7.1.min.js" />
     <Content Include="js\libs\jquery-1.7.2.min.js" />
+    <Content Include="js\libs\jquery-asyncUpload-0.1.js" />
+    <Content Include="js\libs\jquery-ui-1.8.18.custom.min.js" />
     <Content Include="js\libs\jquery.flot.js" />
     <Content Include="js\libs\jquery.flot.orderBars.js" />
     <Content Include="js\libs\jquery.flot.pie.js" />
     <Content Include="js\libs\jquery.flot.resize.js" />
+    <Content Include="js\libs\jquery.gritter.js" />
+    <Content Include="js\libs\jquery.gritter.min.js" />
+    <Content Include="js\libs\jquery.mobile-1.1.0.js" />
+    <Content Include="js\libs\jquery.mobile-1.1.0.min.js" />
     <Content Include="js\libs\jquery.signalR.js" />
     <Content Include="js\libs\jquery.signalR.min.js" />
     <Content Include="js\libs\jquery.sparkline.js" />
@@ -396,7 +431,7 @@
     <Content Include="js\libs\jquery.tmpl.js" />
     <Content Include="js\libs\jquery.unobtrusive-ajax.js" />
     <Content Include="js\libs\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="js\libs\jquery.validate-vsdoc.js" />
+    <None Include="js\libs\jquery.validate-vsdoc.js" />
     <Content Include="js\libs\jquery.validate.js" />
     <Content Include="js\libs\jquery.validate.min.js" />
     <Content Include="js\libs\jquery.validate.unobtrusive.js" />
@@ -407,8 +442,12 @@
     <Content Include="js\libs\knockout.mapping.js" />
     <Content Include="js\libs\modernizr-2.0.min.js" />
     <Content Include="js\libs\respond.min.js" />
+    <Content Include="js\libs\swfupload license.txt" />
+    <Content Include="js\libs\swfupload.js" />
+    <Content Include="js\libs\swfupload.swf" />
     <Content Include="js\mylibs\ThreeBytes.Bootstrap.js" />
     <Content Include="js\mylibs\ThreeBytes.Core.Knockout.DateTime.js" />
+    <Content Include="js\mylibs\ThreeBytes.Core.Knockout.Effects.js" />
     <Content Include="js\mylibs\ThreeBytes.Core.Knockout.Paging.js" />
     <Content Include="js\mylibs\ThreeBytes.Core.Knockout.Validation.js" />
     <Content Include="js\mylibs\ThreeBytes.Core.Util.JqueryTmplHelpers.js" />

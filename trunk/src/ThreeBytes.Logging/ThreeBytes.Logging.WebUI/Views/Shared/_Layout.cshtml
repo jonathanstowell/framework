@@ -1,5 +1,4 @@
-﻿@using ThreeBytes.Core.Extensions.Mvc
-<!doctype html>
+﻿<!doctype html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
@@ -16,47 +15,52 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <!--  Mobile viewport optimized: j.mp/bplateviewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
     <!-- CSS : implied media="all" -->
     @* More info about SquishIt from http://www.codethinked.com/squishit-the-friendly-aspnet-javascript-and-css-squisher *@
-    @Html.Raw(SquishIt.Framework.Bundle.Css()
-                                     .Add("~/css/normalize.css")
-                                     .Add("~/css/media.css")
-                                     .Add("~/css/bootstrap.css")
-                                     .Add("~/css/site.css")
+    @MvcHtmlString.Create(SquishIt.Framework.Bundle.Css()
+                                     .Add("~/css/bootstrap.min.css")
+                                     .Add("~/css/bootstrap-responsive.min.css")
+                                     .Add("~/css/font-awesome.css")
+                                     .Add("~/css/less/projecthollywood.less")
+                                     .Add("~/css/less/projecthollywood-responsive.less")
             //.ForceRelease() // Test it out with minification
                                      .Render("~/css/style_#.css"))
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
 
     @RenderSection("HeadContent", false)
 
     <script src="@Url.Content("~/js/libs/modernizr-2.0.min.js")"></script>
-    <script src="@Url.Content("~/js/libs/respond.min.js")"></script>
     <!-- More ideas for your <head> here: h5bp.com/docs/#head-Tips -->
 </head>
 <body>
     <!-- Topbar
     ================================================== -->
-    <div class="topbar">
-        <div class="topbar-inner">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
             <div class="container">
-                <div id="logindisplay">
-                </div>
-                <h3>@Html.ActionLink(Resources.ThreeBytes, "Index", "LoggingHost")</h3>
-                @{ Html.RenderAction("Index", "Navigation"); }
-                @Html.Partial("_LogOnPartial")
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </a>
+                @Html.ActionLink("Felix de Wolfe", "Index", "About", null, new { @class = "brand" })
+                <div class="nav-collapse">
+                    @{ Html.RenderAction("Index", "Navigation"); }
+                    @Html.Partial("_LogOnPartial")
+                </div>              
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="content">
-            @RenderBody()
+    <div class="main">	
+        <div class="main-inner">
+            <div class="container">
+                @RenderBody()
+            </div>
         </div>
-        <footer>
-            <p> 
-                @Resources.DesignedAndBuiltBy <a href="http://www.threebytes.co.uk" target="_blank">@Resources.ThreeBytes</a>.
-            </p> 
-        </footer>
     </div>
     <!--! end of #container -->
 
@@ -66,8 +70,8 @@
 
      <!-- JavaScript at the bottom for fast page loading -->
     <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script>      window.jQuery || document.write("<script src='@Url.Content("~/js/libs/jquery-1.6.2.min.js")'>\x3C/script>")</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>      window.jQuery || document.write("<script src='@Url.Content("~/js/libs/jquery-1.7.2.min.js")'>\x3C/script>")</script>
     <script src="@Url.Content("~/js/libs/jquery.validate.min.js")"></script>
     <script src="@Url.Content("~/js/libs/jquery.validate.unobtrusive.js")"></script>
 
@@ -76,24 +80,42 @@
                                      .Add("~/js/plugins.js")
                                      .Add("~/js/script.js")
                                      .Add("~/js/libs/jquery.tmpl.js")
+                                     .Add("~/js/libs/jquery.sparkline.js")
+                                     .Add("~/js/libs/jquery.gritter.js")
+                                     .Add("~/js/libs/jquery.signalR.js")
+                                     .Add("~/js/libs/jquery.timeago.js")
+                                     .Add("~/js/libs/jquery.validate.js")
+                                     .Add("~/js/libs/jquery.validate.unobtrusive.js")
                                      .Add("~/js/libs/javascript.util.dateformat.js")
                                      .Add("~/js/libs/knockout-2.0.0.debug.js")
                                      .Add("~/js/libs/knockout.mapping.js")
+                                     .Add("~/js/libs/swfupload.js")
+                                     .Add("~/js/libs/jquery-asyncUpload-0.1.js")
+                                     .Add("~/js/mylibs/ThreeBytes.Core.Knockout.Effects.js")
                                      .Add("~/js/mylibs/ThreeBytes.Core.Util.JqueryTmplHelpers.js")
                                      .Add("~/js/mylibs/ThreeBytes.Core.Util.Validation.js")
-                                     .Add("~/js/libs/bootstrap-modal.js")
-                                     .Add("~/js/libs/bootstrap-alerts.js")
-                                     .Add("~/js/libs/bootstrap-twipsy.js")
-                                     .Add("~/js/libs/bootstrap-popover.js")
-                                     .Add("~/js/libs/bootstrap-dropdown.js")
-                                     .Add("~/js/libs/bootstrap-scrollspy.js")
-                                     .Add("~/js/libs/bootstrap-tabs.js")
+                                     .Add("~/js/mylibs/ThreeBytes.Core.Knockout.Validation.js")
+                                     .Add("~/js/mylibs/ThreeBytes.Core.Knockout.DateTime.js")
+                                     .Add("~/js/mylibs/ThreeBytes.Core.Knockout.Paging.js")
+                                     .Add("~/js/mylibs/ThreeBytes.SignalR.Knockout.CurrentlyViewing.js")
+                                     .Add("~/js/mylibs/ThreeBytes.Bootstrap.js")
+                                      .Add("~/js/libs/bootstrap.js")
+                                     .Add("~/js/libs/diff_match_patch.js")
                                      .Render("~/js/script_#.js"))
+                                     
+    <script type="text/javascript" src="@Url.Content("~/signalr/hubs")"></script>  
 
-    @MvcMiniProfiler.MiniProfiler.RenderIncludes()
     <!-- ADDED: Page Level script sections -->
-    @RenderSection("ScriptSection", false)
-    @Html.RenderScripts()
+    @Html.RenderScripts(false)
+
+    <script type="text/javascript">
+        jQuery.connection.hub.start();
+        if (window.location.hash == '#_=_') {
+            window.location.hash = ''; // for older browsers, leaves a # behind
+            history.pushState('', document.title, window.location.pathname); // nice and clean
+            e.preventDefault(); // no page reload
+        }
+    </script>
     <!--[if lt IE 7 ]>
     <script src="@Url.Content("~/js/libs/dd_belatedpng.js")"></script>
     <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>

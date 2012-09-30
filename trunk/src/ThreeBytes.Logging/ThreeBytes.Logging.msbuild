@@ -39,9 +39,15 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	
 	<Target Name="external-core-libs">
 		<ItemGroup>
-			<ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Encryption.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Encryption.*"/>
       <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Utilities.Concrete.dll"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Email.*"/>
       <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Caching.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Upload.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Image.Service.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Facebook.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Foursquare.*"/>
+      <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Twitter.*"/>
 		</ItemGroup>
 		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Core" />
 		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Core" />
@@ -54,6 +60,13 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Caching" />
 		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Caching" />
 	</Target>
+
+  <Target Name="external-signalr-libs">
+    <ItemGroup>
+      <ExternalSignalRLibs Include="..\..\lib\internal\ThreeBytes.SignalR\ThreeBytes.SignalR.Hubs.*"/>
+    </ItemGroup>
+    <Copy SourceFiles="@(ExternalSignalRLibs)" DestinationFolder="$(WebPluginLocation)" />
+  </Target>
 	
 	<Target Name="host">
 		<ItemGroup>
@@ -75,5 +88,5 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	</Target>
   
   <Target Name="all-logging" DependsOnTargets="build-threebytes-Logging;copy-plugins;" />
-  <Target Name="copy-plugins" DependsOnTargets="external-messages;external-core-libs;external-caching-libs;host;exceptions;" />
+  <Target Name="copy-plugins" DependsOnTargets="external-messages;external-core-libs;external-caching-libs;external-signalr-libs;host;exceptions;" />
 </Project>

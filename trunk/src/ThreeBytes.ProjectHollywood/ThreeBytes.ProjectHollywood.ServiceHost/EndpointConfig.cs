@@ -18,24 +18,28 @@ namespace ThreeBytes.ProjectHollywood.ServiceHost
         public static IResolveAssemblies AssemblyResolver = new ResolveAssemblies("Plugins", "ThreeBytes.*.dll");
         private static IWindsorContainer Container = new WindsorContainer();
 
-        public void Init()
+        public EndpointConfig()
         {
             Bootstrapper.With.Windsor(AssemblyResolver, BootstrapEnvironment.BUS).And.StartupTasks().UsingThisExecutionOrder(s => s
                         .First<AppDomainAssemblyResolverStartupTask>()
                         .Then<WindsorSetupStartupTask>()
                         .Then().TheRest()).Start();
+        }
 
+        public void Init()
+        {
             var assemblies = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory)
                                         .GetFiles("NServiceBus*.dll", SearchOption.AllDirectories)
                                         .Select(file => Assembly.LoadFrom(file.FullName));
 
-            Container = (IWindsorContainer)Bootstrapper.Container;
+            Container = (IWindsorContainer) Bootstrapper.Container;
 
             Configure.With(assemblies.Concat(AssemblyResolver.PluginAssembliesByFullName.Values))
                 .CastleWindsorBuilder(Container)
                 .MsmqTransport()
                 .MsmqSubscriptionStorage()
-                .XmlSerializer();
+                .XmlSerializer()
+                .DisableTimeoutManager();
         }
     }
 }

@@ -30,3 +30,11 @@ function EscapeDotNet(item) {
 
     return encodedInputString;
 }
+
+function isNullOrEmpty(str) {
+    if (str == undefined || str.replace(/\s/g, "") == "" || !str || 0 === str.length) {
+        return true;
+    }
+
+    return false;
+}

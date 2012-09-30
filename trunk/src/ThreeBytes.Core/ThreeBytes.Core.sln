@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Core.Data.Abstract", "ThreeBytes.Core.Data.Abstract\ThreeBytes.Core.Data.Abstract.csproj", "{1D61579A-EC49-4038-BFE9-C904C0962B67}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Core.Entities.Concrete", "ThreeBytes.Core.Entities.Concrete\ThreeBytes.Core.Entities.Concrete.csproj", "{F9875356-9E5D-4297-B1B7-5468F44CD04B}"
@@ -246,6 +246,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Core.Twitter.Entities.Abstract", "ThreeBytes.Core.Twitter.Entities.Abstract\ThreeBytes.Core.Twitter.Entities.Abstract.csproj", "{199B4B1D-48A0-4658-A32F-9897FA230578}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Core.Twitter.Entities.Concrete", "ThreeBytes.Core.Twitter.Entities.Concrete\ThreeBytes.Core.Twitter.Entities.Concrete.csproj", "{B14E9AEB-022D-47E8-B7F3-8138EFE1A487}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nHibernate", "nHibernate", "{AF1260AA-5CDB-4E9A-9BEA-1AE8B174BCEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate.ByteCode.Castle", "NHibernate.ByteCode.Castle\NHibernate.ByteCode.Castle.csproj", "{D09355E8-6DBF-446E-A7C7-FF4EE76118D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1227,6 +1231,16 @@ Global
 		{B14E9AEB-022D-47E8-B7F3-8138EFE1A487}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B14E9AEB-022D-47E8-B7F3-8138EFE1A487}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B14E9AEB-022D-47E8-B7F3-8138EFE1A487}.Release|x86.ActiveCfg = Release|Any CPU
+		{D09355E8-6DBF-446E-A7C7-FF4EE76118D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D09355E8-6DBF-446E-A7C7-FF4EE76118D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D09355E8-6DBF-446E-A7C7-FF4EE76118D5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D09355E8-6DBF-446E-A7C7-FF4EE76118D5}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D09355E8-6DBF-446E-A7C7-FF4EE76118D5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D09355E8-6DBF-446E-A7C7-FF4EE76118D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D09355E8-6DBF-446E-A7C7-FF4EE76118D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D09355E8-6DBF-446E-A7C7-FF4EE76118D5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D09355E8-6DBF-446E-A7C7-FF4EE76118D5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D09355E8-6DBF-446E-A7C7-FF4EE76118D5}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1329,5 +1343,6 @@ Global
 		{3BE9024E-68F9-4FBD-AFAE-4CA7BB270E65} = {081EC719-C0B5-49CD-B1AC-0FF5B1391B68}
 		{199B4B1D-48A0-4658-A32F-9897FA230578} = {081EC719-C0B5-49CD-B1AC-0FF5B1391B68}
 		{B14E9AEB-022D-47E8-B7F3-8138EFE1A487} = {081EC719-C0B5-49CD-B1AC-0FF5B1391B68}
+		{D09355E8-6DBF-446E-A7C7-FF4EE76118D5} = {AF1260AA-5CDB-4E9A-9BEA-1AE8B174BCEE}
 	EndGlobalSection
 EndGlobal

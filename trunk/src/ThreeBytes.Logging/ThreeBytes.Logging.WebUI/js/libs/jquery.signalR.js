@@ -126,9 +126,10 @@
             };
 
             window.setTimeout(function () {
-                $.ajax(connection.url + "/negotiate", {
+                $.ajax({
                     global: false,
                     type: "POST",
+                    url: connection.url + "/negotiate",
                     data: {},
                     dataType: "json",
                     error: function (error) {
@@ -340,9 +341,10 @@
         ajaxSend: function (connection, data) {
             var url = connection.url + "/send" + "?transport=" + connection.transport.name + "&connectionId=" + window.escape(connection.id);
             url = this.addQs(url, connection);
-            $.ajax(url, {
+            $.ajax({
                 global: false,
                 type: "POST",
+                url: url,
                 dataType: "json",
                 data: {
                     data: data
@@ -776,11 +778,11 @@
                             reconnectTimeOut = null,
                             reconnectFired = false;
 
-                        instance.pollXhr = $.ajax(url, {
+                        instance.pollXhr = $.ajax({
                             global: false,
 
                             type: "GET",
-
+                            url: url,
                             dataType: "json",
 
                             success: function (data) {
