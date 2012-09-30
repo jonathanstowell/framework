@@ -84,7 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Data.Abstract\ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Data.Abstract.csproj">
-      <Project>{8A86F065-3FDB-424D-A378-D07CE53B9C80}</Project>
+      <Project>{8a86f065-3fdb-424d-a378-d07ce53b9c80}</Project>
       <Name>ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Data.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Entities\ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Entities.csproj">
@@ -92,7 +92,7 @@
       <Name>ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Service.Abstract\ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Service.Abstract.csproj">
-      <Project>{9C4D285A-1C5F-4FA7-BCA7-E82DC723D715}</Project>
+      <Project>{9c4d285a-1c5f-4fa7-bca7-e82dc723d715}</Project>
       <Name>ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Service.Abstract</Name>
     </ProjectReference>
   </ItemGroup>

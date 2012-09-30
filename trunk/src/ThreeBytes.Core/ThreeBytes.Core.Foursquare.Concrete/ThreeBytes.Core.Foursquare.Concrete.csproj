@@ -68,7 +68,7 @@
       <Name>ThreeBytes.Core.Extensions.SharpSquare</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Foursquare.Abstract\ThreeBytes.Core.Foursquare.Abstract.csproj">
-      <Project>{2A6C8EA7-BED2-4E32-A66E-ECD20F587765}</Project>
+      <Project>{2a6c8ea7-bed2-4e32-a66e-ecd20f587765}</Project>
       <Name>ThreeBytes.Core.Foursquare.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Foursquare.Configuration.Abstract\ThreeBytes.Core.Foursquare.Configuration.Abstract.csproj">
@@ -80,7 +80,7 @@
       <Name>ThreeBytes.Core.Foursquare.Entities.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Foursquare.Entities.Concrete\ThreeBytes.Core.Foursquare.Entities.Concrete.csproj">
-      <Project>{CB0D19D0-15DF-44E6-8EA2-5C7C006A3903}</Project>
+      <Project>{cb0d19d0-15df-44e6-8ea2-5c7c006a3903}</Project>
       <Name>ThreeBytes.Core.Foursquare.Entities.Concrete</Name>
     </ProjectReference>
   </ItemGroup>

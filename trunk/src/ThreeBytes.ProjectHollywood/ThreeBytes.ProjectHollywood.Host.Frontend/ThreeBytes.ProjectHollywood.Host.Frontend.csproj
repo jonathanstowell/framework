@@ -37,10 +37,6 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Common.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
-    </Reference>
     <Reference Include="FluentValidation">
       <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
     </Reference>

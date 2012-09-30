@@ -38,7 +38,7 @@
       <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.dll</HintPath>
     </Reference>
     <Reference Include="C5">
-      <HintPath>..\..\..\lib\external\Quartz.2.0.0\lib\net40\C5.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Quartz\C5.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
@@ -50,37 +50,37 @@
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging">
-      <HintPath>..\..\..\lib\external\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Common.Logging\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging.Log4Net">
-      <HintPath>..\..\..\lib\external\Common.Logging.Log4Net\Common.Logging.Log4Net.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Common.Logging\Common.Logging.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="Enyim.Caching">
-      <HintPath>..\..\..\lib\external\Enyim.Memcached.2.9\Enyim.Caching.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Enyim\Enyim.Caching.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
-      <HintPath>..\..\..\lib\external\FluentNHibernate.1.2.0.712\lib\FluentNHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\FluentNHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation">
       <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections">
-      <HintPath>..\..\..\lib\external\Iesi.Collections.3.1.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Iesi.Collections\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\..\..\lib\external\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <HintPath>..\..\..\lib\external\log4net\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\..\lib\external\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\NHibernate\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.ByteCode.Castle">
-      <HintPath>..\..\..\lib\external\NHibernate.Castle.3.1.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="Quartz">
-      <HintPath>..\..\..\lib\external\Quartz.2.0.0\lib\net40\Quartz.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Quartz\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -165,7 +165,7 @@
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Validations.Exceptions.dll</HintPath>
     </Reference>
     <Reference Include="Topshelf">
-      <HintPath>..\..\..\lib\external\TopShelf.2.3.0.0\lib\NET40\Topshelf.dll</HintPath>
+      <HintPath>..\..\..\lib\external\TopShelf\Topshelf.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

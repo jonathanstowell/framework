@@ -35,7 +35,7 @@
       <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.dll</HintPath>
     </Reference>
     <Reference Include="Bootstrapper.WindsorExtension">
-      <HintPath>..\..\..\lib\external\Bootstrapper.Windsor\Bootstrapper.WindsorExtension.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.WindsorExtension.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
@@ -47,31 +47,31 @@
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="CommonServiceLocator.WindsorAdapter">
-      <HintPath>..\..\..\lib\external\CommonServiceLocator.WindsorAdapter\CommonServiceLocator.WindsorAdapter.dll</HintPath>
+      <HintPath>..\..\..\lib\external\CommonServiceLocator\CommonServiceLocator.WindsorAdapter.dll</HintPath>
     </Reference>
     <Reference Include="Enyim.Caching, Version=2.11.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\Enyim.Memcached.2.9\Enyim.Caching.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Enyim\Enyim.Caching.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate, Version=1.2.0.712, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\FluentNHibernate.1.2.0.712\lib\FluentNHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\FluentNHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation">
       <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections">
-      <HintPath>..\..\..\lib\external\Iesi.Collections.3.1.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Iesi.Collections\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\..\..\lib\external\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <HintPath>..\..\..\lib\external\log4net\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\..\lib\external\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\NHibernate\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.ByteCode.Castle, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

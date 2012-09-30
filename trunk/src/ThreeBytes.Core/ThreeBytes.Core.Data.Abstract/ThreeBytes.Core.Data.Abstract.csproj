@@ -51,11 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThreeBytes.Core.Data.Entities.Abstract\ThreeBytes.Core.Data.Entities.Abstract.csproj">
-      <Project>{B4B1DEC0-FB73-4F04-BD30-66301366A644}</Project>
+      <Project>{b4b1dec0-fb73-4f04-bd30-66301366a644}</Project>
       <Name>ThreeBytes.Core.Data.Entities.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Data.ResultSets.Abstract\ThreeBytes.Core.Data.ResultSets.Abstract.csproj">
-      <Project>{E35E7235-82A4-497B-A896-7410C9603D17}</Project>
+      <Project>{e35e7235-82a4-497b-a896-7410c9603d17}</Project>
       <Name>ThreeBytes.Core.Data.ResultSets.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Entities.Abstract\ThreeBytes.Core.Entities.Abstract.csproj">

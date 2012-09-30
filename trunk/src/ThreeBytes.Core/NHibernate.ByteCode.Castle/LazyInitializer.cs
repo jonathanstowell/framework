@@ -12,7 +12,6 @@ namespace NHibernate.ByteCode.Castle
 	/// A <see cref="ILazyInitializer"/> for use with the Castle Dynamic Class Generator.
 	/// </summary>
 	[Serializable]
-	[CLSCompliant(false)]
 	public class LazyInitializer : BasicLazyInitializer, global::Castle.DynamicProxy.IInterceptor
 	{
 		private static readonly MethodInfo Exception_InternalPreserveStackTrace =

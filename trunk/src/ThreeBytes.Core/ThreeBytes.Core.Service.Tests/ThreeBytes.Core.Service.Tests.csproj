@@ -32,19 +32,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core">
-      <HintPath>..\..\..\lib\external\Castle.Core.2.5.2\lib\NET35\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Enyim.Caching">
-      <HintPath>..\..\..\lib\external\EnyimMemcached.2.11\lib\net35\Enyim.Caching.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
-      <HintPath>..\..\..\lib\external\FluentNHibernate.1.2.0.712\lib\FluentNHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\FluentNHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections">
-      <HintPath>..\..\..\lib\external\Iesi.Collections.3.1.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Iesi.Collections\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Interop.SHDocVw">
-      <HintPath>..\..\..\lib\external\WatiN.2.1.0\lib\net35\Interop.SHDocVw.dll</HintPath>
+      <HintPath>..\..\..\lib\external\WatiN\Interop.SHDocVw.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -53,10 +50,7 @@
       <HintPath>..\..\..\lib\external\WatiN.2.1.0\lib\net35\Microsoft.mshtml.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate.ByteCode.Castle">
-      <HintPath>..\..\..\lib\external\NHibernate.Castle.3.1.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
+      <HintPath>..\..\..\lib\external\NHibernate\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -70,25 +64,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="TechTalk.SpecFlow">
-      <HintPath>..\..\..\lib\external\SpecFlow.1.7.1\lib\net35\TechTalk.SpecFlow.dll</HintPath>
-    </Reference>
-    <Reference Include="ThreeBytes.Caching.Core.Abstract">
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.Abstract.dll</HintPath>
-    </Reference>
-    <Reference Include="ThreeBytes.Caching.Core.Configuration.Abstract">
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.Configuration.Abstract.dll</HintPath>
-    </Reference>
-    <Reference Include="ThreeBytes.Caching.Core.Configuration.Concrete">
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.Configuration.Concrete.dll</HintPath>
-    </Reference>
-    <Reference Include="ThreeBytes.Caching.Core.Memcached">
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.Memcached.dll</HintPath>
-    </Reference>
-    <Reference Include="ThreeBytes.Caching.Core.WebCache">
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.WebCache.dll</HintPath>
+      <HintPath>..\..\..\lib\external\SpecFlow\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
     <Reference Include="WatiN.Core">
-      <HintPath>..\..\..\lib\external\WatiN.2.1.0\lib\net35\WatiN.Core.dll</HintPath>
+      <HintPath>..\..\..\lib\external\WatiN\WatiN.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +108,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NHibernate.ByteCode.Castle\NHibernate.ByteCode.Castle.csproj">
+      <Project>{d09355e8-6dbf-446e-a7c7-ff4ee76118d5}</Project>
+      <Name>NHibernate.ByteCode.Castle</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Concrete\ThreeBytes.Core.Concrete.csproj">
       <Project>{1D3A54D0-128A-4849-A86E-FD0DB4C67CA6}</Project>
       <Name>ThreeBytes.Core.Concrete</Name>

@@ -60,7 +60,7 @@
       <Name>ThreeBytes.Core.Bootstrapper.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Facebook.Abstract\ThreeBytes.Core.Facebook.Abstract.csproj">
-      <Project>{9D924D3C-4CB3-4F6F-9202-1581A302E129}</Project>
+      <Project>{9d924d3c-4cb3-4f6f-9202-1581a302e129}</Project>
       <Name>ThreeBytes.Core.Facebook.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Facebook.Configuration.Abstract\ThreeBytes.Core.Facebook.Configuration.Abstract.csproj">
@@ -72,7 +72,7 @@
       <Name>ThreeBytes.Core.Facebook.Entities.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Facebook.Entities.Concrete\ThreeBytes.Core.Facebook.Entities.Concrete.csproj">
-      <Project>{62EDC784-BACF-45C0-BC2C-31386F025CE2}</Project>
+      <Project>{62edc784-bacf-45c0-bc2c-31386f025ce2}</Project>
       <Name>ThreeBytes.Core.Facebook.Entities.Concrete</Name>
     </ProjectReference>
   </ItemGroup>

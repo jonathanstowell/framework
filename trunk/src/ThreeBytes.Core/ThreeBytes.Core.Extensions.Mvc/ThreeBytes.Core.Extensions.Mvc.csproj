@@ -42,7 +42,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Yahoo.Yui.Compressor">
-      <HintPath>..\..\..\lib\external\Yahoo Yui Compressor\Yahoo.Yui.Compressor.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Yahoo.Yui.Compressor\Yahoo.Yui.Compressor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -64,7 +64,7 @@
       <Name>ThreeBytes.Core.Data.ResultSets.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.DataStructures\ThreeBytes.Core.DataStructures.csproj">
-      <Project>{9A717067-A4F9-44E1-BB3B-C296E57BF636}</Project>
+      <Project>{9a717067-a4f9-44e1-bb3b-c296e57bf636}</Project>
       <Name>ThreeBytes.Core.DataStructures</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Entities.Abstract\ThreeBytes.Core.Entities.Abstract.csproj">

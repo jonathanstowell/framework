@@ -38,12 +38,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="ThreeBytes.Core.Entities.Abstract">
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Abstract.dll</HintPath>
-    </Reference>
-    <Reference Include="ThreeBytes.Core.Entities.Concrete">
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Concrete.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IEmailDispatcher.cs" />

@@ -117,10 +117,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Core.DataStructu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Core.Castle.Windsor.SubResolvers", "ThreeBytes.Core.Castle.Windsor.SubResolvers\ThreeBytes.Core.Castle.Windsor.SubResolvers.csproj", "{B6B8B509-4D56-4074-A332-D2203723422E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Core.Data.Raven.Abstract", "ThreeBytes.Core.Data.Raven.Abstract\ThreeBytes.Core.Data.Raven.Abstract.csproj", "{3DFB90AF-29E8-4B5D-9B28-40535A593672}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Core.Data.Raven.Concrete", "ThreeBytes.Core.Data.Raven.Concrete\ThreeBytes.Core.Data.Raven.Concrete.csproj", "{488B1C58-A541-4173-9626-F7424D16D047}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Core.Data.nHibernate.Abstract", "ThreeBytes.Core.Data.nHibernate.Abstract\ThreeBytes.Core.Data.nHibernate.Abstract.csproj", "{02BE81E1-E0DE-439B-897B-A5F57E994A2E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeBytes.Core.Data.nHibernate.Concrete", "ThreeBytes.Core.Data.nHibernate.Concrete\ThreeBytes.Core.Data.nHibernate.Concrete.csproj", "{5FD3BC65-A07C-4C21-B66C-B1B7B6051D30}"
@@ -841,26 +837,6 @@ Global
 		{B6B8B509-4D56-4074-A332-D2203723422E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B6B8B509-4D56-4074-A332-D2203723422E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B6B8B509-4D56-4074-A332-D2203723422E}.Release|x86.ActiveCfg = Release|Any CPU
-		{3DFB90AF-29E8-4B5D-9B28-40535A593672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DFB90AF-29E8-4B5D-9B28-40535A593672}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DFB90AF-29E8-4B5D-9B28-40535A593672}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{3DFB90AF-29E8-4B5D-9B28-40535A593672}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{3DFB90AF-29E8-4B5D-9B28-40535A593672}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3DFB90AF-29E8-4B5D-9B28-40535A593672}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DFB90AF-29E8-4B5D-9B28-40535A593672}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3DFB90AF-29E8-4B5D-9B28-40535A593672}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{3DFB90AF-29E8-4B5D-9B28-40535A593672}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{3DFB90AF-29E8-4B5D-9B28-40535A593672}.Release|x86.ActiveCfg = Release|Any CPU
-		{488B1C58-A541-4173-9626-F7424D16D047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{488B1C58-A541-4173-9626-F7424D16D047}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{488B1C58-A541-4173-9626-F7424D16D047}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{488B1C58-A541-4173-9626-F7424D16D047}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{488B1C58-A541-4173-9626-F7424D16D047}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{488B1C58-A541-4173-9626-F7424D16D047}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{488B1C58-A541-4173-9626-F7424D16D047}.Release|Any CPU.Build.0 = Release|Any CPU
-		{488B1C58-A541-4173-9626-F7424D16D047}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{488B1C58-A541-4173-9626-F7424D16D047}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{488B1C58-A541-4173-9626-F7424D16D047}.Release|x86.ActiveCfg = Release|Any CPU
 		{02BE81E1-E0DE-439B-897B-A5F57E994A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{02BE81E1-E0DE-439B-897B-A5F57E994A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02BE81E1-E0DE-439B-897B-A5F57E994A2E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -1250,8 +1226,6 @@ Global
 		{B6C54E5F-1F03-4030-816D-11233F6C065B} = {5C7D453E-A51A-4A27-8B4B-7BD755D70CA0}
 		{7F46DE24-26E8-4864-A328-EB5052CE26CD} = {5C7D453E-A51A-4A27-8B4B-7BD755D70CA0}
 		{B4B1DEC0-FB73-4F04-BD30-66301366A644} = {5C7D453E-A51A-4A27-8B4B-7BD755D70CA0}
-		{3DFB90AF-29E8-4B5D-9B28-40535A593672} = {5C7D453E-A51A-4A27-8B4B-7BD755D70CA0}
-		{488B1C58-A541-4173-9626-F7424D16D047} = {5C7D453E-A51A-4A27-8B4B-7BD755D70CA0}
 		{02BE81E1-E0DE-439B-897B-A5F57E994A2E} = {5C7D453E-A51A-4A27-8B4B-7BD755D70CA0}
 		{5FD3BC65-A07C-4C21-B66C-B1B7B6051D30} = {5C7D453E-A51A-4A27-8B4B-7BD755D70CA0}
 		{1D61579A-EC49-4038-BFE9-C904C0962B67} = {5C7D453E-A51A-4A27-8B4B-7BD755D70CA0}

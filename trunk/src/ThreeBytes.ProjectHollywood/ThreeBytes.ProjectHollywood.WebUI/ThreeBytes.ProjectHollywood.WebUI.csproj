@@ -46,13 +46,13 @@
   <ItemGroup>
     <Reference Include="AjaxMin, Version=4.46.4422.26284, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\AjaxMin.dll</HintPath>
+      <HintPath>..\..\..\lib\external\SquishIt\AjaxMin.dll</HintPath>
     </Reference>
     <Reference Include="Bootstrapper">
       <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.dll</HintPath>
     </Reference>
     <Reference Include="Bootstrapper.WindsorExtension">
-      <HintPath>..\..\..\lib\external\Bootstrapper.Windsor\Bootstrapper.WindsorExtension.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.WindsorExtension.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
@@ -65,26 +65,26 @@
     </Reference>
     <Reference Include="Common.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Common.Logging\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging.Log4Net">
-      <HintPath>..\..\..\lib\external\Common.Logging.Log4Net\Common.Logging.Log4Net.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Common.Logging\Common.Logging.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="dotless.Core, Version=1.3.0.5, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\dotless.Core.dll</HintPath>
+      <HintPath>..\..\..\lib\external\SquishIt\dotless.Core.dll</HintPath>
     </Reference>
     <Reference Include="EcmaScript.NET.modified">
-      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\EcmaScript.NET.modified.dll</HintPath>
+      <HintPath>..\..\..\lib\external\SquishIt\EcmaScript.NET.modified.dll</HintPath>
     </Reference>
     <Reference Include="Enyim.Caching">
-      <HintPath>..\..\..\lib\external\Enyim.Memcached.2.9\Enyim.Caching.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Enyim\Enyim.Caching.dll</HintPath>
     </Reference>
     <Reference Include="Facebook">
       <HintPath>..\..\..\lib\external\Facebook\Facebook.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
-      <HintPath>..\..\..\lib\external\FluentNHibernate.1.2.0.712\lib\FluentNHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\FluentNHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation">
       <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
@@ -93,29 +93,29 @@
       <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Hammock.ClientProfile">
-      <HintPath>..\..\..\lib\external\TweetSharp.2.2\Hammock.ClientProfile.dll</HintPath>
+      <HintPath>..\..\..\lib\external\TweetSharp\Hammock.ClientProfile.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections">
-      <HintPath>..\..\..\lib\external\Iesi.Collections.3.1.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Iesi.Collections\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Jurassic, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\Jurassic.dll</HintPath>
+      <HintPath>..\..\..\lib\external\SquishIt\Jurassic.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <HintPath>..\..\..\lib\external\log4net\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MvcMiniProfiler">
-      <HintPath>..\..\..\lib\external\MiniProfiler.1.9\lib\net40\MvcMiniProfiler.dll</HintPath>
+      <HintPath>..\..\..\lib\external\MiniProfiler\MvcMiniProfiler.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\TweetSharp.2.2\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Newtonsoft.Json\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\NHibernate\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.ByteCode.Castle, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -134,21 +134,21 @@
       <HintPath>..\..\..\lib\external\SharpSquare\SharpSquare.dll</HintPath>
     </Reference>
     <Reference Include="SignalR">
-      <HintPath>..\..\..\lib\external\SignalR\SignalR.Server.0.4.0.0\lib\net40\SignalR.dll</HintPath>
+      <HintPath>..\..\..\lib\external\SignalR\SignalR.dll</HintPath>
     </Reference>
     <Reference Include="SignalR.Hosting.AspNet">
-      <HintPath>..\..\..\lib\external\SignalR\SignalR.Hosting.AspNet.0.4.0.0\lib\net40\SignalR.Hosting.AspNet.dll</HintPath>
+      <HintPath>..\..\..\lib\external\SignalR\SignalR.Hosting.AspNet.dll</HintPath>
     </Reference>
     <Reference Include="SquishIt.Framework, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\SquishIt.Framework.dll</HintPath>
+      <HintPath>..\..\..\lib\external\SquishIt\SquishIt.Framework.dll</HintPath>
     </Reference>
     <Reference Include="SquishIt.Mvc">
-      <HintPath>..\..\..\lib\external\SquishIt-0.8.6\SquishIt.Mvc.dll</HintPath>
+      <HintPath>..\..\..\lib\external\SquishIt\SquishIt.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\System.Json.4.0.20126.16343\lib\net40\System.Json.dll</HintPath>
+      <HintPath>..\..\..\lib\external\System.Json\System.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />
@@ -311,11 +311,11 @@
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Web.Utilities.Concrete.dll</HintPath>
     </Reference>
     <Reference Include="TweetSharp">
-      <HintPath>..\..\..\lib\external\TweetSharp.2.2\TweetSharp.dll</HintPath>
+      <HintPath>..\..\..\lib\external\TweetSharp\TweetSharp.dll</HintPath>
     </Reference>
     <Reference Include="Yahoo.Yui.Compressor, Version=1.7.0.0, Culture=neutral, PublicKeyToken=f8b4b81ec75097e2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\external\Yahoo Yui Compressor\Yahoo.Yui.Compressor.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Yahoo.Yui.Compressor\Yahoo.Yui.Compressor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

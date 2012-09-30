@@ -34,9 +34,6 @@
     <Reference Include="FluentValidation">
       <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\..\..\lib\external\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="NServiceBus">
       <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.dll</HintPath>
     </Reference>
@@ -85,7 +82,7 @@
       <Name>ThreeBytes.User.Dashboard.RegistrationStatisticsMonthly.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.User.Dashboard.RegistrationStatisticsMonthly.Service.Abstract\ThreeBytes.User.Dashboard.RegistrationStatisticsMonthly.Service.Abstract.csproj">
-      <Project>{E8FDD885-FBE7-46AE-9DB9-500851E34CE8}</Project>
+      <Project>{e8fdd885-fbe7-46ae-9db9-500851e34ce8}</Project>
       <Name>ThreeBytes.User.Dashboard.RegistrationStatisticsMonthly.Service.Abstract</Name>
     </ProjectReference>
   </ItemGroup>

@@ -55,11 +55,11 @@
       <Name>ThreeBytes.Core.Bootstrapper.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.DataStructures\ThreeBytes.Core.DataStructures.csproj">
-      <Project>{9A717067-A4F9-44E1-BB3B-C296E57BF636}</Project>
+      <Project>{9a717067-a4f9-44e1-bb3b-c296e57bf636}</Project>
       <Name>ThreeBytes.Core.DataStructures</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Plugin.Navigation.Abstract\ThreeBytes.Core.Plugin.Navigation.Abstract.csproj">
-      <Project>{7A4EBAB3-5898-4A65-94F9-92E288AD7723}</Project>
+      <Project>{7a4ebab3-5898-4a65-94f9-92e288ad7723}</Project>
       <Name>ThreeBytes.Core.Plugin.Navigation.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Security.Concrete\ThreeBytes.Core.Security.Concrete.csproj">

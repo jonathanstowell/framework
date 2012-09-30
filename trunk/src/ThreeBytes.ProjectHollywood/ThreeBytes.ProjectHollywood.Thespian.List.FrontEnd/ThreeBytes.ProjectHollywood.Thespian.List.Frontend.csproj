@@ -40,14 +40,11 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="MvcContrib">
-      <HintPath>..\..\..\lib\external\MVCContrib 3.0.51.0\MvcContrib.dll</HintPath>
-    </Reference>
     <Reference Include="NServiceBus">
       <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.dll</HintPath>
     </Reference>
     <Reference Include="SignalR">
-      <HintPath>..\..\..\lib\external\SignalR\SignalR.Server.0.4.0.0\lib\net40\SignalR.dll</HintPath>
+      <HintPath>..\..\..\lib\external\SignalR\SignalR.dll</HintPath>
     </Reference>
     <Reference Include="SquishIt.Framework">
       <HintPath>..\..\..\lib\external\SquishIt\SquishIt.Framework.dll</HintPath>

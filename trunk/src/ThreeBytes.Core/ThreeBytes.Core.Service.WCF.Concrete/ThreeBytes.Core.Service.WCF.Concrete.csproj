@@ -55,11 +55,11 @@
       <Name>ThreeBytes.Core.Entities.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Service.Abstract\ThreeBytes.Core.Service.Abstract.csproj">
-      <Project>{EC1DC6BE-C748-446D-A2C5-4E19A77BB079}</Project>
+      <Project>{ec1dc6be-c748-446d-a2c5-4e19a77bb079}</Project>
       <Name>ThreeBytes.Core.Service.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Service.WCF.Abstract\ThreeBytes.Core.Service.WCF.Abstract.csproj">
-      <Project>{C846827E-E8FA-4E94-9CD5-85128D578852}</Project>
+      <Project>{c846827e-e8fa-4e94-9cd5-85128d578852}</Project>
       <Name>ThreeBytes.Core.Service.WCF.Abstract</Name>
     </ProjectReference>
   </ItemGroup>

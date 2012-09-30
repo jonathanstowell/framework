@@ -133,7 +133,7 @@
       <Name>ThreeBytes.User.Configuration.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Service.Abstract\ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Service.Abstract.csproj">
-      <Project>{D1B8B322-F20F-4ED3-B501-459455E5E951}</Project>
+      <Project>{d1b8b322-f20f-4ed3-b501-459455e5e951}</Project>
       <Name>ThreeBytes.User.DashBoard.LoginStatisticsMonthly.Service.Abstract</Name>
     </ProjectReference>
   </ItemGroup>

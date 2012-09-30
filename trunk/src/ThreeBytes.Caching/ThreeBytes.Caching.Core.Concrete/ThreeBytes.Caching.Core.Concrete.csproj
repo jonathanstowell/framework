@@ -76,7 +76,7 @@
       <Name>ThreeBytes.Caching.Core.Entities.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Caching.Core.Entities.Concrete\ThreeBytes.Caching.Core.Entities.Concrete.csproj">
-      <Project>{2DAE5193-1240-437F-8C6C-FA1B8DE2C21B}</Project>
+      <Project>{2dae5193-1240-437f-8c6c-fa1b8de2c21b}</Project>
       <Name>ThreeBytes.Caching.Core.Entities.Concrete</Name>
     </ProjectReference>
   </ItemGroup>

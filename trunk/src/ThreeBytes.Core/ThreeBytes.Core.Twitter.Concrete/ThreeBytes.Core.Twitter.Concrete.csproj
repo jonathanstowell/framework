@@ -38,7 +38,7 @@
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="Hammock.ClientProfile">
-      <HintPath>..\..\..\lib\external\TweetSharp.2.2\Hammock.ClientProfile.dll</HintPath>
+      <HintPath>..\..\..\lib\external\TweetSharp\Hammock.ClientProfile.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,7 +48,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="TweetSharp">
-      <HintPath>..\..\..\lib\external\TweetSharp.2.2\TweetSharp.dll</HintPath>
+      <HintPath>..\..\..\lib\external\TweetSharp\TweetSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -67,7 +67,7 @@
       <Name>ThreeBytes.Core.Extensions.Dictionary</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Twitter.Abstract\ThreeBytes.Core.Twitter.Abstract.csproj">
-      <Project>{EC9C7452-7217-4ED9-B94F-36FAC32BD19A}</Project>
+      <Project>{ec9c7452-7217-4ed9-b94f-36fac32bd19a}</Project>
       <Name>ThreeBytes.Core.Twitter.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Twitter.Configuration.Abstract\ThreeBytes.Core.Twitter.Configuration.Abstract.csproj">
@@ -79,7 +79,7 @@
       <Name>ThreeBytes.Core.Twitter.Entities.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Twitter.Entities.Concrete\ThreeBytes.Core.Twitter.Entities.Concrete.csproj">
-      <Project>{B14E9AEB-022D-47E8-B7F3-8138EFE1A487}</Project>
+      <Project>{b14e9aeb-022d-47e8-b7f3-8138efe1a487}</Project>
       <Name>ThreeBytes.Core.Twitter.Entities.Concrete</Name>
     </ProjectReference>
   </ItemGroup>

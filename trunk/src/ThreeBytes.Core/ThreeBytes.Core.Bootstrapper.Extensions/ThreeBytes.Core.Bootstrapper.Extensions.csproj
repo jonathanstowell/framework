@@ -35,7 +35,7 @@
       <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.dll</HintPath>
     </Reference>
     <Reference Include="Bootstrapper.WindsorExtension">
-      <HintPath>..\..\..\lib\external\Bootstrapper.Windsor\Bootstrapper.WindsorExtension.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.WindsorExtension.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
@@ -47,7 +47,7 @@
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="CommonServiceLocator.WindsorAdapter">
-      <HintPath>..\..\..\lib\external\CommonServiceLocator.WindsorAdapter\CommonServiceLocator.WindsorAdapter.dll</HintPath>
+      <HintPath>..\..\..\lib\external\CommonServiceLocator\CommonServiceLocator.WindsorAdapter.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\..\lib\external\Microsoft Unity\Microsoft.Practices.ServiceLocation.dll</HintPath>

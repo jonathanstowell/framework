@@ -56,10 +56,6 @@
       <Project>{107D9BF8-5442-41C2-B57B-D4055925323C}</Project>
       <Name>ThreeBytes.Core.Entities.Abstract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ThreeBytes.Core.Service.Abstract\ThreeBytes.Core.Service.Abstract.csproj">
-      <Project>{EC1DC6BE-C748-446D-A2C5-4E19A77BB079}</Project>
-      <Name>ThreeBytes.Core.Service.Abstract</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

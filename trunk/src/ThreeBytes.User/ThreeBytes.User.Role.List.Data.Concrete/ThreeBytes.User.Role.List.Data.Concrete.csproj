@@ -38,10 +38,10 @@
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
-      <HintPath>..\..\..\lib\external\FluentNHibernate.1.2.0.712\lib\FluentNHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\FluentNHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\NHibernate\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -91,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThreeBytes.User.Role.List.Data.Abstract\ThreeBytes.User.Role.List.Data.Abstract.csproj">
-      <Project>{3E3743C6-DFA4-4073-872D-2A0F447EAEDF}</Project>
+      <Project>{3e3743c6-dfa4-4073-872d-2a0f447eaedf}</Project>
       <Name>ThreeBytes.User.Role.List.Data.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.User.Role.List.Entities\ThreeBytes.User.Role.List.Entities.csproj">

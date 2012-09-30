@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThreeBytes.Core.Caching.Abstract\ThreeBytes.Core.Caching.Abstract.csproj">
-      <Project>{0AC6A32A-B64B-46B7-B8F5-A72A59DB57E6}</Project>
+      <Project>{0ac6a32a-b64b-46b7-b8f5-a72a59db57e6}</Project>
       <Name>ThreeBytes.Core.Caching.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Caching.Configuration.Abstract\ThreeBytes.Core.Caching.Configuration.Abstract.csproj">
@@ -59,7 +59,7 @@
       <Name>ThreeBytes.Core.Caching.Configuration.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Data.Abstract\ThreeBytes.Core.Data.Abstract.csproj">
-      <Project>{1D61579A-EC49-4038-BFE9-C904C0962B67}</Project>
+      <Project>{1d61579a-ec49-4038-bfe9-c904c0962b67}</Project>
       <Name>ThreeBytes.Core.Data.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Data.Entities.Abstract\ThreeBytes.Core.Data.Entities.Abstract.csproj">
@@ -75,7 +75,7 @@
       <Name>ThreeBytes.Core.Entities.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Service.Abstract\ThreeBytes.Core.Service.Abstract.csproj">
-      <Project>{EC1DC6BE-C748-446D-A2C5-4E19A77BB079}</Project>
+      <Project>{ec1dc6be-c748-446d-a2c5-4e19a77bb079}</Project>
       <Name>ThreeBytes.Core.Service.Abstract</Name>
     </ProjectReference>
   </ItemGroup>

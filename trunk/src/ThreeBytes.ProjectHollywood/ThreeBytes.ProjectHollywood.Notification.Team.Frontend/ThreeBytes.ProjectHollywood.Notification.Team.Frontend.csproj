@@ -44,7 +44,7 @@
       <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.Core.dll</HintPath>
     </Reference>
     <Reference Include="SignalR">
-      <HintPath>..\..\..\lib\external\SignalR\SignalR.Server.0.4.0.0\lib\net40\SignalR.dll</HintPath>
+      <HintPath>..\..\..\lib\external\SignalR\SignalR.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -32,10 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C5">
-      <HintPath>..\..\..\lib\external\Quartz.2.0.0\lib\net40\C5.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Quartz\C5.dll</HintPath>
     </Reference>
     <Reference Include="Quartz">
-      <HintPath>..\..\..\lib\external\Quartz.2.0.0\lib\net40\Quartz.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Quartz\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

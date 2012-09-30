@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThreeBytes.Core.Bootstrapper.Extensions\ThreeBytes.Core.Bootstrapper.Extensions.csproj">
-      <Project>{F7614B0B-C539-43B0-ABFC-1339EBFAB4A6}</Project>
+      <Project>{f7614b0b-c539-43b0-abfc-1339ebfab4a6}</Project>
       <Name>ThreeBytes.Core.Bootstrapper.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Concrete\ThreeBytes.Core.Concrete.csproj">
@@ -76,10 +76,6 @@
     <ProjectReference Include="..\ThreeBytes.Core.Entities.Abstract\ThreeBytes.Core.Entities.Abstract.csproj">
       <Project>{107D9BF8-5442-41C2-B57B-D4055925323C}</Project>
       <Name>ThreeBytes.Core.Entities.Abstract</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ThreeBytes.Core.Entities.Concrete\ThreeBytes.Core.Entities.Concrete.csproj">
-      <Project>{F9875356-9E5D-4297-B1B7-5468F44CD04B}</Project>
-      <Name>ThreeBytes.Core.Entities.Concrete</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

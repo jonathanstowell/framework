@@ -66,7 +66,7 @@
       <Name>ThreeBytes.Core.Security.Concrete</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Security.Utilities.Abstract\ThreeBytes.Core.Security.Utilities.Abstract.csproj">
-      <Project>{3051FA23-7F5A-4B85-8E95-2394F1EBD93C}</Project>
+      <Project>{3051fa23-7f5a-4b85-8e95-2394f1ebd93c}</Project>
       <Name>ThreeBytes.Core.Security.Utilities.Abstract</Name>
     </ProjectReference>
   </ItemGroup>

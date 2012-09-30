@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C5">
-      <HintPath>..\..\..\lib\external\Quartz.2.0.0\lib\net40\C5.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Quartz\C5.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
@@ -41,13 +41,13 @@
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging">
-      <HintPath>..\..\..\lib\external\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Common.Logging\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging.Log4Net">
-      <HintPath>..\..\..\lib\external\Common.Logging.Log4Net\Common.Logging.Log4Net.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Common.Logging\Common.Logging.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="Quartz">
-      <HintPath>..\..\..\lib\external\Quartz.2.0.0\lib\net40\Quartz.dll</HintPath>
+      <HintPath>..\..\..\lib\external\Quartz\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

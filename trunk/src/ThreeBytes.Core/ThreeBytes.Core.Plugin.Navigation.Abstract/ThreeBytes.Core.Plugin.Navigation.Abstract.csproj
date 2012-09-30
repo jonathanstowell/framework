@@ -49,7 +49,7 @@
       <Name>ThreeBytes.Core.Bootstrapper.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.DataStructures\ThreeBytes.Core.DataStructures.csproj">
-      <Project>{9A717067-A4F9-44E1-BB3B-C296E57BF636}</Project>
+      <Project>{9a717067-a4f9-44e1-bb3b-c296e57bf636}</Project>
       <Name>ThreeBytes.Core.DataStructures</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Security.Concrete\ThreeBytes.Core.Security.Concrete.csproj">

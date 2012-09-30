@@ -38,10 +38,10 @@
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
-      <HintPath>..\..\..\lib\external\FluentNHibernate.1.2.0.712\lib\FluentNHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\FluentNHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\NHibernate\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -93,7 +93,7 @@
       <Name>ThreeBytes.User.Dashboard.LoginStatisticsQuarterly.Configuration.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.User.DashBoard.LoginStatisticsQuarterly.Data.Abstract\ThreeBytes.User.DashBoard.LoginStatisticsQuarterly.Data.Abstract.csproj">
-      <Project>{ED5AD687-F0F2-4917-AC63-CD66BE731476}</Project>
+      <Project>{ed5ad687-f0f2-4917-ac63-cd66be731476}</Project>
       <Name>ThreeBytes.User.DashBoard.LoginStatisticsQuarterly.Data.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.User.DashBoard.LoginStatisticsQuarterly.Entities\ThreeBytes.User.DashBoard.LoginStatisticsQuarterly.Entities.csproj">

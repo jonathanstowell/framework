@@ -38,10 +38,10 @@
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
-      <HintPath>..\..\..\lib\external\FluentNHibernate.1.2.0.712\lib\FluentNHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\FluentNHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
+      <HintPath>..\..\..\lib\external\NHibernate\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -92,7 +92,7 @@
   <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Data.Abstract\ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Data.Abstract.csproj">
-      <Project>{8A86F065-3FDB-424D-A378-D07CE53B9C80}</Project>
+      <Project>{8a86f065-3fdb-424d-a378-d07ce53b9c80}</Project>
       <Name>ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Data.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Entities\ThreeBytes.User.Dashboard.RegistrationStatisticsDaily.Entities.csproj">

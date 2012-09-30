@@ -38,10 +38,7 @@
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\lib\external\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate.ByteCode.Castle">
-      <HintPath>..\..\..\lib\external\NHibernate.Castle.3.1.0.4000\lib\Net35\NHibernate.ByteCode.Castle.dll</HintPath>
+      <HintPath>..\..\..\lib\external\NHibernate\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -75,7 +72,7 @@
       <Name>ThreeBytes.Core.Concrete</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Data.Abstract\ThreeBytes.Core.Data.Abstract.csproj">
-      <Project>{1D61579A-EC49-4038-BFE9-C904C0962B67}</Project>
+      <Project>{1d61579a-ec49-4038-bfe9-c904c0962b67}</Project>
       <Name>ThreeBytes.Core.Data.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Data.Entities.Abstract\ThreeBytes.Core.Data.Entities.Abstract.csproj">
@@ -91,7 +88,7 @@
       <Name>ThreeBytes.Core.Data.ResultSets.Abstract</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Data.ResultSets.Concrete\ThreeBytes.Core.Data.ResultSets.Concrete.csproj">
-      <Project>{B6C54E5F-1F03-4030-816D-11233F6C065B}</Project>
+      <Project>{b6c54e5f-1f03-4030-816d-11233f6c065b}</Project>
       <Name>ThreeBytes.Core.Data.ResultSets.Concrete</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Entities.Abstract\ThreeBytes.Core.Entities.Abstract.csproj">

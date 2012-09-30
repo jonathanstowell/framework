@@ -137,7 +137,7 @@
       <Name>ThreeBytes.User.Dashboard.RegistrationStatisticsMonthly.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.User.Dashboard.RegistrationStatisticsMonthly.Service.Abstract\ThreeBytes.User.Dashboard.RegistrationStatisticsMonthly.Service.Abstract.csproj">
-      <Project>{E8FDD885-FBE7-46AE-9DB9-500851E34CE8}</Project>
+      <Project>{e8fdd885-fbe7-46ae-9db9-500851e34ce8}</Project>
       <Name>ThreeBytes.User.Dashboard.RegistrationStatisticsMonthly.Service.Abstract</Name>
     </ProjectReference>
   </ItemGroup>

@@ -28,7 +28,6 @@ namespace ThreeBytes.ProjectHollywood.Thespian.List.Frontend.Views.ThespianList.
     using System.Web.Security;
     using System.Web.UI;
     using System.Web.WebPages;
-    using MvcContrib;
     using ThreeBytes.Core.Extensions.Mvc;
     using ThreeBytes.Core.Security.Concrete;
     using ThreeBytes.ProjectHollywood.Thespian.List.Frontend.Models;

@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThreeBytes.Core.Data.Abstract\ThreeBytes.Core.Data.Abstract.csproj">
-      <Project>{1D61579A-EC49-4038-BFE9-C904C0962B67}</Project>
+      <Project>{1d61579a-ec49-4038-bfe9-c904c0962b67}</Project>
       <Name>ThreeBytes.Core.Data.Abstract</Name>
     </ProjectReference>
   </ItemGroup>

@@ -79,10 +79,6 @@
       <Project>{1D61579A-EC49-4038-BFE9-C904C0962B67}</Project>
       <Name>ThreeBytes.Core.Data.Abstract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ThreeBytes.Core.Data.Raven.Abstract\ThreeBytes.Core.Data.Raven.Abstract.csproj">
-      <Project>{3DFB90AF-29E8-4B5D-9B28-40535A593672}</Project>
-      <Name>ThreeBytes.Core.Data.Raven.Abstract</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Data.ResultSets.Abstract\ThreeBytes.Core.Data.ResultSets.Abstract.csproj">
       <Project>{E35E7235-82A4-497B-A896-7410C9603D17}</Project>
       <Name>ThreeBytes.Core.Data.ResultSets.Abstract</Name>

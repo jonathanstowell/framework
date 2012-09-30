@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThreeBytes.Core.Bootstrapper.Extensions\ThreeBytes.Core.Bootstrapper.Extensions.csproj">
-      <Project>{F7614B0B-C539-43B0-ABFC-1339EBFAB4A6}</Project>
+      <Project>{f7614b0b-c539-43b0-abfc-1339ebfab4a6}</Project>
       <Name>ThreeBytes.Core.Bootstrapper.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\ThreeBytes.Core.Email.Configuration.Abstract\ThreeBytes.Core.Email.Configuration.Abstract.csproj">
