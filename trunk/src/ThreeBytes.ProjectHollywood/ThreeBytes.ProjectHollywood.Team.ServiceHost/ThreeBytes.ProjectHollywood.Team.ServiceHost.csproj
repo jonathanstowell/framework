@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7D6B3CB1-5072-4D58-85B5-DEA4CB20B220}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThreeBytes.ProjectHollywood.Team.ServiceHost</RootNamespace>
+    <AssemblyName>ThreeBytes.ProjectHollywood.Team.ServiceHost</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bootstrapper, Version=2.0.3.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Bootstrapper.WindsorExtension, Version=2.0.3.22234, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.WindsorExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.FactorySupport">
+      <HintPath>..\..\..\lib\external\Castle\Castle.Facilities.FactorySupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator.WindsorAdapter">
+      <HintPath>..\..\..\lib\external\CommonServiceLocator\CommonServiceLocator.WindsorAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Enyim.Caching, Version=2.11.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\external\Enyim\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\..\lib\external\FluentNHibernate\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\lib\external\Iesi.Collections\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\external\log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\lib\external\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\lib\external\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Host">
+      <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.Host.exe</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.ObjectBuilder.CastleWindsor">
+      <HintPath>..\..\..\lib\external\NServiceBus\containers\castle\NServiceBus.ObjectBuilder.CastleWindsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThreeBytes.Core.Bootstrapper.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Bootstrapper.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Castle.Windsor.SubResolvers">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Castle.Windsor.SubResolvers.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Commands.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Commands.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.Entities.Abstract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.Entities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.Entities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.nHibernate.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.nHibernate.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.nHibernate.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.nHibernate.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.ResultSets.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.ResultSets.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Data.ResultSets.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Data.ResultSets.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.DataStructures">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.DataStructures.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Abstract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Entities.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Entities.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Enum">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Enum.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Extensions.NServiceBus">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Extensions.NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Logging">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Plugin.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Plugin.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Plugin.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Plugin.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Security.Utilities.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Security.Utilities.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Service.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Service.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Validations.Abstract">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Validations.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Validations.Concrete">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Validations.Concrete.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Validations.Exceptions">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Validations.Exceptions.dll</HintPath>
+    </Reference>
+    <Reference Include="ThreeBytes.Core.Web.Mvc">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EndpointConfig.cs" />
+    <Compile Include="Installers\AppDomainAssemblyResolverStartupTask.cs" />
+    <Compile Include="Installers\AppDomainUnhandledExceptionLoggingStartupTask.cs" />
+    <Compile Include="Installers\InitialiseSessionFactories.cs" />
+    <Compile Include="Installers\WindsorSetupStartupTask.cs" />
+    <Compile Include="Profiles\Integration.cs" />
+    <Compile Include="Profiles\IntegrationLoggingBehavior.cs" />
+    <Compile Include="Profiles\MSMQSubscriptionStorage.cs" />
+    <Compile Include="Profiles\Production.cs" />
+    <Compile Include="Profiles\ProductionLoggingBehavior.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NServiceBus.Host.exe.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

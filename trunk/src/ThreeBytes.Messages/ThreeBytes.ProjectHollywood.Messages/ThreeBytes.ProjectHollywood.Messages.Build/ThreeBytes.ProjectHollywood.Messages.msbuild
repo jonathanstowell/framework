@@ -26,7 +26,7 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	</Target>
 	<Target Name="distribute-projecthollywood-messages-libs" DependsOnTargets="clear-shared-libs;build-threebytes-projecthollywood-messages;">
 		<ItemGroup>
-			<CoreLibraries Include="..\ThreeBytes.ProjectHollywood.Messages\bin\$(Configuration)\ThreeBytes.ProjectHollywood.Messages.dll"/>
+			<CoreLibraries Include="..\ThreeBytes.ProjectHollywood.Messages.*\bin\$(Configuration)\ThreeBytes.ProjectHollywood.Messages.*.dll"/>
 		</ItemGroup>
 		<MakeDir Directories = "$(SharedLibrariesLocation)" Condition="!Exists('$(SharedLibrariesLocation)')" />
         <Copy SourceFiles="@(CoreLibraries)" DestinationFolder="$(SharedLibrariesLocation)" />

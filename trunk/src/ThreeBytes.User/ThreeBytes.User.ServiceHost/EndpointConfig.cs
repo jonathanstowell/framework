@@ -28,18 +28,25 @@ namespace ThreeBytes.User.ServiceHost
 
         public void Init()
         {
-            var assemblies = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory)
+            var nserviceBusAssemblies = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory)
                                         .GetFiles("NServiceBus*.dll", SearchOption.AllDirectories)
                                         .Select(file => Assembly.LoadFrom(file.FullName));
 
             container = (IWindsorContainer)Bootstrapper.Container;
 
-            Configure.With(assemblies.Concat(AssemblyResolver.PluginAssembliesByFullName.Values))
+            var assemblies = nserviceBusAssemblies.Concat(AssemblyResolver.PluginAssembliesByFullName.Values);
+
+            Configure.With(assemblies)
                 .CastleWindsorBuilder(container)
                 .MsmqTransport()
+                    .IsTransactional(false)
+                    .PurgeOnStartup(false)
                 .MsmqSubscriptionStorage()
                 .XmlSerializer()
-                .DisableTimeoutManager();
+                .UnicastBus()
+                    .LoadMessageHandlers()
+                .CreateBus()
+                .Start();
         }
     }
 }

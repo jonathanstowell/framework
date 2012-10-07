@@ -1,4 +1,4 @@
-﻿using ThreeBytes.ProjectHollywood.Messages.ExternalEvents;
+﻿using ThreeBytes.ProjectHollywood.Messages.Thespian;
 
 namespace ThreeBytes.ProjectHollywood.Thespian.Messages.InternalEvents
 {

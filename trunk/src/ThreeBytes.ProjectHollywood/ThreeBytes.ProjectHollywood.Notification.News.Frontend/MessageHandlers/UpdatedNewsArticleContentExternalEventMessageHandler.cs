@@ -1,7 +1,7 @@
 using System;
 using NServiceBus;
 using SignalR;
-using ThreeBytes.ProjectHollywood.Messages.ExternalEvents;
+using ThreeBytes.ProjectHollywood.Messages.News;
 using ThreeBytes.ProjectHollywood.Notification.News.Frontend.Hubs;
 
 namespace ThreeBytes.ProjectHollywood.Notification.News.Frontend.MessageHandlers

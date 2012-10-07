@@ -104,9 +104,8 @@
     <Reference Include="ThreeBytes.Core.Web.Mvc">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="ThreeBytes.ProjectHollywood.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.ProjectHollywood.Messages\ThreeBytes.ProjectHollywood.Messages.dll</HintPath>
+    <Reference Include="ThreeBytes.ProjectHollywood.Messages.News">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.ProjectHollywood.Messages\ThreeBytes.ProjectHollywood.Messages.News.dll</HintPath>
     </Reference>
     <Reference Include="ThreeBytes.SignalR.CurrentlyViewing.Entities.Abstract">
       <HintPath>..\..\..\lib\internal\ThreeBytes.SignalR\ThreeBytes.SignalR.CurrentlyViewing.Entities.Abstract.dll</HintPath>

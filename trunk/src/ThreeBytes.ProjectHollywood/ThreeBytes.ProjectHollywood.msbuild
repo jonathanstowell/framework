@@ -18,10 +18,14 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<BuildRequired Condition=" $(BuildRequired)=='' ">true</BuildRequired>
 		<AllTemplatesLocation></AllTemplatesLocation>
 		<WebPluginLocation>ThreeBytes.ProjectHollywood.WebUI\Plugins</WebPluginLocation>
-		<BusPluginLocation>ThreeBytes.ProjectHollywood.ServiceHost\bin\$(Configuration)\Plugins</BusPluginLocation>
+		<NewsBusPluginLocation>ThreeBytes.ProjectHollywood.News.ServiceHost\bin\$(Configuration)\Plugins</NewsBusPluginLocation>
+		<TeamBusPluginLocation>ThreeBytes.ProjectHollywood.Team.ServiceHost\bin\$(Configuration)\Plugins</TeamBusPluginLocation>
+		<ThespianBusPluginLocation>ThreeBytes.ProjectHollywood.Thespian.ServiceHost\bin\$(Configuration)\Plugins</ThespianBusPluginLocation>
     <JobPluginLocation>ThreeBytes.ProjectHollywood.JobHost\bin\$(Configuration)\Plugins</JobPluginLocation>
 		<PHWebPluginLocation>$(WebPluginLocation)\ThreeBytes.ProjectHollywood</PHWebPluginLocation>
-		<PHBusPluginLocation>$(BusPluginLocation)\ThreeBytes.ProjectHollywood</PHBusPluginLocation>
+		<PHNewsBusPluginLocation>$(NewsBusPluginLocation)\ThreeBytes.ProjectHollywood</PHNewsBusPluginLocation>
+		<PHTeamBusPluginLocation>$(TeamBusPluginLocation)\ThreeBytes.ProjectHollywood</PHTeamBusPluginLocation>
+		<PHThespianBusPluginLocation>$(ThespianBusPluginLocation)\ThreeBytes.ProjectHollywood</PHThespianBusPluginLocation>
 		<PHJobPluginLocation>$(JobPluginLocation)\ThreeBytes.ProjectHollywood</PHJobPluginLocation>
 	</PropertyGroup>
 	
@@ -38,7 +42,9 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
       <ExternalMessages Include="..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.User.Messages\ThreeBytes.User.Messages.*"/>
     </ItemGroup>
     <Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(WebPluginLocation)" />
-    <Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(BusPluginLocation)" />
+    <Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(NewsBusPluginLocation)" />
+    <Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(TeamBusPluginLocation)" />
+    <Copy SourceFiles="@(ExternalMessages)" DestinationFolder="$(ThespianBusPluginLocation)" />
   </Target>
   
     <Target Name="external-core-libs">
@@ -54,7 +60,9 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
       <ExternalCoreLibs Include="..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Twitter.*"/>
 		</ItemGroup>
 		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Core" />
-		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Core" />
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(NewsBusPluginLocation)\ThreeBytes.Core" />
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(TeamBusPluginLocation)\ThreeBytes.Core" />
+		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(ThespianBusPluginLocation)\ThreeBytes.Core" />
 		<Copy SourceFiles="@(ExternalCoreLibs)" DestinationFolder="$(JobPluginLocation)\ThreeBytes.Core" />
 	</Target>
 	
@@ -63,7 +71,9 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 			<ExternalCachingLibs Include="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.*" Exclude="..\..\lib\internal\ThreeBytes.Caching\ThreeBytes.Caching.Core.WebCache.dll;"/>
 		</ItemGroup>
 		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(WebPluginLocation)\ThreeBytes.Caching" />
-		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(BusPluginLocation)\ThreeBytes.Caching" />
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(NewsBusPluginLocation)\ThreeBytes.Caching" />
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(TeamBusPluginLocation)\ThreeBytes.Caching" />
+		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(ThespianBusPluginLocation)\ThreeBytes.Caching" />
 		<Copy SourceFiles="@(ExternalCachingLibs)" DestinationFolder="$(JobPluginLocation)\ThreeBytes.Caching" />
 	</Target>
 
@@ -117,7 +127,7 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
       <Thespian Include="Thespian.Management" />
       <Thespian Include="Thespian.View" />
     </ItemGroup>
-    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(Thespian)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\Thespian" BackendFolder="$(PHBusPluginLocation)\Thespian" JobFolder="$(PHJobPluginLocation)\Thespian" />
+    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(Thespian)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\Thespian" BackendFolder="$(PHThespianBusPluginLocation)\Thespian" JobFolder="$(PHJobPluginLocation)\Thespian" />
   </Target>
 
   <Target Name="news">
@@ -128,7 +138,7 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
       <News Include="News.Management" />
       <News Include="News.View" />
     </ItemGroup>
-    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(News)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\News" BackendFolder="$(PHBusPluginLocation)\News" />
+    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(News)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\News" BackendFolder="$(PHNewsBusPluginLocation)\News" />
   </Target>
 
   <Target Name="team">
@@ -139,7 +149,7 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
       <Team Include="Team.Management" />
       <Team Include="Team.View" />
     </ItemGroup>
-    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(Team)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\Team" BackendFolder="$(PHBusPluginLocation)\Team" />
+    <CopyService Prefix="ThreeBytes.ProjectHollywood" AC="@(Team)" Configuration="$(Configuration)" FrontendFolder="$(PHWebPluginLocation)\Team" BackendFolder="$(PHTeamBusPluginLocation)\Team" />
   </Target>
 
   <Target Name="notification">

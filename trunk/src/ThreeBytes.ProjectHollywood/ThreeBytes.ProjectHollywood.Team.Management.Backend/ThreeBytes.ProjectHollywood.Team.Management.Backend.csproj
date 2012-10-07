@@ -60,8 +60,8 @@
     <Reference Include="ThreeBytes.Core.Validations.Exceptions">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Validations.Exceptions.dll</HintPath>
     </Reference>
-    <Reference Include="ThreeBytes.ProjectHollywood.Messages">
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.ProjectHollywood.Messages\ThreeBytes.ProjectHollywood.Messages.dll</HintPath>
+    <Reference Include="ThreeBytes.ProjectHollywood.Messages.Team">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.ProjectHollywood.Messages\ThreeBytes.ProjectHollywood.Messages.Team.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

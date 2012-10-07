@@ -108,8 +108,8 @@
     <Reference Include="ThreeBytes.Core.Web.Mvc">
       <HintPath>..\..\..\lib\internal\ThreeBytes.Core\ThreeBytes.Core.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="ThreeBytes.ProjectHollywood.Messages">
-      <HintPath>..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.ProjectHollywood.Messages\ThreeBytes.ProjectHollywood.Messages.dll</HintPath>
+    <Reference Include="ThreeBytes.ProjectHollywood.Messages.Thespian">
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Messages\ThreeBytes.ProjectHollywood.Messages\ThreeBytes.ProjectHollywood.Messages.Thespian.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,6 @@
-﻿using ThreeBytes.ProjectHollywood.Messages.ExternalEvents;
-
-namespace ThreeBytes.ProjectHollywood.News.Messages.InternalEvents
+﻿namespace ThreeBytes.ProjectHollywood.News.Messages.InternalEvents
 {
-    public interface IDeletedNewsArticleInternalEventMessage : IDeletedNewsArticleExternalEventMessage
+    public interface IDeletedNewsArticleInternalEventMessage : ThreeBytes.ProjectHollywood.Messages.News.IDeletedNewsArticleExternalEventMessage
     {
     }
 }
