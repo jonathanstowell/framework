@@ -15,7 +15,7 @@ namespace ThreeBytes.ProjectHollywood.Team.Management.Validations.Concrete.Insta
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .LifestyleTransient(),
+                   .Configure(x => x.LifeStyle.Transient),
                AllTypes.FromThisAssembly().BasedOn<ITeamManagementEmployeeValidatorResolver>().Configure(
                    component =>
                    {

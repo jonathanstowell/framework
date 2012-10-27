@@ -15,7 +15,7 @@ namespace ThreeBytes.Logging.Exceptions.Management.Validations.Concrete.Installe
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .LifestyleTransient(),
+                   .Configure(x => x.LifeStyle.Transient),
                AllTypes.FromThisAssembly().BasedOn<IExceptionManagementExceptionValidatorResolver>().Configure(
                    component =>
                    {

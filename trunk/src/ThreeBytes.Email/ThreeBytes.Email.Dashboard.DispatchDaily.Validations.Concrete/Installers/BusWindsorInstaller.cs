@@ -15,7 +15,7 @@ namespace ThreeBytes.Email.Dashboard.DispatchDaily.Validations.Concrete.Installe
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .LifestyleTransient(),
+                   .Configure(x => x.LifeStyle.Transient),
                AllTypes.FromThisAssembly().BasedOn<IDashboardDispatchDailyEmailValidatorResolver>().Configure(
                    component =>
                    {

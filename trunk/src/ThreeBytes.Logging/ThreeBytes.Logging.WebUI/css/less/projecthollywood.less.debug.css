@@ -740,7 +740,6 @@ table .headerSortDown:hover:after {
   clear: both;
   width: auto;
   margin-bottom: 2em;
-  overflow: hidden;
 }
 .widget-content {
   padding: 20px 15px 15px;

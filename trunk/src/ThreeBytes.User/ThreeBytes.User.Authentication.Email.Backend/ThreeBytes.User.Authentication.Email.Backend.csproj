@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\lib\external\log4net\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="NServiceBus">
       <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.dll</HintPath>
     </Reference>

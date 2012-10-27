@@ -6,6 +6,7 @@ using Bootstrap;
 using Bootstrap.Extensions.StartupTasks;
 using Castle.Windsor;
 using NServiceBus;
+using NServiceBus.ObjectBuilder.CastleWindsor;
 
 namespace ThreeBytes.User.WebUI.Installers
 {

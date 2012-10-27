@@ -57,9 +57,6 @@
     <Reference Include="Castle.Core">
       <HintPath>..\..\..\lib\external\Castle\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Facilities.FactorySupport">
-      <HintPath>..\..\..\lib\external\Castle\Castle.Facilities.FactorySupport.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\..\lib\external\Castle\Castle.Windsor.dll</HintPath>
     </Reference>
@@ -119,8 +116,9 @@
     <Reference Include="NServiceBus.Core">
       <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.Core.dll</HintPath>
     </Reference>
-    <Reference Include="NServiceBus.ObjectBuilder.CastleWindsor">
-      <HintPath>..\..\..\lib\external\NServiceBus\containers\castle\NServiceBus.ObjectBuilder.CastleWindsor.dll</HintPath>
+    <Reference Include="NServiceBus.ObjectBuilder.CastleWindsor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\NServiceBus.ObjectBuilder.CastleWindsor.dll</HintPath>
     </Reference>
     <Reference Include="SharpSquare">
       <HintPath>..\..\..\lib\external\SharpSquare\SharpSquare.dll</HintPath>

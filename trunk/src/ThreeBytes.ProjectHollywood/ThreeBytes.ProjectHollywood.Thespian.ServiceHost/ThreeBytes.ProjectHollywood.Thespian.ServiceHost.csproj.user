@@ -3,6 +3,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
     <StartProgram>C:\git\trunk\src\ThreeBytes.ProjectHollywood\ThreeBytes.ProjectHollywood.Thespian.ServiceHost\bin\Debug\NServiceBus.Host.exe</StartProgram>
-    <StartArguments>NserviceBus.Lite ThreeBytes.User.ServiceHost.Profiles.MSMQSubscriptionStorage</StartArguments>
+    <StartArguments>NserviceBus.Lite ThreeBytes.ProjectHollywood.Thespian.ServiceHost.Profiles.MSMQSubscriptionStorage</StartArguments>
   </PropertyGroup>
 </Project>

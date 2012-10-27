@@ -21,6 +21,7 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<UserWebPluginLocation>..\ThreeBytes.User\ThreeBytes.User.WebUI\Plugins\ThreeBytes.SignalR</UserWebPluginLocation>
 		<ProjectHollywoodWebPluginLocation>..\ThreeBytes.ProjectHollywood\ThreeBytes.ProjectHollywood.WebUI\Plugins\ThreeBytes.SignalR</ProjectHollywoodWebPluginLocation>
 		<EmailWebPluginLocation>..\ThreeBytes.Email\ThreeBytes.Email.WebUI\Plugins\ThreeBytes.SignalR</EmailWebPluginLocation>
+    <LoggingWebPluginLocation>..\ThreeBytes.Logging\ThreeBytes.Logging.WebUI\Plugins\ThreeBytes.SignalR</LoggingWebPluginLocation>
 	</PropertyGroup>
 	
 	<Target Name="clear-shared-libs">
@@ -49,6 +50,7 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<CopyService Prefix="ThreeBytes.SignalR" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(UserWebPluginLocation)\CurrentlyViewing" BackendFolder="$(UserBusPluginLocation)\CurrentlyViewing" />
 		<CopyService Prefix="ThreeBytes.SignalR" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(ProjectHollywoodWebPluginLocation)\CurrentlyViewing" />
 		<CopyService Prefix="ThreeBytes.SignalR" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(EmailWebPluginLocation)\CurrentlyViewing" />
+		<CopyService Prefix="ThreeBytes.SignalR" AC="@(Host)" Configuration="$(Configuration)" FrontendFolder="$(LoggingWebPluginLocation)\CurrentlyViewing" />
 	</Target>
   
   <Target Name="all-signalr-system" DependsOnTargets="build-threebytes-signalr;distribute-signalr-libs;copy-plugins;" />

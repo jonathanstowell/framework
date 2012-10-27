@@ -15,7 +15,7 @@ namespace ThreeBytes.User.Profile.View.Validations.Concrete.Installers
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .LifestyleTransient(),
+                   .Configure(x => x.LifeStyle.Transient),
                AllTypes.FromThisAssembly().BasedOn<IProfileViewProfileValidatorResolver>().Configure(
                    component =>
                    {

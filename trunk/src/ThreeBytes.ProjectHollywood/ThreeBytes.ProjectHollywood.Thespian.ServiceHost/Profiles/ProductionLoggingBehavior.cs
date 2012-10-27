@@ -1,5 +1,4 @@
 ﻿using NServiceBus;
-using NServiceBus.Hosting.Profiles;
 using log4net.Appender;
 using log4net.Core;
 using log4net.Layout;

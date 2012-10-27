@@ -6,7 +6,7 @@ using ThreeBytes.Core.Bootstrapper.Extensions.Windsor.Installers;
 
 namespace ThreeBytes.Logging.WebUI.Installers
 {
-    public class WebWindsorInstaller : IWebWindsorRegistration
+    public class WindsorInstaller : IWebWindsorRegistration
     {
         public void Install(IWindsorContainer container)
         {

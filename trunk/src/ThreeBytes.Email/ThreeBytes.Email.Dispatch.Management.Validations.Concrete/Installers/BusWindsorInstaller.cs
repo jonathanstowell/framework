@@ -15,7 +15,7 @@ namespace ThreeBytes.Email.Dispatch.Management.Validations.Installers
                AllTypes
                    .FromThisAssembly()
                    .BasedOn(typeof(IValidator<>))
-                   .LifestyleTransient(),
+                   .Configure(x => x.LifeStyle.Transient),
                AllTypes.FromThisAssembly().BasedOn<IEmailDispatchManagementTemplateValidatorResolver>().Configure(
                    component =>
                    {

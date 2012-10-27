@@ -1,6 +1,5 @@
 ﻿using System.Configuration;
 using System.Net.Mail;
-using Castle.Windsor.Configuration.Interpreters;
 using ThreeBytes.Core.Email.Configuration.Abstract;
 
 namespace ThreeBytes.Core.Email.Configuration.Concrete
@@ -14,7 +13,7 @@ namespace ThreeBytes.Core.Email.Configuration.Concrete
             mailSettings = ConfigurationManager.GetSection("threeBytesEmail") as EmailConfigurationSection;
 
             if (mailSettings == null)
-                throw new ConfigurationProcessingException("Mail Settings Cannot be Null.");
+                throw new ConfigurationException("Mail Settings Cannot be Null.");
         }
 
         public SmtpDeliveryMethod DeliveryMethod

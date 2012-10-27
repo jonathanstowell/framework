@@ -6,6 +6,7 @@ using Bootstrap;
 using Bootstrap.Extensions.StartupTasks;
 using Castle.Windsor;
 using NServiceBus;
+using NServiceBus.ObjectBuilder.CastleWindsor;
 using ThreeBytes.Core.Bootstrapper.Extensions.Windsor;
 using ThreeBytes.Core.Plugin.Abstract;
 using ThreeBytes.Core.Plugin.Concrete;
@@ -18,16 +19,13 @@ namespace ThreeBytes.ProjectHollywood.News.ServiceHost
         public static IResolveAssemblies AssemblyResolver = new ResolveAssemblies("Plugins", "ThreeBytes.*.dll");
         private static IWindsorContainer Container = new WindsorContainer();
 
-        public EndpointConfig()
+        public void Init()
         {
             Bootstrapper.With.Windsor(AssemblyResolver, BootstrapEnvironment.BUS).And.StartupTasks().UsingThisExecutionOrder(s => s
                         .First<AppDomainAssemblyResolverStartupTask>()
                         .Then<WindsorSetupStartupTask>()
                         .Then().TheRest()).Start();
-        }
 
-        public void Init()
-        {
             var assemblies = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory)
                                         .GetFiles("NServiceBus*.dll", SearchOption.AllDirectories)
                                         .Select(file => Assembly.LoadFrom(file.FullName));
@@ -38,8 +36,7 @@ namespace ThreeBytes.ProjectHollywood.News.ServiceHost
                 .CastleWindsorBuilder(Container)
                 .MsmqTransport()
                 .MsmqSubscriptionStorage()
-                .XmlSerializer()
-                .DisableTimeoutManager();
+                .XmlSerializer();
         }
     }
 }

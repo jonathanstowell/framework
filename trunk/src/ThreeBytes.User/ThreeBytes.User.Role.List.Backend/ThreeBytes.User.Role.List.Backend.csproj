@@ -34,7 +34,8 @@
     <Reference Include="FluentValidation">
       <HintPath>..\..\..\lib\external\FluentValidation\FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="NServiceBus">
+    <Reference Include="NServiceBus, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus.Core">

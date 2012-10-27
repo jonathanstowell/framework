@@ -32,10 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bootstrapper, Version=2.0.3.2, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Bootstrapper">
       <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.dll</HintPath>
     </Reference>
-    <Reference Include="Bootstrapper.WindsorExtension, Version=2.0.3.22234, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Bootstrapper.WindsorExtension">
       <HintPath>..\..\..\lib\external\Bootstrapper\Bootstrapper.WindsorExtension.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
@@ -87,7 +87,7 @@
       <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.Host.exe</HintPath>
     </Reference>
     <Reference Include="NServiceBus.ObjectBuilder.CastleWindsor">
-      <HintPath>..\..\..\lib\external\NServiceBus\containers\castle\NServiceBus.ObjectBuilder.CastleWindsor.dll</HintPath>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\NServiceBus.ObjectBuilder.CastleWindsor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

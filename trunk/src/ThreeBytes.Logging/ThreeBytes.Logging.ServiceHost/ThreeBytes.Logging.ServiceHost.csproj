@@ -79,7 +79,7 @@
       <HintPath>..\..\..\lib\external\NServiceBus\NServiceBus.Host.exe</HintPath>
     </Reference>
     <Reference Include="NServiceBus.ObjectBuilder.CastleWindsor">
-      <HintPath>..\..\..\lib\external\NServiceBus\containers\castle\NServiceBus.ObjectBuilder.CastleWindsor.dll</HintPath>
+      <HintPath>..\..\..\lib\internal\ThreeBytes.Core\NServiceBus.ObjectBuilder.CastleWindsor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

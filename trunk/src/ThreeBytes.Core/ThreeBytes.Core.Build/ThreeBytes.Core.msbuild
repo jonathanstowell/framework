@@ -28,6 +28,7 @@ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<ItemGroup>
 			<CoreLibraries Include="..\ThreeBytes.Core.*\bin\$(Configuration)\ThreeBytes.Core.*.*" />
 			<CoreLibraries Include="..\NHibernate.ByteCode.Castle\bin\$(Configuration)\NHibernate.ByteCode.Castle.*" />
+			<CoreLibraries Include="..\NServiceBus.ObjectBuilder.CastleWindsor\bin\$(Configuration)\NServiceBus.ObjectBuilder.CastleWindsor.*" />
 		</ItemGroup>
 		<MakeDir Directories = "$(SharedLibrariesLocation)" Condition="!Exists('$(SharedLibrariesLocation)')" />
 		<Copy SourceFiles="@(CoreLibraries)" DestinationFolder="$(SharedLibrariesLocation)" />
